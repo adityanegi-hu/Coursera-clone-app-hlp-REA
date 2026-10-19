@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1beta1;
+
+import "google/protobuf/descriptor.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1Beta1";
+option go_package = "sharedv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "AuthorizationProto";
+option java_package = "org.coursera.proto.shared.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1Beta1";
+
+// DEPRECATED 2023-02-06: AuthorizationDescription has been promoted to v1. Update your code to:
+//
+//    import "coursera/proto/shared/v1/authorization.proto";
+//
+//    rpc DeleteFoo(DeleteFooRequest) returns (DeleteFooResponse) {
+//      option (coursera.proto.annotations.v1.authorization) = {
+//        allows: ["foo.delete","powerUserPermission"]
+//      };
+//    }
+message AuthorizationDescription {
+  repeated string allows = 10000;
+}
+
+extend google.protobuf.MethodOptions {
+  AuthorizationDescription authorization = 10000;
+}

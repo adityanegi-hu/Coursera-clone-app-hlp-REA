@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1Beta1";
+option go_package = "sharedpaymentsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentMethodProto";
+option java_package = "org.coursera.proto.sharedpayments.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1Beta1";
+
+// Container for the payment method details used for a subscription renewal.
+// To be deprecated and replaced by payment_method_details.proto.
+message PaymentMethod {
+  oneof payment_method {
+    // The payment method is not known or cannot be determined
+    UnknownPaymentMethod unknown = 1;
+    // The payment method is known but does not fit into any predefined category
+    OtherPaymentMethod other = 2;
+    // Card payments
+    CardPaymentMethod card = 3;
+    // Klarna payment
+    KlarnaPaymentMethod klarna = 4;
+    // Cashapp payment
+    CashappPaymentMethod cashapp = 5;
+    // Link payment
+    LinkPaymentMethod link = 6;
+    // UPI payment
+    UpiPaymentMethod upi = 7;
+    // Pix payment
+    PixPaymentMethod pix = 8;
+  }
+}
+
+// Message for Other payment method
+message OtherPaymentMethod {
+  // Method name of uncategoried payment method
+  string method_name = 1;
+}
+
+// Message for Unknown payment method
+message UnknownPaymentMethod {}
+
+// Message for card payment
+message CardPaymentMethod {
+  // The brand of the card (e.g., Visa, Mastercard)
+  string brand = 1;
+  // The last four digits of the card
+  string last4 = 2;
+}
+
+// Message for Klarna payment
+message KlarnaPaymentMethod {}
+
+// Message for Cashapp payment
+message CashappPaymentMethod {}
+
+// Message for Link payment
+message LinkPaymentMethod {}
+
+// Message for UPI payment
+message UpiPaymentMethod {}
+
+// Message for Pix payment
+message PixPaymentMethod {}

@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package coursera.proto.learninghours.v1beta1;
+
+import "coursera/proto/learninghours/v1beta1/learning_session.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Learninghours.V1Beta1";
+option go_package = "learninghoursv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "LearningSessionApiProto";
+option java_package = "org.coursera.proto.learninghours.v1beta1";
+option objc_class_prefix = "CPL";
+option php_namespace = "Coursera\\Proto\\Learninghours\\V1Beta1";
+
+// A service to query learning sessions.
+service LearningSessionAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: [
+      "disco-user-attr-application",
+      "program",
+      "ai-coach-application",
+      "ai-tutor-application"
+    ]
+  };
+
+  rpc QueryLatestByUser(QueryLatestByUserRequest) returns (QueryLatestByUserResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/learninghours/v1beta1/LearningSessionAPI/QueryLatestByUser"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/learninghours/v1beta1/LearningSessionAPI/QueryLatestByUser"}
+    };
+  }
+
+  rpc QueryLatestByUserCourse(QueryLatestByUserCourseRequest) returns (QueryLatestByUserCourseResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission"
+      ]
+    };
+  }
+
+  rpc QueryAllByUser(QueryAllByUserRequest) returns (QueryAllByUserResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/learninghours/v1beta1/LearningSessionAPI/QueryAllByUser"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/learninghours/v1beta1/LearningSessionAPI/QueryAllByUser"}
+    };
+  }
+}
+
+message QueryLatestByUserRequest {
+  google.protobuf.Int64Value user_id = 1;
+  // If defined, will return the last completed session
+  // - If the latest session is the last completed session then it will return that
+  // - Otherwise it will return the previous session before the latest one
+  // If not defined or False, will return the latest session regardless of whether it's the
+  // last completed one or not
+  google.protobuf.BoolValue fetch_last_completed_session = 2;
+}
+
+message QueryLatestByUserResponse {
+  LearningSession learning_session = 1;
+}
+
+message QueryLatestByUserCourseRequest {
+  google.protobuf.Int64Value user_id = 1;
+  google.protobuf.StringValue course_id = 2;
+  // If defined, will return the last completed session
+  // - If the latest session is the last completed session then it will return that
+  // - Otherwise it will return the previous session before the latest one
+  // If not defined or False, will return the latest session regardless of whether it's the
+  // last completed one or not
+  google.protobuf.BoolValue fetch_last_completed_session = 3;
+}
+
+message QueryLatestByUserCourseResponse {
+  CourseLearningSession learning_session = 1;
+}
+
+message QueryAllByUserRequest {
+  // Query by user ID. Must be specified or an error will be thrown.
+  google.protobuf.Int64Value user_id = 1;
+  // Filter by course IDs.
+  // No filtering if empty.
+  repeated google.protobuf.StringValue course_ids = 2;
+  // Filter by start time of the learning sessions.
+  // All learning sessions happened after stat time will be returned.
+  // No filtering if empty.
+  google.protobuf.Int64Value start_time = 3;
+  // Filter by end time of the learning sessions.
+  // All learning sessions happened before end time will be returned.
+  // No filtering if empty.
+  google.protobuf.Int64Value end_time = 4;
+  repeated LearningSessionSort sorts = 5;
+  int32 page_size = 7;
+  string page_token = 8;
+}
+
+message QueryAllByUserResponse {
+  repeated LearningSession learning_sessions = 1;
+  // The next page token. Empty if there's no next page.
+  string next_page_token = 2;
+  // Total size across all pages.
+  int32 total_size = 3;
+}
+
+enum LearningSessionSort {
+  LEARNING_SESSION_SORT_INVALID = 0;
+  LEARNING_SESSION_SORT_START_TIME_DESC = 1;
+}

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1;
+
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1";
+option go_package = "paymentprocessorv1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSignatureApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1";
+
+// Service that signs payload request.
+service PaymentProcessorSignatureAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: ["mobile-bff-application"]
+  };
+
+  // Signs a payload request.
+  rpc SignPayload(SignPayloadRequest) returns (SignPayloadResponse);
+}
+
+// Request details for signing a payload request
+message SignPayloadRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue payload = 2;
+}
+
+// Response details for signing a payload request
+message SignPayloadResponse {
+  string signed_payload = 1;
+}

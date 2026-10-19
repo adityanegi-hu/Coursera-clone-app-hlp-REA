@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/v1beta2/payment_processor_discount_id.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_first_billing_offset.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_payment_information.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Details about a subscription that we have just created in a payment processor.
+message SubscriptionDetails {
+  google.protobuf.StringValue payment_processor_subscription_id = 1;
+  google.protobuf.Timestamp subscription_start_at_time = 2;
+  google.protobuf.Timestamp next_billing_at_time = 3;
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 4;
+  SubscriptionPaymentInformation subscription_payment_information = 5;
+  SubscriptionFirstBillingOffset subscription_first_billing_offset = 6;
+  repeated PaymentProcessorDiscountId discount_id_list = 7;
+}

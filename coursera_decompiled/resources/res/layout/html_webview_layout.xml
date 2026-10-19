@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.coursera.android.infrastructure_ui.html.HtmlBlockLoadingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/html_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <WebView
+        android:id="@+id/web_view"
+        android:background="@color/transparent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</org.coursera.android.infrastructure_ui.html.HtmlBlockLoadingLayout>

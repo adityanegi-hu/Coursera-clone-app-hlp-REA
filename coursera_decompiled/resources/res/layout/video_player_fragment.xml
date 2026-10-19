@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/overlay_gray"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:auto_show="true"
+        app:controller_layout_id="@layout/exo_player_custom_controller"
+        app:hide_on_touch="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:player_layout_id="@layout/exo_player_view"
+        app:show_buffering="always"
+        app:show_subtitle_button="true"
+        app:surface_type="texture_view"
+        app:use_artwork="false"
+        app:use_controller="true"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

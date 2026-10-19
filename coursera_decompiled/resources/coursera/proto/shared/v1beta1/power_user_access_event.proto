@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1beta1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1Beta1";
+option go_package = "sharedv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PowerUserAccessEventProto";
+option java_package = "org.coursera.proto.shared.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1Beta1";
+
+// Message schema for audit logging of power user access event logs.
+// These messages are published to the poweruser.accessEvent.v1 Kafka topic
+message PowerUserAccessEvent {
+  google.protobuf.StringValue request_id = 1;
+  google.protobuf.Int64Value user_id = 2;
+  repeated google.protobuf.StringValue authorizer_tags = 3;
+  google.protobuf.StringValue url = 4;
+  google.protobuf.StringValue permission_key = 5;
+  google.protobuf.Timestamp access_time = 6;
+  google.protobuf.StringValue remote_ip_address = 7;
+  google.protobuf.StringValue user_agent = 8;
+  google.protobuf.StringValue referrer = 9;
+  google.protobuf.BoolValue allowed = 10;
+  google.protobuf.Int64Value impersonating_as_user_id = 11;
+  repeated AllowedReason allowed_reasons = 12;
+}
+
+// The reason access was granted/denied.
+message AllowedReason {
+  // The Auth Criteria considered for the access event
+  oneof auth_criteria {
+    PowerUserAuthCriteria poweruser = 1;
+    SuperUserAuthCriteria superuser = 2;
+    OutsourcingAuthCriteria outsourcing = 3;
+    CourserianAuthCriteria courserian = 4;
+    ProductAuthCriteria product = 5;
+  }
+  // Whether the user has the role associated with the auth criteria
+  google.protobuf.BoolValue has_role = 6;
+}
+
+// PowerUser Auth Criteria.
+message PowerUserAuthCriteria {
+  google.protobuf.StringValue role_key = 1;
+}
+
+// SuperUser Auth Criteria.
+message SuperUserAuthCriteria {}
+
+// Outsourcing Auth Criteria.
+message OutsourcingAuthCriteria {
+  repeated google.protobuf.StringValue outsourcing_permission = 1;
+}
+
+// Courserian Auth Criteria.
+message CourserianAuthCriteria {
+  repeated google.protobuf.StringValue courserian_role = 1;
+}
+
+// Product Auth Criteria.
+message ProductAuthCriteria {
+  google.protobuf.StringValue description = 1;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1";
+option go_package = "sharedpaymentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionBillingInfoProto";
+option java_package = "org.coursera.proto.sharedpayments.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1";
+
+// Message to encapsulate a payment transaction's billing info.
+message PaymentTransactionBillingInfo {
+  // ISO code of the country (ISO 3166-1 alpha-2)
+  google.protobuf.StringValue country_iso_code = 1;
+  // (Optional) State of address (preferably the subdivision part of ISO 3166-2, but not guaranteed depending on country)
+  google.protobuf.StringValue state = 2;
+  // (Optional) Postal code of the address (ZIP Code in the US)
+  google.protobuf.StringValue postal_code = 3;
+}

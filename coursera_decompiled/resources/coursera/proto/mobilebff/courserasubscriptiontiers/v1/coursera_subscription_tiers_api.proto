@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.courserasubscriptiontiers.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Courserasubscriptiontiers.V1";
+option go_package = "courserasubscriptiontiersv1";
+option java_multiple_files = true;
+option java_outer_classname = "CourseraSubscriptionTiersApiProto";
+option java_package = "org.coursera.proto.mobilebff.courserasubscriptiontiers.v1";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Courserasubscriptiontiers\\V1";
+option swift_prefix = "MobilebffCourserasubscriptiontiersV1";
+
+// The API to fetch a learners current subscription tier
+service CourseraSubscriptionTiersAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  rpc GetCourseraSubscriptionTier(GetCourseraSubscriptionTierRequest) returns (GetCourseraSubscriptionTierResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/courserasubscriptiontiers/v1/CourseraSubscriptionTiersAPI/GetCourseraSubscriptionTier"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/courserasubscriptiontiers/v1/CourseraSubscriptionTiersAPI/GetCourseraSubscriptionTier"}
+    };
+  }
+}
+
+message GetCourseraSubscriptionTierRequest {}
+
+message GetCourseraSubscriptionTierResponse {
+  // The tier of Coursera subscription
+  TierType tier = 1;
+
+  // The possible tiers of a Coursera subscription
+  enum TierType {
+    TIER_TYPE_INVALID = 0;
+    TIER_TYPE_COURSERA_PLUS = 1;
+    TIER_TYPE_COURSERA_LITE = 2;
+  }
+}

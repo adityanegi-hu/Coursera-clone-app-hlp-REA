@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.events.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_subscription_checkout_result.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_processor_id.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Events.V1Beta2";
+option go_package = "eventsv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionCheckoutEventProto";
+option java_package = "org.coursera.proto.paymentprocessor.events.v1beta2";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Events\\V1Beta2";
+
+// Event that is fired when a Subscription checkout webhook has been received from a Payment Processor.
+message PaymentProcessorSubscriptionCheckoutEvent {
+  // Checkout Reference ID used for mapping this subscription back to internal data.
+  string payment_processor_checkout_reference_id = 1;
+  // Result of the Subscription Checkout
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorSubscriptionCheckoutResult result = 2;
+  // Payment processor id in which the checkout event belongs to.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 3;
+  // The ID of the subscription processor.
+  optional coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 4;
+}

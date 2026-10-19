@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">%d課題提出期限</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d課題</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$dダイアログ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$dディスカッション</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d評価付き課題</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d評定付きディスカッション</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$dグレード・ラボ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d評価付きロールプレイ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d評価付きチーム課題</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$dラボ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d ロックされた測定値</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d 非公開動画</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$dノート</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d個の項目</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d相互評価による課題</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$dピアレビュー</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d練習課題</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d相互評価課題の練習</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d練習クイズ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d練習チームの割り当て</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$dプログラミング課題</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$dクイズ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d朗読</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$dロールプレイ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$dスライドショー</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$dチームプロジェクト</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">全課題のレビューが終了しました。 %sおめでとう！時間が余ったら、他のピアツーピアを助けてあげてください。</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">コースの講師</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">5つ星のうち%1$sつ星の評価、%2$s件のレビュー</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">%1$d 件の評価を完成しました</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">%1$d 件の実践練習項目を完成する</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">%1$d レッスンを完了する</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">%1$d 本のビデオを完了しました</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">%1$d 回の練習問題を完成しました</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">%1$d 件の読み物を完成しました</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">日</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">%1$s 学位</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d日</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d時間</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">%d 秒早送り</item>
+        <item quantity="other">%d 秒早送り</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">%d 秒巻き戻し</item>
+        <item quantity="other">%d 秒巻き戻し</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">%1$d モジュール</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">%1$d コースシリーズ</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d 日です </item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">%1$dの割り当てです</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">時間</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">分</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">ヶ月</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">%1$d 個</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1fポイント</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">5つ星中 %1$s 個の星の評価</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">合計結果</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">点数</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">%d練習問題</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">5つ星中 %1$s 個の星の評価</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">質問</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s ポイント</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">%d問題</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">質問</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">%d問題</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d分</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d 分</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">返信</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d個の項目</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">すべてのコースを表示 %d</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">%2$s の %1$d コースをすべて表示する</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">スキル</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">%1$d 週間目標を達成するために、さらに何日も学ぶ！</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">学習目標を達成するには、あと %1$d 日学習してください。</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">5つ星中%1$sつ星の評価、%2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">賛成票</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">%1$d 週間</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">年</item>
+    </plurals>
+</resources>

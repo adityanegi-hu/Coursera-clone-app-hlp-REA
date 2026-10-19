@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package coursera.proto.learnercalendar.studyplans.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Learnercalendar.Studyplans.V1Beta1";
+option go_package = "studyplansv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "StudyPlansProto";
+option java_package = "org.coursera.proto.learnercalendar.studyplans.v1beta1";
+option objc_class_prefix = "CPLS";
+option php_namespace = "Coursera\\Proto\\Learnercalendar\\Studyplans\\V1Beta1";
+
+// A study plan event.
+message StudyPlanEvent {
+  int32 start_time = 1;
+  int32 end_time = 2;
+  DayOfWeek day_of_week = 3;
+}
+
+// Enum for the day of the week.
+enum DayOfWeek {
+  DAY_OF_WEEK_INVALID = 0;
+  DAY_OF_WEEK_MONDAY = 1;
+  DAY_OF_WEEK_TUESDAY = 2;
+  DAY_OF_WEEK_WEDNESDAY = 3;
+  DAY_OF_WEEK_THURSDAY = 4;
+  DAY_OF_WEEK_FRIDAY = 5;
+  DAY_OF_WEEK_SATURDAY = 6;
+  DAY_OF_WEEK_SUNDAY = 7;
+}

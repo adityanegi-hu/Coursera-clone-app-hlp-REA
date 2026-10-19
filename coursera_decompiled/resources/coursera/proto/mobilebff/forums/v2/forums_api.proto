@@ -1,0 +1,293 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.forums.v2;
+
+import "coursera/proto/mobilebff/forums/v2/forums.proto";
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Forums.V2";
+option go_package = "forumsv2";
+option java_multiple_files = true;
+option java_outer_classname = "ForumsApiProto";
+option java_package = "org.coursera.proto.mobilebff.forums.v2";
+option objc_class_prefix = "CPMF";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Forums\\V2";
+option swift_prefix = "MobilebffForumsV2";
+
+// A service that handles mobile forums.
+service ForumsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get a list of forums.
+  rpc GetForums(GetForumsRequest) returns (GetForumsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetForums"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetForums"}
+    };
+  }
+  // Get a list of sub forums.
+  rpc GetSubForums(GetSubForumsRequest) returns (GetSubForumsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetSubForums"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetSubForums"}
+    };
+  }
+  // Get forum's questions.
+  rpc GetForum(GetForumRequest) returns (GetForumResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetForum"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetForum"}
+    };
+  }
+  // Get forum's answers.
+  rpc GetQuestionAnswers(GetQuestionAnswersRequest) returns (GetQuestionAnswersResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetQuestionAnswers"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/GetQuestionAnswers"}
+    };
+  }
+  // Post a question.
+  rpc SubmitQuestion(SubmitQuestionRequest) returns (SubmitQuestionResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/SubmitQuestion"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/SubmitQuestion"}
+    };
+  }
+  // Post an answer.
+  rpc SubmitAnswer(SubmitAnswerRequest) returns (SubmitAnswerResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/SubmitAnswer"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/SubmitAnswer"}
+    };
+  }
+  // Upvote a question or answer.
+  rpc UpvotePost(UpvotePostRequest) returns (UpvotePostResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/UpvotePost"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/UpvotePost"}
+    };
+  }
+  // Undo a question/answer upvote.
+  rpc UndoUpvotePost(UndoUpvotePostRequest) returns (UndoUpvotePostResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/UndoUpvotePost"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/UndoUpvotePost"}
+    };
+  }
+  // Subscribe to a question or answer.
+  rpc SubscribePost(SubscribePostRequest) returns (SubscribePostResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/SubscribePost"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/SubscribePost"}
+    };
+  }
+  // Unsubscribe to a question or answer.
+  rpc UnsubscribePost(UnsubscribePostRequest) returns (UnsubscribePostResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/UnsubscribePost"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/UnsubscribePost"}
+    };
+  }
+  // flag or unflag a question or answer.
+  rpc FlagPost(FlagPostRequest) returns (FlagPostResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/forums/v2/ForumsAPI/FlagPost"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/forums/v2/ForumsAPI/FlagPost"}
+    };
+  }
+}
+
+message GetForumsRequest {
+  // Course ID. Eg. “Gtv4Xb1-EeS-ViIACwYKVQ”
+  string course_id = 1;
+}
+
+message GetForumsResponse {
+  // A list of forum groups.
+  repeated ForumGroup forum_groups = 1;
+}
+
+message GetSubForumsRequest {
+  // Course ID. Eg. “Gtv4Xb1-EeS-ViIACwYKVQ”
+  string course_id = 1;
+  // Forum ID. Eg. “Hae6fLQQEeuVjhIDhFHroQ”
+  string forum_id = 2;
+}
+
+message GetSubForumsResponse {
+  string forum_title = 1;
+  repeated ForumInfo forum_infos = 2;
+}
+
+message GetForumRequest {
+  // Course ID. Eg. “Gtv4Xb1-EeS-ViIACwYKVQ”
+  string course_id = 1;
+  // Forum ID. Eg. “Hae6fLQQEeuVjhIDhFHroQ”
+  string forum_id = 2;
+  // The start index. Eg. 0
+  int32 start = 3;
+  // The maximum number of questions in the response. Eg. 100
+  int32 limit = 4;
+  // Specifies how to sort
+  Sort sort = 5;
+  // Specifies how to filter
+  Filter filter = 6;
+}
+
+message GetForumResponse {
+  // The title of the forum.
+  string title = 1;
+  // The content of the forum.
+  shared.v2.RenderableHtml body = 2;
+  // The list of questions in the forum.
+  repeated Question questions = 3;
+  // The total number of questions found.
+  int32 total = 4;
+  // Until Android completes the CML migration - represents the body.
+  google.protobuf.StringValue cml = 1001;
+}
+
+message GetQuestionAnswersRequest {
+  // Course ID. Eg. “Gtv4Xb1-EeS-ViIACwYKVQ”
+  string course_id = 1;
+  // Question ID. Eg. “Hae6fLQQEeuVjhIDhFHroQ”
+  string question_id = 2;
+  // Start index. Eg. 0
+  int32 start = 3;
+  // Maximum number of the answers in response. Eg. 100
+  int32 limit = 4;
+  // Specifies how to sort the answers
+  Sort sort = 5;
+}
+
+message GetQuestionAnswersResponse {
+  Question question = 1;
+  repeated Answer answers = 2;
+  // Total number of answers found.
+  int32 total = 3;
+}
+
+message SubmitQuestionRequest {
+  // Course ID. Eg. “Gtv4Xb1-EeS-ViIACwYKVQ”
+  string course_id = 1;
+  // Forum ID. Eg. “Hae6fLQQEeuVjhIDhFHroQ”
+  string forum_id = 2;
+  string title = 3;
+  string body = 4;
+}
+
+message SubmitQuestionResponse {
+  Question question = 1;
+}
+
+message SubmitAnswerRequest {
+  // Course ID. Eg. “Gtv4Xb1-EeS-ViIACwYKVQ”
+  string course_id = 1;
+  // Forum ID. Eg. “Hae6fLQQEeuVjhIDhFHroQ”
+  string forum_id = 2;
+  string parent_post_id = 3;
+  string body = 4;
+}
+
+message SubmitAnswerResponse {
+  Answer answer = 1;
+}
+
+message UpvotePostRequest {
+  // The id of the question/answer to be upvoted.
+  string post_id = 1;
+}
+
+message UpvotePostResponse {
+  string post_id = 1;
+}
+
+message UndoUpvotePostRequest {
+  // The id of the question/answer to be un-upvoted.
+  string post_id = 1;
+}
+
+message UndoUpvotePostResponse {
+  string post_id = 1;
+}
+
+message SubscribePostRequest {
+  // The id of the question/answer into which to subscribe.
+  string post_id = 1;
+}
+
+message SubscribePostResponse {
+  string post_id = 1;
+}
+
+message UnsubscribePostRequest {
+  // The id of the question/answer from which to unsubscribe.
+  string post_id = 1;
+}
+
+message UnsubscribePostResponse {
+  string post_id = 1;
+}
+
+message FlagPostRequest {
+  // The id of the question/answer to be flagged.
+  string post_id = 1;
+  // The flag status to set, true to flag, false to unflag.
+  bool flag = 2;
+}
+
+message FlagPostResponse {
+  string post_id = 1;
+  bool is_flagged = 2;
+}

@@ -1,0 +1,237 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.grades.v3;
+
+import "coursera/proto/mobilebff/coursehome/v4/mobile_course_home.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Grades.V3";
+option go_package = "gradesv3";
+option java_multiple_files = true;
+option java_outer_classname = "GradesProto";
+option java_package = "org.coursera.proto.mobilebff.grades.v3";
+option objc_class_prefix = "CPMG";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Grades\\V3";
+option swift_prefix = "MobilebffGradesV3";
+
+// Wrapper holding different types of grades items.
+message GradesItem {
+  oneof item {
+    Announcement announcement = 1;
+    Assignment assignment = 2;
+    GradedAssignmentGroup graded_assignment_group = 3;
+  }
+}
+
+// Generic announcement to be shown on the grades page.
+message Announcement {
+  FormatMessage message = 1;
+  Icon icon = 2;
+  google.protobuf.Int32Value count = 3;
+}
+
+// A container holding information on a graded assignment group.
+message GradedAssignmentGroup {
+  string id = 1;
+  Icon icon = 2;
+  string title = 3;
+  FormatMessage description = 4;
+  google.protobuf.DoubleValue grade = 5;
+  google.protobuf.DoubleValue weight = 6;
+  repeated Assignment assignments = 7;
+  bool is_honors = 8;
+}
+
+// A container holding grades information for a single assignment.
+message Assignment {
+  string item_id = 1;
+  string module_id = 2;
+  string title = 3;
+  // Item resource path (ex: /learn/quiz/id).
+  string resource_path = 4;
+  FormatMessage description = 5;
+  coursera.proto.mobilebff.coursehome.v4.ContentType content_type = 6;
+  bool is_honors = 7;
+  bool is_locked = 8;
+  bool is_faded = 9;
+  bool supports_touch = 10;
+  // used to indicate to clients if they can open web view if the item is not supported natively, or
+  // if it should be blocked for any reason
+  bool can_open_webview = 11;
+  // A list of mobile features required to open an item (ex. timed, manually graded, etc), that
+  // clients should use to determine if the item is natively supported
+  repeated coursera.proto.mobilebff.coursehome.v4.RequiredFeature required_features = 12;
+  google.protobuf.DoubleValue grade = 13;
+  google.protobuf.DoubleValue weight = 14;
+  Icon icon = 15;
+  FormatMessage peer_message = 16;
+  FormatMessage message = 17;
+  FormatMessage override_message = 18;
+  bool is_peer_graded = 19;
+  PeerGradedState submission = 20;
+  PeerGradedState review = 21;
+}
+
+// PeerGradedState.
+message PeerGradedState {
+  Icon icon = 1;
+  FormatMessage title = 2;
+  FormatMessage description = 3;
+  google.protobuf.Timestamp due_at_time = 4;
+}
+
+// An object which will be converted to a formatted string on the clients.
+message FormatMessage {
+  GradesMessage string_resource = 1;
+  // Extra parameters to build the formatted string on the client side.
+  repeated MessageParameter parameters = 2;
+  // Wrapper to hold either strings, integers (for plurals), or timestamps.
+  message MessageParameter {
+    oneof parameter {
+      string parameter_string = 1;
+      int32 parameter_int = 2;
+      google.protobuf.Timestamp parameter_time = 3;
+    }
+  }
+}
+
+// Enum which maps to a string resource on the mobile clients.
+enum GradesMessage {
+  GRADES_MESSAGE_INVALID = 0;
+  // "Graded Assignment"
+  GRADES_MESSAGE_CONTENT_TYPE_GRADED = 1;
+  // "Graded Discussion Prompt"
+  GRADES_MESSAGE_CONTENT_TYPE_GRADED_DISCUSSION = 2;
+  // "Graded External Tool"
+  GRADES_MESSAGE_CONTENT_TYPE_GRADED_LTI = 3;
+  // "Honors"
+  GRADES_MESSAGE_CONTENT_TYPE_HONORS = 4;
+  // "Honors Peer-graded Assignment"
+  GRADES_MESSAGE_CONTENT_TYPE_HONORS_PEER = 5;
+  // "Honors Programming Assignment"
+  GRADES_MESSAGE_CONTENT_TYPE_HONORS_PROGRAMMING = 6;
+  // "Honors Quiz"
+  GRADES_MESSAGE_CONTENT_TYPE_HONORS_QUIZ = 7;
+  // "Peer-graded Assignment"
+  GRADES_MESSAGE_CONTENT_TYPE_PEER = 8;
+  // "Programming Assignment"
+  GRADES_MESSAGE_CONTENT_TYPE_PROGRAMMING = 9;
+  // "Quiz"
+  GRADES_MESSAGE_CONTENT_TYPE_QUIZ = 10;
+  // "Optional - complete these to earn honors distinction for this course."
+  GRADES_MESSAGE_GAG_HONORS_DESCRIPTION = 11;
+  // "Complete all of the assignments in this group."
+  GRADES_MESSAGE_GAG_SELECT_ALL = 12;
+  // "Complete all of the assignments in this group. You must pass with a score of {string} or more."
+  GRADES_MESSAGE_GAG_SELECT_ALL_THRESHOLD = 13;
+  // "Complete {string} or more of the assignments in this group. The highest scores will be kept."
+  GRADES_MESSAGE_GAG_SELECT_K = 14;
+  // "Complete {string1} or more of the assignments in this group. The highest scores will be kept. You must pass with a score of {string2} or more."
+  GRADES_MESSAGE_GAG_SELECT_K_THRESHOLD = 15;
+  // "You didn\'t pass some of the assignments you attempted."
+  GRADES_MESSAGE_GRADE_ANNOUNCEMENT_DID_NOT_PASS = 16;
+  // "There is {int} assignment due this week. Be sure to submit them before the deadline."
+  // "There are {int} assignments due this week. Be sure to submit them before the deadline."
+  GRADES_MESSAGE_GRADE_ANNOUNCEMENT_DUE = 17;
+  // "The {string2} has ended. Your score is {string1}. Final grades will be reported on the university\'s grading system."
+  GRADES_MESSAGE_GRADE_COURSE_ENDED = 18;
+  // "The {string2} has ended. Your score is {string1}. These grades are provisional and may change. Final overall grades will be published after the exam board has met.
+  GRADES_MESSAGE_GRADE_COURSE_ENDED_WITH_DISCLAIMER = 19;
+  // "You passed this course! Your grade is {string}"
+  GRADES_MESSAGE_GRADE_COURSE_PASSED = 20;
+  // "Complete these assignments. Earn an overall score of {string} or more."
+  GRADES_MESSAGE_GRADE_POLICY_CUMULATIVE = 21;
+  // "Complete the course by passing all assignments."
+  GRADES_MESSAGE_GRADE_POLICY_MASTERY = 22;
+  // "Complete the {string} by passing all assignments."
+  GRADES_MESSAGE_GRADE_POLICY_MASTERY_CUSTOM = 23;
+  // "Complete these assignments. Must Pass all assignments. Earn a score of {string} or more."
+  GRADES_MESSAGE_GRADE_POLICY_MIXED = 24;
+  // "A {string} late penalty was applied."
+  GRADES_MESSAGE_ITEM_COMPLETED_WITH_PENALTY = 25;
+  // "A {string1} late penalty was applied for being {int2} day late."
+  // "A {string1} late penalty was applied for being {int2} days late."
+  GRADES_MESSAGE_ITEM_COMPLETED_WITH_PENALTY_DAYS = 26;
+  // "You didn't pass this item"
+  GRADES_MESSAGE_ITEM_DID_NOT_PASS = 27;
+  // "Due {Timestamp}"
+  GRADES_MESSAGE_ITEM_DUE_AT = 28;
+  // "Graded"
+  GRADES_MESSAGE_ITEM_GRADED = 29;
+  // "As of {Timestamp}, this can no longer be accessed"
+  GRADES_MESSAGE_ITEM_LOCKED_OVERDUE = 30;
+  // "Not submitted"
+  GRADES_MESSAGE_ITEM_NOT_SUBMITTED = 31;
+  // "Overdue"
+  GRADES_MESSAGE_ITEM_OVERDUE = 32;
+  // "Overdue. A late penalty of {string} will be applied per day after the deadline. You must earn a passing grade."
+  GRADES_MESSAGE_ITEM_OVERDUE_DAILY_LATE_PENALTY = 33;
+  // "Overdue. A late penalty of {string} will be applied. You must earn a passing grade"
+  GRADES_MESSAGE_ITEM_OVERDUE_LATE_PENALTY = 34;
+  // "Your grade was changed to {string}"
+  GRADES_MESSAGE_ITEM_OVERRIDE = 35;
+  // "Your grade was changed to {string1}}. Reason: \"{string2}\""
+  GRADES_MESSAGE_ITEM_OVERRIDE_WITH_REASON = 36;
+  // "Review {string} peers\' assignments"
+  GRADES_MESSAGE_ITEM_PEER_REVIEW = 37;
+  // "You receive your grade after you submit your assignment, review peers' assignments and they review yours."
+  GRADES_MESSAGE_ITEM_PEER_REVIEW_MESSAGE = 38;
+  // "No peers reviewed yet"
+  GRADES_MESSAGE_ITEM_PEER_REVIEW_NO_REVIEWS = 39;
+  // "{string} reviews complete"
+  GRADES_MESSAGE_ITEM_PEER_REVIEW_NUM_REVIEWED = 40;
+  // "Submit your assignment"
+  GRADES_MESSAGE_ITEM_PEER_SUBMIT = 41;
+  // "Submitted"
+  GRADES_MESSAGE_ITEM_SUBMITTED = 42;
+  // "You can access this from {Timestamp1} -{Timestamp2}"
+  GRADES_MESSAGE_ITEM_UNLOCKED_RANGE = 43;
+  // "Item becomes available on {Timestamp}"
+  GRADES_MESSAGE_ITEM_UNLOCKED_START = 44;
+  // "This item is locked."
+  GRADES_MESSAGE_LOCK_REASON_DEFAULT = 45;
+  // "This item will be unlocked when you enroll in a session."
+  GRADES_MESSAGE_LOCK_REASON_ENROLLMENT_PREVIEW = 46;
+  // "Complete the previous item to unlock this."
+  GRADES_MESSAGE_LOCK_REASON_PASSABLE_ITEM_COMPLETION = 47;
+  // "Purchase course to unlock this item."
+  GRADES_MESSAGE_LOCK_REASON_PREMIUM = 48;
+  // "This assignment is not part of your course resit, so you cannot access it."
+  GRADES_MESSAGE_LOCK_REASON_RESITTING_ITEM_LOCK_OVERRIDE = 49;
+  // "The course has ended. Assignments may not be resubmitted."
+  GRADES_MESSAGE_LOCK_REASON_SESSION_ENDED = 50;
+  // "All deadlines have passed."
+  GRADES_MESSAGE_LOCK_REASON_SESSION_ENDED_FLEXIBLE = 51;
+  // "This item will be unlocked when the session begins."
+  GRADES_MESSAGE_LOCK_REASON_SESSION_PREVIEW = 52;
+}
+
+// Enum which maps to an icon on the mobile clients.
+enum Icon {
+  ICON_INVALID = 0;
+  ICON_EMPTY = 1;
+  ICON_CHECK = 2;
+  ICON_SOLID_CHECK = 3;
+  ICON_BACKGROUND_CHECK_GREY = 4;
+  ICON_BACKGROUND_CHECK_RED = 5;
+  ICON_BACKGROUND_CHECK_GREEN = 6;
+  ICON_BACKGROUND_YELLOW = 7;
+  ICON_BACKGROUND_GREY = 8;
+  ICON_BACKGROUND_RED = 9;
+  ICON_SOLID_WARNING = 10;
+  ICON_CLOCK = 11;
+  ICON_SOLID_CLOCK = 12;
+  ICON_LOCK = 13;
+  ICON_SOLID_LOCK = 14;
+  ICON_CONTENT_TYPE_QUIZ = 15;
+  ICON_CONTENT_TYPE_VIDEO = 16;
+  ICON_CONTENT_TYPE_SUPPLEMENT = 17;
+  ICON_CONTENT_TYPE_PEER_REVIEW = 18;
+  ICON_CONTENT_TYPE_GRADED = 19;
+  ICON_CONTENT_TYPE_PROGRAMMING = 20;
+  ICON_CONTENT_TYPE_LTI = 21;
+  ICON_CONTENT_TYPE_WEBVIEW = 22;
+  ICON_CONTENT_TYPE_DISCUSSION = 23;
+  ICON_HONORS = 24;
+}

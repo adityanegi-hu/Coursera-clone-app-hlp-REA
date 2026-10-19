@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="17dp"
+    android:width="16dp"
+    android:viewportWidth="16"
+    android:viewportHeight="17">
+    <path
+        android:fillColor="@color/button_coursera_blue"
+        android:pathData="M3.915,1.046C2.319,1.046 1.021,2.375 1.021,4.009L1.021,14.725L5.084,11.156L12.085,11.156C13.681,11.156 14.979,9.827 14.979,8.193L14.979,4.009C14.979,2.375 13.681,1.046 12.085,1.046L3.915,1.046ZM0,17L0,4.009C0,1.799 1.756,0 3.915,0L12.085,0C14.244,0 16,1.799 16,4.009L16,8.193C16,10.403 14.244,12.202 12.085,12.202L5.462,12.202L0,17Z"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/button_coursera_blue"
+        android:pathData="M6,6C6,6.552 5.552,7 5,7C4.448,7 4,6.552 4,6C4,5.448 4.448,5 5,5C5.552,5 6,5.448 6,6"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.96"
+        android:fillAlpha="0.96"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/button_coursera_blue"
+        android:pathData="M9,6C9,6.552 8.552,7 8,7C7.448,7 7,6.552 7,6C7,5.448 7.448,5 8,5C8.552,5 9,5.448 9,6"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.96"
+        android:fillAlpha="0.96"
+        android:fillType="evenOdd"/>
+    <path
+        android:fillColor="@color/button_coursera_blue"
+        android:pathData="M12,6C12,6.552 11.552,7 11,7C10.448,7 10,6.552 10,6C10,5.448 10.448,5 11,5C11.552,5 12,5.448 12,6"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.96"
+        android:fillAlpha="0.96"
+        android:fillType="evenOdd"/>
+</vector>

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/google_play_voided_reason_type.proto";
+import "coursera/proto/paymentprocessor/v1beta1/google_play_voided_source_type.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayVoidedPurchaseProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// The message represents a purchase that was either canceled/refunded/charged-back.
+message GooglePlayVoidedPurchase {
+  google.protobuf.StringValue kind = 1;
+  google.protobuf.StringValue order_id = 2;
+  google.protobuf.Timestamp purchase_time = 3;
+  google.protobuf.StringValue purchase_token = 4;
+  GooglePlayVoidedReasonType voided_reason = 5;
+  GooglePlayVoidedSourceType voided_source = 6;
+  google.protobuf.Timestamp voided_time = 7;
+}

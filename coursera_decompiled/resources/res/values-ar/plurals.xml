@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="zero">%d مهمة مستحقة</item>
+        <item quantity="one">%d مهمة مستحقة</item>
+        <item quantity="two">%d مهمتان مستحقتان</item>
+        <item quantity="few">%d مهمات مستحقة</item>
+        <item quantity="many">%d مهمة مستحقة</item>
+        <item quantity="other">%d مهمة مستحقة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="zero">%1$d مهام</item>
+        <item quantity="one">%1$d مهمة</item>
+        <item quantity="two">%1$d من المهام</item>
+        <item quantity="few">%1$d من المهام</item>
+        <item quantity="many">%1$d من المهام</item>
+        <item quantity="other">%1$d من المهام</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="zero">%1$d حوار</item>
+        <item quantity="one">%1$d حوار</item>
+        <item quantity="two">%1$d من الحوارات</item>
+        <item quantity="few">%1$d من الحوارات</item>
+        <item quantity="many">%1$d من الحوارات</item>
+        <item quantity="other">%1$d من الحوارات</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="zero">%1$d مناقشات</item>
+        <item quantity="one">%1$d مناقشة</item>
+        <item quantity="two">%1$d من المناقشات</item>
+        <item quantity="few">%1$d من المناقشات</item>
+        <item quantity="many">%1$d من المناقشات</item>
+        <item quantity="other">%1$d من المناقشات</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="zero">%1$d مهمة مقيَّمة</item>
+        <item quantity="one">%1$d مهمة مقيَّمة</item>
+        <item quantity="two">%1$d من المهام المقيَّمة</item>
+        <item quantity="few">%1$d من المهام المقيَّمة</item>
+        <item quantity="many">%1$d من المهام المقيَّمة</item>
+        <item quantity="other">%1$d من المهام المقيَّمة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="zero">%1$d مناقشات مقيَّمة</item>
+        <item quantity="one">%1$d مناقشة مقيَّمة</item>
+        <item quantity="two">%1$d من المناقشات المقيَّمة</item>
+        <item quantity="few">%1$d من المناقشات المقيَّمة</item>
+        <item quantity="many">%1$d من المناقشات المقيَّمة</item>
+        <item quantity="other">%1$d من المناقشات المقيَّمة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="zero">%1$d معمل مقيَّم</item>
+        <item quantity="one">%1$d معمل مقيَّم</item>
+        <item quantity="two">%1$d من المعامل المقيَّمة</item>
+        <item quantity="few">%1$d من المعامل المقيَّمة</item>
+        <item quantity="many">%1$d من المعامل المقيَّمة</item>
+        <item quantity="other">%1$d من المعامل المقيَّمة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="zero">%1$d أداء أدوار مقيَّم</item>
+        <item quantity="one">%1$d أداء أدوار مقيَّم</item>
+        <item quantity="two">%1$d من أداءات الأدوار المقيَّمة</item>
+        <item quantity="few">%1$d من أداءات الأدوار المقيَّمة</item>
+        <item quantity="many">%1$d من أداءات الأدوار المقيَّمة</item>
+        <item quantity="other">%1$d من أداءات الأدوار المقيَّمة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="zero">%1$d مهمة فريق مقيًّمة</item>
+        <item quantity="one">%1$d مهمة فريق مقيًّمة</item>
+        <item quantity="two">%1$d من مهام الفريق المقيًّمة</item>
+        <item quantity="few">%1$d من مهام الفريق المقيًّمة</item>
+        <item quantity="many">%1$d من مهام الفريق المقيًّمة</item>
+        <item quantity="other">%1$d من مهام الفريق المقيًّمة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="zero">%1$d معمل</item>
+        <item quantity="one">%1$d معمل</item>
+        <item quantity="two">%1$d من المعامل</item>
+        <item quantity="few">%1$d من المعامل</item>
+        <item quantity="many">%1$d من المعامل</item>
+        <item quantity="other">%1$d من المعامل</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="zero">%1$d من القراءات المقفلة</item>
+        <item quantity="one">%1$d قراءة محجوبة</item>
+        <item quantity="two">%1$d القراءات المقفلة</item>
+        <item quantity="few">%1$d القراءات المقفلة</item>
+        <item quantity="many">%1$d القراءات المقفلة</item>
+        <item quantity="other">%1$d من القراءات المقفلة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="zero">%1$d من مقاطع الفيديو المحجوبة</item>
+        <item quantity="one">%1$d فيديو محجوب</item>
+        <item quantity="two">%1$d من مقاطع الفيديو المحجوبة</item>
+        <item quantity="few">%1$d من مقاطع الفيديو المحجوبة</item>
+        <item quantity="many">%1$d من مقاطع الفيديو المحجوبة</item>
+        <item quantity="other">%1$d من مقاطع الفيديو المحجوبة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="zero">%1$d دفتر ملاحظات</item>
+        <item quantity="one">%1$d دفتر ملاحظات</item>
+        <item quantity="two">%1$d من دفاتر الملاحظات</item>
+        <item quantity="few">%1$d من دفاتر الملاحظات</item>
+        <item quantity="many">%1$d من دفاتر الملاحظات</item>
+        <item quantity="other">%1$d من دفاتر الملاحظات</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="zero">%1$d عناصر</item>
+        <item quantity="one">%1$d عنصر</item>
+        <item quantity="two">%1$d عناصر</item>
+        <item quantity="few">%1$d عناصر</item>
+        <item quantity="many">%1$d عناصر</item>
+        <item quantity="other">%1$d عناصر</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="zero">%1$d الواجبات التي يقدرها الأقران</item>
+        <item quantity="one">%1$d مهمة يقيمها الأقران</item>
+        <item quantity="two">%1$d من المهام التي يقيمها الأقران</item>
+        <item quantity="few">%1$d من المهام التي يقيمها الأقران</item>
+        <item quantity="many">%1$d من المهام التي يقيمها الأقران</item>
+        <item quantity="other">%1$d من المهام التي يقيمها الأقران</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="zero">%1$d مراجعات أقران</item>
+        <item quantity="one">%1$d مراجعة الأقران</item>
+        <item quantity="two">%1$d مراجعات الأقران</item>
+        <item quantity="few">%1$d من مراجعات الأقران</item>
+        <item quantity="many">%1$d من مراجعات الأقران</item>
+        <item quantity="other">%1$d من مراجعات الأقران</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="zero">%1$d مهام الممارسة</item>
+        <item quantity="one">%1$d مهمة تدريبية</item>
+        <item quantity="two">%1$d من المهام التدريبية</item>
+        <item quantity="few">%1$d من المهام التدريبية</item>
+        <item quantity="many">%1$d من المهام التدريبية</item>
+        <item quantity="other">%1$d من المهام التدريبية</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="zero">%1$d مهام تدريبية يقيمها الأقران</item>
+        <item quantity="one">%1$d مهمة تدريبية يقيمها الأقران</item>
+        <item quantity="two">%1$d من المهام التدريبية التي يقيمها الأقران</item>
+        <item quantity="few">%1$d من المهام التدريبية التي يقيمها الأقران</item>
+        <item quantity="many">%1$d من المهام التدريبية التي يقيمها الأقران</item>
+        <item quantity="other">%1$d من المهام التدريبية التي يقيمها الأقران</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="zero">%1$d اختبار تدريبي</item>
+        <item quantity="one">%1$d اختبار تدريبي</item>
+        <item quantity="two">%1$d من الاختبارات التدريبية</item>
+        <item quantity="few">%1$d من الاختبارات التدريبية</item>
+        <item quantity="many">%1$d من الاختبارات التدريبية</item>
+        <item quantity="other">%1$d من الاختبارات التدريبية</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="zero">%1$d مهمة تدريبية للفريق</item>
+        <item quantity="one">%1$d مهمة تدريبية للفريق</item>
+        <item quantity="two">%1$d من المهام تدريبية للفريق</item>
+        <item quantity="few">%1$d من المهام تدريبية للفريق</item>
+        <item quantity="many">%1$d من المهام تدريبية للفريق</item>
+        <item quantity="other">%1$d من المهام تدريبية للفريق</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="zero">%1$d مهام برمجة</item>
+        <item quantity="one">%1$d مهمة برمجة</item>
+        <item quantity="two">%1$d من مهام البرمجة</item>
+        <item quantity="few">%1$d من مهام البرمجة</item>
+        <item quantity="many">%1$d من مهام البرمجة</item>
+        <item quantity="other">%1$d من مهام البرمجة</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="zero">%1$d اختبارات</item>
+        <item quantity="one">%1$d اختبار</item>
+        <item quantity="two">%1$d من الاختبارات</item>
+        <item quantity="few">%1$d من الاختبارات</item>
+        <item quantity="many">%1$d من الاختبارات</item>
+        <item quantity="other">%1$d من الاختبارات</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="zero">%1$d قراءات</item>
+        <item quantity="one">%1$d قراءة</item>
+        <item quantity="two">%1$d من القراءات</item>
+        <item quantity="few">%1$d من القراءات</item>
+        <item quantity="many">%1$d من القراءات</item>
+        <item quantity="other">%1$d من القراءات</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="zero">%1$d أداء أدوار</item>
+        <item quantity="one">%1$d أداء أدوار</item>
+        <item quantity="two">%1$d من أداءات الأدوار</item>
+        <item quantity="few">%1$d من أداءات الأدوار</item>
+        <item quantity="many">%1$d من أداءات الأدوار</item>
+        <item quantity="other">%1$d من أداءات الأدوار</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="zero">%1$d عروض شرائح</item>
+        <item quantity="one">%1$d عرض شرائح</item>
+        <item quantity="two">%1$d عروض الشرائح</item>
+        <item quantity="few">%1$d من عروض الشرائح</item>
+        <item quantity="many">%1$d من عروض الشرائح</item>
+        <item quantity="other">%1$d من عروض الشرائح</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="zero">%1$d مشروع فريق</item>
+        <item quantity="one">%1$d مشروع فريق</item>
+        <item quantity="two">%1$d من مشروعات الفريق</item>
+        <item quantity="few">%1$d من مشروعات الفريق</item>
+        <item quantity="many">%1$d من مشروعات الفريق</item>
+        <item quantity="other">%1$d من مشروعات الفريق</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="zero">تهانينا لقد انتهيت من مراجعة %s مهمة! ساعد أقرانك الآخرين إذا كان لديك وقت إضافي .</item>
+        <item quantity="one">تهانينا لقد انتهيت من مراجعة مهمة! ساعد زملاءك الآخرين إذا كان لديك وقت إضافي.</item>
+        <item quantity="two">تهانينا لقد انتهيت من مراجعة %s مهمتين! ساعد أقرانك الآخرين إذا كان لديك وقت إضافي .</item>
+        <item quantity="few">تهانينا لقد انتهيت من مراجعة %s مهمات! ساعد أقرانك الآخرين إذا كان لديك وقت إضافي .</item>
+        <item quantity="many">تهانينا لقد انتهيت من مراجعة %s مهمة! ساعد أقرانك الآخرين إذا كان لديك وقت إضافي .</item>
+        <item quantity="other">تهانينا لقد انتهيت من مراجعة %s مهمة! ساعد أقرانك الآخرين إذا كان لديك وقت إضافي .</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="zero">المحاضرون</item>
+        <item quantity="one">المحاضرون</item>
+        <item quantity="two">المحاضرون</item>
+        <item quantity="few">المحاضرون</item>
+        <item quantity="many">المحاضرون</item>
+        <item quantity="other">المحاضرون</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="zero">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s من التقييمات</item>
+        <item quantity="one">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s من التقييمات</item>
+        <item quantity="two">حازت على التقييم نجمتين %1$s من أصل 5 نجوم، %2$s من التقييمات</item>
+        <item quantity="few">حازت على التقييم %1$s نجمات من أصل 5 نجوم، %2$s من التقييمات</item>
+        <item quantity="many">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s من التقييمات</item>
+        <item quantity="other">تصنيف %1$s نجمة من أصل 5 نجوم، %2$s تقييمات</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="zero">أكمل %1$d من التقييمات</item>
+        <item quantity="one">إكمال التقييم</item>
+        <item quantity="two">أكمل %1$d من التقييمات</item>
+        <item quantity="few">أكمل %1$d من التقييمات</item>
+        <item quantity="many">أكمل %1$d من التقييمات</item>
+        <item quantity="other">أكمل %1$d من التقييمات</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="zero">أكمل %1$d عناصر التدريب العملي</item>
+        <item quantity="one">أكمل عنصر التدريب العملي</item>
+        <item quantity="two">أكمل %1$d عناصر التدريب العملي</item>
+        <item quantity="few">أكمل %1$d عناصر التدريب العملي</item>
+        <item quantity="many">أكمل %1$d عناصر التدريب العملي</item>
+        <item quantity="other">أكمل %1$d عناصر التدريب العملي</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="zero">أكمل أي عناصر تعليمية %1$d</item>
+        <item quantity="one">أكمل أي عنصر تعليمي</item>
+        <item quantity="two">أكمل أي عناصر تعليمية %1$d</item>
+        <item quantity="few">أكمل أي عناصر تعليمية %1$d</item>
+        <item quantity="many">أكمل أي عناصر تعليمية %1$d</item>
+        <item quantity="other">أكمل أي عناصر تعليمية %1$d</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="zero">شاهد مقاطع الفيديو %1$d</item>
+        <item quantity="one">شاهد فيديو</item>
+        <item quantity="two">شاهد مقاطع الفيديو %1$d</item>
+        <item quantity="few">شاهد مقاطع الفيديو %1$d</item>
+        <item quantity="many">شاهد مقاطع الفيديو %1$d</item>
+        <item quantity="other">شاهد مقاطع الفيديو %1$d</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="zero">أكمل %1$d تمارين عملية</item>
+        <item quantity="one">أكمل %1$d من التمارين العملية</item>
+        <item quantity="two">أكمل %1$d من التمارين العملية</item>
+        <item quantity="few">أكمل %1$d من التمارين العملية</item>
+        <item quantity="many">أكمل %1$d من التمارين العملية</item>
+        <item quantity="other">أكمل %1$d من التمارين العملية</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="zero">أكمل %1$d من القراءات</item>
+        <item quantity="one">أكمل القراءة</item>
+        <item quantity="two">أكمل %1$d من القراءات</item>
+        <item quantity="few">أكمل %1$d من القراءات</item>
+        <item quantity="many">أكمل %1$d من القراءات</item>
+        <item quantity="other">أكمل %1$d من القراءات</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="zero">أيام</item>
+        <item quantity="one">أيام</item>
+        <item quantity="two">أيام</item>
+        <item quantity="few">أيام</item>
+        <item quantity="many">أيام</item>
+        <item quantity="other">أيام</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="zero">One %1$s درجة علمية Other %1$s درجات علمية</item>
+        <item quantity="one">One %1$s درجة علمية Other %1$s درجات علمية</item>
+        <item quantity="two">One %1$s درجة علمية Other %1$s درجات علمية</item>
+        <item quantity="few">One %1$s درجة علمية Other %1$s درجات علمية</item>
+        <item quantity="many">%1$s درجة علمية</item>
+        <item quantity="other">%1$s من الدرجات العلمية</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="zero">%1$d يوم</item>
+        <item quantity="one">يوم واحد (%1$d)</item>
+        <item quantity="two">يومان (%1$d)</item>
+        <item quantity="few">%1$d أيام</item>
+        <item quantity="many">%1$d يومًا</item>
+        <item quantity="other">%1$d يوم</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="zero">%1$d ساعة</item>
+        <item quantity="one">ساعة واحدة (%1$d)</item>
+        <item quantity="two">ساعتان (%1$d)</item>
+        <item quantity="few">%1$d ساعات</item>
+        <item quantity="many">%1$d ساعةً</item>
+        <item quantity="other">%1$d ساعة</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="zero">تقديم سريع للفيديو بمقدار %d ثانية</item>
+        <item quantity="one">تقديم سريع للفيديو بمقدار ثانية واحدة (%d)</item>
+        <item quantity="two">تقديم سريع للفيديو بمقدار ثانيتَين (%d)</item>
+        <item quantity="few">تقديم سريع للفيديو بمقدار %d ثوانٍ</item>
+        <item quantity="many">تقديم سريع للفيديو بمقدار %d ثانية</item>
+        <item quantity="other">تقديم سريع للفيديو بمقدار %d ثانية</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="zero">ترجيع الفيديو بمقدار %d ثانية</item>
+        <item quantity="one">ترجيع الفيديو بمقدار ثانية واحدة (%d)</item>
+        <item quantity="two">ترجيع الفيديو بمقدار ثانيتَين (%d)</item>
+        <item quantity="few">ترجيع الفيديو بمقدار %d ثوانٍ</item>
+        <item quantity="many">ترجيع الفيديو بمقدار %d ثانية</item>
+        <item quantity="other">ترجيع الفيديو بمقدار %d ثانية</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="zero">%1$d وحدةً نمطيةً</item>
+        <item quantity="one">وحدة نمطية واحدة (%1$d)</item>
+        <item quantity="two">وحدتان (%1$d) نمطيتان</item>
+        <item quantity="few">%1$d وحدات نمطية</item>
+        <item quantity="many">%1$d وحدةً نمطيةً</item>
+        <item quantity="other">%1$d وحدةً نمطيةً</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="zero">%1$d سلسلةً من الدورات</item>
+        <item quantity="one">%1$d سلسلةً من الدورات</item>
+        <item quantity="two">سلسلتان (%1$d) من الدورات</item>
+        <item quantity="few">%1$d سلاسل من الدورات</item>
+        <item quantity="many">%1$d سلسلةً من الدورات</item>
+        <item quantity="other">%1$d سلسلةً من الدورات</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="zero">%1$d أيام</item>
+        <item quantity="one">%1$d أيام</item>
+        <item quantity="two">%1$d أيام</item>
+        <item quantity="few">%1$d أيام</item>
+        <item quantity="many">%1$d أيام</item>
+        <item quantity="other">%1$d أيام</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="zero">توجد %1$d من المهام</item>
+        <item quantity="one">توجد %1$d من المهام</item>
+        <item quantity="two">توجد %1$d من المهام</item>
+        <item quantity="few">توجد %1$d من المهام</item>
+        <item quantity="many">توجد %1$d من المهام</item>
+        <item quantity="other">توجد %1$d من المهام</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="zero">ساعات</item>
+        <item quantity="one">ساعات</item>
+        <item quantity="two">ساعات</item>
+        <item quantity="few">ساعات</item>
+        <item quantity="many">ساعات</item>
+        <item quantity="other">ساعات</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="zero">دقيقة</item>
+        <item quantity="one">دقيقة</item>
+        <item quantity="two">دقيقة</item>
+        <item quantity="few">دقائق</item>
+        <item quantity="many">دقيقة</item>
+        <item quantity="other">دقيقة</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="zero">أشهر</item>
+        <item quantity="one">شهر</item>
+        <item quantity="two">شهرين</item>
+        <item quantity="few">أشهر</item>
+        <item quantity="many">شهرًا</item>
+        <item quantity="other">شهر</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="zero">لا توجد دورات تدريبية (%1$d)</item>
+        <item quantity="one">دورة تدريبية واحدة (%1$d)</item>
+        <item quantity="two">دورتان تدريبيتان (%1$d)</item>
+        <item quantity="few">%1$d دورات تدريبية</item>
+        <item quantity="many">%1$d دورةً تدريبيةً</item>
+        <item quantity="other">%1$d دورة تدريبية</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="zero">%.1f نقطة</item>
+        <item quantity="one">نقطة واحدة</item>
+        <item quantity="two">%.1f نقطتان</item>
+        <item quantity="few">%.1f نقاط</item>
+        <item quantity="many">%.1f نقطة</item>
+        <item quantity="other">%.1f نقطة</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="zero">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="one">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="two">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="few">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="many">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="other">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="zero">النتيجة الإجمالية</item>
+        <item quantity="one">إجمالي النتائج</item>
+        <item quantity="two">إجمالي النتائج</item>
+        <item quantity="few">إجمالي النتائج</item>
+        <item quantity="many">إجمالي النتائج</item>
+        <item quantity="other">إجمالي النتائج</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="zero">من النقاط</item>
+        <item quantity="one">نقطة</item>
+        <item quantity="two">من النقاط</item>
+        <item quantity="few">نقاط</item>
+        <item quantity="many">نقطة</item>
+        <item quantity="other">نقطة</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="zero">%d أسئلة التدريب</item>
+        <item quantity="one">%d سؤال الممارسة</item>
+        <item quantity="two">%d سؤالا تدريب</item>
+        <item quantity="few">%d أسئلة التدريب</item>
+        <item quantity="many">%d سؤال تدريب</item>
+        <item quantity="other">%d سؤال تدريب</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="zero">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="one">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="two">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="few">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="many">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+        <item quantity="other">حازت على تقييم %1$s نجوم من أصل 5 نجوم</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="zero">الأسئلة</item>
+        <item quantity="one">الأسئلة</item>
+        <item quantity="two">الأسئلة</item>
+        <item quantity="few">الأسئلة</item>
+        <item quantity="many">الأسئلة</item>
+        <item quantity="other">الأسئلة</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="zero">%1$s نقطة</item>
+        <item quantity="one">نقطة واحدة (%1$s)</item>
+        <item quantity="two">نقطتان (%1$s)</item>
+        <item quantity="few">%1$s نقاط</item>
+        <item quantity="many">%1$s نقطةً</item>
+        <item quantity="other">%1$s نقطة</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="zero">%d سؤال</item>
+        <item quantity="one">%d سؤال</item>
+        <item quantity="two">%d سؤالان</item>
+        <item quantity="few">%d أسئلة</item>
+        <item quantity="many">%d سؤالًا</item>
+        <item quantity="other">%d سؤال</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="zero">الأسئلة</item>
+        <item quantity="one">الأسئلة</item>
+        <item quantity="two">الأسئلة</item>
+        <item quantity="few">الأسئلة</item>
+        <item quantity="many">الأسئلة</item>
+        <item quantity="other">الأسئلة</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="zero">%d سؤال</item>
+        <item quantity="one">%d سؤال</item>
+        <item quantity="two">%d سؤالين</item>
+        <item quantity="few">%d أسئلة</item>
+        <item quantity="many">%d سؤالًا</item>
+        <item quantity="other">%d سؤال</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="zero">%d دقائق</item>
+        <item quantity="one">%d دقيقة</item>
+        <item quantity="two">%d دقيقتان</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقائق</item>
+        <item quantity="other">%d دقائق</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="zero">%d دقيقة</item>
+        <item quantity="one">دقيقة واحدة (%d)</item>
+        <item quantity="two">دقيقتان (%d)</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقيقةً</item>
+        <item quantity="other">%d دقيقة</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="zero">ردود</item>
+        <item quantity="one">رد</item>
+        <item quantity="two">ردان</item>
+        <item quantity="few">ردود</item>
+        <item quantity="many">ردًا</item>
+        <item quantity="other">رد</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="zero">%1$d عنصر</item>
+        <item quantity="one">%1$d عنصر</item>
+        <item quantity="two">%1$d عنصر</item>
+        <item quantity="few">%1$d عناصر</item>
+        <item quantity="many">%1$d عنصر</item>
+        <item quantity="other">%1$d عنصر</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="zero">إظهار %d دورة تدريبية</item>
+        <item quantity="one">إظهار %d دورة تدريبية</item>
+        <item quantity="two">إظهار %d دورة تدريبية</item>
+        <item quantity="few">إظهار جميع %d دورات تدريبية</item>
+        <item quantity="many">إظهار جميع %d دورة تدريبية</item>
+        <item quantity="other">إظهار جميع %d دورة تدريبية</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="zero">عرض %1$d دورةً تدريبيةً من %2$s</item>
+        <item quantity="one">عرض دورة تدريبية (%1$d) من %2$s</item>
+        <item quantity="two">عرض دورتين تدريبيتين (%1$d) من %2$s</item>
+        <item quantity="few">عرض %1$d دورات تدريبية من %2$s</item>
+        <item quantity="many">عرض %1$d دورةً تدريبيةً من %2$s</item>
+        <item quantity="other">عرض %1$d دورةً تدريبيةً من %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="zero">مهارة</item>
+        <item quantity="one">مهارة</item>
+        <item quantity="two">مهارتان</item>
+        <item quantity="few">مهارات</item>
+        <item quantity="many">مهارة</item>
+        <item quantity="other">مهارة</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="zero">%1$d أيام أخرى من التعلم لتحقيق هدفك الأسبوعي!</item>
+        <item quantity="one">يوم %1$d آخر من التعلم لتحقيق هدفك الأسبوعي!</item>
+        <item quantity="two">يومان %1$d آخران من التعلم لتحقيق هدفك الأسبوعي!</item>
+        <item quantity="few">%1$d أيام أخرى من التعلم لتحقيق هدفك الأسبوعي!</item>
+        <item quantity="many">%1$d يومًا آخر من التعلم لتحقيق هدفك الأسبوعي!</item>
+        <item quantity="other">%1$d يوم آخر من التعلم لتحقيق هدفك الأسبوعي!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="zero">تعلّم %1$d يوم إضافي لتحقيق هدفك التعليمي!</item>
+        <item quantity="one">تعلّم يومًا %1$d إضافيًا لتحقيق هدفك التعليمي!</item>
+        <item quantity="two">تعلّم يومين %1$d إضافيين لتحقيق هدفك التعليمي!</item>
+        <item quantity="few">تعلّم %1$d أيام إضافية لتحقيق هدفك التعليمي!</item>
+        <item quantity="many">تعلّم %1$d يومًا إضافيًا لتحقيق هدفك التعليمي!</item>
+        <item quantity="other">تعلّم %1$d يوم إضافي لتحقيق هدفك التعليمي!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="zero">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s</item>
+        <item quantity="one">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s</item>
+        <item quantity="two">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s</item>
+        <item quantity="few">حازت على التقييم %1$s نجوم من أصل 5 نجوم، %2$s</item>
+        <item quantity="many">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s</item>
+        <item quantity="other">حازت على التقييم %1$s نجمة من أصل 5 نجوم، %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="zero">عمليات تصويت إيجابية</item>
+        <item quantity="one">عملية تصويت إيجابية</item>
+        <item quantity="two">عمليتا تصويت إيجابيتان</item>
+        <item quantity="few">عمليات تصويت إيجابية</item>
+        <item quantity="many">عملية تصويت إيجابية</item>
+        <item quantity="other">عملية تصويت إيجابية</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="zero">لم تبدأ بعد (%1$d)</item>
+        <item quantity="one">أسبوع واحد (%1$d)</item>
+        <item quantity="two">أسبوعان (%1$d)</item>
+        <item quantity="few">%1$d أسابيع</item>
+        <item quantity="many">%1$d أسبوعًا</item>
+        <item quantity="other">%1$d أسبوع</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="zero">سنوات</item>
+        <item quantity="one">سنة</item>
+        <item quantity="two">سنتيْن</item>
+        <item quantity="few">سنوات</item>
+        <item quantity="many">سنة</item>
+        <item quantity="other">سنة</item>
+    </plurals>
+</resources>

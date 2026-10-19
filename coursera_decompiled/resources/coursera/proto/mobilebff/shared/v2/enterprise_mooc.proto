@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v2;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V2";
+option go_package = "sharedv2";
+option java_multiple_files = true;
+option java_outer_classname = "EnterpriseMoocProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v2";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V2";
+option swift_prefix = "MobilebffShared";
+
+// This file contains messages for Enterprise MOOC Credit information
+// used across mobile's bff layer.
+
+// Container for Enterprise MOOC Credit.
+message EnterpriseMoocCreditInfo {
+  // Signifies the begin date for the course with credit, if configured
+  google.protobuf.Timestamp session_start_time = 1;
+  // Signifies the end date for the course with credit, if configured
+  google.protobuf.Timestamp session_end_time = 2;
+  // Signifies if the learner's session for credit has already ended
+  bool credit_session_ended = 3;
+}

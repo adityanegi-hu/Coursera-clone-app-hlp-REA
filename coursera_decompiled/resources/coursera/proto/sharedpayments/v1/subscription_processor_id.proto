@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1";
+option go_package = "sharedpaymentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionProcessorIdProto";
+option java_package = "org.coursera.proto.sharedpayments.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1";
+
+// List of supported payment processors.
+enum SubscriptionProcessorId {
+  SUBSCRIPTION_PROCESSOR_ID_INVALID = 0;
+  SUBSCRIPTION_PROCESSOR_ID_BRAINTREE = 1;
+  SUBSCRIPTION_PROCESSOR_ID_BRAINTREE_SANDBOX = 2;
+
+  SUBSCRIPTION_PROCESSOR_ID_APPLE_INAPP = 3;
+  SUBSCRIPTION_PROCESSOR_ID_APPLE_INAPP_SANDBOX = 4;
+
+  SUBSCRIPTION_PROCESSOR_ID_PAYPAL = 5;
+  SUBSCRIPTION_PROCESSOR_ID_PAYPAL_SANDBOX = 6;
+
+  SUBSCRIPTION_PROCESSOR_ID_RAZORPAY = 7;
+  SUBSCRIPTION_PROCESSOR_ID_RAZORPAY_SANDBOX = 8;
+
+  SUBSCRIPTION_PROCESSOR_ID_GOOGLE_PLAY = 9;
+  SUBSCRIPTION_PROCESSOR_ID_GOOGLE_PLAY_SANDBOX = 16;
+
+  // The Stripe subscription processor id to represent consumer's INC account
+  SUBSCRIPTION_PROCESSOR_ID_STRIPE_CONSUMER = 10;
+  SUBSCRIPTION_PROCESSOR_ID_STRIPE_CONSUMER_SANDBOX = 11;
+
+  // The Stripe subscription processor id to represent consumer's BV account
+  SUBSCRIPTION_PROCESSOR_ID_STRIPE_BV_CONSUMER = 12;
+  SUBSCRIPTION_PROCESSOR_ID_STRIPE_BV_CONSUMER_SANDBOX = 13;
+
+  // The stripe subscription processor id to represent billing engine, only used for subscriptions
+  // created on stripe and processed on third party payment processors.
+  SUBSCRIPTION_PROCESSOR_ID_STRIPE_THIRD_PARTY = 14;
+  SUBSCRIPTION_PROCESSOR_ID_STRIPE_THIRD_PARTY_SANDBOX = 15;
+}

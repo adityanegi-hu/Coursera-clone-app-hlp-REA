@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">%d tugas jatuh tempo</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d Penugasan</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$d Dialog</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$d Diskusi</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d Tugas yang Dinilai</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d Diskusi yang Dinilai</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$d Lab yang Dinilai</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d Permainan Peran yang Dinilai</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d Tugas Tim yang Dinilai</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$d Lab</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d Pembacaan Terkunci</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d Video Terkunci</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$d Notebook</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d Item</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d Tugas yang Dinilai oleh Sejawat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$d Tinjauan Sejawat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d Tugas Latihan</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d Tugas Latihan yang Dinilai oleh Sejawat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d Kuis Latihan</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d Tugas Latihan Tim</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$d Tugas Pemrograman</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$d Kuis</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d Bacaan</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$d Permainan Peran</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$d Slide Presentasi</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$d Proyek Tim</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">Selamat, Anda telah selesai meninjau semua %s tugas! Bantu rekan lain jika Anda memiliki waktu luang.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">Instruktur Kursus</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">dinilai %1$s bintang dari 5 bintang, %2$s ulasan</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">Selesaikan %1$d penilaian</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">Selesaikan %1$d soal latihan langsung</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">Selesaikan %1$d item pembelajaran apa pun</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">Tonton %1$d video</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">Selesaikan %1$d latihan soal</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">Selesaikan %1$d bacaan</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">hari</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">%1$s Gelar</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d hari</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d jam</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Maju cepat %d detik</item>
+        <item quantity="other">Maju cepat %d detik</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Mundur %d detik</item>
+        <item quantity="other">Mundur %d detik</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">%1$d Modul</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">%1$d Seri kursus</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d hari</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">%1$d tugas</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">jam</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">menit</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">bulan</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">%1$d Kursus</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1f poin</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">dinilai %1$s bintang dari 5 bintang</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">total hasil</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">poin</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">%d Pertanyaan latihan</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">dinilai %1$s bintang dari 5 bintang</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">pertanyaan</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s poin</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">%d pertanyaan</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">pertanyaan</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">%d PERTANYAAN</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d menit</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d menit</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">Balasan</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d item</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">Tampilkan %d kursus</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">Tampilkan semua %1$d kursus dari %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">keterampilan</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">%1$d hari belajar lagi untuk mencapai target mingguan!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">Belajar %1$d hari lagi untuk mencapai target pembelajaran Anda!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">dinilai %1$s bintang dari 5 bintang, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">Nilai positif</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">%1$d Minggu</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">tahun</item>
+    </plurals>
+</resources>

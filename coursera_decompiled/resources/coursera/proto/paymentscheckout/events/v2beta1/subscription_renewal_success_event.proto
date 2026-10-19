@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.events.v2beta1;
+
+import "coursera/proto/paymentscheckout/common/v2beta1/payment_transaction_end.proto";
+import "coursera/proto/paymentscheckout/common/v2beta1/recurring_payment.proto";
+import "coursera/proto/paymentscheckout/common/v2beta1/subscription.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_method.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_method_details.proto";
+import "google/protobuf/struct.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Events.V2Beta1";
+option go_package = "eventsv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionRenewalSuccessEventProto";
+option java_package = "org.coursera.proto.paymentscheckout.events.v2beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Events\\V2Beta1";
+
+// Event that is published when a subscription renewal is successful.
+//
+// Note: This first iteration of this event model simply publishes a 1-to-1 mapping of
+// the database entities created as result of the renewal. It perhaps is not wise to tightly couple
+// the event model to our database models, but it is a good first step to get the event model
+// working. In the future, we may consider publishing a more generic event that is not so
+// tightly coupled to our database models.
+// https://github.com/webedx-spark/service-definitions/pull/5287
+message SubscriptionRenewalSuccessEvent {
+  // Id of the cart that was created and checked out as a result of the renewal.
+  int64 cart_id = 1;
+  // The subscription that was renewed.
+  coursera.proto.paymentscheckout.common.v2beta1.Subscription subscription = 2;
+  // The recurring payment that was created for the subscription renewal.
+  coursera.proto.paymentscheckout.common.v2beta1.RecurringPayment recurring_payment = 3;
+  // The payment transaction that was created for the subscription renewal.
+  coursera.proto.paymentscheckout.common.v2beta1.PaymentTransactionEnd payment_transaction_end = 4;
+  // The subscription details before the renew.
+  coursera.proto.paymentscheckout.common.v2beta1.Subscription previous_subscription = 5;
+  // Additional specific subscription renew metadata.  (e.g., Stripe subscription's freeTrialEndEarly flag)
+  google.protobuf.Struct renewal_metadata = 6;
+  // (Deprecated) payment method used for the transaction.
+  coursera.proto.sharedpayments.v1beta1.PaymentMethod payment_method = 7 [deprecated = true];
+  // payment method used for the transaction.
+  coursera.proto.sharedpayments.v1beta1.PaymentMethodDetails payment_method_details = 8;
+}

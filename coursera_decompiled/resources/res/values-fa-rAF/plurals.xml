@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">%d وظایف تحقق</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d وظایف</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$d گفت‌وگوها</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$d بحث‌</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d وظیفی درجه‌بندی‌شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d بحث‌های درجه بندی شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$d لابراتوارهای درجه بندی شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d نقش بازی درجه بندی شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d وظایف تیم درجه بندی شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$d لابراتوار</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d خواندن قفل‌شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d ویدیوهای قفل‌شده</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$d کتابچی یاداشت</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d موارد</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d وظایف ارزیابی‌شده توسط همتایان</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$d ارزیابی همتاها</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d وظایف تمرینی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d تمرین وظایف ارزیابی‌شده توسط همتایان</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d کویز‌های تمرینی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d تمرین وظیفی تیمی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$d وظایف برنامه‌نویسی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$d کویز</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d مطالعات</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$d نقش بازی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$d نمایش سلایدی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$d پروژه‌های تیمی</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">تبریک می گویید که بررسی تمام وظایف %s را به پایان رساندید! اگر وقت اضافی دارید به همسالان دیگر کمک کنید.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">مربیان دوره</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">نمره %1$s ستاره از 5 ستاره، %2$s بازدید</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">ارزیابی های %1$d را تکمیل نمایید</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">یک مورد عملی را تکمیل کنید یک مورد عملی %1$d را تکمیل کنید</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">هر مورد آموزشی را تکمیل کنید هر %1$d مورد یادگیری را تکمیل کنید</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">یک ویدیو را تکمیل کنید یک ویدیو %1$d را تکمیل کنید</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">یک مورد تمرینی را تکمیل کنید تمرینات تمرین %1$d را تکمیل نمایید</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">خواندن %1$d را تکمیل نمایید</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">روزها</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">%1$s درجه ها</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d روزها</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d ساعت‌ها</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">%1$d بخش</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">%1$d مجموعه کورس ها</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d روز</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">وظایف %1$d هستند</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">ساعتها</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">دقیقه</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">ماه ها</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">دوره های %1$d</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1f امتیاز</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">رتبه بندی %1$s ستاره از 5 ستاره</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">  مجموع نتایج</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">امتیاز</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">%d سوالات تمرین</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">رتبه بندی %1$s ستاره از 5 ستاره</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">سوالات</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s امتیاز</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">%d سوالات</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">سوالات</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">%d سوالات</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d دقیقه</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d دقیقه</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">پاسخ ها</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d موارد</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">نمایش همه دوره های %d</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">همه کورس‌های %1$d %2$s را نمایش دهید</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">مهارت</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">%1$d روز بیشتر یادگیری برای رسیدن به هدف هفتگی تان! %1$d روز‌های بیشتر یادگیری برای رسیدن به هدف هفتگی تان!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">%1$d روز بیشتر یاد بگیرید تا هدف یادگیری تان را برآورده سازید! %1$d روز‌های بیشتر یاد بگیرید تا هدف یادگیری تان را برآورده سازید!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">%1$s ستاره از 5 ستاره درجه بندی شده است، %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">رای حمایت</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">هفته %1$d</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">سالها</item>
+    </plurals>
+</resources>

@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.search.v1;
+
+import "coursera/proto/mobilebff/search/v1/search.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Search.V1";
+option go_package = "searchv1";
+option java_multiple_files = true;
+option java_outer_classname = "SearchApiProto";
+option java_package = "org.coursera.proto.mobilebff.search.v1";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Search\\V1";
+option swift_prefix = "MobilebffSearch";
+
+// A service to handle searches on mobile.
+service SearchAPI {
+  option deprecated = true;
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Perform a search request.
+  rpc Search(SearchRequest) returns (SearchResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/search/v1/SearchAPI/Search"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/search/v1/SearchAPI/Search"}
+    };
+  }
+  // Perform a request for the top search queries on mobile.
+  rpc TopQueries(TopQueriesRequest) returns (TopQueriesResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/search/v1/SearchAPI/TopQueries"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/search/v1/SearchAPI/TopQueries"}
+    };
+  }
+}
+
+message SearchRequest {
+  // The search query string (e.g. machine learning)
+  string query = 1;
+  // The start position from the first result (e.g. 0)
+  int32 start = 2;
+  // The total number of results to return (e.g. 10)
+  int32 limit = 3;
+  // Facets to filter on. Facets are combined using an `AND` operator
+  // Example: Language AND Level
+  repeated FacetFilter facet_filters = 4;
+  // ProgramId for enterprise search
+  google.protobuf.StringValue program_id = 5;
+  // For consumer search only: to show only Coursera+ eligible products
+  bool only_include_coursera_plus = 6;
+}
+
+message SearchResponse {
+  // Search results
+  repeated SearchHit hits = 1;
+  // Total number of hits
+  int64 total = 2;
+  // The facet filters available to filter on with translations
+  repeated TranslatedFacetFilter translated_facet_filters = 3;
+  // Indicates whether the client should show the Coursera plus filter
+  bool show_coursera_plus_filter = 4;
+}
+
+message TopQueriesRequest {
+  // Query given by user
+  string query = 1;
+}
+
+message TopQueriesResponse {
+  // Top search queries from Algolia
+  repeated string queries = 1;
+}

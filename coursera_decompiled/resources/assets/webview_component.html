@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Setting the initial scale to 0.95 coupled with the fact that the font size is determined
+         using screen density prevents the math blocks that we've seen from being cut out of
+         the view for devices with various screen sizes. -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.95" />
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            messageStyle: "none"
+        });
+        MathJax.Hub.Register.StartupHook(
+            "End",
+            function() {window.courseraWebView.javascriptDidRun(true);}
+        );
+    </script>
+    <script type="text/javascript" src="MathJax/MathJax.js?config=default"></script>
+
+</head>
+<body id="bodyExpression" onload="notifyAndroidInterface()" >
+
+<%ELEMENT_TYPE% id="expression" style="text-align:left;display:none;color:%TEXT_COLOR%;" />
+%HTML_CONTENT%
+</%ELEMENT_TYPE%>
+
+<script>
+    function notifyAndroidInterface() {
+        if (document.getElementsByTagName("table").length > 0) {
+            document.getElementById("expression").style.display = "table";
+        } else {
+            document.getElementById("expression").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>

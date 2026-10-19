@@ -1,0 +1,290 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_subscription.proto";
+import "coursera/proto/paymentprocessor/v1beta2/google_play_create_subscription_request.proto";
+import "coursera/proto/paymentprocessor/v1beta2/product_promotion_information.proto";
+import "coursera/proto/paymentprocessor/v1beta2/stripe_create_subscription_request.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_decorated.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_details.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_payment_method_card.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_product_update_details.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_transaction_details.proto";
+import "coursera/proto/paymentprocessor/v1beta2/subscription_trial_update_details.proto";
+import "coursera/proto/paymentprocessor/v1beta2/tax_rate_details.proto";
+import "coursera/proto/paymentprocessor/v1beta2/update_subscription_details.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "coursera/proto/sharedpayments/v1/subscription_status.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionProcessorApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Service that contains all subscription processor logic and interactions.
+service SubscriptionProcessorAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: [
+      "payment",
+      "payment-int-tools-application",
+      "payment-processor-jobs",
+      "payments-adhoc-jobs",
+      "payments-checkout-application",
+      "subscriptions-application"
+    ]
+  };
+
+  // Create a subscription.
+  rpc CreateSubscription(CreateSubscriptionRequest) returns (CreateSubscriptionResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "logged.in"
+      ]
+    };
+    // This is temporarily expose for Stripe LPM, for full implementation we should move it to
+    // graphql in the end of 2024.
+    option (google.api.http) = {
+      post: "/api/grpc/paymentprocessor/v1beta2/SubscriptionProcessorAPI/CreateSubscription"
+      body: "*"
+    };
+  }
+  // List the subscriptions.
+  rpc ListSubscriptions(ListSubscriptionsRequest) returns (ListSubscriptionsResponse);
+  // Find a subscription.
+  rpc FindSubscription(FindSubscriptionRequest) returns (FindSubscriptionResponse);
+  // Update a subscription.
+  rpc UpdateSubscription(UpdateSubscriptionRequest) returns (UpdateSubscriptionResponse);
+  // Update a subscription's product.
+  rpc UpdateSubscriptionProduct(UpdateSubscriptionProductRequest) returns (UpdateSubscriptionProductResponse);
+  // Update a subscription's free trial.
+  rpc UpdateSubscriptionTrial(UpdateSubscriptionTrialRequest) returns (UpdateSubscriptionTrialResponse);
+  // Cancel a subscription.
+  rpc CancelSubscription(CancelSubscriptionRequest) returns (CancelSubscriptionResponse);
+  // Restore a cancelled subscription. Effectively, that's undoing a subscription cancellation.
+  rpc RestoreCancelledSubscription(RestoreCancelledSubscriptionRequest) returns (RestoreCancelledSubscriptionResponse);
+  // Get the card information from the subscription's payment method.
+  rpc GetSubscriptionPaymentMethodCard(GetSubscriptionPaymentMethodCardRequest) returns (GetSubscriptionPaymentMethodCardResponse);
+  // Get the tax rate information from the subscription.
+  rpc GetSubscriptionTaxRateInfo(GetSubscriptionTaxRateInfoRequest) returns (GetSubscriptionTaxRateInfoResponse);
+  // Get the transaction for a subscription.
+  rpc GetSubscriptionTransaction(GetSubscriptionTransactionRequest) returns (GetSubscriptionTransactionResponse);
+  // Get a URL that the learner can use to update her subscription payment information
+  rpc GetSubscriptionPaymentMethodUpdateUrl(GetSubscriptionPaymentMethodUpdateUrlRequest) returns (GetSubscriptionPaymentMethodUpdateUrlResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "logged.in"
+      ]
+    };
+    // This is temporarily expose for Stripe MVP, for full implementation we should move it to
+    // graphql if we decide to continue this flow.
+    option (google.api.http) = {
+      post: "/api/grpc/paymentprocessor/v1beta2/SubscriptionProcessorAPI/GetSubscriptionPaymentMethodUpdateUrl"
+      body: "*"
+    };
+  }
+}
+
+message CreateSubscriptionRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  oneof create_subscription_request {
+    GooglePlayCreateSubscriptionRequest google_play_create_subscription_request = 2;
+    StripeCreateSubscriptionRequest stripe_create_subscription_request = 3;
+  }
+}
+
+message CreateSubscriptionResponse {
+  SubscriptionDetails subscription_details = 1;
+}
+
+// Request details for listing the subscriptions.
+message ListSubscriptionsRequest {
+  // ID of the payment processor to list subscriptions from
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // Optional status filter for the lookup
+  optional coursera.proto.sharedpayments.v1.SubscriptionStatus status = 2;
+  // Optional cursor to get the next page of results (used for pagination)
+  optional string cursor = 3;
+  // Optional filter for subscriptions created after this timestamp
+  optional google.protobuf.Timestamp created_at_start = 4;
+  // Optional filter for subscriptions created before this timestamp
+  optional google.protobuf.Timestamp created_at_end = 5;
+}
+
+// Response details for listing the subscriptions.
+message ListSubscriptionsResponse {
+  // The payment processor subscription IDs found that match the request params
+  repeated string payment_processor_subscription_ids = 1;
+  // The cursor to use in the next request to get the next page of results, if any results are left
+  optional string next_cursor = 2;
+}
+
+message FindSubscriptionRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue subscription_id = 2;
+}
+
+message FindSubscriptionResponse {
+  // Deprecated only for Stripe, still used for Google Play.
+  SubscriptionDecorated subscription_decorated = 1 [deprecated = true];
+  // Only populated for Stripe, not Google Play.
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorSubscription payment_processor_subscription = 2;
+}
+
+message GetSubscriptionPaymentMethodCardRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  string subscription_id = 2;
+}
+
+message GetSubscriptionPaymentMethodCardResponse {
+  SubscriptionPaymentMethodCard subscription_payment_method_card = 1;
+}
+
+// the request to cancel a subscription
+message CancelSubscriptionRequest {
+  // ID of the payment processor
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // the subscription ID in the payment processor's domain
+  google.protobuf.StringValue subscription_id = 2;
+  // flag for sending metrics to Datadog or not
+  google.protobuf.BoolValue exclude_metrics = 3;
+  // temporary flag for scheduling the subscription cancellation for the end of the billing
+  // period instead of having the payment processor cancel it immediately.
+  // to be removed after the "One Click Reactivation" / "Subscription Cancellation Undo"
+  // experiment ends.
+  google.protobuf.BoolValue cancel_at_period_end = 4;
+}
+
+// the response after canceling a subscription
+message CancelSubscriptionResponse {
+  // Enum to represent if the subscription was already canceled previously.
+  enum SubscriptionCanceledPreviously {
+    SUBSCRIPTION_CANCELED_PREVIOUSLY_INVALID = 0;
+    SUBSCRIPTION_CANCELED_PREVIOUSLY_YES = 1;
+    SUBSCRIPTION_CANCELED_PREVIOUSLY_NO = 2;
+  }
+  SubscriptionCanceledPreviously subscription_canceled_previously = 1;
+}
+
+// the request to restore a cancelled subscription
+message RestoreCancelledSubscriptionRequest {
+  // ID of the payment processor
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of the subscription according to the payment processor, not Coursera's internal ID
+  google.protobuf.StringValue payment_processor_subscription_id = 2;
+}
+
+// the response after restoring a cancelled subscription
+message RestoreCancelledSubscriptionResponse {
+  // details about the subscription that was just updated
+  // Deprecated only for Stripe, still used for Google Play.
+  SubscriptionDecorated subscription_decorated = 1 [deprecated = true];
+  // Only populated for Stripe, not Google Play.
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorSubscription payment_processor_subscription = 2;
+}
+
+message GetSubscriptionPaymentMethodUpdateUrlRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  oneof subscription_payment_method_update_url_request {
+    StripeSubscriptionPaymentMethodUpdateUrlRequest stripe_subscription_payment_method_update_url_request = 2;
+  }
+}
+
+message StripeSubscriptionPaymentMethodUpdateUrlRequest {
+  google.protobuf.Int32Value user_id = 1;
+}
+
+message GetSubscriptionPaymentMethodUpdateUrlResponse {
+  oneof subscription_payment_method_update_url_response {
+    StripeSubscriptionPaymentMethodUpdateUrlResponse stripe_subscription_payment_method_update_url_response = 2;
+  }
+}
+
+message StripeSubscriptionPaymentMethodUpdateUrlResponse {
+  google.protobuf.StringValue customer_portal_url = 1;
+}
+
+message UpdateSubscriptionRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  UpdateSubscriptionDetails update_subscription_details = 2;
+}
+
+message UpdateSubscriptionResponse {
+  google.protobuf.StringValue subscription_id = 1;
+  repeated TaxRateDetails tax_rate_details = 2;
+  ProductPromotionInformationDetails promotion = 3;
+}
+
+// the request to update a subscription's product
+message UpdateSubscriptionProductRequest {
+  // ID of the payment processor
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of the subscription according to the payment processor, not Coursera's internal ID
+  google.protobuf.StringValue payment_processor_subscription_id = 2;
+  // details for the product update (payment method, product, amount, billing cycle)
+  SubscriptionProductUpdateDetails product_update_details = 3;
+}
+
+// the response after updating a subscription's product
+message UpdateSubscriptionProductResponse {
+  // details about the subscription that was just updated
+  // Deprecated only for Stripe, still used for Google Play.
+  SubscriptionDecorated subscription_decorated = 1 [deprecated = true];
+  // Only populated for Stripe, not Google Play.
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorSubscription payment_processor_subscription = 2;
+}
+
+// the request to update a subscription's free trial
+message UpdateSubscriptionTrialRequest {
+  // ID of the payment processor
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of the subscription according to the payment processor, not Coursera's internal ID
+  google.protobuf.StringValue payment_processor_subscription_id = 2;
+  // details for the free trial update (trial end timestamp, Product metadata)
+  SubscriptionTrialUpdateDetails trial_update_details = 3;
+}
+
+// the response after updating a subscription's free trial
+message UpdateSubscriptionTrialResponse {
+  // details about the subscription that was just updated
+  // Deprecated only for Stripe, still used for Google Play.
+  SubscriptionDecorated subscription_decorated = 1 [deprecated = true];
+  // Only populated for Stripe, not Google Play.
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorSubscription payment_processor_subscription = 2;
+}
+
+message GetSubscriptionTaxRateInfoRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue subscription_id = 2;
+}
+
+message GetSubscriptionTaxRateInfoResponse {
+  // the billing address for default payment of a subscription
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 1;
+  TaxRateDetails tax_rate_details = 2;
+}
+
+// the request to get transaction details
+message GetSubscriptionTransactionRequest {
+  // the payment processor id
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // the transaction id to get required transaction details
+  string payment_processor_transaction_id = 2;
+}
+
+// the response containing transaction details
+message GetSubscriptionTransactionResponse {
+  TransactionDetails transaction_details = 1;
+}

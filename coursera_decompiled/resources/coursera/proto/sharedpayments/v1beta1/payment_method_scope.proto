@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1Beta1";
+option go_package = "sharedpaymentsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentMethodScopeProto";
+option java_package = "org.coursera.proto.sharedpayments.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1Beta1";
+
+// Enum representing the scope of purchases a payment method can be used for.
+enum PaymentMethodScope {
+  // Default/invalid value, should not be used.
+  PAYMENT_METHOD_SCOPE_INVALID = 0;
+  // Payment method can only be used for renewal purchases.
+  PAYMENT_METHOD_SCOPE_RENEWAL_ONLY = 1;
+  // Payment method can be used for all types of purchases.
+  PAYMENT_METHOD_SCOPE_ALL_PURCHASES = 2;
+}

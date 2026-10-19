@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1";
+option go_package = "sharedpaymentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionStatusProto";
+option java_package = "org.coursera.proto.sharedpayments.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1";
+
+// Internal Subscription Statuses.
+enum SubscriptionStatus {
+  SUBSCRIPTION_STATUS_INVALID = 0;
+  // The Subscription is active and the next payment is expected on the nextBillingAt.
+  SUBSCRIPTION_STATUS_ACTIVE = 1;
+  // The Subscription is no longer active and has moved past their paid up until date.
+  SUBSCRIPTION_STATUS_INACTIVE = 2;
+  // The Subscription has been cancelled and no new payment will be made for this Subscription.
+  // One the Subscription moves past its paid up until date, it will transition to INACTIVE.
+  SUBSCRIPTION_STATUS_CANCELLED = 3;
+  // The Subscription is currently in a free trial period and the first payment is expected on the
+  // nextBillingAt, at which case it will transition to either ACTIVE or PAST_DUE depending on
+  // whether the payment was successfully pulled or not.
+  SUBSCRIPTION_STATUS_FREE_TRIAL = 4;
+  // The latest payment could not be pulled for this Subscription and so the payment is now past due.
+  SUBSCRIPTION_STATUS_PAST_DUE = 5;
+  // The Subscription has reached the specified number of billing cycles and has lapsed out of the paid through period.
+  SUBSCRIPTION_STATUS_EXPIRED = 6;
+  // The Subscription is paused; access continues through the paid-through time while billing is deferred.
+  SUBSCRIPTION_STATUS_PAUSED = 7;
+}

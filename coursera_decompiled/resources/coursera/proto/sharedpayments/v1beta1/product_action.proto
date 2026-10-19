@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1Beta1";
+option go_package = "sharedpaymentsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ProductActionProto";
+option java_package = "org.coursera.proto.sharedpayments.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1Beta1";
+
+// The action that is being taken on the product.
+// Additional product actions exist but haven't been relevant to the Java implementation.
+enum ProductAction {
+  // Invalid product action.
+  PRODUCT_ACTION_INVALID = 0;
+  // A purchase.
+  PRODUCT_ACTION_BUY = 1;
+}

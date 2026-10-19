@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.common.v2beta1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Common.V2Beta1";
+option go_package = "commonv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "RecurringPaymentProto";
+option java_package = "org.coursera.proto.paymentscheckout.common.v2beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Common\\V2Beta1";
+
+// RecurringPayment represents a payment that is part of a subscription.
+message RecurringPayment {
+  // The id of the recurring payment.
+  string id = 1;
+  // The id of the subscription that this payment is part of.
+  string subscription_id = 2;
+  // The id of the payment processor transaction that was recorded for this recurring payment; or for a free trial payment, the id of the payment processor subscription. I know, it's weird. Best not to rely on this field unless you know what you're doing.
+  string payment_processor_transaction_id = 3;
+  // (Optional) The id of the wallet that was used for this recurring payment, if one was used.
+  google.protobuf.Int64Value payment_wallet_id = 4;
+  // Denotes the start time that this recurring payment covers.
+  google.protobuf.Timestamp starts_at = 5;
+  // Denotes the end time that this recurring payment covers.
+  google.protobuf.Timestamp ends_at = 6;
+  // The id for the cart that this recurring payment is associated with.
+  int64 cart_id = 7;
+  // The amount that was charged for this recurring payment.
+  google.type.Money amount = 8;
+  // (Optional) The amount of tax that was charged for this recurring payment.
+  google.type.Money tax_amount = 9;
+}

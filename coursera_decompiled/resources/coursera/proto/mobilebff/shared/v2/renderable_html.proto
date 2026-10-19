@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v2;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V2";
+option go_package = "sharedv2";
+option java_multiple_files = true;
+option java_outer_classname = "RenderableHtmlProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v2";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V2";
+option swift_prefix = "MobilebffShared";
+
+// This file contains message types representing renderable html
+// used across mobile's bff layer.
+
+// Container for renderable html.
+message RenderableHtml {
+  string html = 1;
+  // `cml` is not always present since some htmls are not rendered from cml. This field
+  // uses `StringValue` type so that it's nullable. Mobile clients should ignore this field.
+  google.protobuf.StringValue cml = 2;
+  bool has_math = 11;
+  bool is_plain_text = 12;
+  bool has_asset_block = 13;
+  bool has_code_block = 14;
+}

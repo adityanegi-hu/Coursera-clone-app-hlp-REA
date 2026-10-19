@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package coursera.proto.sharedentitlement.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedentitlement.V1Beta1";
+option go_package = "sharedentitlementv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ProductTypeProto";
+option java_package = "org.coursera.proto.sharedentitlement.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedentitlement\\V1Beta1";
+
+// ProductType represents some content that we sell to our learners.
+// This content can package other content that is sold individually (Specializations package VerifiedCertificate).
+// It can also package other content that is not sold individually (CredentialTrackSubscription packages CredentialTrackCourse)
+enum ProductType {
+  PRODUCT_TYPE_INVALID = 0;
+  PRODUCT_TYPE_VERIFIED_CERTIFICATE = 1;
+  PRODUCT_TYPE_SPECIALIZATION = 2;
+  PRODUCT_TYPE_SPECIALIZATION_SUBSCRIPTION = 3;
+  PRODUCT_TYPE_ENTERPRISE_CONTRACT = 4;
+  PRODUCT_TYPE_CREDENTIAL_TRACK_SUBSCRIPTION = 5;
+  PRODUCT_TYPE_CREDENTIAL_TRACK_COURSE = 6;
+  PRODUCT_TYPE_CREDENTIAL_TRACK_SUBSCRIPTION_V2 = 7;
+  PRODUCT_TYPE_CREDENTIAL_TRACK_COURSE_V2 = 8;
+  PRODUCT_TYPE_COURSERA_PLUS_SUBSCRIPTION = 9;
+  PRODUCT_TYPE_SPECIALIZATION_PREPAID = 10;
+  PRODUCT_TYPE_CATALOG_SUBSCRIPTION = 11 [deprecated = true];
+  PRODUCT_TYPE_SPARK_VERIFIED_CERTIFICATE = 12 [deprecated = true];
+  PRODUCT_TYPE_SPARK_SPECIALIZATION = 13 [deprecated = true];
+  PRODUCT_TYPE_SPARK_COURSE_SHELL = 14 [deprecated = true];
+  PRODUCT_TYPE_FACILITATED_LEARNING = 15 [deprecated = true];
+  PRODUCT_TYPE_INTEREST_DEPOSIT = 16 [deprecated = true];
+  PRODUCT_TYPE_CREDENTIAL_TRACK = 17;
+  PRODUCT_TYPE_COURSERA_PLUS = 18;
+  PRODUCT_TYPE_COURSERA_TIER_LITE = 19;
+}

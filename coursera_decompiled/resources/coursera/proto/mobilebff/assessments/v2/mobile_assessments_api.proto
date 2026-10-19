@@ -1,0 +1,132 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.assessments.v2;
+
+import "coursera/proto/mobilebff/assessments/v2/mobile_assessments.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Assessments.V2";
+option go_package = "assessmentsv2";
+option java_multiple_files = true;
+option java_outer_classname = "MobileAssessmentsApiProto";
+option java_package = "org.coursera.proto.mobilebff.assessments.v2";
+option objc_class_prefix = "CPMA";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Assessments\\V2";
+option swift_prefix = "MobilebffAssessments";
+
+// A Service to get assessments for mobile.
+service MobileAssessmentsAPI {
+  option deprecated = true;
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get previous assessment submission by (course id or course slug), item id and session id.
+  rpc GetPreviousMobileAssessment(GetPreviousMobileAssessmentRequest) returns (GetPreviousMobileAssessmentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/GetPreviousMobileAssessment"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/GetPreviousMobileAssessment"}
+    };
+  }
+  // Get assessment by course id or course slug and item id.
+  rpc GetMobileAssessment(GetMobileAssessmentRequest) returns (GetMobileAssessmentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/GetMobileAssessment"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/GetMobileAssessment"}
+    };
+  }
+  // Submit assessment by (course id or course slug), item id, session id and answers.
+  rpc SubmitMobileAssessment(SubmitMobileAssessmentRequest) returns (SubmitMobileAssessmentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/SubmitMobileAssessment"
+      body: "*"
+    };
+  }
+  // Get cover page for assessments.
+  rpc GetMobileAssessmentCoverPage(GetMobileAssessmentCoverPageRequest) returns (GetMobileAssessmentCoverPageResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/GetMobileAssessmentCoverPage"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v2/MobileAssessmentsAPI/GetMobileAssessmentCoverPage"}
+    };
+  }
+}
+
+message GetPreviousMobileAssessmentRequest {
+  string course_id = 1;
+  string item_id = 2;
+  // sessionId is only sessionId — will look like `1~1547597938490`
+  string session_id = 3;
+}
+
+message GetPreviousMobileAssessmentResponse {
+  SubmissionResponse submission_response = 1;
+}
+
+message GetMobileAssessmentRequest {
+  string course_id = 1;
+  string item_id = 2;
+}
+
+message GetMobileAssessmentResponse {
+  // "sessionId" will contain `courseId~itemId~sessionId`.
+  string session_id = 1;
+  repeated Question questions = 2;
+}
+
+message SubmitMobileAssessmentRequest {
+  string course_id = 1;
+  string item_id = 2;
+  // "sessionId" should be passed as `courseId~itemId~sessionId`.
+  string session_id = 3;
+  repeated QuestionSubmissionEntry quiz_answers = 5;
+}
+
+message SubmitMobileAssessmentResponse {
+  SubmissionResponse submission_response = 1;
+}
+
+message GetMobileAssessmentCoverPageRequest {
+  string course_id = 1;
+  string item_id = 2;
+}
+
+message GetMobileAssessmentCoverPageResponse {
+  string name = 1;
+  google.protobuf.Timestamp due_at_time = 2;
+  int32 question_count = 3;
+  // [0-100] Required percentage to pass the exam.
+  int32 passing_percentage = 4;
+  // Learner has not or has attempted this assessment previously.
+  bool is_first_attempt = 5;
+  // [0.00-100.00] Learner's best score for this assessment
+  google.protobuf.FloatValue best_score_percentage = 6;
+  // Duration of attempt window (n attempts per k time period).
+  google.protobuf.Duration attempt_interval_duration = 7;
+  // Count of max number of attempts within attempt_interval.
+  google.protobuf.Int32Value attempts_per_interval = 8;
+  // 0, 1, or many status banners to show.
+  repeated StatusBanner status_banners = 9;
+  // sessionId of most recent previous session attempt. `sessionId` is only sessionId, will look like `1~1547597938490`.
+  google.protobuf.StringValue last_session_id = 10;
+}

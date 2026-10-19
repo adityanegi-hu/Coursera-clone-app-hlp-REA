@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.itemsummary.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Itemsummary.V1";
+option go_package = "itemsummaryv1";
+option java_multiple_files = true;
+option java_outer_classname = "ItemSummaryApiProto";
+option java_package = "org.coursera.proto.mobilebff.itemsummary.v1";
+option objc_class_prefix = "CPMI";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Itemsummary\\V1";
+option swift_prefix = "MobilebffItemsummaryV1";
+
+// A service for getting ItemSummary on mobile.
+service ItemSummaryAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Perform a request to get the summary for a specific item in a course
+  rpc GetItemSummary(GetItemSummaryRequest) returns (GetItemSummaryResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/itemsummary/v1/ItemSummaryAPI/GetItemSummary"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/itemsummary/v1/ItemSummaryAPI/GetItemSummary"}
+    };
+  }
+}
+
+message GetItemSummaryRequest {
+  // The course ID
+  string course_id = 1;
+  // The item id to get the summary for
+  string item_id = 2;
+}
+
+message GetItemSummaryResponse {
+  // A summary for the requested item
+  google.protobuf.StringValue summary = 1;
+}

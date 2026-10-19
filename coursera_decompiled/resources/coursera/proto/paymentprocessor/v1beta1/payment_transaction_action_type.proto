@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionActionTypeProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Values for identifying which money-moving action a specific transaction is/was for.
+// https://github.com/webedx-spark/infra-services/blob/master/libs/models/src/main/pegasus/org/coursera/payment/transaction/PaymentTransactionActionType.courier
+enum PaymentTransactionActionType {
+  // Invalid.
+  PAYMENT_TRANSACTION_ACTION_TYPE_INVALID = 0;
+  // Customer payment to merchant (Coursera).
+  PAYMENT_TRANSACTION_ACTION_TYPE_PAYMENT = 1;
+  // Refund from merchant (Coursera) to customer.
+  PAYMENT_TRANSACTION_ACTION_TYPE_REFUND = 2;
+  PAYMENT_TRANSACTION_ACTION_TYPE_VOID = 3;
+  PAYMENT_TRANSACTION_ACTION_TYPE_PARTIAL_REFUND = 4;
+  PAYMENT_TRANSACTION_ACTION_TYPE_QUERY = 5;
+  PAYMENT_TRANSACTION_ACTION_TYPE_CHARGEBACK = 6;
+  PAYMENT_TRANSACTION_ACTION_TYPE_CHARGEBACK_REVERSAL = 7;
+}

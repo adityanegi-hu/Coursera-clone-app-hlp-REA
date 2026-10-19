@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d tapşırıq təhvil verilməlidir</item>
+        <item quantity="other">%d tapşırıq təhvil verilməlidir</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d tapşırıq</item>
+        <item quantity="other">%1$d tapşırıq</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d dialoq</item>
+        <item quantity="other">%1$d dialoq</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d müzakirə</item>
+        <item quantity="other">%1$d müzakirə</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d qiymətləndirilən tapşırıq</item>
+        <item quantity="other">%1$d qiymətləndirilən tapşırıq</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d qiymətləndirilən müzakirə</item>
+        <item quantity="other">%1$d qiymətləndirilən müzakirə</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d qiymətləndirilmiş laboratoriya tapşırığı</item>
+        <item quantity="other">%1$d qiymətləndirilmiş laboratoriya tapşırığı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d qiymətləndirilmiş rol oyunu</item>
+        <item quantity="other">%1$d qiymətləndirilmiş rol oyunu</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d qiymətləndirilən komanda tapşırığı</item>
+        <item quantity="other">%1$d qiymətləndirilən komanda tapşırığı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d laboratoriya tapşırığı</item>
+        <item quantity="other">%1$d laboratoriya tapşırığı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d Kilidli oxu materialı</item>
+        <item quantity="other">%1$d Kilidli oxu materialı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d Kilidli video</item>
+        <item quantity="other">%1$d Kilidli video</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d dəftər</item>
+        <item quantity="other">%1$d dəftər</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Komponent</item>
+        <item quantity="other">%1$d Komponent</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d tələbələrarası qiymətləndirilmiş tapşırıq</item>
+        <item quantity="other">%1$d tələbələrarası qiymətləndirilmiş tapşırıq</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d yoldaş rəyi</item>
+        <item quantity="other">%1$d yoldaş rəyi</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d praktiki tapşırıq</item>
+        <item quantity="other">%1$d praktiki tapşırıq</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d tələbələrarası qiymətləndirilmiş tapşırıq</item>
+        <item quantity="other">%1$d tələbələrarası qiymətləndirilmiş tapşırıq</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d praktik test</item>
+        <item quantity="other">%1$d praktik test</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d komanda praktiki tapşırığı</item>
+        <item quantity="other">%1$d komanda praktiki tapşırığı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d proqramlaşdırma tapşırığı</item>
+        <item quantity="other">%1$d proqramlaşdırma tapşırığı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d test</item>
+        <item quantity="other">%1$d test</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d oxu materialı</item>
+        <item quantity="other">%1$d oxu materialı</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d rol oyunu</item>
+        <item quantity="other">%1$d rol oyunu</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d slaydşou</item>
+        <item quantity="other">%1$d slaydşou</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d komanda layihəsi</item>
+        <item quantity="other">%1$d komanda layihəsi</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">tapşırıq üçün rəyi tamamladığınıza görə təbriklər! Əlavə vaxtınız varsa, digər yoldaşlarınıza kömək edin.</item>
+        <item quantity="other">%s tapşırığın hamısın üçün təyi tamamladığınıza görə təbirklər! Əlavə vaxtınız varsa, digər yoldaşlarınıza kömək edin.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">kurs təlimatçısı</item>
+        <item quantity="other">kurs təlimatçısı</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">5 ulduzdan %1$s ulduzla qiymətləndirilib, %2$s rəy</item>
+        <item quantity="other">5 ulduzdan %1$s ulduzla qiymətləndirilib, %2$s rəy</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Bir qiymətləndirməni tamamlayın</item>
+        <item quantity="other">%1$d qiymətləndirməni tamamlayın</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Praktiki bir tapşırıq elementini tamamlayın</item>
+        <item quantity="other">%1$d praktiki tapşırıq elementini tamamlayın</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Bir dərsi tamamlayın</item>
+        <item quantity="other">İstənilən %1$d dərsi tamamlayın</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Videonu tamamlayın</item>
+        <item quantity="other">%1$d videonu tamamlayın</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Tapşırıq elementini tamamlayın</item>
+        <item quantity="other">%1$d tapşırıq elementini tamamlayın</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Oxu materialını tamamlayın</item>
+        <item quantity="other">%1$d oxu materialını tamamlayın</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">gün</item>
+        <item quantity="other">gün</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s dərəcəsi</item>
+        <item quantity="other">%1$s dərəcəsi</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d gün</item>
+        <item quantity="other">%1$d gün</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d saat</item>
+        <item quantity="other">%1$d saat</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">%d saniyə irəli çəkin</item>
+        <item quantity="other">%d saniyə irəli çəkin</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">%d saniyə geri çəkin</item>
+        <item quantity="other">%d saniyə geri çəkin</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d modul</item>
+        <item quantity="other">%1$d modul</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d kurs seriyası</item>
+        <item quantity="other">%1$d kurs seriyası</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d gün</item>
+        <item quantity="other">%1$d gün</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">%1$d tapşırıq</item>
+        <item quantity="other">%1$d tapşırıq</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">saat</item>
+        <item quantity="other">saat</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">dəq</item>
+        <item quantity="other">dəq</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">ay</item>
+        <item quantity="other">ay</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d Kurs</item>
+        <item quantity="other">%1$d Kurs</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 xal</item>
+        <item quantity="other">%.1f bal</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">5 ulduzdan %1$s ulduzla qiymətləndirilib</item>
+        <item quantity="other">5 ulduzdan %1$s ulduzla qiymətləndirilib</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">ümumi nəticə</item>
+        <item quantity="other">ümumi nəticə</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">xal</item>
+        <item quantity="other">bal</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d praktiki sual</item>
+        <item quantity="other">%d praktiki sual</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">5 ulduzdan %1$s ulduzla qiymətləndirilib</item>
+        <item quantity="other">5 ulduzdan %1$s ulduzla qiymətləndirilib</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">sual</item>
+        <item quantity="other">sual</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s xal</item>
+        <item quantity="other">%1$s xal</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d sual</item>
+        <item quantity="other">%d sual</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">sual</item>
+        <item quantity="other">sual</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d SUAL</item>
+        <item quantity="other">%d SUAL</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d dəqiqə</item>
+        <item quantity="other">%d dəqiqə</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d dəq</item>
+        <item quantity="other">%d dəq</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">cavab</item>
+        <item quantity="other">cavab</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d komponent</item>
+        <item quantity="other">%1$d komponent</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">%d kursu göstər</item>
+        <item quantity="other">%d kursun hamısını göstər</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">%1$d/%2$s kursu göstər</item>
+        <item quantity="other">%1$d/%2$s kursu göstər</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">bacarıq</item>
+        <item quantity="other">bacarıq</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Həftəlik hədəfinizə çatmaq üçün daha %1$d gün öyrənin!</item>
+        <item quantity="other">%1$d həftəlik hədəfinizə çatmaq üçün daha çox öyrənmə günləri!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Öyrənmə hədəfinizə çatmaq üçün daha %1$d gün öyrənin!</item>
+        <item quantity="other">Öyrənmə hədəfinizə çatmaq üçün %1$d daha çox gün öyrənin!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">5 ulduzdan %1$s ulduz, %2$s</item>
+        <item quantity="other">%1$s ulduzdan 5 ulduz, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">müsbət səst</item>
+        <item quantity="other">müsbət səs</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d həftə</item>
+        <item quantity="other">%1$d həftə</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">i̇l</item>
+        <item quantity="other">il</item>
+    </plurals>
+</resources>

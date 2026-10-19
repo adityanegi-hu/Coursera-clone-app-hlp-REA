@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1beta1;
+
+import "coursera/proto/shared/v1/big_decimal.proto";
+import "coursera/proto/sharedpayments/v1beta1/cart_item.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1Beta1";
+option go_package = "sharedpaymentsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "CartProto";
+option java_package = "org.coursera.proto.sharedpayments.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1Beta1";
+
+// An instance of a Cart, used for checkout on Coursera's platform. Some
+// fields defined in Cart.scala in infra-services are omitted here because they're not relevant to
+// the java implementation yet.
+message Cart {
+  // Unique cart identifier.
+  int64 id = 1;
+  // Id of the user for whom the cart was created.
+  int64 user_id = 2;
+  // The Timestamp of when the cart was created at.
+  google.protobuf.Timestamp created_at = 3;
+  // The Timestamp of when the cart was last updated at.
+  google.protobuf.Timestamp last_updated_at = 4;
+  // Numerical id of the currency used to check out the cart as per ISO_4217.
+  int32 currency_id = 5;
+  // Country in which the cart was checked out. Alpha-2 format, eg "US".
+  string country_iso_code = 6;
+  // The fxRate used to convert to USD (should be empty if currency is USD)
+  google.protobuf.Int32Value fx_rate_id = 7;
+}
+
+// A wrapper around cart that takes price computations into account, including promotions
+// and localization of prices; a cart that has been validated and prepared for checkout by our system
+// Formerly referred to as "CartWithComputed".
+message ValidatedCart {
+  // Id of the Cart.
+  int64 id = 1;
+  // The underlying cart.
+  Cart cart = 2;
+  // The currency code in which the cart was checked out. Alpha-3 format, eg "USD".
+  string currency_code = 3;
+  // The country iso code for the country in which the cart was checked out. Alpha-2 format, eg "US".
+  string country_iso_code = 4;
+  // Includes the computed fields that belong to the cart.
+  ValidatedCartFields validated_cart_fields = 5;
+}
+
+// Includes computed fields that belong to a cart such as amount, and cart items with computed amounts.
+message ValidatedCartFields {
+  // Represents the total amount of the cart including discounts.
+  coursera.proto.shared.v1.BigDecimal total_cart_amount = 1;
+  // Represents the total cart amount before discounts.
+  coursera.proto.shared.v1.BigDecimal original_total_cart_amount = 2;
+  // The underlying cart items.
+  repeated ValidatedCartItem cart_items = 3;
+}

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_action_type.proto";
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_billing_info.proto";
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_status.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionEndProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// PaymentTransactionEnd message object.
+message PaymentTransactionEnd {
+  google.protobuf.UInt64Value id = 1;
+  google.protobuf.UInt64Value cart_id = 2;
+  PaymentTransactionActionType action_type = 3;
+  PaymentTransactionStatus status = 4;
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 5;
+  google.protobuf.StringValue payment_processor_transaction_id = 6;
+  google.protobuf.StringValue payment_processor_transaction_status = 7;
+  google.protobuf.Struct body = 8;
+  google.type.Money amount = 9;
+  // The amount of tax charged for this transaction. Adding amount and taxAmount yields total
+  // price charged to the learner.
+  google.type.Money tax_amount = 10;
+  PaymentTransactionBillingInfo billing_info = 11;
+  // The time this transaction took place in the payment processor.
+  google.protobuf.Timestamp timestamp_time = 12;
+}

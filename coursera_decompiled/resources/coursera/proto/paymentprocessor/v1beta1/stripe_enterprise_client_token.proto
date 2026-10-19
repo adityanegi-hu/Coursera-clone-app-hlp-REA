@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "StripeEnterpriseClientTokenProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Stripe enterprise client token.
+message StripeEnterpriseClientToken {
+  string client_token = 1;
+}

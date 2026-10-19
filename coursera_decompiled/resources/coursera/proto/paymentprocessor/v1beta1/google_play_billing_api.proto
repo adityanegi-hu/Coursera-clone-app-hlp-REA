@@ -1,0 +1,239 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/google_play_in_app_product.proto";
+import "coursera/proto/paymentprocessor/v1beta1/google_play_purchase_type.proto";
+import "coursera/proto/paymentprocessor/v1beta1/google_play_subscription.proto";
+import "coursera/proto/paymentprocessor/v1beta1/google_play_voided_purchase.proto";
+import "coursera/proto/paymentprocessor/v1beta1/google_play_voided_purchase_type.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayBillingApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Service that serves as a shim for the Google Play in-app purchases and subscriptions API.
+// See API documentation at https://developers.google.com/android-publisher#subscriptions.
+// TODO(PAY-2414): consolidate with future refactoring of transaction/fetch services
+service GooglePlayBillingAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: [
+      "payment",
+      "payment-processor-jobs"
+    ]
+  };
+
+  // Acknowledges a Google Play purchase. Without successful acknowledgement, within 3
+  // days the learner will automatically receive a refund and the purchase will be revoked.
+  rpc AcknowledgePurchase(AcknowledgePurchaseRequest) returns (AcknowledgePurchaseResponse);
+  // Gets a one-time product purchase.
+  rpc GetProductPurchase(GetProductPurchaseRequest) returns (GetProductPurchaseResponse);
+  // Gets a subscription purchase.
+  rpc GetSubscriptionPurchase(GetSubscriptionPurchaseRequest) returns (GetSubscriptionPurchaseResponse);
+  // Lists the purchases that were canceled, refunded or charged-back.
+  rpc ListVoidedPurchases(ListVoidedPurchasesRequest) returns (ListVoidedPurchasesResponse);
+  // Insert an in-app product.
+  rpc InsertInAppProduct(InsertInAppProductRequest) returns (InsertInAppProductResponse);
+  // Update an in-app product.
+  rpc UpdateInAppProduct(UpdateInAppProductRequest) returns (UpdateInAppProductResponse);
+  // Deletes an in-app product (i.e. a managed product or a subscriptions).
+  rpc DeleteInAppProduct(DeleteInAppProductRequest) returns (DeleteInAppProductResponse);
+  // Gets the names of all Google Play earnings reports available for download. Earnings reports are
+  // generated monthly.
+  rpc ListEarningsReports(ListEarningsReportsRequest) returns (ListEarningsReportsResponse);
+  // Gets a Google Play earnings report ZIP file.
+  rpc GetEarningsReport(GetEarningsReportRequest) returns (GetEarningsReportResponse);
+  // Lists all in-app products
+  rpc ListInAppProduct(ListInAppProductRequest) returns (ListInAppProductResponse);
+  // Gets an in-app product.
+  rpc FindInAppProduct(FindInAppProductRequest) returns (FindInAppProductResponse);
+  // Creates a subscription.
+  rpc CreateGoogleSubscription(CreateGoogleSubscriptionRequest) returns (CreateGoogleSubscriptionResponse);
+  // Update a subscription.
+  rpc PatchGoogleSubscription(PatchGoogleSubscriptionRequest) returns (PatchGoogleSubscriptionResponse);
+  // Deletes a subscription. A subscription can only be deleted if it has never had a base plan published.
+  rpc DeleteGoogleSubscription(DeleteGoogleSubscriptionRequest) returns (DeleteGoogleSubscriptionResponse);
+  // Lists all subscriptions.
+  rpc ListGoogleSubscription(ListGoogleSubscriptionRequest) returns (ListGoogleSubscriptionResponse);
+  // Gets a subscription.
+  rpc GetGoogleSubscription(GetGoogleSubscriptionRequest) returns (GetGoogleSubscriptionResponse);
+}
+
+// Request object for acknowledging Google Play purchases.
+message AcknowledgePurchaseRequest {
+  // Google Play one-time/subscription purchase SKU of the purchase to be acknowledged.
+  google.protobuf.StringValue sku = 1;
+  // Google Play purchase token of the purchase to be acknowledged.
+  google.protobuf.StringValue purchase_token = 2;
+  // Purchase type of the purchase to be acknowledged.
+  GooglePlayPurchaseType purchase_type = 3;
+}
+
+// Response object for acknowledging Google Play purchases.
+message AcknowledgePurchaseResponse {
+  // True if purchase was found and successfully acknowledged, false otherwise.
+  google.protobuf.BoolValue success = 1;
+}
+
+message GetProductPurchaseRequest {
+  google.protobuf.StringValue sku = 1;
+  google.protobuf.StringValue purchase_token = 2;
+}
+
+message GetProductPurchaseResponse {
+  google.type.Money amount = 1;
+  string purchase_type = 2;
+}
+
+message GetSubscriptionPurchaseRequest {
+  google.protobuf.StringValue sku = 1;
+  google.protobuf.StringValue purchase_token = 2;
+}
+
+message GetSubscriptionPurchaseResponse {
+  google.type.Money amount = 1;
+  string purchase_type = 2;
+}
+
+message ListInAppProductRequest {
+  string page_token = 1;
+}
+
+message ListInAppProductResponse {
+  string kind = 1;
+  repeated GooglePlayInAppProduct google_in_app_product_list = 2;
+  string next_page_token = 3;
+}
+
+message ListVoidedPurchasesRequest {
+  int32 page_size = 1;
+  string page_token = 2;
+  google.protobuf.Timestamp start_time = 3;
+  google.protobuf.Timestamp end_time = 4;
+  GooglePlayVoidedPurchaseType type = 5;
+}
+
+message ListVoidedPurchasesResponse {
+  repeated GooglePlayVoidedPurchase results = 1;
+  int32 total_results = 2;
+  int32 results_per_page = 3;
+  string next_page_token = 4;
+  string last_page_token = 5;
+  int32 start_index = 6;
+}
+
+message InsertInAppProductRequest {
+  GooglePlayInAppProduct in_app_product = 1;
+  bool auto_convert_missing_prices = 2;
+}
+
+message InsertInAppProductResponse {
+  GooglePlayInAppProduct in_app_product = 1;
+}
+
+message UpdateInAppProductRequest {
+  GooglePlayInAppProduct in_app_product = 1;
+  bool auto_convert_missing_prices = 2;
+  bool allow_missing = 3;
+}
+
+message UpdateInAppProductResponse {
+  GooglePlayInAppProduct in_app_product = 1;
+}
+
+message DeleteInAppProductRequest {
+  // Google Play one-time/subscription purchase SKU of the purchase to be acknowledged.
+  google.protobuf.StringValue sku = 1;
+}
+
+message DeleteInAppProductResponse {}
+
+message ListEarningsReportsRequest {}
+
+message ListEarningsReportsResponse {
+  // List of Google Play earnings report names that are available to download, e.g.
+  // "earnings_202111_3140244050931947-1.zip".
+  repeated string report_names = 1;
+}
+
+message GetEarningsReportRequest {
+  // Name of the earnings report to fetch, e.g. "earnings_202111_3140244050931947-1.zip".
+  google.protobuf.StringValue report_name = 1;
+}
+
+message GetEarningsReportResponse {
+  // Content of the zipped earnings report CSV.
+  bytes report_content = 1;
+}
+
+message FindInAppProductRequest {
+  google.protobuf.StringValue sku = 1;
+}
+
+message FindInAppProductResponse {
+  GooglePlayInAppProduct in_app_product = 1;
+}
+
+// Request object for creating a new Google Play subscription.
+message CreateGoogleSubscriptionRequest {
+  GooglePlaySubscription subscription = 1;
+}
+
+// Response object for creating a new Google Play subscription.
+message CreateGoogleSubscriptionResponse {
+  GooglePlaySubscription subscription = 1;
+}
+
+// Request object for updating an existing Google Play subscription.
+message PatchGoogleSubscriptionRequest {
+  GooglePlaySubscription subscription = 1;
+  // The list of fields to be updated, formatted in a comma-separated list of fully qualified names of fields.
+  string update_mask = 2;
+}
+
+// Response object for updating an existing Google Play subscription.
+message PatchGoogleSubscriptionResponse {
+  GooglePlaySubscription subscription = 1;
+}
+
+// Request object for deleting a Google Play subscription.
+message DeleteGoogleSubscriptionRequest {
+  // The unique product ID of the subscription to delete.
+  google.protobuf.StringValue product_id = 1;
+}
+
+// Response object for deleting a Google Play subscription.
+message DeleteGoogleSubscriptionResponse {}
+
+// Request object for listing all Google Play subscriptions.
+message ListGoogleSubscriptionRequest {
+  // A page token, received from a previous list call. Retrieves the subsequent page.
+  string page_token = 1;
+}
+
+// Response object for listing all Google Play subscriptions.
+message ListGoogleSubscriptionResponse {
+  repeated GooglePlaySubscription google_subscription_list = 1;
+  // A token to retrieve the next page. If this field is omitted, there are no subsequent pages.
+  string next_page_token = 2;
+}
+
+// Request object for getting a Google Play subscription.
+message GetGoogleSubscriptionRequest {
+  // The unique product ID of the subscription to get.
+  google.protobuf.StringValue product_id = 1;
+}
+
+// Response object for getting a Google Play subscription.
+message GetGoogleSubscriptionResponse {
+  GooglePlaySubscription subscription = 1;
+}

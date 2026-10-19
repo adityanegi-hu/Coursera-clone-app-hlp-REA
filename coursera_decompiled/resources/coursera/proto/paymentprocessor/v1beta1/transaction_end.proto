@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_end.proto";
+import "coursera/proto/paymentprocessor/v1beta1/transaction_start.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "TransactionEndProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// TransactionEnd message object.
+message TransactionEnd {
+  PaymentTransactionEnd payment_transaction_end = 1;
+  PaymentProcessorErrorReason error_reason = 2;
+  PaymentAuxiliaryInformation payment_aux_info = 3;
+}
+
+// Payment processor error details.
+message PaymentProcessorErrorReason {
+  google.protobuf.StringValue coursera_internal_error_code = 1;
+  ProcessorExceptionDetails processor_exception_details = 2;
+}
+
+// Payment processor exception details.
+message ProcessorExceptionDetails {
+  string processor_response_text = 1;
+  google.protobuf.StringValue processor_response_code = 2;
+  google.protobuf.StringValue additional_processor_response = 3;
+}

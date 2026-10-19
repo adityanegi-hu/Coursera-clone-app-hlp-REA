@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.events.v1beta1;
+
+import "coursera/proto/paymentscheckout/common/v1beta1/product_action.proto";
+import "coursera/proto/paymentscheckout/common/v2beta1/tax_amount.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_method_details.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Events.V1Beta1";
+option go_package = "eventsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionEventProto";
+option java_package = "org.coursera.proto.paymentscheckout.events.v1beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Events\\V1Beta1";
+
+// Event is published every time a payment transaction completes.
+message PaymentTransactionEvent {
+  PaymentTransactionEventType type = 1;
+  PaymentTransactionEventDetails details = 2;
+  google.protobuf.Timestamp timestamp = 3;
+  google.protobuf.Timestamp written_at = 4;
+}
+
+// Enum to define the type of the payment event.
+enum PaymentTransactionEventType {
+  PAYMENT_TRANSACTION_EVENT_TYPE_INVALID = 0;
+  PAYMENT_TRANSACTION_EVENT_TYPE_ACCEPTED = 1;
+  PAYMENT_TRANSACTION_EVENT_TYPE_FAILED_TO_SETTLE = 2;
+}
+
+// Details about the completed payment transaction.
+message PaymentTransactionEventDetails {
+  uint64 cart_id = 1;
+  uint64 user_id = 2;
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 3;
+  coursera.proto.paymentscheckout.common.v1beta1.ProductAction product_action = 4;
+  uint64 payment_transaction_id = 5;
+  PaymentTransactionDetails original_payment_transaction_details = 6;
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 7;
+  google.protobuf.StringValue payment_processor_transaction_id = 8;
+  google.type.Money amount = 9;
+  // (Optional) Tax amount charged for this transaction, if any
+  coursera.proto.paymentscheckout.common.v2beta1.TaxAmount tax_charged_to_learner = 10;
+  // (Optional) details of payment method used for transaction, if available
+  coursera.proto.sharedpayments.v1beta1.PaymentMethodDetails payment_method_details = 11;
+}
+
+// Message to encapsulate payment transaction details.
+message PaymentTransactionDetails {
+  uint64 transaction_id = 1;
+  google.protobuf.Timestamp timestamp = 2;
+}

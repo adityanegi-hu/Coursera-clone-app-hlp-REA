@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/sharedentitlement/v1beta1/product_id.proto";
+import "coursera/proto/sharedownableproduct/v1beta1/payment_scheme.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionProductUpdateDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Product Update information for a subscription.
+message SubscriptionProductUpdateDetails {
+  // ID of the payment method
+  google.protobuf.StringValue payment_processor_payment_method_id = 1;
+  // ID of the product to which the subscription should be updated
+  coursera.proto.sharedentitlement.v1beta1.ProductId product_id = 2;
+  // price to which the subscription should be updated
+  google.type.Money amount = 3;
+  // billing cycle to which the subscription should be updated
+  coursera.proto.sharedownableproduct.v1beta1.BillingCycle billing_cycle = 4;
+}

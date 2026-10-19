@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package coursera.proto.learnercalendar.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Learnercalendar.V1";
+option go_package = "learnercalendarv1";
+option java_multiple_files = true;
+option java_outer_classname = "LearnerCalendarsApiProto";
+option java_package = "org.coursera.proto.learnercalendar.v1";
+option objc_class_prefix = "CPL";
+option php_namespace = "Coursera\\Proto\\Learnercalendar\\V1";
+option swift_prefix = "LearnercalendarV1";
+
+// A service that returns calendar events for courses for learners.
+service LearnerCalendarsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // RPC to create new calendar settings for a user.
+  rpc CreateLearnerCalendar(CreateLearnerCalendarRequest) returns (CreateLearnerCalendarResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "sameUser"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/learnercalendar/v1/LearnerCalendarsAPI/CreateLearnerCalendar"
+      body: "*"
+    };
+  }
+  // Get learner calendar for a user.
+  rpc GetLearnerCalendar(GetLearnerCalendarRequest) returns (GetLearnerCalendarResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "sameUser"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/learnercalendar/v1/LearnerCalendarsAPI/GetLearnerCalendar"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/learnercalendar/v1/LearnerCalendarsAPI/GetLearnerCalendar"}
+    };
+  }
+  // Toggle the "shouldDisplayContent" setting for a user.
+  rpc ToggleShouldDisplayContent(ToggleShouldDisplayContentRequest) returns (ToggleShouldDisplayContentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "sameUser"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/learnercalendar/v1/LearnerCalendarsAPI/ToggleShouldDisplayContent"
+      body: "*"
+    };
+  }
+}
+
+message CreateLearnerCalendarRequest {
+  string user_id = 1;
+  // Workaround for Android. If enabled, then the calendar feed has content, else the feed will be blank.
+  bool should_display_content = 2;
+}
+
+message CreateLearnerCalendarResponse {
+  LearnerCalendar learner_calendar = 1;
+}
+
+message GetLearnerCalendarRequest {
+  string user_id = 1;
+}
+
+message GetLearnerCalendarResponse {
+  LearnerCalendar learner_calendar = 1;
+}
+
+message ToggleShouldDisplayContentRequest {
+  string user_id = 1;
+  // Workaround for Android. If enabled, then the calendar feed has content, else the feed will be blank.
+  bool should_display_content = 2;
+}
+
+message ToggleShouldDisplayContentResponse {
+  LearnerCalendar learner_calendar = 1;
+}
+
+message LearnerCalendar {
+  // Url which returns a ics file of the learner's calendar.
+  string url = 1;
+  // Workaround for Android. If enabled, then the calendar feed has content, else the feed will be blank.
+  bool should_display_content = 2;
+}

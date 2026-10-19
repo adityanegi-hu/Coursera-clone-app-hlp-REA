@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1Beta1";
+option go_package = "sharedpaymentsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentMethodTypeProto";
+option java_package = "org.coursera.proto.sharedpayments.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1Beta1";
+
+// Enumeration of payment method types.
+enum PaymentMethodType {
+  // Invalid payment method type.
+  PAYMENT_METHOD_TYPE_INVALID = 0;
+  // Other payment method type.
+  PAYMENT_METHOD_TYPE_OTHER = 1;
+  // Card payment method type.
+  PAYMENT_METHOD_TYPE_CARD = 2;
+  // Klarna payment method type.
+  PAYMENT_METHOD_TYPE_KLARNA = 3;
+  // Cashapp payment method type.
+  PAYMENT_METHOD_TYPE_CASHAPP = 4;
+  // Link payment method type.
+  PAYMENT_METHOD_TYPE_LINK = 5;
+  // UPI payment method type.
+  PAYMENT_METHOD_TYPE_UPI = 6;
+  // PIX payment method type (Stripe).
+  PAYMENT_METHOD_TYPE_PIX = 7;
+  // PayPal payment method type.
+  PAYMENT_METHOD_TYPE_PAYPAL = 8;
+  // OVO payment method type.
+  PAYMENT_METHOD_TYPE_OVO = 9;
+  // Mercado Pago payment method type.
+  PAYMENT_METHOD_TYPE_MERCADO_PAGO = 10;
+  // PIX Automatic payment method type (DLocal).
+  PAYMENT_METHOD_TYPE_PIX_AUTOMATIC = 11;
+  reserved 12;
+  reserved "PAYMENT_METHOD_TYPE_ID_LOCAL_WALLET";
+  // GCash payment method type (DLocal, Philippines).
+  PAYMENT_METHOD_TYPE_GCASH = 13;
+}

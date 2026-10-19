@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v2;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V2";
+option go_package = "paymentprocessorv2";
+option java_multiple_files = true;
+option java_outer_classname = "FindPaymentProcessorSkuParamsProto";
+option java_package = "org.coursera.proto.paymentprocessor.v2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V2";
+
+// Payment processor params for apple
+message AppleFindPaymentProcessorSkuParams {
+  google.protobuf.StringValue latest_original_transaction_id = 1;
+}

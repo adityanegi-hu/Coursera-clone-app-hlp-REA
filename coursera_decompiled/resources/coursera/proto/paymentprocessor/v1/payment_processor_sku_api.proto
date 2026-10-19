@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1;
+
+import "coursera/proto/paymentprocessor/v1/product_price_id.proto";
+import "coursera/proto/paymentprocessor/v1/product_price_id_v2.proto";
+import "coursera/proto/paymentprocessor/v1/versioned_product_price_id.proto";
+import "coursera/proto/paymentprocessor/v1beta1/payment_processor_id.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1";
+option go_package = "paymentprocessorv1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSkuApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1";
+
+// Service that provides an interface to create and find payment processor SKUs.
+// Currently, the only payment processors that sell external SKUs are Google Play and Apple.
+// There is a v1beta1 version of this service. This v1 service contains methods that are actively
+// called by the Android app, and thus need to maintain backwards compatibility.
+service PaymentProcessorSkuAPI {
+  option deprecated = true;
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+    alternative_apis: [
+      {
+        name: "paymentprocessor.v2.PaymentProcessorSkuAPI"
+        notes: "Please use the latest version of the API."
+      }
+    ]
+  };
+
+  // Finds a payment processor SKU given the payment processor ID and product price ID.
+  rpc FindPaymentProcessorSku(FindPaymentProcessorSkuRequest) returns (FindPaymentProcessorSkuResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/paymentprocessor/v1/PaymentProcessorSkuAPI/FindPaymentProcessorSku"
+      body: "*"
+    };
+  }
+}
+
+// Request details for finding a payment processor SKU.
+message FindPaymentProcessorSkuRequest {
+  // Deprecated, please use the shared_payment_processor_id
+  coursera.proto.paymentprocessor.v1beta1.PaymentProcessorId payment_processor_id = 1 [deprecated = true];
+  // Deprecated in favour of the `price_id` one-of field.
+  VersionedProductPriceId product_price_id = 2 [deprecated = true];
+  oneof price_id {
+    ProductPriceId price_id_v1 = 3;
+    ProductPriceIdV2 price_id_v2 = 4;
+  }
+  // Latest processor id to use
+  coursera.proto.sharedpayments.v1.PaymentProcessorId shared_payment_processor_id = 5;
+}
+
+// Response details for finding a payment processor SKU.
+message FindPaymentProcessorSkuResponse {
+  google.protobuf.StringValue payment_processor_sku = 1;
+}

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.unifiedhome.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Unifiedhome.V1";
+option go_package = "unifiedhomev1";
+option java_multiple_files = true;
+option java_outer_classname = "UnifiedHomeApiProto";
+option java_package = "org.coursera.proto.mobilebff.unifiedhome.v1";
+option objc_class_prefix = "CPMU";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Unifiedhome\\V1";
+option swift_prefix = "MobilebffUnifiedhomeV1";
+
+// Service for unified home feature checks.
+service UnifiedHomeAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Check if unified home feature is enabled for the current user.
+  rpc IsUnifiedHomeEnabled(IsUnifiedHomeEnabledRequest) returns (IsUnifiedHomeEnabledResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/unifiedhome/v1/UnifiedHomeAPI/IsUnifiedHomeEnabled"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/unifiedhome/v1/UnifiedHomeAPI/IsUnifiedHomeEnabled"}
+    };
+  }
+}
+
+// Request message for IsUnifiedHomeEnabled.
+message IsUnifiedHomeEnabledRequest {}
+
+// Response message for IsUnifiedHomeEnabled.
+message IsUnifiedHomeEnabledResponse {
+  // Whether the unified home feature is enabled for the user's organization.
+  bool is_enabled = 1;
+}

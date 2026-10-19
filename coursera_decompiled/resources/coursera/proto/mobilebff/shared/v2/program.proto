@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v2;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V2";
+option go_package = "sharedv2";
+option java_multiple_files = true;
+option java_outer_classname = "ProgramProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v2";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V2";
+option swift_prefix = "MobilebffShared";
+
+// Container holding information about a program.
+message ProgramInfo {
+  string program_id = 1;
+  string program_name = 2;
+  google.protobuf.StringValue photo_url = 4;
+  State state = 5;
+  // The membership state for the program.
+  enum State {
+    STATE_INVALID = 0;
+    STATE_MEMBER = 1;
+    STATE_INVITED = 2;
+    STATE_INVITED_EMAIL_NOT_VERIFIED = 3;
+  }
+}

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.courseinfo.v1;
+
+import "coursera/proto/mobilebff/courseinfo/v1/mobile_course_info.proto";
+import "coursera/proto/mobilebff/shared/v1beta1/course_instructor.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Courseinfo.V1";
+option go_package = "courseinfov1";
+option java_multiple_files = true;
+option java_outer_classname = "MobileCourseInfoApiProto";
+option java_package = "org.coursera.proto.mobilebff.courseinfo.v1";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Courseinfo\\V1";
+
+// A Service to collect and return course information for mobile.
+service MobileCourseInfoAPI {
+  // Get mobile course info information by course id.
+  rpc GetMobileCourseInfo(GetMobileCourseInfoRequest) returns (GetMobileCourseInfoResponse) {
+    option deprecated = true;
+  }
+}
+
+message GetMobileCourseInfoRequest {
+  google.protobuf.StringValue course_id = 1 [deprecated = true];
+}
+
+message GetMobileCourseInfoResponse {
+  repeated coursera.proto.mobilebff.shared.v1beta1.CourseInstructor instructors = 1 [deprecated = true];
+  repeated CourseInstructorMessage messages = 2 [deprecated = true];
+}

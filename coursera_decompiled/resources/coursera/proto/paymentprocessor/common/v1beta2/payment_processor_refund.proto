@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_exception_details.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/transaction_card_details.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorRefundProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Payment Processor's representation of a refund.
+message PaymentProcessorRefund {
+  // Payment processor with which this refund took place.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // Payment processor external refund id.
+  string payment_processor_refund_id = 2;
+  // money associated with the refund
+  google.type.Money amount = 3;
+  // refund timestamp
+  google.protobuf.Timestamp created_at = 4;
+  // refund status
+  google.protobuf.StringValue status = 5;
+  // any exceptions associated with the refund
+  coursera.proto.paymentprocessor.common.v1beta1.PaymentProcessorExceptionDetails exception_details = 6;
+  // (Optional) card details associated with a transaction
+  coursera.proto.paymentprocessor.common.v1beta2.TransactionCardDetails card_details = 7;
+}

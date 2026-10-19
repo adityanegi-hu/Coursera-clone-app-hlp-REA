@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.events.v2beta1;
+
+import "coursera/proto/paymentscheckout/common/v2beta1/payment_transaction_end.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Events.V2Beta1";
+option go_package = "eventsv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "OneTimeCheckoutSuccessEventProto";
+option java_package = "org.coursera.proto.paymentscheckout.events.v2beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Events\\V2Beta1";
+
+// Event that is published when a one time checkout attempt is successful.
+//
+// Note: This first iteration of this event model simply publishes a 1-to-1 mapping of
+// the database entities created as result of the checkout. It perhaps is not wise to tightly couple
+// the event model to our database models, but it is a good first step to get the event model
+// working. In the future, we may consider publishing a more generic event that is not so
+// tightly coupled to our database models.
+// https://github.com/webedx-spark/service-definitions/pull/5287
+message OneTimeCheckoutSuccessEvent {
+  // Id of the cart that was checked out.
+  int64 cart_id = 1;
+  // The payment transaction end written as a result.
+  coursera.proto.paymentscheckout.common.v2beta1.PaymentTransactionEnd payment_transaction_end = 2;
+}

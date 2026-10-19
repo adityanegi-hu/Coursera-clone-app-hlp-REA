@@ -1,0 +1,123 @@
+syntax = "proto3";
+
+package coursera.proto.sharedownableproduct.v1beta1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Sharedownableproduct.V1Beta1";
+option go_package = "sharedownableproductv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentSchemeProto";
+option java_package = "org.coursera.proto.sharedownableproduct.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedownableproduct\\V1Beta1";
+
+/**
+ * A centralized abstraction for configuring the various ways a learner can pay for and gain access to something on
+ * Coursera's platform.
+ *
+ * The `payment` verbiage is a bit of a misnomer. Enterprise, Degree, and Coursera Plus enrollment will generally refer
+ * to the `OwnableProductFulfillmentConfiguration` with `OneTimePaymentScheme` as the `paymentScheme` to complete
+ * checkout. In this case, only a subset of the scheme definition is relevant, e.g. `ownershipDays`.
+ *
+ * TODO: There is a lot of work to make this field well understood by the rest of the payment system. Some of that work
+ *  is encompassed by Next Gen Product Configuration System Phase 3 (https://coursera.atlassian.net/wiki/spaces/B2C/pages/2090336410/Next+Gen+Product+Configuration+System#Phase-3).
+ *  There is another bucket of work that we don't have a name for and haven't really thought through yet. At a
+ *  high-level, this work would involve migrating components that "surround" the product configuration system (carts,
+ *  subscriptions, etc.) to refer to the payment scheme field instead of the `legacyProductId#ProductType` to determine
+ *  how the learner is paying for something, translate this to processor requests, etc.
+ */
+message PaymentScheme {
+  oneof scheme {
+    OneTimePaymentScheme one_time = 1;
+    SubscriptionPaymentScheme subscription = 2;
+    InstallmentPaymentScheme installment = 3;
+    NotApplicablePaymentScheme not_applicable = 4;
+  }
+}
+
+message OneTimePaymentScheme {
+  /**
+   * The ownership period (in days) that users will have after purchasing the product.
+   * This is also used to calculate revenue recognition period in reporting.
+   */
+  int32 ownership_days = 1;
+  /**
+   * The number of days after purchase that users can refund the product. 0 if refund
+   * is not allowed which is the default value when this field is not set.
+   *
+   * https://developers.google.com/protocol-buffers/docs/proto3#default
+   */
+  int32 refund_days = 2;
+}
+
+/**
+ * Our subscriptions defaults to an unlimited number of cycles, or the subscription plan's the
+ * default configuration on the payment processor gateway
+ */
+message SubscriptionPaymentScheme {
+  BillingCycle billing_cycle = 1;
+  /**
+   * The number of free trial days. 0 if having no free trial which is the default value when this field is not set.
+   */
+  int32 number_of_trial_days = 2;
+  /**
+   * The number of days after purchase that users can refund the product. 0 if refund
+   * is not allowed which is the default value when this field is not set.
+   */
+  int32 refund_days = 3;
+}
+
+message InstallmentPaymentScheme {
+  /**
+   *  The cadence of installment charge. Currently we uses BillingCycle from subscriptions
+   *  because our installment products are built as "subscription products with limited
+   *  number of billing cycles". It's charged on a [BillingCycle] basis and uses the
+   *  subscription engine underneath.
+   */
+  BillingCycle charge_cadence = 1;
+
+  /**
+   * The ownership period (in days) that users will have after purchasing the product.
+   * This is the days in total of all installments. Per installment ownershipDays is
+   * calculated using ownershipDays / numberOfInstallments and are granted to user after
+   * each installment. Reporting also uses the per installment ownershipDays to calculate
+   * revenue recognition period.
+   */
+  int32 ownership_days = 2;
+
+  /**
+   * The number of installments. (or the number of BillingCycle with the current implementation)
+   */
+  int32 number_of_installments = 3;
+
+  /**
+   * The number of free trial days. 0 if having no free trial which is the default value when this field is not set.
+   */
+  int32 number_of_trial_days = 4;
+
+  /**
+   * The number of days after purchase that users can refund the product. 0 if refund
+   * is not allowed which is the default value when this field is not set.
+   */
+  int32 refund_days = 5;
+}
+
+message NotApplicablePaymentScheme {
+  google.protobuf.StringValue reason = 1;
+}
+
+/**
+ * The billing cycle. This is also used to derive ownershipDays granted to user after each
+ * billing cycle. Reporting also uses this to calculate revenue recognition period.
+ */
+enum BillingCycle {
+  BILLING_CYCLE_INVALID = 0;
+  BILLING_CYCLE_MONTHLY = 1;
+  BILLING_CYCLE_ANNUAL = 2;
+  /**
+   *  BIANNUAL is deprecated as we don't support it anymore.
+   *  More detail: https://coursera.slack.com/archives/C01U9UZ4AL8/p1632939660342900
+   */
+  BILLING_CYCLE_BIANNUAL = 3 [deprecated = true];
+}

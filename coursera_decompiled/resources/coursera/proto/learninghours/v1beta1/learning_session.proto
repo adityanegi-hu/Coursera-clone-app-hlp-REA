@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package coursera.proto.learninghours.v1beta1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Learninghours.V1Beta1";
+option go_package = "learninghoursv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "LearningSessionProto";
+option java_package = "org.coursera.proto.learninghours.v1beta1";
+option objc_class_prefix = "CPL";
+option php_namespace = "Coursera\\Proto\\Learninghours\\V1Beta1";
+
+message LearningSession {
+  // ID of the learning session.
+  google.protobuf.StringValue id = 1;
+  // user ID of the learning session
+  google.protobuf.Int64Value user_id = 2;
+  // course IDs of the learning session
+  repeated google.protobuf.StringValue course_ids = 3;
+  // course branch ID and item ID to uniquely identify learning content.
+  repeated CourseBranchItemId course_branch_item_ids = 4;
+  repeated ActivityType activity_types = 5;
+  repeated ActionType action_types = 6;
+  repeated EventPlatform event_platforms = 8;
+  // Epoch Milli representing the start of the learning Session
+  google.protobuf.Timestamp start_time = 9;
+  // Epoch Milli representing the end of the learning Session
+  google.protobuf.Timestamp end_time = 10;
+  // Event os eg "Apple Mac"
+  // There are too many past and potential future values to enumerate.
+  repeated google.protobuf.StringValue event_oses = 11;
+}
+
+message CourseLearningSession {
+  // ID of the learning session.
+  google.protobuf.StringValue id = 1;
+  // user ID of the learning session
+  google.protobuf.Int64Value user_id = 2;
+  // course IDs of the learning session
+  google.protobuf.StringValue course_id = 3;
+  // course branch ID
+  google.protobuf.StringValue course_branch_id = 4;
+  // course branch ID
+  google.protobuf.StringValue item_id = 5;
+  ActivityType activity_type = 6;
+  repeated ActionType action_types = 7;
+  repeated EventPlatform event_platforms = 8;
+  // Epoch Milli representing the start of the learning Session
+  google.protobuf.Timestamp start_time = 9;
+  // Epoch Milli representing the end of the learning Session
+  google.protobuf.Timestamp end_time = 10;
+  // Event os eg "Apple Mac"
+  // There are too many past and potential future values to enumerate.
+  repeated google.protobuf.StringValue event_oses = 11;
+}
+
+message CourseBranchItemId {
+  string course_branch_id = 1;
+  string item_id = 2;
+}
+
+enum ActivityType {
+  ACTIVITY_TYPE_INVALID = 0;
+  ACTIVITY_TYPE_LECTURE = 1;
+  ACTIVITY_TYPE_READING = 2;
+  ACTIVITY_TYPE_QUIZ = 3;
+  ACTIVITY_TYPE_STAFF_GRADED = 4;
+  ACTIVITY_TYPE_PEER_REVIEW = 5;
+  ACTIVITY_TYPE_TEAMMATE_REVIEW = 6;
+  ACTIVITY_TYPE_DISCUSSION_PROMPT = 7;
+  ACTIVITY_TYPE_UNGRADED_LAB = 8;
+  ACTIVITY_TYPE_PROGRAMMING = 9;
+}
+
+enum ActionType {
+  ACTION_TYPE_INVALID = 0;
+  // Mouse movement
+  ACTION_TYPE_MOUSE_MOVEMENT = 1;
+  // Mouse click or keyboard press
+  ACTION_TYPE_KEY_PRESS = 2;
+  // Page scroll
+  ACTION_TYPE_PAGE_SCROLL = 3;
+  // Learner is on video page and video is playing
+  ACTION_TYPE_VIDEO_IS_PLAYING = 4;
+}
+
+// Platform this event was sent from.
+enum EventPlatform {
+  EVENT_PLATFORM_INVALID = 0;
+  EVENT_PLATFORM_MOBILE = 1;
+  EVENT_PLATFORM_WEB = 2;
+}

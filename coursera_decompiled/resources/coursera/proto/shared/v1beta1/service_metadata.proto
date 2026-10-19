@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1beta1;
+
+import "google/protobuf/descriptor.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1Beta1";
+option go_package = "sharedv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ServiceMetadataProto";
+option java_package = "org.coursera.proto.shared.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1Beta1";
+
+// This defines the metadata about a service.
+// The intent of the service metadata is to document ownership and notable details about a service.
+// The metadata is available at runtime for introspection through the proto descriptors.
+//
+// A discussion regarding direction and future of the service metadata can be found here:
+// https://github.com/webedx-spark/service-definitions/pull/416
+//
+// Example Usage:
+//
+//service SampleUserAPI {
+//  option (coursera.proto.shared.v1beta1.application_metadata) = {
+//    team: "caat"
+//  };
+//  option (coursera.proto.shared.v1beta1.service_metadata) = {
+//    attributes: [
+//      {
+//        key: "attribute1"
+//        value: "value1"
+//      },
+//      {
+//        key: "attribute2"
+//        value: "value2"
+//      }
+//    ]
+//  };
+// ...
+//
+
+// Metadata regarding the application that implements this service.
+message ApplicationMetadata {
+  // The team name owning the application.
+  string team = 1;
+}
+
+// Metadata regarding the service definition.
+message ServiceMetadata {
+  // Map for the storage of arbitrary unstructured metadata about the service.
+  map<string, string> attributes = 1;
+  // The usage type of an API (Canonical or Restricted).
+  APIUsageType api_usage_type = 2;
+  // A list of services that are allowed to call this service. Required for Restricted APIs.
+  repeated string service_allowlist = 3;
+  // A list of alternative APIs that can be used instead of this API. Required for Deprecated APIs.
+  repeated AlternativeAPI alternative_apis = 4;
+}
+
+// The usage type of an API.
+enum APIUsageType {
+  API_USAGE_TYPE_INVALID = 0;
+  // An API made available by the owning team for any other service to use.
+  // You can think of these APIs as the entry points to your team’s domain.
+  API_USAGE_TYPE_CANONICAL = 1;
+  // An API that a team does not want to make available for other teams to
+  // consume without explicit approval.
+  API_USAGE_TYPE_RESTRICTED = 2;
+}
+
+message AlternativeAPI {
+  // The name of the API. Please use the following format:
+  // - Proto: sampleuser.v1.SampleUserAPI
+  // - GraphQL: Query.SampleUser
+  // - Naptime: sampleUser.v1
+  string name = 1;
+  // Optional notes on migration to this API for additional context.
+  string notes = 2;
+}

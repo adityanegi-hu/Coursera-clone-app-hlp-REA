@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedentitlement/v1beta1/product_type.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ValidPaymentProcessorsApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Service containing operations used to find eligible payment processors.
+service ValidPaymentProcessorsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Fetches valid payment processors for the given request configuration.
+  rpc ValidPaymentProcessors(ValidPaymentProcessorsRequest) returns (ValidPaymentProcessorsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "courserian"
+      ]
+    };
+  }
+}
+
+// Request object for acknowledging Valid Payment Processors based on the country code, product type and currency code (GeoProductType).
+message ValidPaymentProcessorsRequest {
+  // The country ISO 3166-2 code to filter payment processors by geography.
+  google.protobuf.StringValue country_iso_code = 1;
+  // The type of product to filter payment processors by.
+  coursera.proto.sharedentitlement.v1beta1.ProductType product_type = 2;
+  //  The ISO-4217 currency code to filter payment processors by.
+  google.protobuf.StringValue currency_code = 3;
+  // Flag indicating whether promotions are included in the calling flow, which may impact availability of certain payment processors.
+  bool has_promotion = 4;
+}
+
+// Response object for retrieving the list of valid payment processors.
+message ValidPaymentProcessorsResponse {
+  repeated coursera.proto.sharedpayments.v1.PaymentProcessorId processors = 1;
+}

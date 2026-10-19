@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1";
+option go_package = "sharedpaymentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorIdProto";
+option java_package = "org.coursera.proto.sharedpayments.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1";
+
+// List of supported payment processors.
+//
+// Important Notes
+//
+// (1) The order here does not in any way map to the integer order here https://github.com/webedx-spark/infra-services/blob/master/libs/models/src/main/scala/org/coursera/payment/PaymentProcessorId.scala
+// The service will contain a similar enum internally that correctly maps the proto PaymentProcessorId to DB's payment_processor_id integers.
+//
+// (2) This enum has been added in sharedpayment as it is used extensively by multiple applications and each additions lead to some sort of mapping issue.
+enum PaymentProcessorId {
+  PAYMENT_PROCESSOR_ID_INVALID = 0;
+  PAYMENT_PROCESSOR_ID_MOCK = 1;
+  PAYMENT_PROCESSOR_ID_BRAINTREE = 2;
+  PAYMENT_PROCESSOR_ID_BRAINTREE_SANDBOX = 3;
+
+  /*
+     Since 2023-02-02 we are opting for the `ZeroDollarPaymentProcessor` for checking out financial aid applications.
+     We hope to eventually deprecate `FinancialAidPaymentProcessor` which will reduce duplication since it does a relatively similar thing to `ZeroDollarPaymentProcessor`.
+     For details: https://docs.google.com/document/d/1Q1EUuMvLbhn05xwa4huUoNeYLyyeFnXWXnw4hYyRqsY/edit?usp=sharing
+  */
+  PAYMENT_PROCESSOR_ID_FINANCIAL_AID = 4 [deprecated = true];
+  PAYMENT_PROCESSOR_ID_ZERO_DOLLAR = 5;
+  PAYMENT_PROCESSOR_ID_APPLE_INAPP = 6;
+  PAYMENT_PROCESSOR_ID_APPLE_INAPP_SANDBOX = 7;
+
+  /**
+     These Stripe ID are for WES invoicing
+  */
+  PAYMENT_PROCESSOR_ID_STRIPE = 8;
+  PAYMENT_PROCESSOR_ID_STRIPE_SANDBOX = 9;
+
+  PAYMENT_PROCESSOR_ID_PAYPAL = 10;
+  PAYMENT_PROCESSOR_ID_COURSERA_MANUAL = 11;
+  PAYMENT_PROCESSOR_ID_EMERGENT = 12 [deprecated = true];
+  PAYMENT_PROCESSOR_ID_EMERGENT_SANDBOX = 13 [deprecated = true];
+  PAYMENT_PROCESSOR_ID_EBANX = 14;
+  PAYMENT_PROCESSOR_ID_EBANX_SANDBOX = 15;
+  PAYMENT_PROCESSOR_ID_RAZORPAY = 16;
+  PAYMENT_PROCESSOR_ID_RAZORPAY_SANDBOX = 17;
+  PAYMENT_PROCESSOR_ID_GOOGLE_PLAY = 18;
+  PAYMENT_PROCESSOR_ID_GOOGLE_PLAY_SANDBOX = 28;
+
+  /**
+     These Stripe ID are for processing consumer transactions in the US account
+  */
+  PAYMENT_PROCESSOR_ID_STRIPE_CONSUMER = 19;
+  PAYMENT_PROCESSOR_ID_STRIPE_CONSUMER_SANDBOX = 20;
+
+  PAYMENT_PROCESSOR_ID_PAYPAL_SANDBOX = 21;
+
+  /**
+     These Stripe ID are for processing consumer transactions in the BV account
+  */
+  PAYMENT_PROCESSOR_ID_STRIPE_BV_CONSUMER = 22;
+  PAYMENT_PROCESSOR_ID_STRIPE_BV_CONSUMER_SANDBOX = 23;
+
+  /**
+     The stripe payment processor id to represent billing engine, only used for subscriptions
+     created on stripe and processed on third party payment processors.
+  */
+  PAYMENT_PROCESSOR_ID_STRIPE_THIRD_PARTY = 101;
+  PAYMENT_PROCESSOR_ID_STRIPE_THIRD_PARTY_SANDBOX = 102;
+
+  /**
+     These Stripe ID are for processing enterprise WES transactions
+  */
+  PAYMENT_PROCESSOR_ID_STRIPE_ENTERPRISE_WES = 24 [deprecated = true];
+  PAYMENT_PROCESSOR_ID_STRIPE_ENTERPRISE_WES_SANDBOX = 25 [deprecated = true];
+
+  /**
+     The Razorpay payment processor id to represent charge-at-will account
+  */
+  PAYMENT_PROCESSOR_ID_RAZORPAY_CHARGE_AT_WILL = 26;
+  PAYMENT_PROCESSOR_ID_RAZORPAY_CHARGE_AT_WILL_SANDBOX = 27;
+
+  /**
+     The dLocal payment processor id
+  */
+  PAYMENT_PROCESSOR_ID_DLOCAL = 29;
+  PAYMENT_PROCESSOR_ID_DLOCAL_SANDBOX = 30;
+}

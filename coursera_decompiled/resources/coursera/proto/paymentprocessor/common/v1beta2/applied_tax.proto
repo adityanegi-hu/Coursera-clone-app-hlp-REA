@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/tax_behavior.proto";
+import "coursera/proto/shared/v1/big_decimal.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "AppliedTaxProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Container for tax applied to a payment processor subscription or transaction.
+message AppliedTax {
+  // The amount of tax applied.
+  // Should be denominated in the same currency as the entity in which it is applied to.
+  google.type.Money amount = 1;
+  // The rate of tax applied.
+  coursera.proto.shared.v1.BigDecimal rate = 2;
+  // The behavior of the tax.
+  TaxBehavior behavior = 3;
+}

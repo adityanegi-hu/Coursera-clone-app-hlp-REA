@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="18dp"
+    android:width="17dp"
+    android:autoMirrored="true"
+    android:viewportWidth="17"
+    android:viewportHeight="18">
+    <path
+        android:fillColor="@color/button_coursera_blue"
+        android:pathData="M2.2071,9.5L9.3535,16.6465L8.6465,17.3536L0.2929,9L8.6465,0.6465L9.3535,1.3536L2.2071,8.5H17V9.5H2.2071Z"
+        android:fillType="evenOdd"/>
+</vector>

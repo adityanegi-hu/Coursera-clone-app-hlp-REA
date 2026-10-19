@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/v1beta2/product_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "StripeCreatePaymentIntentTransactionPreCheckoutRequestProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Details about the pre checkout request for single transaction.
+message StripeCreatePaymentIntentTransactionPreCheckoutRequest {
+  // The user id for customer on Stripe.
+  google.protobuf.UInt64Value user_id = 1;
+  // The cart id being checked out.
+  google.protobuf.UInt64Value cart_id = 2;
+  // The product id being checked out.
+  ProductId product_id = 3;
+  // The billing details.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 4;
+  // The tax percentage which needs to be applied at checkout.
+  google.protobuf.StringValue tax_rate_percentage = 5;
+  // Whether to save the payment method for future use. Defaults to false.
+  bool save_payment_method = 6;
+}

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d οφειλόμενη εργασία</item>
+        <item quantity="other">%d οφειλόμενες εργασίες</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d εργασία</item>
+        <item quantity="other">%1$d εργασίες</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d διάλογος</item>
+        <item quantity="other">%1$d διάλογοι</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d συζήτηση</item>
+        <item quantity="other">%1$d συζητήσεις</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d εργασία με βαθμολόγηση</item>
+        <item quantity="other">%1$d εργασίες με βαθμολόγηση</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d συζήτηση με βαθμολόγηση</item>
+        <item quantity="other">%1$d συζητήσεις με βαθμολόγηση</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d εργαστήριο με βαθμολόγηση</item>
+        <item quantity="other">%1$d εργαστήρια με βαθμολόγηση</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d παιχνίδι ρόλων με βαθμολόγηση</item>
+        <item quantity="other">%1$d παιχνίδια ρόλων με βαθμολόγηση</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d ομαδική εργασία με βαθμολόγηση</item>
+        <item quantity="other">%1$d ομαδικές εργασίες με βαθμολόγηση</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d εργαστήριο</item>
+        <item quantity="other">%1$d εργαστήρια</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d κλειδωμένο υλικό ανάγνωσης</item>
+        <item quantity="other">%1$d κλειδωμένα υλικά ανάγνωσης</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d κλειδωμένο βίντεο</item>
+        <item quantity="other">%1$d κλειδωμένα βίντεο</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d σημειωματάριο</item>
+        <item quantity="other">%1$d σημειωματάρια</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Στοιχείο</item>
+        <item quantity="other">%1$d Στοιχεία</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d εργασία που βαθμολογείται από ομότιμους</item>
+        <item quantity="other">%1$d εργασίες που βαθμολογούνται από ομότιμους</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d αξιολόγηση από ομότιμους</item>
+        <item quantity="other">%1$d αξιολογήσεις από ομότιμους</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d πρακτική εργασία</item>
+        <item quantity="other">%1$d πρακτικές εργασίες</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d πρακτική εργασία που βαθμολογείται από ομότιμους</item>
+        <item quantity="other">%1$d πρακτικές εργασίες που βαθμολογούνται από ομότιμους</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d κουίζ εξάσκησης</item>
+        <item quantity="other">%1$d κουίζ εξάσκησης</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d ομαδική πρακτική εργασία</item>
+        <item quantity="other">%1$d ομαδικές πρακτικές εργασίες</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d εργασία προγραμματισμού</item>
+        <item quantity="other">%1$d εργασίες προγραμματισμού</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d κουίζ</item>
+        <item quantity="other">%1$d κουίζ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d ανάγνωση</item>
+        <item quantity="other">%1$d αναγνώσεις</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d παιχνίδι ρόλων</item>
+        <item quantity="other">%1$d παιχνίδια ρόλων</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d παρουσίαση διαφανειών</item>
+        <item quantity="other">%1$d παρουσιάσεις διαφανειών</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d ομαδικό έργο</item>
+        <item quantity="other">%1$d ομαδικά έργα</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Συγχαρητήρια που ολοκληρώσατε την αξιολόγηση μιας εργασίας! Βοηθήστε άλλους ομότιμους εάν έχετε επιπλέον χρόνο.</item>
+        <item quantity="other">Συγχαρητήρια που ολοκληρώσατε την αξιολόγηση και των %s εργασιών! Βοηθήστε άλλους ομότιμους εάν έχετε επιπλέον χρόνο.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">Εκπαιδευτικός</item>
+        <item quantity="other">Εκπαιδευτικοί</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">βαθμολογήθηκε με %1$s αστέρι από 5 αστέρια, %2$s κριτικές</item>
+        <item quantity="other">βαθμολογήθηκε με %1$s αστέρια από 5 αστέρια, %2$s κριτικές</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Ολοκλήρωση αξιολόγησης</item>
+        <item quantity="other">Ολοκληρώστε %1$d αξιολογήσεις</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Ολοκλήρωση ενός αντικειμένου πρακτικής εξάσκησης</item>
+        <item quantity="other">Ολοκληρώστε οποιαδήποτε %1$d μαθησιακά αντικείμενα</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Ολοκληρώστε οποιοδήποτε μαθησιακό αντικείμενο</item>
+        <item quantity="other">Ολοκληρώστε οποιαδήποτε %1$d μαθήματα</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Ολοκληρώστε ένα βίντεο</item>
+        <item quantity="other">Ολοκληρώστε %1$d βίντεο</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Ολοκληρώστε μια άσκηση εξάσκησης</item>
+        <item quantity="other">Ολοκληρώστε %1$d ασκήσεις εξάσκησης</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Ολοκλήρωση μιας ανάγνωσης</item>
+        <item quantity="other">Ολοκληρώστε %1$d αναγνώσεις</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">ημέρα</item>
+        <item quantity="other">ημέρες</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s Πτυχίο</item>
+        <item quantity="other">%1$s Πτυχία</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d ημέρα</item>
+        <item quantity="other">%1$d ημέρες</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d ώρα</item>
+        <item quantity="other">%1$d ώρες</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Γρήγορη προώθηση κατά %d δευτερόλεπτο</item>
+        <item quantity="other">Γρήγορη προώθηση κατά %d δευτερόλεπτα</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Μετάβαση προς τα πίσω κατά %d δευτερόλεπτο</item>
+        <item quantity="other">Μετάβαση προς τα πίσω κατά %d δευτερόλεπτα</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d ενότητα</item>
+        <item quantity="other">%1$d ενότητες</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d σειρά μαθημάτων</item>
+        <item quantity="other">%1$d σειρές μαθημάτων</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d ημέρα</item>
+        <item quantity="other">%1$d μέρες</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">είναι %1$d εργασία</item>
+        <item quantity="other">είναι %1$d εργασίες</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">ώρα</item>
+        <item quantity="other">ώρες</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">λ</item>
+        <item quantity="other">λεπτά</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">μήνας</item>
+        <item quantity="other">μήνες</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d Μάθημα</item>
+        <item quantity="other">%1$d Μαθήματα</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 πόντος</item>
+        <item quantity="other">%.1f βαθμοί</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">βαθμολογήθηκε με %1$s αστέρι στα 5 αστέρια</item>
+        <item quantity="other">βαθμολογήθηκε με %1$s αστέρια στα 5 αστέρια</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">συνολικό αποτέλεσμα</item>
+        <item quantity="other">συνολικά αποτελέσματα</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">βαθμός</item>
+        <item quantity="other">βαθμοί</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d Ερώτηση πρακτικής</item>
+        <item quantity="other">%d Ερωτήσεις εξάσκησης</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">βαθμολογήθηκε με %1$s αστέρι στα 5 αστέρια</item>
+        <item quantity="other">βαθμολογήθηκε με %1$s αστέρια στα 5 αστέρια</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">ερώτηση</item>
+        <item quantity="other">ερωτήσεις</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s σημείο</item>
+        <item quantity="other">%1$s σημεία</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d ερώτηση</item>
+        <item quantity="other">%d ερωτήσεις</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">ερώτηση</item>
+        <item quantity="other">ερωτήσεις</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d ΕΡΩΤΗΣΗ</item>
+        <item quantity="other">%d ΕΡΩΤΗΣΕΙΣ</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d λεπτό</item>
+        <item quantity="other">%d λεπτά</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d λεπτό</item>
+        <item quantity="other">%d λεπτά</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">Απάντηση</item>
+        <item quantity="other">Απαντήσεις</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d στοιχείο</item>
+        <item quantity="other">%1$d στοιχεία</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Εμφάνιση όλων των μαθημάτων %d</item>
+        <item quantity="other">Εμφάνιση όλων των μαθημάτων %d</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Εμφάνιση %1$d μαθήματος από %2$s</item>
+        <item quantity="other">Εμφάνιση και των %1$d μαθημάτων από %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">δεξιότητα</item>
+        <item quantity="other">δεξιότητες</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Ακόμη %1$d μέρα μάθησης για να πετύχετε τον εβδομαδιαίο σας στόχο!</item>
+        <item quantity="other">Ακόμη %1$d ημέρες μάθησης για να πετύχετε τον εβδομαδιαίο σας στόχο!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Μάθετε %1$d ακόμη ημέρα για να πετύχετε τον μαθησιακό σας στόχο!</item>
+        <item quantity="other">Μάθετε ακόμη %1$d ημέρες για να πετύχετε τον μαθησιακό σας στόχο!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">βαθμολογία %1$s αστέρι από 5 αστέρια, %2$s</item>
+        <item quantity="other">βαθμολογία %1$s αστέρια από 5 αστέρια, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">Θετική ψήφος</item>
+        <item quantity="other">Θετικές ψήφοι</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d Εβδομάδα</item>
+        <item quantity="other">%1$d Εβδομάδες</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">έτος</item>
+        <item quantity="other">έτη</item>
+    </plurals>
+</resources>

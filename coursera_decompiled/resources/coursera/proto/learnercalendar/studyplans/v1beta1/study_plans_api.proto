@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package coursera.proto.learnercalendar.studyplans.v1beta1;
+
+import "coursera/proto/learnercalendar/studyplans/v1beta1/study_plans.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+
+option csharp_namespace = "Coursera.Proto.Learnercalendar.Studyplans.V1Beta1";
+option go_package = "studyplansv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "StudyPlansApiProto";
+option java_package = "org.coursera.proto.learnercalendar.studyplans.v1beta1";
+option objc_class_prefix = "CPLS";
+option php_namespace = "Coursera\\Proto\\Learnercalendar\\Studyplans\\V1Beta1";
+
+// A service for that generates calendar events for users' study times.
+service StudyPlansAPI {
+  // Get study plans.
+  rpc GetStudyPlans(GetStudyPlansRequest) returns (GetStudyPlansResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "sameUser"
+      ]
+    };
+  }
+}
+
+// The request to get the study plans.
+message GetStudyPlansRequest {
+  string user_id = 1;
+  string course_id = 2;
+  repeated StudyPlanEvent events = 3;
+}
+
+// The response containing a url for a calendar with the study plans;
+message GetStudyPlansResponse {
+  string url = 1;
+}

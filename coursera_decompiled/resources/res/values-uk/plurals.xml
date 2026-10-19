@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d завдання, що підлягає виконанню</item>
+        <item quantity="few">%d завдання, що підлягають виконанню</item>
+        <item quantity="many">%d завдань, що підлягають виконанню</item>
+        <item quantity="other">%d завдання, що підлягає виконанню</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d завдання</item>
+        <item quantity="few">%1$d завдання</item>
+        <item quantity="many">%1$d завдань</item>
+        <item quantity="other">%1$d завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d діалог</item>
+        <item quantity="few">%1$d діалоги</item>
+        <item quantity="many">%1$d діалогів</item>
+        <item quantity="other">%1$d діалогу</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d обговорення</item>
+        <item quantity="few">%1$d обговорення</item>
+        <item quantity="many">%1$d обговорень</item>
+        <item quantity="other">%1$d обговорення</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d оцінюване завдання</item>
+        <item quantity="few">%1$d оцінювані завдання</item>
+        <item quantity="many">%1$d оцінюваних завдань</item>
+        <item quantity="other">%1$d оцінюваного завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d обговорення на оцінку</item>
+        <item quantity="few">%1$d обговорення на оцінку</item>
+        <item quantity="many">%1$d обговорень на оцінку</item>
+        <item quantity="other">%1$d обговорення на оцінку</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d оцінювана лабораторна робота</item>
+        <item quantity="few">%1$d оцінювані лабораторні роботи</item>
+        <item quantity="many">%1$d оцінюваних лабораторних робіт</item>
+        <item quantity="other">%1$d оцінюваної лабораторної роботи</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d оцінювана рольова гра</item>
+        <item quantity="few">%1$d оцінювані рольові ігри</item>
+        <item quantity="many">%1$d оцінюваних рольових ігор</item>
+        <item quantity="other">%1$d оцінюваної рольової гри</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d оцінюване командне завдання</item>
+        <item quantity="few">%1$d оцінювані командні завдання</item>
+        <item quantity="many">%1$d оцінюваних командних завдань</item>
+        <item quantity="other">%1$d оцінюваного командного завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d лабораторна робота</item>
+        <item quantity="few">%1$d лабораторні роботи</item>
+        <item quantity="many">%1$d лабораторних робіт</item>
+        <item quantity="other">%1$d лабораторної роботи</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d заблокований матеріал для самостійного вивчення</item>
+        <item quantity="few">%1$d заблоковані матеріали для самостійного вивчення</item>
+        <item quantity="many">%1$d заблокованих матеріалів для самостійного вивчення</item>
+        <item quantity="other">%1$d заблокованого матеріалу для самостійного вивчення</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d заблоковане відео</item>
+        <item quantity="few">%1$d заблоковані відео</item>
+        <item quantity="many">%1$d заблокованих відео</item>
+        <item quantity="other">%1$d заблокованого відео</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d блокнот</item>
+        <item quantity="few">%1$d блокноти</item>
+        <item quantity="many">%1$d блокнотів</item>
+        <item quantity="other">%1$d блокнота</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Елемент</item>
+        <item quantity="few">%1$d Елемента</item>
+        <item quantity="many">%1$d Елементів</item>
+        <item quantity="other">%1$d Елементів</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d взаємно оцінене завдання</item>
+        <item quantity="few">%1$d взаємно оцінені завдання</item>
+        <item quantity="many">%1$d взаємно оцінених завдань</item>
+        <item quantity="other">%1$d взаємно оціненого завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d рецензія однокурсника</item>
+        <item quantity="few">%1$d рецензії однокурсника</item>
+        <item quantity="many">%1$d рецензій однокурсника</item>
+        <item quantity="other">%1$d рецензії однокурсника</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d практичне завдання</item>
+        <item quantity="few">%1$d практичні завдання</item>
+        <item quantity="many">%1$d практичних завдань</item>
+        <item quantity="other">%1$d практичного завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d практичне взаємно оцінене завдання</item>
+        <item quantity="few">%1$d практичні взаємно оцінені завдання</item>
+        <item quantity="many">%1$d практичних взаємно оцінених завдань</item>
+        <item quantity="other">%1$d практичного взаємно оціненого завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d практичний тест</item>
+        <item quantity="few">%1$d практичні тести</item>
+        <item quantity="many">%1$d практичних тестів</item>
+        <item quantity="other">%1$d практичного тесту</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d практичне командне завдання</item>
+        <item quantity="few">%1$d практичні командні завдання</item>
+        <item quantity="many">%1$d практичних командних завдань</item>
+        <item quantity="other">%1$d практичного командного завдання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d завдання з програмування</item>
+        <item quantity="few">%1$d завдання з програмування</item>
+        <item quantity="many">%1$d завдань із програмування</item>
+        <item quantity="other">%1$d завдання з програмування</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d вікторина</item>
+        <item quantity="few">%1$d вікторини</item>
+        <item quantity="many">%1$d вікторин</item>
+        <item quantity="other">%1$d вікторини</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d матеріал для читання</item>
+        <item quantity="few">%1$d матеріали для читання</item>
+        <item quantity="many">%1$d матеріалів для читання</item>
+        <item quantity="other">%1$d матеріалу для читання</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d рольова гра</item>
+        <item quantity="few">%1$d рольові ігри</item>
+        <item quantity="many">%1$d рольових ігор</item>
+        <item quantity="other">%1$d рольової гри</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d слайд-шоу</item>
+        <item quantity="few">%1$d слайд-шоу</item>
+        <item quantity="many">%1$d слайд-шоу</item>
+        <item quantity="other">%1$d слайд-шоу</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d командний проєкт</item>
+        <item quantity="few">%1$d командні проєкти</item>
+        <item quantity="many">%1$d командних проєктів</item>
+        <item quantity="other">%1$d командного проєкту</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Вітаємо, ви закінчили рецензувати завдання! Якщо ще маєте час, допоможіть однокурсникам.</item>
+        <item quantity="few">Вітаємо, ви закінчили рецензувати всі %s завдання! Якщо ще маєте час, допоможіть однокурсникам.</item>
+        <item quantity="many">Вітаємо, ви закінчили рецензувати всі %s завдань! Якщо ще маєте час, допоможіть однокурсникам.</item>
+        <item quantity="other">Вітаємо, ви закінчили рецензувати всі %s завдання! Якщо ще маєте час, допоможіть однокурсникам.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">Викладач курсу</item>
+        <item quantity="few">Викладачі курсу</item>
+        <item quantity="many">Викладачів курсу</item>
+        <item quantity="other">Викладача курсу</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">оцінка: %1$s з 5 зірок, відгуків: %2$s</item>
+        <item quantity="few">оцінка: %1$s з 5 зірок, відгуків: %2$s</item>
+        <item quantity="many">оцінка: %1$s з 5 зірок, відгуків: %2$s</item>
+        <item quantity="other">оцінка: %1$s з 5 зірок, відгуків: %2$s</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Виконайте завдання з оцінюванням</item>
+        <item quantity="few">Виконайте стільки завдань: %1$d</item>
+        <item quantity="many">Виконайте стільки завдань: %1$d</item>
+        <item quantity="other">Виконайте стільки завдань: %1$d</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Виконайте практичне завдання</item>
+        <item quantity="few">Виконайте практичні завдання: %1$d</item>
+        <item quantity="many">Виконайте практичні завдання: %1$d</item>
+        <item quantity="other">Виконайте практичні завдання: %1$d</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Пройдіть урок</item>
+        <item quantity="few">Пройдіть будь-які %1$d уроки</item>
+        <item quantity="many">Пройдіть будь-які %1$d уроків</item>
+        <item quantity="other">Пройдіть будь-якого %1$d уроку</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Подивіться відео</item>
+        <item quantity="few">Подивіться %1$d відео</item>
+        <item quantity="many">Подивіться %1$d відео</item>
+        <item quantity="other">Подивіться %1$d відео</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Виконайте практичну вправу</item>
+        <item quantity="few">Виконайте %1$d практичні вправи</item>
+        <item quantity="many">Виконайте %1$d практичних вправ</item>
+        <item quantity="other">Виконайте %1$d практичної вправи</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Виконайте читання</item>
+        <item quantity="few">Виконайте стільки показників: %1$d</item>
+        <item quantity="many">Виконайте стільки показників: %1$d</item>
+        <item quantity="other">Виконайте стільки показників: %1$d</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">день</item>
+        <item quantity="few">дні</item>
+        <item quantity="many">днів</item>
+        <item quantity="other">дня</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">Ступінь: %1$s</item>
+        <item quantity="few">Ступені: %1$s</item>
+        <item quantity="many">Ступені: %1$s</item>
+        <item quantity="other">Ступені: %1$s</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d день</item>
+        <item quantity="few">%1$d дні</item>
+        <item quantity="many">%1$d днів</item>
+        <item quantity="other">%1$d дня</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d година</item>
+        <item quantity="few">%1$d години</item>
+        <item quantity="many">%1$d годин</item>
+        <item quantity="other">%1$d години</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Перемотати вперед на %d секунду</item>
+        <item quantity="few">Перемотати вперед на %d секунди</item>
+        <item quantity="many">Перемотати вперед на %d секунд</item>
+        <item quantity="other">Перемотати вперед на %d секунди</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Перемотати назад на %d секунду</item>
+        <item quantity="few">Перемотати назад на %d секунди</item>
+        <item quantity="many">Перемотати назад на %d секунд</item>
+        <item quantity="other">Перемотати назад на %d секунди</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d модуль</item>
+        <item quantity="few">%1$d модулі</item>
+        <item quantity="many">%1$d модулів</item>
+        <item quantity="other">%1$d модуля</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d серій курсів</item>
+        <item quantity="few">%1$d серії курсів</item>
+        <item quantity="many">%1$d серій курсів</item>
+        <item quantity="other">%1$d серій курсів</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d день</item>
+        <item quantity="few">%1$d дня</item>
+        <item quantity="many">%1$d днів</item>
+        <item quantity="other">%1$d дня</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">%1$d завдання</item>
+        <item quantity="few">%1$d завдання</item>
+        <item quantity="many">%1$d завдань</item>
+        <item quantity="other">%1$d завдання</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">година</item>
+        <item quantity="few">години</item>
+        <item quantity="many">годин</item>
+        <item quantity="other">години</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">хв</item>
+        <item quantity="few">хв</item>
+        <item quantity="many">хв</item>
+        <item quantity="other">хв</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">місяць</item>
+        <item quantity="few">місяця</item>
+        <item quantity="many">місяців</item>
+        <item quantity="other">місяця</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d Курс</item>
+        <item quantity="few">Курсів: %1$d</item>
+        <item quantity="many">Курсів: %1$d</item>
+        <item quantity="other">Курсів: %1$d</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 бал</item>
+        <item quantity="few">%.1f бали</item>
+        <item quantity="many">%.1f балів</item>
+        <item quantity="other">%.1f бала</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">рейтинг %1$s зірка з 5 зірок</item>
+        <item quantity="few">рейтинг %1$s зірки з 5 зірок</item>
+        <item quantity="many">рейтинг %1$s зірок із 5 зірок</item>
+        <item quantity="other">рейтинг %1$s зірок із 5 зірок</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">загальний результат</item>
+        <item quantity="few">загальних результати</item>
+        <item quantity="many">загальних результатів</item>
+        <item quantity="other">загального результату</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">бал</item>
+        <item quantity="few">бали</item>
+        <item quantity="many">балів</item>
+        <item quantity="other">балу</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d практичне запитання</item>
+        <item quantity="few">%d практичні запитання</item>
+        <item quantity="many">%d практичних запитань</item>
+        <item quantity="other">%d практичного запитання</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">рейтинг %1$s зірка з 5 зірок</item>
+        <item quantity="few">рейтинг %1$s зірки з 5 зірок</item>
+        <item quantity="many">рейтинг %1$s зірок із 5 зірок</item>
+        <item quantity="other">рейтинг %1$s зірки з 5 зірок</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">запитання</item>
+        <item quantity="few">запитання</item>
+        <item quantity="many">запитань</item>
+        <item quantity="other">запитання</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s бал</item>
+        <item quantity="few">%1$s бали</item>
+        <item quantity="many">%1$s балів</item>
+        <item quantity="other">%1$s бала</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d запитання</item>
+        <item quantity="few">%d запитання</item>
+        <item quantity="many">%d запитань</item>
+        <item quantity="other">%d запитання</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">запитання</item>
+        <item quantity="few">запитання</item>
+        <item quantity="many">запитань</item>
+        <item quantity="other">запитання</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d ЗАПИТАННЯ</item>
+        <item quantity="few">%d ЗАПИТАННЯ</item>
+        <item quantity="many">%d ЗАПИТАНЬ</item>
+        <item quantity="other">%d ЗАПИТАННЯ</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d хв</item>
+        <item quantity="few">%d хв</item>
+        <item quantity="many">%d хв</item>
+        <item quantity="other">%d хв</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d хв</item>
+        <item quantity="few">%d хв</item>
+        <item quantity="many">%d хв</item>
+        <item quantity="other">%d хв</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">Відповідь</item>
+        <item quantity="few">Відповіді</item>
+        <item quantity="many">Відповідей</item>
+        <item quantity="other">Відповіді</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d елемент</item>
+        <item quantity="few">%1$d елемента</item>
+        <item quantity="many">%1$d елементів</item>
+        <item quantity="other">%1$d елемента</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Показати весь %d курс</item>
+        <item quantity="few">Показати всі %d курси</item>
+        <item quantity="many">Показати всі %d курсів</item>
+        <item quantity="other">Показати всі %d курсу</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Показати всі курси (%1$d з %2$s)</item>
+        <item quantity="few">Показати всі курси (%1$d з %2$s)</item>
+        <item quantity="many">Показати всі курси (%1$d з %2$s)</item>
+        <item quantity="other">Показати всі курси (%1$d з %2$s)</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">навичка</item>
+        <item quantity="few">навички</item>
+        <item quantity="many">навичок</item>
+        <item quantity="other">навички</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Ще %1$d день навчання, щоб досягти своєї тижневої мети!</item>
+        <item quantity="few">Ще %1$d дні навчання, щоб досягти своєї тижневої мети!</item>
+        <item quantity="many">Ще %1$d днів навчання, щоб досягти своєї тижневої мети!</item>
+        <item quantity="other">Ще %1$d днів навчання, щоб досягти своєї тижневої мети!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Вчіться ще %1$d день, щоб досягти своєї навчальної мети!</item>
+        <item quantity="few">Вчіться ще %1$d дні, щоб досягти своєї навчальної мети!</item>
+        <item quantity="many">Вчіться ще %1$d днів, щоб досягти своєї навчальної мети!</item>
+        <item quantity="other">Вчіться ще %1$d днів, щоб досягти своєї навчальної мети!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">рейтинг %1$s зірка з 5, %2$s</item>
+        <item quantity="few">рейтинг %1$s зірки з 5, %2$s</item>
+        <item quantity="many">рейтинг %1$s зірок із 5, %2$s</item>
+        <item quantity="other">рейтинг %1$s зірки з 5, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">Голос за</item>
+        <item quantity="few">Голоси за</item>
+        <item quantity="many">Голосів за</item>
+        <item quantity="other">Голосу за</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d тиждень</item>
+        <item quantity="few">%1$d тижні</item>
+        <item quantity="many">%1$d тижнів</item>
+        <item quantity="other">%1$d тижня</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">рік</item>
+        <item quantity="few">роки</item>
+        <item quantity="many">років</item>
+        <item quantity="other">року</item>
+    </plurals>
+</resources>

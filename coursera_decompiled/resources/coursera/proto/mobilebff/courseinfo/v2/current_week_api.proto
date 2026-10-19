@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.courseinfo.v2;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Courseinfo.V2";
+option go_package = "courseinfov2";
+option java_multiple_files = true;
+option java_outer_classname = "CurrentWeekApiProto";
+option java_package = "org.coursera.proto.mobilebff.courseinfo.v2";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Courseinfo\\V2";
+option swift_prefix = "MobilebffCourseinfo";
+
+// A Service used between mobile applications to determine a user's current week.
+service CurrentWeekAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: ["mobile-learn-tab-application"]
+  };
+
+  // Get user's current week by course id.
+  rpc GetCurrentWeek(GetCurrentWeekRequest) returns (GetCurrentWeekResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/courseinfo/v2/CurrentWeekAPI/GetCurrentWeek"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/courseinfo/v2/CurrentWeekAPI/GetCurrentWeek"}
+    };
+  }
+}
+
+message GetCurrentWeekRequest {
+  string course_id = 1;
+  // For the cases when the user header values are not passed correctly
+  string user_id = 2;
+}
+
+message GetCurrentWeekResponse {
+  int32 current_week = 1;
+}

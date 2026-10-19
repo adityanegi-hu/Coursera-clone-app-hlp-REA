@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1";
+option go_package = "sharedv1";
+option java_multiple_files = true;
+option java_outer_classname = "SharedProto";
+option java_package = "org.coursera.proto.shared.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1";
+
+// An event envelope wraps events and provides fields that are useful to all events.
+// REMARK: Do not rename fields in this message: events are serialized as JSON for usability
+// reasons, in which case the field names are part of the API and cannot be changed without
+// breaking compatibility.
+// See https://blog.envoyproxy.io/evolving-a-protocol-buffer-canonical-api-e1b2c2ca0dec for
+// more details.
+//
+// TODO: Should we attach `RequestContext` to the envelope? What about propagating tracing
+// information?
+message EventEnvelope {
+  // The content of the event: it should be a protobuf message. Because the `Any` message
+  // includes both an identifier (`type_url`) as well as the content, we do not store information
+  // about what schema the event is for, or another identifier of the event name. The contained
+  // event should be referred to for those information.
+  google.protobuf.Any event = 1;
+  // The name of the service that produced the event.
+  string producing_service = 2;
+  // A unique id that allows consumers to deduplicate event in case of duplicate delivery.
+  google.protobuf.StringValue event_id = 3;
+  // Timestamp of when the event was produced, according to the producer. This field is not meant to
+  // provide global ordering since clocks between multiple producer are not synchronized.
+  // This field is useful for quickly inspecting when an event happened, as well as coarse grained
+  // comparisons between events.
+  google.protobuf.Timestamp occurred_at_time = 4;
+  // A data container for attributes that are not common for all events, for attributes that
+  // have not been promoted to a top level field in the envelope, or for attributes that cannot
+  // be defined ahead of time (e.g attributes provided by our messaging infrastructure)
+  map<string, string> attributes = 5;
+}

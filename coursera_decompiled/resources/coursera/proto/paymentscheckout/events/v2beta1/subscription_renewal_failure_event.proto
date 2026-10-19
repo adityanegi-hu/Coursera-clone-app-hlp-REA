@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.events.v2beta1;
+
+import "coursera/proto/paymentscheckout/common/v2beta1/payment_processor_exception_details.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Events.V2Beta1";
+option go_package = "eventsv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionRenewalFailureEventProto";
+option java_package = "org.coursera.proto.paymentscheckout.events.v2beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Events\\V2Beta1";
+
+// Event that is published when a subscription renewal has failed.
+message SubscriptionRenewalFailureEvent {
+  // Id of the subscription that was attempted to be renewed.
+  string subscription_id = 1;
+  // Exception details.
+  coursera.proto.paymentscheckout.common.v2beta1.PaymentProcessorExceptionDetails exception_details = 2;
+}

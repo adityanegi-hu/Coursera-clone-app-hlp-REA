@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayVoidedPurchaseTypeProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// The type of voided purchases that that should be returned in `ListVoidedPurchases`.
+enum GooglePlayVoidedPurchaseType {
+  GOOGLE_PLAY_VOIDED_PURCHASE_TYPE_INVALID = 0;
+  GOOGLE_PLAY_VOIDED_PURCHASE_TYPE_IN_APP_PURCHASE_ONLY = 1;
+  GOOGLE_PLAY_VOIDED_PURCHASE_TYPE_IN_APP_AND_SUBSCRIPTION = 2;
+}

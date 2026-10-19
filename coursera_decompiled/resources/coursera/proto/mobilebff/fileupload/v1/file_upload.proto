@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.fileupload.v1;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Fileupload.V1";
+option go_package = "fileuploadv1";
+option java_multiple_files = true;
+option java_outer_classname = "FileUploadProto";
+option java_package = "org.coursera.proto.mobilebff.fileupload.v1";
+option objc_class_prefix = "CPMF";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Fileupload\\V1";
+option swift_prefix = "MobilebffFileupload";
+
+// The use case of the file being uploaded.
+enum FileType {
+  FILE_TYPE_INVALID = 0;
+  FILE_TYPE_PEER_REVIEW = 1;
+  FILE_TYPE_VIDEO_THUMBNAIL = 2;
+  FILE_TYPE_PROFILE_PHOTO = 3;
+}

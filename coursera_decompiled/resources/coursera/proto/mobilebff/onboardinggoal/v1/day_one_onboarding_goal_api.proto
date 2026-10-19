@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.onboardinggoal.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Onboardinggoal.V1";
+option go_package = "onboardinggoalv1";
+option java_multiple_files = true;
+option java_outer_classname = "DayOneOnboardingGoalApiProto";
+option java_package = "org.coursera.proto.mobilebff.onboardinggoal.v1";
+option objc_class_prefix = "CPMO";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Onboardinggoal\\V1";
+option swift_prefix = "MobilebffOnboardinggoalV1";
+
+// A service for setting and fetching onboarding goal a user set on mobile.
+service OnboardingGoalAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Perform a request to get the latest goal set by the user
+  rpc GetOnboardingGoal(GetOnboardingGoalRequest) returns (GetOnboardingGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/onboardinggoal/v1/OnboardingGoalAPI/GetOnboardingGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/onboardinggoal/v1/OnboardingGoalAPI/GetOnboardingGoal"}
+    };
+  }
+
+  // Perform a request to set the latest goal for a user
+  rpc SetOnboardingGoal(SetOnboardingGoalRequest) returns (SetOnboardingGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/onboardinggoal/v1/OnboardingGoalAPI/SetOnboardingGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/onboardinggoal/v1/OnboardingGoalAPI/SetOnboardingGoal"}
+    };
+  }
+}
+
+message GetOnboardingGoalRequest {}
+
+message GetOnboardingGoalResponse {
+  // A list of goals the user selected, could be empty
+  repeated Goal goal = 1;
+}
+
+message SetOnboardingGoalRequest {
+  // A list of goals the user selected, could be empty
+  repeated Goal goal = 1;
+  // The course id the user enrolled in when they set the goal
+  optional string course_id = 2;
+}
+
+message SetOnboardingGoalResponse {}
+
+enum Goal {
+  GOAL_INVALID = 0;
+  GOAL_OTHER = 1;
+  GOAL_LAND_NEW_JOB = 2;
+  GOAL_IMPROVE_SKILLS = 3;
+  GOAL_CHANGE_CAREER = 4;
+  GOAL_PERSONAL_INTEREST = 5;
+}

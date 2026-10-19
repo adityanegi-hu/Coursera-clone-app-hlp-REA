@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="30dp"
+    android:width="42dp"
+    android:viewportWidth="42"
+    android:viewportHeight="30">
+    <path
+        android:fillColor="@drawable/_coursera_plus_vanderbilt__0_res_0x7f080008"
+        android:pathData="M8.091,0.148H0.45V0.498C2.738,2.062 3.836,3.277 5.261,6.336L16.26,29.852H21.191L8.091,0.148Z"/>
+    <path
+        android:fillColor="@drawable/_coursera_plus_vanderbilt__1_res_0x7f080009"
+        android:pathData="M21.192,29.852V19.47L15.12,6.453C13.696,3.417 14.069,1.876 16.475,0.498V0.148H8.091L21.192,29.852Z"/>
+    <path
+        android:fillColor="@drawable/_coursera_plus_vanderbilt__2_res_0x7f08000a"
+        android:pathData="M34.292,0.148H41.933V0.498C39.645,2.062 38.547,3.277 37.123,6.336L26.124,29.852H21.192L34.292,0.148Z"/>
+    <path
+        android:fillColor="@drawable/_coursera_plus_vanderbilt__3_res_0x7f08000b"
+        android:pathData="M21.192,29.852V19.47L27.264,6.453C28.688,3.417 28.315,1.876 25.909,0.498V0.148H34.293L21.192,29.852Z"/>
+</vector>

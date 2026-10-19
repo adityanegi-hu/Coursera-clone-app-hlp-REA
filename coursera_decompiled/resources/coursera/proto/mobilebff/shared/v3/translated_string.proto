@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v3;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V3";
+option go_package = "sharedv3";
+option java_multiple_files = true;
+option java_outer_classname = "TranslatedStringProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v3";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V3";
+option swift_prefix = "MobilebffShared";
+
+// The value and translated string used across mobile-bff.
+message TranslatedString {
+  // The value to provide to BFF or BE services.
+  string value = 1;
+  // The translated value used on UI.
+  string value_display = 2;
+}

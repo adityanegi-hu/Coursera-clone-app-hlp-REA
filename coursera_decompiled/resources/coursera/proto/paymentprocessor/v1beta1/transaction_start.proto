@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_action_type.proto";
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_billing_info.proto";
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_start.proto";
+import "coursera/proto/paymentprocessor/v1beta1/product_id.proto";
+import "coursera/proto/paymentprocessor/v1beta1/tax_behavior.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "TransactionStartProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Object containing details of a transaction before it has been processed by a payment processor.
+message TransactionStart {
+  PaymentTransactionStart payment_transaction_start = 1;
+  PaymentAuxiliaryInformation payment_aux_info = 2;
+  PaymentTransactionActionType action_type = 3;
+  ProductId product_id = 4;
+  IapReceipt iap_receipt = 5;
+}
+
+// In app purchase receipt.
+message IapReceipt {
+  google.protobuf.UInt64Value payment_transaction_id = 1;
+  google.protobuf.StringValue iap_receipt_id = 2;
+  google.protobuf.StringValue original_transaction_id = 3;
+  google.protobuf.StringValue iap_receipt_body = 4;
+}
+
+// Auxiliary payment information.
+message PaymentAuxiliaryInformation {
+  google.protobuf.StringValue payment_processor_transaction_id = 1;
+  // Billing address information
+  PaymentTransactionBillingInfo billing_info = 2;
+  google.type.Money amount = 3;
+  google.type.Money tax_amount = 4;
+  // This field is not authoritative as to whether this is truly a recurring payment.
+  // It just determines whether we send the `recurring` flag to Braintree.
+  google.protobuf.BoolValue braintree_recurring = 5;
+  // https://articles.braintreepayments.com/control-panel/custom-fields
+  map<string, string> braintree_custom_fields = 6;
+  EbanxInstallmentDetail installment_detail = 7;
+  google.protobuf.StringValue card_type = 8;
+  google.protobuf.StringValue payment_instrument_type = 9;
+  // This field is used to track how much tax was charged from learner, it might be different
+  // from the taxAmount that is passed to payment processor.
+  google.type.Money tax_charged_to_learner = 10;
+  TaxBehavior tax_behavior = 11;
+}
+
+// Ebanx specific details.
+message EbanxInstallmentDetail {
+  google.protobuf.UInt32Value number_of_installments = 1;
+  google.type.Money amount_total = 2;
+  google.type.Money installment_fee = 3;
+}

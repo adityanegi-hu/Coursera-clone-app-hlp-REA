@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "TaxBehaviorProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Tax Behavior.
+enum TaxBehavior {
+  TAX_BEHAVIOR_INVALID = 0;
+  // Inclusive tax is already included in the price.
+  TAX_BEHAVIOR_INCLUSIVE = 1;
+  // Exclusive tax is added on top of the price.
+  TAX_BEHAVIOR_EXCLUSIVE = 2;
+  // Tax is not charged.
+  TAX_BEHAVIOR_NOT_CHARGED = 3;
+}

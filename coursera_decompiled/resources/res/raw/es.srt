@@ -1,0 +1,529 @@
+1
+00:00:00,596 --> 00:00:05,963
+Funciones de estudio de cálculo y este curso no es una excepción. Vamos a ser
+
+2
+00:00:05,963 --> 00:00:11,628
+¿estudiar las funciones en este curso, bien? Funciones como f de x o el seno
+
+3
+00:00:11,628 --> 00:00:17,292
+función o la función raíz cuadrada. Y plantea una pregunta qué
+
+4
+00:00:17,292 --> 00:00:22,734
+¿funciones?Si Si vamos a estudiar las funciones, debemos saber lo que son.
+
+5
+00:00:22,734 --> 00:00:28,771
+Y esa pregunta es bastante metafísica.
+Quiero decir ¿qué son los números? ¿Qué son los números
+
+6
+00:00:28,771 --> 00:00:33,142
+¿para? ¿Me refiero a que esa pregunta no tiene mucho sentido que lo hace? Yo, sabes, es
+
+7
+00:00:33,142 --> 00:00:37,668
+no como un número cuatro es un objeto físico que mire a ver si puedo ir
+
+8
+00:00:37,668 --> 00:00:42,136
+¿tiene lunares o se reparten o algo, a la derecha? Pero sé cuatro objetos
+
+9
+00:00:42,136 --> 00:00:46,888
+¿Cuando veo, correcto? Ordenar comprender lo que hacer más de lo que son en números
+
+10
+00:00:46,888 --> 00:00:51,300
+algún sentido metafísico. ¿Lo mismo puede decirse acerca de las funciones, la derecha? Yo no soy
+
+11
+00:00:51,300 --> 00:00:55,656
+va a decir es una función. Lo que voy a decirte es que una función
+
+12
+00:00:55,656 --> 00:00:59,955
+hace. Esto es lo que hace una función. Una función asigna a cada número en su
+
+13
+00:00:59,955 --> 00:01:04,610
+dominio de otro número. Y esta definición no dice nada acerca de cómo la
+
+14
+00:01:04,610 --> 00:01:10,047
+hace función de esa asignación. Veamos un ejemplo. Constituyen sólo algunos ejemplos.
+
+15
+00:01:10,047 --> 00:01:16,213
+Supongamos que tengo alguna función, llamo f, f para la función. Tal vez esta función
+
+16
+00:01:16,213 --> 00:01:22,381
+asigna al número dos, el número cuatro. Por lo tanto, voy a escribir f es cuatro o f(3)
+
+17
+00:01:22,381 --> 00:01:29,534
+es de nueve o f(4) es de que 16 años de f(5) es 25.
+Sólo estoy haciendo esto. Se trata de un
+
+18
+00:01:29,534 --> 00:01:34,294
+función. ¿Y te digo qué número asigna a cada número, derecho? f
+
+19
+00:01:34,294 --> 00:01:39,479
+asigna al número dos, el número cuatro.
+f(3) es nueve, ¿verdad? Por lo tanto, f asigna a la
+
+20
+00:01:39,479 --> 00:01:43,986
+número tres, el número nueve. Bien, mira, no voy a lista justo fuera de cada
+
+21
+00:01:43,986 --> 00:01:48,943
+asignación única hace que f. Por el contrario, una manera de hablar de estos
+
+22
+00:01:48,943 --> 00:01:53,349
+asignaciones es utilizar una regla, como f (x) = x ^ 2.
+
+23
+00:01:53,350 --> 00:01:59,274
+¿Y esta regla explica cómo todas estas asignaciones se hacen, bien? Esto
+
+24
+00:01:59,274 --> 00:02:03,061
+regla dice que f se asigna al número x, el número x ^ 2.
+
+25
+00:02:03,062 --> 00:02:07,888
+Así que en particular, f asigna el número cinco, cinco cuadrados o 25 o f asigna el
+
+26
+00:02:07,888 --> 00:02:12,653
+el número cuatro, cuatro al cuadrado que es 16 o f asigna el número tres, tres
+
+27
+00:02:12,653 --> 00:02:17,480
+¿cuadrado que nueve, está bien? S o, muchas veces, cuando realmente quiere hablar
+
+28
+00:02:17,480 --> 00:02:22,306
+acerca de cómo se hacen estas asignaciones, utilizar algún tipo de regla como esta: y
+
+29
+00:02:22,306 --> 00:02:27,219
+¿se escribe f de x es algo, para calcular el valor de salida, derecho? Así, una función
+
+30
+00:02:27,219 --> 00:02:32,631
+asigna a cada número en su dominio de otro número. Una forma de hacerlo es con
+
+31
+00:02:32,631 --> 00:02:37,700
+una regla. Por supuesto, esta definición de función consiste en otra palabra, dominio.
+
+32
+00:02:37,700 --> 00:02:42,972
+¿Qué es un dominio? Si no digo lo contrario, el dominio consiste en todos los números para
+
+33
+00:02:42,972 --> 00:02:47,911
+¿que la regla tiene sentido, correcto? Una función asigna a cada número en su
+
+34
+00:02:47,911 --> 00:02:53,511
+dominio de otro número. Y el dominio es sólo los números que puedo conectar. Vamos a
+
+35
+00:02:53,511 --> 00:02:59,709
+Echa un vistazo para ver lo que quiero decir con esto.
+Supongamos que tengo una función f (x) = uno /
+
+36
+00:02:59,709 --> 00:03:04,942
+x. así, es una función dada por una regla.
+Se necesita una entrada x y produce la
+
+37
+00:03:04,942 --> 00:03:10,382
+¿salida uno / x, la derecha? Asigna al número x, el número uno / x. Pero esta
+
+38
+00:03:10,382 --> 00:03:18,599
+¿regla no siempre tiene sentido, correcto? ¿Estoy dividiendo por x, bien? Y dividir por
+
+39
+00:03:18,599 --> 00:03:29,707
+x, ¿qué necesito? Bien, debo tener que x no es cero, no se permite dividir por
+
+40
+00:03:29,707 --> 00:03:37,289
+cero. Por lo tanto, puedo conectar en cualquier número para x excepto cero. Y es entonces cuando esta regla
+
+41
+00:03:37,289 --> 00:03:44,591
+tiene sentido. Por lo tanto, lo resumo diciendo que el dominio de f es real
+
+42
+00:03:44,591 --> 00:03:51,416
+números excepto el cero. Por lo tanto, una función algunas entradas y produce algunas salidas.
+
+43
+00:03:51,416 --> 00:03:55,874
+Eso es lo que hace. Pero ¿cómo se supone que para hacernos sentir, sabes? Cómo
+
+44
+00:03:55,874 --> 00:04:00,633
+¿Debemos imaginar? Bueno, aquí es una metáfora que se puede utilizar para
+
+45
+00:04:00,633 --> 00:04:05,271
+¿trate de pensar acerca de lo que una función es realmente haciendo, bien? Que te puedas imaginar
+
+46
+00:04:05,271 --> 00:04:10,031
+a, una cinta transportadora con la función, usted sabe, y que te puedas imaginar los números
+
+47
+00:04:10,031 --> 00:04:15,031
+llegando. Boom. Siendo golpeado por la función y, a continuación, salir transformado de alguna manera, por
+
+48
+00:04:15,031 --> 00:04:19,763
+lo que es la regla de la función.
+Aquí es lo que estoy hablando. Tengo un
+
+49
+00:04:19,763 --> 00:04:24,220
+transportadora aquí, tienes esta caja grande e imaginar si ese cuadro grande es el
+
+50
+00:04:24,220 --> 00:04:29,043
+función. Y aquí, tienes la entrada, imaginar el número cinco. Vamos a ver lo que
+
+51
+00:04:29,043 --> 00:04:34,904
+Esta máquina va a hacer. Tal vez esta es la función f (x) = x ^ 2 + x y yo tenemos
+
+52
+00:04:34,904 --> 00:04:39,177
+Este número cinco aquí. Y voy a empezar la banda transportadora lo va el número cinco
+
+53
+00:04:39,177 --> 00:04:44,062
+Comience a mover a través de la máquina y cuando se hace la máquina de procesamiento, se
+
+54
+00:04:44,062 --> 00:04:51,910
+sale del otro lado y ahora, es el número 30, bien. Porque f(5) es cinco ^ 2
+
+55
+00:04:51,910 --> 00:05:00,414
++ 5, que es de 25 + 5 es 20.
+Así, hemos visto cómo puede escribir un
+
+56
+00:05:00,414 --> 00:05:04,510
+¿función utilizando un, una regla de símbolos matemáticos estos, estos, derecho?
+
+57
+00:05:04,510 --> 00:05:09,819
+x ^ 2 + x. También puede escribir una función sólo usando palabras en inglés. Por lo tanto,
+
+58
+00:05:09,819 --> 00:05:15,689
+Veamos un ejemplo de eso, sólo constituyen una nueva función aquí. Yo lo llamo contraria y
+
+59
+00:05:15,689 --> 00:05:21,354
+Te defino contraria para ser tres veces, es decir tres veces, tres veces la raíz cuadrada de x.
+
+60
+00:05:21,354 --> 00:05:25,995
+Y aquí, yo he calculado algunos, algunos valores de la función, usted sabe, como el
+
+61
+00:05:25,995 --> 00:05:31,591
+función que cuatro es seis. Bien, ¿por qué es eso? Bueno, R(4) sería tres veces el
+
+62
+00:05:31,591 --> 00:05:36,649
+raíz cuadrada de cuatro, que es tres veces dos que es seis. Está bien. Ahora, por supuesto,
+
+63
+00:05:36,649 --> 00:05:41,337
+Cuando hago el cálculo de esta manera, usted sabe, no sorprende en su lugar
+
+64
+00:05:41,337 --> 00:05:46,083
+de escribir esto en palabras, tres veces la raíz cuadrada de x, quiero decir que podía tener sólo
+
+65
+00:05:46,083 --> 00:05:50,713
+escrito tres veces la raíz cuadrada de x.
+Por lo tanto, tal vez no está demasiado impresionado con
+
+66
+00:05:50,713 --> 00:05:55,285
+esto. El punto es que puede definir una función sólo por escrito lo que el
+
+67
+00:05:55,285 --> 00:05:59,742
+función se supone hacer uso de palabras en inglés. Así, hemos visto un ejemplo de un
+
+68
+00:05:59,742 --> 00:06:05,596
+función que definimos sólo en términos de álgebra, f (x) = x ^ 2 + x. También he visto un
+
+69
+00:06:05,596 --> 00:06:10,463
+ejemplo de una función que defino totalmente con sólo palabras. Podemos
+
+70
+00:06:10,463 --> 00:06:15,188
+¿tipo de combinar esas dos cosas, bien?
+Podemos utilizar al inglés para seleccionar tipo de
+
+71
+00:06:15,188 --> 00:06:20,285
+diversas clases de álgebra. Ahora veamos un ejemplo de ello. Por lo tanto, aquí hay otro
+
+72
+00:06:20,285 --> 00:06:27,291
+acabo de hacer por la función. su es x ^ 22 si x es mayor o igual a cinco.
+
+73
+00:06:27,291 --> 00:06:32,065
+Y dos veces x si x es inferior a cinco. El punto aquí es que estoy usando sólo un poco
+
+74
+00:06:32,065 --> 00:06:37,762
+poco de inglés. Así, esta palabra, si, con el fin de seleccionar basado en x qué tan grande es, un
+
+75
+00:06:37,762 --> 00:06:43,233
+otra regla algebraica para calcular la función y esto es un poco
+
+76
+00:06:43,233 --> 00:06:48,113
+Resumen. Permítanme hacer algunos cálculos y que podrían convencer a usted,
+
+77
+00:06:48,113 --> 00:06:52,806
+usted sabe, cómo, cómo es esta notación, esta llamada notación por partes funciona. Por lo tanto,
+
+78
+00:06:52,806 --> 00:06:56,769
+¿Qué es g (1)?
+Bien, vamos a echar un vistazo. Uno es menos de
+
+79
+00:06:56,769 --> 00:07:02,713
+cinco para que medios utilizar esta segunda regla para calcular g, así que es dos veces uno
+
+80
+00:07:02,713 --> 00:07:08,005
+que es de dos. ¿Qué es g de, digamos, cuatro?
+Bien, cuatro es todavía menos de cinco por lo
+
+81
+00:07:08,005 --> 00:07:13,515
+Utilice la segunda regla de nuevo. Dos veces los entrada, dos veces cuatro que medios y el
+
+82
+00:07:13,515 --> 00:07:19,460
+salida es ocho. ¿Pero lo que es, digamos, ha?
+Ooh. Cinco no es inferior a cinco. Cinco es
+
+83
+00:07:19,460 --> 00:07:25,755
+mayor o igual a cinco. Por lo tanto, si me está diciendo con el primero de los dos
+
+84
+00:07:25,755 --> 00:07:31,595
+reglas para calcular g, así que voy a utilizar cinco cuadrados como la salida y
+
+85
+00:07:31,595 --> 00:07:36,008
+será de 25. O g(10).
+Bien, diez es definitivamente mayor o
+
+86
+00:07:36,008 --> 00:07:41,274
+igual a cinco y es mayor de cinco.
+Por lo tanto, volver a utilizar la primera regla y la
+
+87
+00:07:41,274 --> 00:07:46,540
+salida a esta función se calcula como diez cuadrados o 100. Entonces, esto es, usted sabe,
+
+88
+00:07:46,540 --> 00:07:51,806
+¿realmente más complicado que con sólo algunos álgebra, derecho? Estoy usando estos si
+
+89
+00:07:51,806 --> 00:07:57,876
+declaraciones para seleccionar cuál de estas dos reglas g utilizará para calcular su salida. en
+
+90
+00:07:57,876 --> 00:08:01,568
+principio, funciones pueden ser realmente complicadas. Es decir, todos los ejemplos
+
+91
+00:08:01,568 --> 00:08:05,893
+hemos visto sólo están haciendo varias clases de álgebra. O sea, tal vez diferente álgebra,
+
+92
+00:08:05,893 --> 00:08:09,585
+dependiendo de qué valor de x estoy enchufando. Pero es todo, usted sabe,
+
+93
+00:08:09,585 --> 00:08:13,646
+sumar, restar, multiplicar, dividir a ese tipo de cosas. Pero se puede hacer realmente
+
+94
+00:08:13,646 --> 00:08:18,076
+cosas complicadas, con funciones.
+Veamos un ejemplo de algo que es
+
+95
+00:08:18,234 --> 00:08:21,768
+sabes realmente diferente de hacerlo hacia arriba álgebra. Voy a hacer mucho
+
+96
+00:08:21,768 --> 00:08:25,776
+ejemplo más locos. Bien. C(x) es el número de dígitos incluso en el número x,
+
+97
+00:08:25,776 --> 00:08:30,411
+cuando x es un número entero. Es cero si x no es un número entero, así que lo contrario. Y
+
+98
+00:08:30,616 --> 00:08:35,748
+¿es una función realmente diferente y loca, correcto? Así, C de, digamos, 7236 es de dos y por qué
+
+99
+00:08:35,748 --> 00:08:41,359
+¿es? Esto es un número entero para usar la primera parte de la regla. Y el número
+
+100
+00:08:41,359 --> 00:08:46,354
+de dígitos incluso en este número, bueno, contarlas. Es extraño, incluso, impares, incluso.
+
+101
+00:08:46,354 --> 00:08:51,687
+Así, dos y seis son los dos dígitos incluso.
+El valor de esa función es dos. Bueno,
+
+102
+00:08:51,687 --> 00:08:56,890
+Echemos un vistazo a este número aquí, 60.202. Una vez más es un número entero, tan
+
+103
+00:08:56,890 --> 00:09:02,228
+el valor de la función 60.202 es el número de dígitos incluso en x. Y este
+
+104
+00:09:02,228 --> 00:09:07,160
+¿número tiene h ujo muchos dígitos incluso? Uno, dos, tres, cuatro, cinco, son todo incluso
+
+105
+00:09:07,160 --> 00:09:12,352
+dígitos por lo que ese valor es cinco. Aquí hay otro ejemplo. Aquí está 5 otro dígitos
+
+106
+00:09:12,352 --> 00:09:17,312
+número. 53.531. Una vez más, es un número entero para usar la primera parte de la regla, la
+
+107
+00:09:17,312 --> 00:09:22,272
+número de dígitos incluso. Contar cuántos de estos dígitos son incluso. Cinco es extraño, extraño,
+
+108
+00:09:22,272 --> 00:09:27,108
+impar, impar, impar. No hay ninguna incluso dígitos.
+Por lo tanto, el valor de esta función es cero en
+
+109
+00:09:27,108 --> 00:09:31,559
+este punto. Ahora, si enchufo en un número que no es un número entero como este, esto
+
+110
+00:09:31,559 --> 00:09:35,947
+no es un número entero, a continuación, utilizar la otra forma parte de la definición. Y el
+
+111
+00:09:35,947 --> 00:09:40,391
+función en ese punto es igual a cero. Así, podemos utilizar el inglés para definir una función
+
+112
+00:09:40,391 --> 00:09:44,160
+¿pero tienes que tener cuidado, bien?
+A veces, cuando se escribe otro
+
+113
+00:09:44,160 --> 00:09:48,829
+definición de una función, usted puede escribir algo que es más ambiguo que,
+
+114
+00:09:48,829 --> 00:09:53,217
+que se esperaba. Por lo tanto, vamos a intentar definir una función. Sólo haciendo esto
+
+115
+00:09:53,217 --> 00:09:57,943
+Llamo la función B(x) para mal. Y voy a decir que el valor de B(x) es algo
+
+116
+00:09:57,943 --> 00:10:01,946
+reordenamiento de los dígitos de x. Y está bien que estoy usando el inglés para definir mi
+
+117
+00:10:01,946 --> 00:10:06,323
+funciones. No hay nada malo en eso. Pero esta definición es demasiado ambigua
+
+118
+00:10:06,323 --> 00:10:11,678
+que la definición de una función. Aquí está una definición de lo que sale mal. ¿Qué es
+
+119
+00:10:12,165 --> 00:10:17,520
+¿valor de la función en 352? Bien, la función toma su entrada y reorganiza
+
+120
+00:10:17,520 --> 00:10:23,015
+¿los dígitos de alguna manera, bien? Así, se podría pensar que es el valor de las funciones en 352
+
+121
+00:10:23,015 --> 00:10:28,648
+325. Porque es de 325 algunos reordenamiento de los dígitos de 352, derecha, tomé los cinco
+
+122
+00:10:28,648 --> 00:10:34,142
+y los dos intercambian sus posiciones. Pero entonces, si el valor de las funciones en 352
+
+123
+00:10:34,142 --> 00:10:39,280
+también ser cuz 235 235 es también una reordenación de 352. Valor de la función
+
+124
+00:10:39,280 --> 00:10:45,872
+con 352 también debe ser 532 porque 532 es algunos reordenamiento de los dígitos de 352.
+
+125
+00:10:45,872 --> 00:10:53,622
+¿Esto es terrible, bien? Una función se supone que para tomar su entrada y producir
+
+126
+00:10:53,622 --> 00:11:02,455
+claramente un valor de salida única. Pero esta función llamada lleva esta sola
+
+127
+00:11:02,455 --> 00:11:11,395
+valor de entrada y supuestamente produce todos estos posibles salidas. Esto aquí es
+
+128
+00:11:11,395 --> 00:11:18,504
+¿no es una función, bien? Una función tiene una entrada y produce una salida.

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d opdracht moet worden ingeleverd</item>
+        <item quantity="other">%d opdrachten moeten worden ingeleverd</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d opdracht</item>
+        <item quantity="other">%1$d opdrachten</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d dialoog</item>
+        <item quantity="other">%1$d dialogen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d discussie</item>
+        <item quantity="other">%1$d discussies</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d opdracht met cijfer</item>
+        <item quantity="other">%1$d opdrachten met cijfer</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d discussie met cijfer</item>
+        <item quantity="other">%1$d discussies met cijfer</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d labsessie met cijfer</item>
+        <item quantity="other">%1$d labsessies met cijfer</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d rollenspel met cijfers</item>
+        <item quantity="other">%1$d rollenspellen met cijfers</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d teamopdracht met cijfer</item>
+        <item quantity="other">%1$d teamopdrachten met cijfer</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d labsessie</item>
+        <item quantity="other">%1$d labsessies</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d Vergrendeld lezen</item>
+        <item quantity="other">%1$d Vergrendelde meetwaarden</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d Vergrendelde video</item>
+        <item quantity="other">%1$d Vergrendelde video’s</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d notitieboek</item>
+        <item quantity="other">%1$d notitieboeken</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Item</item>
+        <item quantity="other">%1$d Items</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d opdracht van collega&apos;s</item>
+        <item quantity="other">%1$d opdrachten van collega&apos;s</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d collegiale beoordeling</item>
+        <item quantity="other">%1$d collegiale beoordelingen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d oefenopdracht</item>
+        <item quantity="other">%1$d oefenopdrachten</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d oefenopdracht met collegiale beoordeling</item>
+        <item quantity="other">%1$d oefenopdrachten met collegiale beoordeling</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d oefentoets</item>
+        <item quantity="other">%1$d oefentoetsen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d oefenteamopdracht</item>
+        <item quantity="other">%1$d oefenteamopdrachtrn</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d programmeeropdracht</item>
+        <item quantity="other">%1$d programmeeropdrachten</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d toets</item>
+        <item quantity="other">%1$d toetsen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d lezing</item>
+        <item quantity="other">%1$d lezingen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d rollenspel</item>
+        <item quantity="other">%1$d rollenspellen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d diavoorstelling</item>
+        <item quantity="other">%1$d diavoorstellingen</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d teamproject</item>
+        <item quantity="other">%1$d teamprojecten</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Gefeliciteerd, je hebt een opdracht beoordeeld! Help andere medecursisten als je wat tijd over hebt.</item>
+        <item quantity="other">Gefeliciteerd, je hebt alle %s-opdrachten beoordeeld! Help andere medecursisten als je wat tijd over hebt.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">Docent</item>
+        <item quantity="other">Docenten</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">beoordeeld met %1$s van de 5 sterren, %2$s beoordeling</item>
+        <item quantity="other">beoordeeld met %1$s van de 5 sterren, %2$s beoordelingen</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Voltooi een beoordeling</item>
+        <item quantity="other">Voltooi %1$d beoordelingen</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Voltooi een praktijkgericht oefenonderdeel</item>
+        <item quantity="other">Voltooi %1$d praktijkgerichte oefenonderdelen</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Voltooi alle leeritems</item>
+        <item quantity="other">Voltooi alle %1$d leeritems.</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Bekijk een video</item>
+        <item quantity="other">Bekijk %1$d video&apos;s</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Voltooi een praktijkoefening</item>
+        <item quantity="other">Voltooi %1$d oefenopdrachten</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Voltooi een lezing</item>
+        <item quantity="other">Voltooi %1$d lezingen</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">dag</item>
+        <item quantity="other">dagen</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s diploma</item>
+        <item quantity="other">%1$s diploma&apos;s</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d dag</item>
+        <item quantity="other">%1$d dagen</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d uur</item>
+        <item quantity="other">%1$d uur</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">%d seconde vooruitspoelen</item>
+        <item quantity="other">%d seconden vooruitspoelen</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">%d seconde terugspoelen</item>
+        <item quantity="other">%d seconden terugspoelen</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d module</item>
+        <item quantity="other">%1$d modules</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d cursusserie</item>
+        <item quantity="other">%1$d cursusseries</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d dag</item>
+        <item quantity="other">%1$d dagen</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">is %1$d opdracht</item>
+        <item quantity="other">zijn %1$d opdrachten</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">uur</item>
+        <item quantity="other">uur</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">min.</item>
+        <item quantity="other">min.</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">maand</item>
+        <item quantity="other">maanden</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d cursus</item>
+        <item quantity="other">%1$d cursussen</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 punt</item>
+        <item quantity="other">%.1f punten</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">beoordeeld met %1$s van de 5 sterren</item>
+        <item quantity="other">beoordeeld met %1$s van de 5 sterren</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">totaalresultaat</item>
+        <item quantity="other">totaalresultaten</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">punt</item>
+        <item quantity="other">punten</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d oefenvraag</item>
+        <item quantity="other">%d oefenvragen</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">beoordeeld met %1$s van de 5 sterren</item>
+        <item quantity="other">beoordeeld met %1$s van de 5 sterren</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">vraag</item>
+        <item quantity="other">vragen</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s punt</item>
+        <item quantity="other">%1$s punten</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d vraag</item>
+        <item quantity="other">%d vragen</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">vraag</item>
+        <item quantity="other">vragen</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d VRAAG</item>
+        <item quantity="other">%d VRAGEN</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d minuut</item>
+        <item quantity="other">%d minuten</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d min.</item>
+        <item quantity="other">%d min.</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">Antwoord</item>
+        <item quantity="other">Antwoorden</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Toon alle %d cursus</item>
+        <item quantity="other">Toon alle %d cursussen</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Toon %1$d cursus van %2$s</item>
+        <item quantity="other">Toon alle %1$d cursussen van %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">vaardigheid</item>
+        <item quantity="other">vaardigheden</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Nog %1$d dag leren om je wekelijkse doel te halen!</item>
+        <item quantity="other">Nog %1$d dagen leren om je wekelijkse doel te halen!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Leer nog %1$d dag om je leerdoel te halen!</item>
+        <item quantity="other">Leer nog %1$d dagen om je leerdoel te halen!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">gewaardeerd met %1$s van de 5 sterren, %2$s</item>
+        <item quantity="other">gewaardeerd met %1$s van de 5 sterren, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">keer omhoog gestemd</item>
+        <item quantity="other">keer omhoog gestemd</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d Week</item>
+        <item quantity="other">%1$d Weken</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">jaar</item>
+        <item quantity="other">jaar</item>
+    </plurals>
+</resources>

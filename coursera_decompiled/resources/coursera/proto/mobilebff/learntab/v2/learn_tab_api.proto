@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.learntab.v2;
+
+import "coursera/proto/mobilebff/learntab/v2/learn_tab.proto";
+import "coursera/proto/mobilebff/shared/v2/program.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Learntab.V2";
+option go_package = "learntabv2";
+option java_multiple_files = true;
+option java_outer_classname = "LearnTabApiProto";
+option java_package = "org.coursera.proto.mobilebff.learntab.v2";
+option objc_class_prefix = "CPML";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Learntab\\V2";
+option swift_prefix = "MobilebffLearntab";
+
+// A Service to collect and return information for the mobile learn tab.
+service LearnTabAPI {
+  option deprecated = true;
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get learn tab information.
+  rpc GetLearnTab(GetLearnTabRequest) returns (GetLearnTabResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/GetLearnTab"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/GetLearnTab"}
+    };
+  }
+  // Get learn tab program switcher.
+  rpc GetLearnTabProgramSwitcher(GetLearnTabProgramSwitcherRequest) returns (GetLearnTabProgramSwitcherResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/GetLearnTabProgramSwitcher"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/GetLearnTabProgramSwitcher"}
+    };
+  }
+  // Get user level goal information.
+  rpc GetUserLevelGoal(GetUserLevelGoalRequest) returns (GetUserLevelGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/GetUserLevelGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/GetUserLevelGoal"}
+    };
+  }
+  // Set user level goal.
+  rpc SetUserLevelGoal(SetUserLevelGoalRequest) returns (SetUserLevelGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/SetUserLevelGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/SetUserLevelGoal"}
+    };
+  }
+  // Delete user level goal.
+  rpc DeleteUserLevelGoal(DeleteUserLevelGoalRequest) returns (DeleteUserLevelGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/DeleteUserLevelGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v2/LearnTabAPI/DeleteUserLevelGoal"}
+    };
+  }
+}
+
+message GetLearnTabRequest {
+  google.protobuf.StringValue program_id = 1;
+  LearnTabFilter filter = 2;
+}
+
+message GetLearnTabResponse {
+  repeated LearnTabItem items = 1;
+}
+
+message GetLearnTabProgramSwitcherRequest {}
+
+message GetLearnTabProgramSwitcherResponse {
+  repeated shared.v2.ProgramInfo program_info = 1;
+}
+
+message GetUserLevelGoalRequest {}
+
+message GetUserLevelGoalResponse {
+  // The number of days to learn per week to meet the goal. If not set then the user does not have a goal set.
+  google.protobuf.Int32Value goal_days_per_week = 1;
+  // The number of days completed in the current week.
+  google.protobuf.Int32Value days_completed = 2;
+}
+
+message SetUserLevelGoalRequest {
+  // The number of days to learn per week to meet the goal.
+  int32 goal_days_per_week = 1;
+}
+
+message SetUserLevelGoalResponse {
+  // User level goal id.
+  string id = 1;
+}
+
+message DeleteUserLevelGoalRequest {}
+
+message DeleteUserLevelGoalResponse {
+  // User level goal id.
+  string id = 1;
+}

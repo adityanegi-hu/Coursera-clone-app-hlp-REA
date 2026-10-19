@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.profileconsent.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Profileconsent.V1";
+option go_package = "profileconsentv1";
+option java_multiple_files = true;
+option java_outer_classname = "ProfileConsentApiProto";
+option java_package = "org.coursera.proto.mobilebff.profileconsent.v1";
+option objc_class_prefix = "CPMP";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Profileconsent\\V1";
+option swift_prefix = "MobilebffProfileconsentV1";
+
+// The API to fetch and update the users acceptance of coursera terms and conditions and privacy
+// policy
+service ProfileConsentsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  rpc IsTermsAndConditionsRequired(IsTermsAndConditionsRequiredRequest) returns (IsTermsAndConditionsRequiredResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/profileconsent/v1/ProfileConsentsAPI/IsTermsAndConditionsRequired"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/profileconsent/v1/ProfileConsentsAPI/IsTermsAndConditionsRequired"}
+    };
+  }
+
+  rpc AcceptTermsAndConditions(AcceptTermsAndConditionsRequest) returns (AcceptTermsAndConditionsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/profileconsent/v1/ProfileConsentsAPI/AcceptTermsAndConditions"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/profileconsent/v1/ProfileConsentsAPI/AcceptTermsAndConditions"}
+    };
+  }
+}
+
+message IsTermsAndConditionsRequiredRequest {}
+
+message IsTermsAndConditionsRequiredResponse {
+  // Indicates if the user is required to consent to the current version Terms of Use and Privacy
+  // Policy
+  bool requires_accepting_terms_of_use = 1;
+}
+
+message AcceptTermsAndConditionsRequest {}
+
+message AcceptTermsAndConditionsResponse {}

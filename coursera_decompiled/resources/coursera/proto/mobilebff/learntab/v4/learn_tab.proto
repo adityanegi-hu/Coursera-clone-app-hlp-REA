@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.learntab.v4;
+
+import "coursera/proto/mobilebff/coursehome/v4/mobile_course_home.proto";
+import "coursera/proto/mobilebff/shared/v2/enterprise_mooc.proto";
+import "coursera/proto/mobilebff/shared/v2/next_step.proto";
+import "coursera/proto/mobilebff/shared/v3/product_type.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Learntab.V4";
+option go_package = "learntabv4";
+option java_multiple_files = true;
+option java_outer_classname = "LearnTabProto";
+option java_package = "org.coursera.proto.mobilebff.learntab.v4";
+option objc_class_prefix = "CPML";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Learntab\\V4";
+option swift_prefix = "MobilebffLearntabV4";
+
+// A wrapper for an course membership on the learn tab. This can be a standalone course or a
+// course part of a specialization
+message LearnTabCourse {
+  Course course = 1;
+  // Will be populated if the course is part of a specialization
+  optional CourseCardSpecializationInfo specialization_info = 2;
+}
+
+// A Header used to separate different programs as well as "my coursera" from each other.
+message Header {
+  HeaderType type = 1;
+  string title = 2;
+}
+
+// An enum for the different header types.
+enum HeaderType {
+  HEADER_TYPE_INVALID = 0;
+  HEADER_TYPE_PROGRAM = 1;
+  HEADER_TYPE_MY_COURSERA = 2;
+}
+
+message CourseCardSpecializationInfo {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  // Used to tell if this is a specialization or professional certificate.
+  shared.v3.ProductType product_type = 4;
+  // which course this is in the specialization
+  int32 course_number = 5;
+  // total # of courses in a specialization
+  int32 total_courses = 6;
+}
+
+// Container holding information for a course.
+message Course {
+  string course_id = 1;
+  string slug = 2;
+  string name = 3;
+  // List of partner names
+  repeated string partners = 4;
+  // The optional URL to an image associated with the partners, if any. E.g. the partner logo.
+  repeated string partner_logos = 5;
+  // Will always be true in GetLearnTabResponse, but may not be true in
+  // GetAllCoursesInSeriesResponse.
+  bool is_enrolled_in_course = 7;
+  optional google.protobuf.StringValue custom_course_name = 8;
+  bool can_unenroll = 9;
+  bool is_pre_enroll_enabled = 10;
+  Progress progress = 11;
+  NextStep switch_session_info = 12;
+  // Signifies if the product is available for credit
+  bool offers_credit = 13;
+  // Information about the enterprise MOOC credit for course
+  shared.v2.EnterpriseMoocCreditInfo enterprise_mooc_credit_info = 14;
+  // Indicates this course is exclusive to the program
+  bool is_exclusive = 15;
+  // Indicates whether to show flashcards
+  optional bool show_flashcards = 16;
+}
+
+// Progress information for a course.
+message Progress {
+  bool is_overdue = 1;
+  double percentage = 2;
+}
+
+// Switch session information for a course.
+message NextStep {
+  shared.v2.NextStepType next_step_type = 1;
+  // Learner adjustment of session by number of days
+  oneof next_step {
+    // Next step is an item.
+    proto.mobilebff.coursehome.v4.NextStepItem item = 2;
+    // Next enrollable session if user is not enrolled in an active session
+    Session next_enrollable_session = 3;
+  }
+}
+
+// The next available session to enroll in
+message Session {
+  string session_id = 1;
+  google.protobuf.Timestamp start_time = 2;
+  google.protobuf.Timestamp end_time = 3;
+}

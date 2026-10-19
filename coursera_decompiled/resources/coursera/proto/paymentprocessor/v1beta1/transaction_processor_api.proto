@@ -1,0 +1,155 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/braintree_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/braintree_sandbox_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/checkout_request.proto";
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_end.proto";
+import "coursera/proto/paymentprocessor/v1beta1/product_id.proto";
+import "coursera/proto/paymentprocessor/v1beta1/razorpay_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/razorpay_sandbox_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/stripe_bv_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/stripe_bv_sandbox_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/stripe_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/stripe_enterprise_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/stripe_enterprise_sandbox_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/stripe_sandbox_client_token.proto";
+import "coursera/proto/paymentprocessor/v1beta1/tax_estimate.proto";
+import "coursera/proto/paymentprocessor/v1beta1/transaction_end.proto";
+import "coursera/proto/paymentprocessor/v1beta1/transaction_start.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "TransactionProcessorApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Service that contains all transaction processor logic and interactions.
+service TransactionProcessorAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: [
+      "payment",
+      "payment-processor-jobs"
+    ]
+  };
+
+  // Fetch a client token for a payment processor.
+  rpc GetClientToken(GetClientTokenRequest) returns (GetClientTokenResponse);
+  // Generate a transaction for processing.
+  rpc GenerateTransaction(GenerateTransactionRequest) returns (GenerateTransactionResponse);
+  // Process a transaction.
+  rpc ProcessTransaction(ProcessTransactionRequest) returns (ProcessTransactionResponse);
+  // Generate a refund for processing.
+  rpc GenerateRefund(GenerateRefundRequest) returns (GenerateRefundResponse);
+  // Process a refund.
+  rpc ProcessRefund(ProcessRefundRequest) returns (ProcessRefundResponse);
+  // List one time successful transactions.
+  rpc GetSuccessfulTransactions(GetSuccessfulTransactionsRequest) returns (GetSuccessfulTransactionsResponse);
+  // Refund one time transaction
+  rpc RefundTransaction(RefundTransactionRequest) returns (RefundTransactionResponse);
+}
+
+// Request object for get client token API.
+message GetClientTokenRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+}
+
+// Response object for get client token API.
+message GetClientTokenResponse {
+  oneof client_token {
+    BraintreeClientToken braintree_client_token = 1;
+    BraintreeSandboxClientToken braintree_sandbox_client_token = 2;
+    RazorpayClientToken razorpay_client_token = 3;
+    RazorpaySandboxClientToken razorpay_sandbox_client_token = 4;
+    StripeClientToken stripe_client_token = 5;
+    StripeSandboxClientToken stripe_sandbox_client_token = 6;
+    StripeBvClientToken stripe_bv_client_token = 7;
+    StripeBvSandboxClientToken stripe_bv_sandbox_client_token = 8;
+    StripeEnterpriseClientToken stripe_enterprise_client_token = 9;
+    StripeEnterpriseSandboxClientToken stripe_enterprise_sandbox_client_token = 10;
+  }
+}
+
+message GenerateTransactionRequest {
+  // Cart Id of the payment request being created.
+  google.protobuf.UInt64Value cart_id = 1;
+  // Transaction amount.
+  google.type.Money amount = 2;
+  // Checkout request type
+  CheckoutRequest request = 3;
+  // User Id.
+  google.protobuf.Int64Value user_id = 4;
+  // ProductId
+  ProductId product_id = 5;
+  // Tax Estimate
+  TaxEstimate tax_estimate = 6;
+}
+
+message GenerateTransactionResponse {
+  TransactionStart transaction_start = 1;
+}
+
+message ProcessTransactionRequest {
+  TransactionStart transaction_start = 1;
+}
+
+message ProcessTransactionResponse {
+  TransactionEnd transaction_end = 1;
+}
+
+message GenerateRefundRequest {
+  // Cart Id of the payment request being refunded.
+  google.protobuf.UInt64Value cart_id = 1;
+  PaymentTransactionEnd transaction_to_refund = 2;
+  // Checkout request type
+  CheckoutRequest checkout_request = 3;
+  // ProductId
+  ProductId product_id = 4;
+}
+
+message GenerateRefundResponse {
+  TransactionStart transaction_start = 1;
+}
+
+message ProcessRefundRequest {
+  TransactionStart transaction_start = 1;
+  google.type.Money amount_override = 2;
+}
+
+message ProcessRefundResponse {
+  TransactionEnd transaction_end = 1;
+}
+
+// Request details for listing all one time transactions.
+message GetSuccessfulTransactionsRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.Int32Value created_less_than_days = 2;
+  google.protobuf.Int32Value created_greater_than_days = 3;
+  google.protobuf.StringValue page_token = 4;
+}
+
+// Response details for listing all one time transactions.
+message GetSuccessfulTransactionsResponse {
+  repeated string payment_processor_transaction_ids = 1;
+  google.protobuf.StringValue next_page_token = 2;
+}
+
+// Request details to refund one time transaction.
+message RefundTransactionRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue payment_processor_transaction_id = 2;
+}
+
+// Details for refund of one time transaction.
+message RefundTransactionResponse {
+  // Status of refund
+  bool is_refund_successful = 1;
+}

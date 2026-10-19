@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionBillingInfoProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Object to encapsulate basic customer billing info. Based on PaymentTransactionBillingInfo Scala class.
+// https://github.com/webedx-spark/infra-services/blob/master/libs/models/src/main/pegasus/org/coursera/payment/transaction/PaymentTransactionBillingInfo.courier
+message PaymentTransactionBillingInfo {
+  // Billing country in plaintext (e.g. United States).
+  google.protobuf.StringValue billing_country = 1;
+  // Billing state/province/region.
+  google.protobuf.StringValue billing_state = 2;
+  // Billing zipcode/postal code.
+  google.protobuf.StringValue billing_zipcode = 3;
+}

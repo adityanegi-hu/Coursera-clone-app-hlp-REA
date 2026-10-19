@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">기한 만료 예정인 과제 %d개</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d개의 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$d개의 대화</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$d개의 토론</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d개의 채점 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d개의 채점 토론</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$d개의 채점 실습실</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d개의 채점 역할극</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d개의 채점된 팀 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$d개의 실험실</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d 잠긴 읽기 자료</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d 잠긴 동영상</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$d개의 노트북</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d개 항목</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d개의 동료 채점 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$d개의 동료 검토</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d개의 연습 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d개의 연습용 동료 채점 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d개의 연습 퀴즈</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d개의 연습 팀 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$d개의 프로그래밍 과제</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$d개의 퀴즈</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d개의 읽기 자료</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$d개의 역할 놀이</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$d개의 슬라이드쇼</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$d개의 팀 프로젝트</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">모든 과제 검토를 완료하신 것을 축하드립니다. %s개의 과제를 모두 검토하셨습니다! 시간이 남는다면 다른 동료들을 도와주세요.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">강좌 강사</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">평점: 별 5개 중 별 %1$s개, %2$s개 리뷰</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">%1$d개의 평가 완료하기</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">%1$d 실습 항목 완성하기</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">%1$d개의 수업 완료하기</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">%1$d개의 동영상 보기</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">%1$d개의 연습 항목 완료하기</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">%1$d개의 자료 읽기 완료하기</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">일</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">%1$s 학위</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d 일</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d 시간</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">%d초 빨리 감기</item>
+        <item quantity="other">%d초 빨리 감기</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">%d초 되감기</item>
+        <item quantity="other">%d초 되감기</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">%1$d개 모듈</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">%1$d개 강좌 시리즈</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d일</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">%1$d개의 과제</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">시간</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">분</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">개월</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">%1$d개 강좌</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1f점</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">별점 5점 만점에 %1$s점으로 평가됨</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">총 결과</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">점</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">%d개의 연습 문제</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">별점 5점 만점에 %1$s점으로 평가됨</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">질문</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s점</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">%d개의 질문</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">질문</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">%d개의 질문</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d분</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d 분</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">답변</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d개 항목</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">모든 %d 코스 보기</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">%2$s의 강좌 %1$d개 모두 보기</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">기술</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">%1$d일간 추가 학습으로 주간 목표를 달성하세요!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">학습 목표를 달성하기 위해 %1$d일 더 학습하기!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">평점: 별 5개 만점에 별 %1$s개, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">추천 수</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">%1$d주일</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">년</item>
+    </plurals>
+</resources>

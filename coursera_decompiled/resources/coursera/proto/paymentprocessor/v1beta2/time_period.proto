@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "TimePeriodProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// TimePeriod object contains information on the unit and amount of any time interval to
+// communicate. This object conveys how long after should something happen.
+// Ex : TimePeriod(1, HOUR) means that the particular event will execute after 1 hour from the
+// current time.
+message TimePeriod {
+  // Various units of the period amount.
+  enum PeriodUnit {
+    PERIOD_UNIT_INVALID = 0;
+    PERIOD_UNIT_SECOND = 1;
+    PERIOD_UNIT_MINUTE = 2;
+    PERIOD_UNIT_HOUR = 3;
+    PERIOD_UNIT_DAY = 4;
+  }
+  // Length of the period.
+  int32 period_length = 1;
+  // Period unit.
+  PeriodUnit unit = 2;
+}

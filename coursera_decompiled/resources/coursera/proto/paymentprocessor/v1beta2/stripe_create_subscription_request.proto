@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/v1beta2/product_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "StripeCreateSubscriptionRequestProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Subscription creation request for Stripe.
+message StripeCreateSubscriptionRequest {
+  google.protobuf.UInt64Value user_id = 1;
+  google.protobuf.UInt64Value cart_id = 2;
+  ProductId product_id = 3;
+  google.protobuf.StringValue tax_rate_percentage = 4;
+  google.protobuf.StringValue stripe_payment_method_id = 5;
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 6;
+}

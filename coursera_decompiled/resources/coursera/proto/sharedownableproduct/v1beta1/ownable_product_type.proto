@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package coursera.proto.sharedownableproduct.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedownableproduct.V1Beta1";
+option go_package = "sharedownableproductv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "OwnableProductTypeProto";
+option java_package = "org.coursera.proto.sharedownableproduct.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedownableproduct\\V1Beta1";
+
+// This enum represents all the ownable product types at Coursera.
+// This is different from ProductType because product type has both underlying and top-level product types
+// whereas OwnableProductType are only the underlying product types.s
+// For more information refer to `OwnableProduct::productType`.
+enum OwnableProductType {
+  OWNABLE_PRODUCT_TYPE_INVALID = 0;
+  OWNABLE_PRODUCT_TYPE_CATALOG_SUBSCRIPTION = 1 [deprecated = true];
+  OWNABLE_PRODUCT_TYPE_SPARK_VERIFIED_CERTIFICATE = 2 [deprecated = true];
+  OWNABLE_PRODUCT_TYPE_SPARK_SPECIALIZATION = 3 [deprecated = true];
+  OWNABLE_PRODUCT_TYPE_SPARK_COURSE_SHELL = 4 [deprecated = true];
+  OWNABLE_PRODUCT_TYPE_FACILITATED_LEARNING = 5 [deprecated = true];
+  OWNABLE_PRODUCT_TYPE_INTEREST_DEPOSIT = 6 [deprecated = true];
+  OWNABLE_PRODUCT_TYPE_VERIFIED_CERTIFICATE = 7;
+  OWNABLE_PRODUCT_TYPE_SPECIALIZATION = 8;
+  OWNABLE_PRODUCT_TYPE_ENTERPRISE_CONTRACT = 9;
+  OWNABLE_PRODUCT_TYPE_CREDENTIAL_TRACK_SUBSCRIPTION = 10;
+  OWNABLE_PRODUCT_TYPE_CREDENTIAL_TRACK_SUBSCRIPTION_V2 = 11;
+  OWNABLE_PRODUCT_TYPE_COURSERA_PLUS_SUBSCRIPTION = 12;
+  OWNABLE_PRODUCT_TYPE_COURSERA_PLUS = 13;
+  OWNABLE_PRODUCT_TYPE_COURSERA_TIER_LITE = 14;
+}

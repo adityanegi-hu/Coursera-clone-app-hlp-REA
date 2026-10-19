@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.common.v2beta1;
+
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_status.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_transaction_action_type.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Common.V2Beta1";
+option go_package = "commonv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionEndProto";
+option java_package = "org.coursera.proto.paymentscheckout.common.v2beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Common\\V2Beta1";
+
+// A Payment Transaction represents a single payment made by a user (whether by one time checkout or by subscription recurring payment).
+message PaymentTransactionEnd {
+  // The id for this payment transaction.
+  int64 id = 1;
+  // The id for the cart that this payment transaction is associated with.
+  int64 cart_id = 2;
+  // The action type of this payment transaction.
+  coursera.proto.sharedpayments.v1beta1.PaymentTransactionActionType action_type = 3;
+  // The status of this payment transaction.
+  coursera.proto.sharedpayments.v1.PaymentTransactionStatus status = 4;
+  // The payment processor that processed this payment.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 5;
+  // (Optional) The id of the payment transaction in the payment processor's system.
+  google.protobuf.StringValue payment_processor_transaction_id = 6;
+  // (Optional) The status of the payment transaction in the payment processor's system.
+  google.protobuf.StringValue payment_processor_transaction_status = 7;
+  // Additional information about the payment transaction.
+  google.protobuf.Struct body = 8;
+  // The amount processed or attempted to be processed for this payment transaction.
+  google.type.Money amount = 9;
+  // (Optional) The billing information for this payment transaction.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 10;
+  // The timestamp of when the payment was made.
+  google.protobuf.Timestamp timestamp = 11;
+  // (Optional) The tax amount for this payment transaction.
+  google.type.Money tax_amount = 12;
+}

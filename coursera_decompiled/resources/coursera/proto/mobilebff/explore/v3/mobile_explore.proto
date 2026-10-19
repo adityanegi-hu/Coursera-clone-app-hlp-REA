@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.explore.v3;
+
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Explore.V3";
+option go_package = "explorev3";
+option java_multiple_files = true;
+option java_outer_classname = "MobileExploreProto";
+option java_package = "org.coursera.proto.mobilebff.explore.v3";
+option objc_class_prefix = "CPME";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Explore\\V3";
+option swift_prefix = "MobilebffExploreV3";
+
+// The nesting level for the catalog data.
+enum CatalogLevel {
+  CATALOG_LEVEL_INVALID = 0;
+  CATALOG_LEVEL_ROOT = 1;
+  CATALOG_LEVEL_DOMAIN = 2;
+  CATALOG_LEVEL_SUBDOMAIN = 3;
+}
+
+// Container holding information on domains.
+message DomainInfo {
+  string domain_header_name = 1;
+  Orientation orientation = 2;
+  repeated Domain domains = 3;
+  string id = 4;
+}
+
+// Container holding information on a single domain.
+message Domain {
+  string name = 1;
+  string id = 2;
+}
+
+// Container holding information about a program.
+message Program {
+  string program_name = 1;
+  string id = 2;
+}
+
+// Container holding all collections.
+message CatalogCollection {
+  oneof collection {
+    DomainInfo domain_info = 1;
+    CatalogCollectionInfo browse_collection_info = 2;
+    CatalogCollectionInfo degree_collection_info = 3;
+    CatalogCollectionInfo skill_set_entry_collection_info = 4;
+    CatalogCollectionInfo skill_collection_info = 5;
+    EnterpriseSkillSetCollection skill_set_collection = 6;
+    Program program = 7;
+    CourseraPlusBlock coursera_plus_block = 8;
+  }
+}
+
+// Container holding data about a catalog collection.
+message CatalogCollectionInfo {
+  string collection_name = 1;
+  string id = 2;
+  Orientation orientation = 3;
+  repeated CollectionEntry collection_entries = 4;
+}
+
+// Container holding data about a catalog collection.
+message CourseraPlusBlock {
+  string message = 1;
+  string cta_title = 2;
+  string style = 3;
+}
+
+// The orientation of the collection.
+enum Orientation {
+  ORIENTATION_INVALID = 0;
+  ORIENTATION_VERTICAL = 1;
+  ORIENTATION_HORIZONTAL = 2;
+}
+
+// Container holding information on a single entry within a collection.
+message CollectionEntry {
+  string name = 1;
+  string id = 2;
+  string slug = 3;
+  google.protobuf.StringValue photo_url = 4;
+  repeated string partners = 5;
+  string primary_partner = 6;
+  google.protobuf.StringValue partner_url = 7;
+  google.protobuf.StringValue partner_color = 8;
+  ProductType product_type = 9;
+  float average_five_star_rating = 10;
+  int64 rating_count = 11;
+  bool is_part_of_coursera_plus = 12;
+  // Signifies if the product is available for credit
+  bool offers_credit = 20;
+  // For clips only, the duration of a clip
+  optional google.protobuf.Duration duration = 21;
+}
+
+// All the possible product types an entry in a collection can be.
+enum ProductType {
+  PRODUCT_TYPE_INVALID = 0;
+  PRODUCT_TYPE_COURSE = 1;
+  PRODUCT_TYPE_SPECIALIZATION = 2;
+  PRODUCT_TYPE_DEGREE = 3;
+  PRODUCT_TYPE_MASTERTRACK = 4;
+  PRODUCT_TYPE_PROFESSIONAL_CERTIFICATE = 5;
+  PRODUCT_TYPE_RHYME_PROJECT = 6;
+  PRODUCT_TYPE_CLIP = 7;
+}
+
+// Container holding information on a single skill set.
+message EnterpriseSkillSet {
+  string target_skill_profile_id = 1;
+  string name = 2;
+  string program_id = 3;
+  shared.v2.RenderableHtml description = 4;
+  int32 number_of_skills = 5;
+  google.protobuf.StringValue cml_description = 104;
+}
+
+// Container holding information of all skill sets.
+message EnterpriseSkillSetCollection {
+  repeated EnterpriseSkillSet skill_sets = 1;
+  Orientation orientation = 2;
+  string id = 3;
+}

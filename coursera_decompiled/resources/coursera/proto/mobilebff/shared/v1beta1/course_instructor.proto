@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v1beta1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V1Beta1";
+option go_package = "sharedv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "CourseInstructorProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v1beta1";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V1Beta1";
+
+// This file contains message types representing course instructors for
+// XDP and Course Home Page on mobilebff.
+
+// Container for a course instructor.
+message CourseInstructor {
+  string id = 1 [deprecated = true];
+  string full_name = 2 [deprecated = true];
+  google.protobuf.StringValue photo = 3 [deprecated = true];
+  google.protobuf.StringValue title = 4 [deprecated = true];
+  google.protobuf.StringValue bio = 5 [deprecated = true];
+  google.protobuf.StringValue department = 6 [deprecated = true];
+}

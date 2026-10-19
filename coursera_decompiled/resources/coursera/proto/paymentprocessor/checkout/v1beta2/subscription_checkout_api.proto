@@ -1,0 +1,161 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.checkout.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/charging_cadence.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_discount.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_tax.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/billing_details.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_subscription_checkout_result.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedentitlement/v1beta1/product_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Checkout.V1Beta2";
+option go_package = "checkoutv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionCheckoutApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.checkout.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Checkout\\V1Beta2";
+
+// Service for checking out a Subscription.
+service SubscriptionCheckoutAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: ["payments-checkout-application"]
+  };
+
+  // Initialize a subscription checkout with the payment processor.
+  rpc InitializeSubscriptionCheckout(InitializeSubscriptionCheckoutRequest) returns (InitializeSubscriptionCheckoutResponse);
+  // Update a subscription checkout with new details.
+  rpc UpdateSubscriptionCheckout(UpdateSubscriptionCheckoutRequest) returns (UpdateSubscriptionCheckoutResponse);
+  // Submit a subscription checkout to complete the checkout.
+  rpc SubmitSubscriptionCheckout(SubmitSubscriptionCheckoutRequest) returns (SubmitSubscriptionCheckoutResponse);
+}
+
+// Request message for initializing a subscription checkout.
+message InitializeSubscriptionCheckoutRequest {
+  // ID of the Payment Processor in which to initialize checkout on.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of cart that is to be checked out.
+  google.protobuf.Int64Value cart_id = 2;
+  // Base amount before promotions and taxes to charge.
+  google.type.Money base_amount = 3;
+  // (Optional) Discount to apply on the first billing cycle.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedDiscount applied_discount = 4;
+  // (Optional) Tax applied to the subscription checkout request.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedTax applied_tax = 5;
+  // (Optional) Billing info for the subscription checkout request.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 6;
+  // Cadence in which to charge.
+  coursera.proto.paymentprocessor.common.v1beta1.ChargingCadence charging_cadence = 7;
+  // (Optional) Number of cycles in which to charge. Infinite if omitted.
+  google.protobuf.Int32Value number_of_billing_cycles = 8;
+  // (Optional) Number of free trial days before first charge.
+  google.protobuf.Int32Value number_of_trial_days = 9;
+  // user infomation need to pass to payment processor application.
+  UserDetails user_details = 10;
+  // Today's charge amount to charge after promotions and taxes have been applied
+  google.type.Money today_charge_amount = 11;
+  // Flag to indicate whether to save the user's payment method.
+  optional bool save_payment_method = 12;
+  // Data for payment processor to initiate checkout
+  google.protobuf.Struct payment_processor_params = 13;
+  //cart country iso code at the time of checkout
+  google.protobuf.StringValue cart_country_iso_code = 14;
+}
+
+// Response message for initializing a subscription checkout.
+message InitializeSubscriptionCheckoutResponse {
+  // (Optional) Payment processor reference id of the Subscription Checkout.
+  google.protobuf.StringValue payment_processor_checkout_reference_id = 1;
+  // Data from Payment processor necessary to continue checkout.
+  google.protobuf.Struct payment_processor_checkout_context = 2;
+}
+
+// Request message for updating a subscription checkout.
+message UpdateSubscriptionCheckoutRequest {
+  // ID of the Payment Processor in which to update the checkout for.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // Payment processor reference id of the Subscription Checkout.
+  google.protobuf.StringValue payment_processor_checkout_reference_id = 2;
+  // Body for this update request
+  // Deprecated: Use `update_body` instead.
+  oneof body {
+    // Billing details to update the subscription checkout.
+    coursera.proto.paymentprocessor.common.v1beta2.BillingDetails billing_details = 3 [deprecated = true];
+  }
+  // Additional data about the current payment processor checkout
+  google.protobuf.Struct payment_processor_checkout_context = 4;
+  // Update request body.
+  UpdateSubscriptionCheckoutRequestBody update_body = 5;
+}
+
+// Response message for updating a subscription checkout.
+message UpdateSubscriptionCheckoutResponse {}
+
+// Request body for updating a subscription checkout.
+// Only fields that are explicitly provided will be updated.
+message UpdateSubscriptionCheckoutRequestBody {
+  // Billing details to update the subscription checkout.
+  optional coursera.proto.paymentprocessor.common.v1beta2.BillingDetails billing_details = 1;
+  // Flag to indicate whether to save the user's payment method for future use.
+  optional bool save_payment_method = 2;
+}
+
+// Request message for submitting a subscription checkout.
+message SubmitSubscriptionCheckoutRequest {
+  // ID of the Payment Processor in which to submit checkout to.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of cart that is to be checked out.
+  google.protobuf.Int64Value cart_id = 2;
+  // Base amount before promotions and taxes to charge.
+  google.type.Money base_amount = 3;
+  // (Optional) Discount to apply on the first billing cycle.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedDiscount applied_discount = 4;
+  // Tax applied to the subscription checkout request.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedTax applied_tax = 5;
+  // Cadence in which to charge.
+  coursera.proto.paymentprocessor.common.v1beta1.ChargingCadence charging_cadence = 6;
+  // (Optional) Number of cycles in which to charge. Infinite if omitted.
+  google.protobuf.Int32Value number_of_billing_cycles = 7;
+  // (Optional) Number of free trial days before first charge.
+  google.protobuf.Int32Value number_of_trial_days = 8;
+  // Billing information associated with this transaction.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 9;
+  // Additional payment processor specific checkout submission details.
+  google.protobuf.Struct payment_processor_params = 10;
+  // The user id for customer.
+  google.protobuf.UInt64Value user_id = 11;
+  // The product id being subscribed to.
+  coursera.proto.sharedentitlement.v1beta1.ProductId product_id = 12;
+  // Flag indicating whether to save the payment method for future use.
+  optional bool save_payment_method = 13;
+  // Today's charge amount to charge after promotions and taxes have been applied
+  google.type.Money today_charge_amount = 14;
+  // The payment method id the user wants to use for checkout, if set.
+  google.protobuf.Int64Value selected_payment_method_id = 15;
+  // Cart country iso code at the time of checkout
+  google.protobuf.StringValue cart_country_iso_code = 16;
+  // (Optional) Payment processor reference id of the Subscription Checkout.
+  google.protobuf.StringValue payment_processor_checkout_reference_id = 17;
+}
+
+// Response message for submitting a subscription checkout.
+message SubmitSubscriptionCheckoutResponse {
+  // Result of the Subscription Checkout
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorSubscriptionCheckoutResult result = 1;
+}
+
+// object contains user information stores in Coursera platform
+message UserDetails {
+  // The user id for customer.
+  google.protobuf.UInt64Value user_id = 1;
+  // The email for the customer to store in the Coursera platform.
+  google.protobuf.StringValue user_email = 2;
+}

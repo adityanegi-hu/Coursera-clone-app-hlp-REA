@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package coursera.proto.sharedownableproduct.v1beta1;
+
+import "coursera/proto/sharedentitlement/v1beta1/product_id.proto";
+import "coursera/proto/sharedownableproduct/v1beta1/ownable_product.proto";
+import "coursera/proto/sharedownableproduct/v1beta1/payment_scheme.proto";
+
+option csharp_namespace = "Coursera.Proto.Sharedownableproduct.V1Beta1";
+option go_package = "sharedownableproductv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "OwnableProductTupleProto";
+option java_package = "org.coursera.proto.sharedownableproduct.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedownableproduct\\V1Beta1";
+
+// OwnableProductTuple is a shared model representing all the details required to
+// fulfill both payment and product related fulfillment details for the learner.
+message OwnableProductTuple {
+  // An ownable product is defined as a product (s12n, course, cplus) that can be
+  // owned by a learner at Coursera (either through purchase or non-purchase).
+  OwnableProduct ownable_product = 1;
+  // Id that uniquely identifies the specific fulfillment configuration of the ownable product.
+  // For more details please refer to `OwnableProductFulfillmentConfiguration::id`
+  string ownable_product_fulfillment_configuration_id = 2;
+  // Payment scheme on how this configuration can be purchased and/or fulfilled.
+  PaymentScheme payment_scheme = 3;
+  // We're keeping legacyProductId as part of this model due to its widespread usage.
+  // Even though we planned to deprecate it as part of the Next Gen Product Configuration System,
+  // we're still keeping it around as we deprecate it gradually.
+  coursera.proto.sharedentitlement.v1beta1.ProductId legacy_product_id = 4;
+}

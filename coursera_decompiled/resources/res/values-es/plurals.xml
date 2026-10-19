@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d tarea pendiente</item>
+        <item quantity="other">%d tareas pendientes</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d Tarea</item>
+        <item quantity="other">%1$d Tareas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d Diálogo</item>
+        <item quantity="other">%1$d Diálogos</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d Debate</item>
+        <item quantity="other">%1$d Debates</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d Tarea calificada</item>
+        <item quantity="other">%1$d Tareas calificadas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d Debate calificado</item>
+        <item quantity="other">%1$d Debates calificados</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d Laboratorio calificado</item>
+        <item quantity="other">%1$d Laboratorios calificados</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d Juego de roles con calificación</item>
+        <item quantity="other">%1$d Juegos de roles con calificación</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d Trabajo en equipo calificado</item>
+        <item quantity="other">%1$d Tareas en equipo calificadas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d Laboratorio</item>
+        <item quantity="other">%1$d Laboratorios</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d Lectura bloqueada</item>
+        <item quantity="other">%1$d Lecturas bloqueadas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d Video bloqueado</item>
+        <item quantity="other">%1$d Videos bloqueados</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d Cuaderno</item>
+        <item quantity="other">%1$d Cuadernos</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Elemento</item>
+        <item quantity="other">%1$d Elementos</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d Tarea evaluada por los compañeros</item>
+        <item quantity="other">%1$d Tareas evaluadas por los compañeros</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d Revisión por pares</item>
+        <item quantity="other">%1$d Revisiones por pares</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d Tarea práctica</item>
+        <item quantity="other">%1$d Tareas prácticas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d Práctica: Tarea evaluada por compañeros</item>
+        <item quantity="other">%1$d Práctica: Tareas evaluadas por compañeros</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d Prueba de práctica</item>
+        <item quantity="other">%1$d Pruebas de práctica</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d Tarea de trabajo en equipo</item>
+        <item quantity="other">%1$d Tareas de trabajo en equipo</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d Tarea de programación</item>
+        <item quantity="other">%1$d Tareas de programación</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d Cuestionario</item>
+        <item quantity="other">%1$d Cuestionarios</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d Lectura</item>
+        <item quantity="other">%1$d Lecturas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d Juego de roles</item>
+        <item quantity="other">%1$d Juegos de roles</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d Presentación de diapositivas</item>
+        <item quantity="other">%1$d Presentaciones de diapositivas</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d Proyecto en equipo</item>
+        <item quantity="other">%1$d Proyectos en equipo</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">¡Felicidades por haber terminado de corregir una tarea! Ayuda a otros compañeros si te sobra tiempo.</item>
+        <item quantity="other">¡Felicidades! Terminaste de corregir la totalidad de las %s tareas. Ayuda a otros compañeros si te sobra tiempo.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">Instructores del curso</item>
+        <item quantity="other">Instructores del curso</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">calificado con %1$s de 5 estrellas, %2$s opiniones</item>
+        <item quantity="other">calificado con %1$s de 5 estrellas, %2$s opiniones</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Completa una evaluación</item>
+        <item quantity="other">Completa %1$d evaluaciones</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Completa un ejercicio práctico</item>
+        <item quantity="other">Completa %1$d ejercicios prácticos</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Completa una lección</item>
+        <item quantity="other">Completa cualquier lección de %1$d</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Mira un video</item>
+        <item quantity="other">Mira %1$d videos</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Completa un ejercicio práctico</item>
+        <item quantity="other">Completa %1$d ejercicios prácticos</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Completar una lectura</item>
+        <item quantity="other">Completa %1$d lecturas</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">día</item>
+        <item quantity="other">días</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">Título de grado %1$s</item>
+        <item quantity="other">Título de grado %1$s</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d día</item>
+        <item quantity="other">%1$d días</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d hora</item>
+        <item quantity="other">%1$d horas</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Avanzar %d segundo</item>
+        <item quantity="other">Avanzar %d segundos</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Retroceder %d segundo</item>
+        <item quantity="other">Retroceder %d segundos</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d Módulo</item>
+        <item quantity="other">%1$d Módulos</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d Serie de cursos</item>
+        <item quantity="other">%1$d Serie de cursos</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d días</item>
+        <item quantity="other">%1$d días</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">hay %1$d asignación pendiente</item>
+        <item quantity="other">hay %1$d asignaciones pendientes</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">hora</item>
+        <item quantity="other">horas</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">minuto</item>
+        <item quantity="other">minutos</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">mes</item>
+        <item quantity="other">meses</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d Curso</item>
+        <item quantity="other">%1$d cursos</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 punto</item>
+        <item quantity="other">%.1f puntos</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">calificación: %1$s estrella de 5</item>
+        <item quantity="other">calificación: %1$s estrellas de 5</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">resultado total</item>
+        <item quantity="other">resultados totales</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">Punto</item>
+        <item quantity="other">Puntos</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d pregunta de práctica</item>
+        <item quantity="other">%d preguntas de práctica</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">calificación: %1$s estrella de 5</item>
+        <item quantity="other">calificación: %1$s estrellas de 5</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">pregunta</item>
+        <item quantity="other">preguntas</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s punto</item>
+        <item quantity="other">%1$s puntos</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d pregunta</item>
+        <item quantity="other">%d preguntas</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">pregunta</item>
+        <item quantity="other">preguntas</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d PREGUNTA</item>
+        <item quantity="other">%d PREGUNTAS</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">Respuesta</item>
+        <item quantity="other">Respuestas</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d elemento</item>
+        <item quantity="other">%1$d elementos</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Mostrar %d curso</item>
+        <item quantity="other">Mostrar todos los %d cursos</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Mostrar todo %1$d curso de %2$s</item>
+        <item quantity="other">Mostrar todos los cursos de %1$d de %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">habilidad</item>
+        <item quantity="other">habilidades</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">%1$d ¡Más días para aprender a alcanzar tu objetivo semanal!</item>
+        <item quantity="other">%1$d ¡Más días para aprender a alcanzar tu objetivo semanal!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">¡Aprende más cada día en %1$d para alcanzar tu objetivo de aprendizaje!</item>
+        <item quantity="other">¡Aprende más días en %1$d para alcanzar tu objetivo de aprendizaje!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">calificado con %1$s de 5 estrellas, %2$s</item>
+        <item quantity="other">calificado con %1$s de 5 estrellas, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">Voto a favor</item>
+        <item quantity="other">Votos a favor</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d Semana</item>
+        <item quantity="other">%1$d Semanas</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">año</item>
+        <item quantity="other">años</item>
+    </plurals>
+</resources>

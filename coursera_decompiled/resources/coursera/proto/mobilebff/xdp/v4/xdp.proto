@@ -1,0 +1,290 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.xdp.v4;
+
+import "coursera/proto/mobilebff/shared/v2/course_instructor.proto";
+import "coursera/proto/mobilebff/shared/v2/enterprise_mooc.proto";
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Xdp.V4";
+option go_package = "xdpv4";
+option java_multiple_files = true;
+option java_outer_classname = "XdpProto";
+option java_package = "org.coursera.proto.mobilebff.xdp.v4";
+option objc_class_prefix = "CPMX";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Xdp\\V4";
+option swift_prefix = "MobilebffXdpV4";
+
+// All possible statuses a product can be.
+enum ProductStatus {
+  PRODUCT_STATUS_INVALID = 0;
+  PRODUCT_STATUS_DRAFT = 1;
+  PRODUCT_STATUS_PRE_ENROLL = 2;
+  PRODUCT_STATUS_LAUNCHED = 3;
+  PRODUCT_STATUS_INACTIVE = 4;
+}
+
+// Difficulty level for a product.
+enum DifficultyLevel {
+  DIFFICULTY_LEVEL_INVALID = 0;
+  DIFFICULTY_LEVEL_BEGINNER = 1;
+  DIFFICULTY_LEVEL_INTERMEDIATE = 2;
+  DIFFICULTY_LEVEL_ADVANCED = 3;
+}
+
+// All product types for XDP.
+enum XdpProductType {
+  XDP_PRODUCT_TYPE_INVALID = 0;
+  XDP_PRODUCT_TYPE_COURSE = 1;
+  XDP_PRODUCT_TYPE_SPECIALIZATION = 2;
+  XDP_PRODUCT_TYPE_PROFESSIONAL_CERTIFICATE = 3;
+  XDP_PRODUCT_TYPE_RHYME_PROJECT = 4;
+  XDP_PRODUCT_TYPE_PROJECT = 5;
+}
+
+// The ways a user can enroll.
+enum XdpEnrollmentType {
+  XDP_ENROLLMENT_TYPE_INVALID = 0;
+  XDP_ENROLLMENT_TYPE_FREE = 1;
+  XDP_ENROLLMENT_TYPE_COURSERA_PLUS = 2;
+  XDP_ENROLLMENT_TYPE_ONE_ENTERPRISE_PROGRAM = 3;
+  XDP_ENROLLMENT_TYPE_MULTIPLE_ENTERPRISE_PROGRAMS = 4;
+  XDP_ENROLLMENT_TYPE_PURCHASE_OR_AUDIT = 5;
+}
+
+// Container holding information on a product's partner.
+message XdpPartner {
+  // Partner id
+  int32 id = 1;
+  // Partner's name
+  string name = 2;
+  // Partner's primary color
+  google.protobuf.StringValue primary_color = 3;
+  // Partner's secondary color
+  google.protobuf.StringValue secondary_color = 4;
+  // Partner's accent color
+  google.protobuf.StringValue accent_color = 5;
+  // Partner's logo
+  google.protobuf.StringValue logo_url = 6;
+  // Partner's class logo
+  google.protobuf.StringValue class_logo_url = 7;
+  // Partner's product branding logo
+  google.protobuf.StringValue product_branding_logo_url = 8;
+}
+
+// Container holding information on a product's review.
+message XdpReview {
+  // Rating given for the review
+  google.protobuf.DoubleValue rating = 1;
+  // Timestamp for when the review was submitted
+  google.protobuf.Timestamp submitted_time = 2;
+  // Author's name for the review
+  google.protobuf.StringValue author_name = 3;
+  // Comment for the review
+  google.protobuf.StringValue comment = 4;
+}
+
+// Container holding information on a module.
+message XdpWeekModule {
+  // Module number
+  int32 module_number = 1;
+  // Name of module
+  string name = 2;
+  // Description of the module
+  google.protobuf.StringValue description_text = 3;
+  // Estimated time to complete the module
+  google.protobuf.Duration duration = 4;
+  // Duration for all the lectures in the module
+  google.protobuf.Duration lecture_duration = 5;
+  // The total number of videos in the module
+  int32 video_count = 6;
+  // The total number of exams in the module
+  int32 exam_count = 7;
+  // The total number of readings in the module
+  int32 reading_count = 8;
+}
+
+// Container holding information on a course's week.
+message XdpWeek {
+  // Week number
+  int32 week_number = 1;
+  // Modules within a week
+  repeated XdpWeekModule modules = 2;
+}
+
+// Container holding the information for the material in a product.
+message XdpMaterial {
+  // The total number of videos
+  int32 video_count = 1;
+  // The total number of exams
+  int32 exam_count = 2;
+  // The total number of readings
+  int32 reading_count = 3;
+  // The estimated time to complete the product
+  google.protobuf.Duration duration = 4;
+  // The total duration for lectures
+  google.protobuf.Duration lecture_duration = 5;
+  // Contains data about each week
+  repeated XdpWeek weeks = 6;
+}
+
+// Container for a FAQ.
+message XdpFaq {
+  shared.v2.RenderableHtml question = 1;
+  shared.v2.RenderableHtml answer = 2;
+  google.protobuf.StringValue cml_question = 101;
+  google.protobuf.StringValue cml_answer = 102;
+}
+
+// Container holding information about the parent product in the case of
+// a course that is part of a S12n or Prof Cert.
+message XdpParent {
+  // Id of S12n/Prof Cert
+  string id = 1;
+  // Name of S12n/Prof Cert
+  string name = 2;
+  // Slug of S12n/Prof Cert
+  string slug = 3;
+  // Description of S12n/Prof Cert
+  string description_text = 4;
+  // Total number of courses in S12n/Prof Cert
+  int32 total_courses = 5;
+  // Course number within S12n/Prof Cert
+  int32 course_num_in_parent = 6;
+  // Product type of the parent S12n/Prof Cert
+  XdpProductType product_type = 7;
+}
+
+// Container holding information for recommended courses.
+message RelatedCourse {
+  // Course id
+  string id = 1;
+  // Course slug
+  string slug = 2;
+  // Course name
+  string name = 3;
+  // Course rating
+  google.protobuf.DoubleValue rating = 4;
+  // Course thumbnail image
+  google.protobuf.StringValue photo_url = 5;
+  // Type of product, in this case it should be Project or Course
+  XdpProductType product_type = 6;
+}
+
+// Container holding information for a course in a specialization.
+message XdpCourse {
+  // Course id
+  string course_id = 1;
+  // The order of course within a specialization
+  int32 course_number = 2;
+  // Course slug
+  string slug = 3;
+  // Course name
+  string name = 4;
+  // Course description
+  google.protobuf.StringValue description_text = 5;
+  // Course rating
+  google.protobuf.DoubleValue rating = 6;
+  // Estimated time to complete the course
+  google.protobuf.Duration duration = 7;
+  // Total number of videos in the course
+  google.protobuf.Int32Value video_count = 8;
+  // Total number of exams in the course
+  google.protobuf.Int32Value exam_count = 9;
+  // Total number of readings in the course
+  google.protobuf.Int32Value reading_count = 10;
+}
+
+// Container for a Product Description Page (XDP).
+message XdpProduct {
+  // Product type
+  XdpProductType product_type = 1;
+  // product id
+  string product_id = 2;
+  // product slug
+  string product_slug = 3;
+  // product name
+  string name = 4;
+  // product description
+  google.protobuf.StringValue description_text = 5;
+  // product headline
+  google.protobuf.StringValue headline = 6;
+  // Total content learning hours
+  google.protobuf.Int64Value learning_hours = 7;
+  // Total content learning weeks
+  google.protobuf.Int32Value learning_weeks = 8;
+  // Specialization only: average learning months adjusted
+  google.protobuf.Int32Value learning_months = 9;
+  // product rating
+  google.protobuf.DoubleValue rating = 10;
+  // Number of ratings given for the product
+  int64 rating_count = 11;
+  // Number of comments given for the product
+  int64 comment_count = 12;
+  // Signifies if the user owns the product
+  bool currently_owns_product = 13;
+  // Time for when the next session starts
+  google.protobuf.Timestamp session_start_time = 14;
+  // The status of the product
+  // For specialization, this will either be null or LAUNCHED
+  ProductStatus product_status = 15;
+  // Difficulty level of the product
+  DifficultyLevel level = 16;
+  // Signifies if financial aid is available
+  bool is_finaid_available = 17;
+  // Signifies if the product is part of coursera plus
+  bool is_coursera_plus = 18;
+  // Signifies if the enroll button should be enabled
+  bool is_enroll_button_enabled = 19;
+  // Learning objectives for the product
+  repeated shared.v2.RenderableHtml learning_objectives = 20;
+  // Product's partners
+  repeated XdpPartner partners = 21;
+  // Product's instructors
+  repeated coursera.proto.mobilebff.shared.v2.CourseInstructor instructors = 22;
+  // Primary languages this product is offered in
+  repeated string primary_languages = 23;
+  // Subtitle languages this product is offered in
+  repeated string subtitle_languages = 24;
+  // Top reviews
+  repeated XdpReview top_reviews = 25;
+  // Skills from product
+  repeated string skills = 26;
+  // Frequently asked questions
+  repeated XdpFaq faqs = 27;
+  // Course only: Information on course material
+  XdpMaterial material = 28;
+  // For specialization, this represents the courses in a specialization
+  repeated XdpCourse courses = 29;
+  // For course, this represents the related courses
+  repeated RelatedCourse related_courses = 30;
+  // Primary parent information when course is part of a S12n/Prof Cert
+  XdpParent primary_parent = 31;
+  // All parents' information when course is part of a S12n/Prof Cert
+  repeated XdpParent parents = 32;
+  // Subheader
+  google.protobuf.StringValue subheader = 33;
+  // Share url for product if present
+  google.protobuf.StringValue share_url = 34;
+  // Url for product reviews if present
+  google.protobuf.StringValue reviews_url = 35;
+  // Company logos, if present
+  repeated string company_logos = 36;
+  // Signifies if this product has certificates available
+  bool offers_certificates = 37;
+  // Signifies if the product is available for credit
+  bool offers_credit = 40;
+  // Information about the enterprise MOOC credit for product
+  shared.v2.EnterpriseMoocCreditInfo enterprise_mooc_credit_info = 41;
+  // Indicates the ways through which the user can enroll
+  XdpEnrollmentType enrollment_type = 42;
+  // Signifies if the product is mobile friendly
+  bool mobile_friendly = 43;
+  // DO NOT USE: inaccurate data type, replaced by cml_learning_objectives_2
+  google.protobuf.StringValue cml_learning_objectives = 120 [deprecated = true];
+  // CML Learning objectives for the product
+  repeated string cml_learning_objectives_2 = 121;
+}

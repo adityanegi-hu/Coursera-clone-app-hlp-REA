@@ -1,0 +1,3 @@
+org.coursera.android.infrastructure_annotation.ksp.DataSourceSymbolProcessorProvider
+org.coursera.android.infrastructure_annotation.ksp.RoutersSymbolProcessorProvider
+org.coursera.android.infrastructure_annotation.ksp.RouteContractSymbolProcessorProvider

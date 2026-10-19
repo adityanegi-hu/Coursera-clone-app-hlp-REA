@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.courseinfo.v2;
+
+import "coursera/proto/mobilebff/courseinfo/v2/mobile_course_info.proto";
+import "coursera/proto/mobilebff/shared/v2/course_instructor.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Courseinfo.V2";
+option go_package = "courseinfov2";
+option java_multiple_files = true;
+option java_outer_classname = "MobileCourseInfoApiProto";
+option java_package = "org.coursera.proto.mobilebff.courseinfo.v2";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Courseinfo\\V2";
+option swift_prefix = "MobilebffCourseinfo";
+
+// A Service to collect and return course information for mobile.
+service MobileCourseInfoAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get mobile course info information by course id.
+  rpc GetMobileCourseInfo(GetMobileCourseInfoRequest) returns (GetMobileCourseInfoResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/courseinfo/v2/MobileCourseInfoAPI/GetMobileCourseInfo"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/courseinfo/v2/MobileCourseInfoAPI/GetMobileCourseInfo"}
+    };
+  }
+}
+
+message GetMobileCourseInfoRequest {
+  google.protobuf.StringValue course_id = 1;
+}
+
+message GetMobileCourseInfoResponse {
+  repeated coursera.proto.mobilebff.shared.v2.CourseInstructor instructors = 1;
+  repeated CourseInstructorMessage messages = 2;
+}

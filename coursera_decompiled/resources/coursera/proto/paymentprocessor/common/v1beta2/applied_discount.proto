@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "AppliedDiscountProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Container for a discount applied to a payment processor subscription or transaction.
+message AppliedDiscount {
+  // Internal coupon id.
+  google.protobuf.Int64Value coupon_id = 1;
+  // Internal promotion id.
+  google.protobuf.Int64Value promotion_id = 2;
+  // Amount of the discount.
+  // Should be denominated in the same currency as the `amount` field of the containing entity.
+  google.type.Money amount = 3;
+  // (Optional) Number of billing cycles for the promotion; used for multi-month promos.
+  google.protobuf.Int32Value number_of_billing_cycles = 4;
+  // (Optional) The payment processor discount id, if applicable.
+  optional google.protobuf.StringValue payment_processor_discount_id = 5;
+}

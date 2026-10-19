@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.forums.v1;
+
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Forums.V1";
+option go_package = "forumsv1";
+option java_multiple_files = true;
+option java_outer_classname = "ForumsProto";
+option java_package = "org.coursera.proto.mobilebff.forums.v1";
+option objc_class_prefix = "CPMF";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Forums\\V1";
+option swift_prefix = "MobilebffForums";
+
+// All the possible forum header types.
+enum ForumsHeader {
+  FORUMS_HEADER_INVALID = 0;
+  FORUMS_HEADER_DISCUSSION_FORUMS = 1;
+  FORUMS_HEADER_WEEK_FORUMS = 2;
+  FORUMS_HEADER_PRIVATE_FORUMS = 3;
+  FORUMS_HEADER_CURRENT_WEEK_FORUM = 4;
+}
+
+// All possible ways to sort forums.
+enum Sort {
+  SORT_INVALID = 0;
+  SORT_POPULAR = 1;
+  SORT_RECENT = 2;
+  SORT_OLDEST = 3;
+}
+
+// All possible ways to filter forums.
+enum Filter {
+  FILTER_INVALID = 0;
+  FILTER_UNANSWERED = 1;
+  FILTER_ANSWERED = 2;
+  FILTER_NO_FILTER = 3;
+}
+
+// All possible user roles.
+enum Role {
+  ROLE_INVALID = 0;
+  ROLE_ORIGINAL_POSTER = 1;
+  ROLE_LEARNER = 2;
+  ROLE_MENTOR = 3;
+  ROLE_INSTRUCTOR = 4;
+  ROLE_DATA_COORDINATOR = 5;
+  ROLE_UNIVERSITY_ADMIN = 6;
+  ROLE_TEACHING_STAFF = 7;
+}
+
+// All types of badges shown on UI.
+enum Badge {
+  BADGE_INVALID = 0;
+  BADGE_MENTOR_RESPONDED = 1;
+  BADGE_STAFF_RESPONDED = 2;
+  BADGE_INSTRUCTOR_RESPONDED = 3;
+  BADGE_MENTOR_CREATED = 4;
+  BADGE_STAFF_CREATED = 5;
+  BADGE_INSTRUCTOR_CREATED = 6;
+  BADGE_HIGHLIGHTED = 7;
+}
+
+// Forum’s information.
+message ForumInfo {
+  // Forum ID. Eg. “Hae6fLQQEeuVjhIDhFHroQ”
+  string forum_id = 1;
+  // Forum title. Eg. “General Discussion"
+  google.protobuf.StringValue title = 2;
+  // Forum detail.
+  shared.v2.RenderableHtml detail = 3;
+  // Whether it has subforums.
+  bool is_parent = 4;
+  // Until Android completes the CML migration.
+  google.protobuf.StringValue cml = 1001;
+}
+
+// Information about a group of forums.
+message ForumGroup {
+  // The header of a forum group.
+  ForumsHeader header = 1;
+  // A list of forum information.
+  repeated ForumInfo forum_infos = 2;
+}
+
+// Information about the creator (user).
+message Creator {
+  // Learner ID. Eg. “40950064”
+  string learner_id = 1;
+  // Learner’s name. Eg. “Naoki Hiroshima”
+  string name = 2;
+  Role role = 3;
+  google.protobuf.StringValue photo_url = 11;
+}
+
+// Information about a question in a forum.
+message Question {
+  // Question ID. Eg. “C2zhcvgCEeuofxI2H0AS1w”
+  string question_id = 1;
+  // The creator of the question.
+  Creator creator = 2;
+  // Badges for question.
+  repeated Badge badges = 4;
+  // The timestamp of the question being created. Eg. 1628397323026
+  google.protobuf.Timestamp created_at_time = 3;
+  int64 view_count = 11;
+  int64 upvote_count = 12;
+  int64 reply_count = 13;
+  bool is_following = 21;
+  bool is_flagged = 22;
+  bool is_upvoted = 23;
+  bool is_pinned = 24;
+  bool is_highlighted = 25;
+  // Denotes if the post is closed.
+  bool is_closed = 26;
+  // The title of the question. Eg. “I have a question!”
+  string title = 101;
+  // The content of the question.
+  shared.v2.RenderableHtml body = 102;
+  // Until Android completes the CML migration.
+  google.protobuf.StringValue cml = 1001;
+}
+
+// Information about an answer to a question.
+message Answer {
+  string answer_id = 1;
+  google.protobuf.StringValue parent_answer_id = 2;
+  Creator creator = 3;
+  google.protobuf.Timestamp created_at_time = 4;
+  int64 upvote_count = 11;
+  int64 view_count = 12;
+  int64 reply_count = 13;
+  bool is_following = 21;
+  bool is_highlighted = 22;
+  bool is_upvoted = 24;
+  // Denotes if the post is closed.
+  bool is_closed = 25;
+  string title = 101;
+  shared.v2.RenderableHtml body = 102;
+  // Until Android completes the CML migration.
+  google.protobuf.StringValue cml = 1001;
+}

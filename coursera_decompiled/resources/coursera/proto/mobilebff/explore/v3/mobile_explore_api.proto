@@ -1,0 +1,175 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.explore.v3;
+
+import "coursera/proto/mobilebff/explore/v3/mobile_explore.proto";
+import "coursera/proto/mobilebff/shared/v2/program.proto";
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Explore.V3";
+option go_package = "explorev3";
+option java_multiple_files = true;
+option java_outer_classname = "MobileExploreApiProto";
+option java_package = "org.coursera.proto.mobilebff.explore.v3";
+option objc_class_prefix = "CPME";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Explore\\V3";
+option swift_prefix = "MobilebffExploreV3";
+
+// A service to collect and return information for the mobile explore page.
+service MobileExploreAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get mobile explore data.
+  rpc GetMobileExplore(GetMobileExploreRequest) returns (GetMobileExploreResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetMobileExplore"
+      body: "*"
+      additional_bindings: [
+        {get: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetMobileExplore"},
+        {get: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetMobileExplore"},
+        {post: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetMobileExplore"}]
+    };
+  }
+  // Get catalog degrees grouped by category.
+  rpc GetDegreesWithCategories(GetDegreesWithCategoriesRequest) returns (GetDegreesWithCategoriesResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetDegreesWithCategories"
+      body: "*"
+      additional_bindings: [
+        {get: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetDegreesWithCategories"},
+        {get: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetDegreesWithCategories"},
+        {post: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetDegreesWithCategories"}]
+    };
+  }
+  // Get mobile skill set information by program id.
+  rpc GetSkillSets(GetSkillSetsRequest) returns (GetSkillSetsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetSkillSets"
+      body: "*"
+      additional_bindings: [
+        {get: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetSkillSets"},
+        {get: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetSkillSets"},
+        {post: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetSkillSets"}]
+    };
+  }
+  // Get a SkillSet with its Skills (& respective courses) by a targetSkillProfileId and programId.
+  rpc GetSkillSetInfo(GetSkillSetInfoRequest) returns (GetSkillSetInfoResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetSkillSetInfo"
+      body: "*"
+      additional_bindings: [
+        {get: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetSkillSetInfo"},
+        {get: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetSkillSetInfo"},
+        {post: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetSkillSetInfo"}]
+    };
+  }
+  // Get a Skill with its respective courses by programId, targetSkillProfileId and skillId.
+  rpc GetSkill(GetSkillRequest) returns (GetSkillResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetSkill"
+      body: "*"
+      additional_bindings: [
+        {get: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetSkill"},
+        {get: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetSkill"},
+        {post: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetSkill"}]
+    };
+  }
+  rpc GetProgramCollection(GetProgramCollectionRequest) returns (GetProgramCollectionResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetProgramCollection"
+      body: "*"
+      additional_bindings: [
+        {get: "/api/grpc/mobilebff/explore/v3/MobileExploreAPI/GetProgramCollection"},
+        {get: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetProgramCollection"},
+        {post: "/api/grpc/mobilebff/explore/v3beta1/MobileExploreAPI/GetProgramCollection"}]
+    };
+  }
+}
+
+message GetMobileExploreRequest {
+  CatalogLevel catalog_level = 1;
+  string context_id = 2;
+  google.protobuf.StringValue program_id = 3;
+  optional bool include_sfc = 4;
+}
+
+message GetMobileExploreResponse {
+  string page_name = 1;
+  repeated CatalogCollection collection_info = 2;
+  repeated shared.v2.ProgramInfo program_info = 3;
+}
+
+message GetDegreesWithCategoriesRequest {}
+
+message GetDegreesWithCategoriesResponse {
+  repeated CatalogCollectionInfo browse_collection_info = 1;
+}
+
+message GetSkillSetsRequest {
+  google.protobuf.StringValue program_id = 1;
+}
+
+message GetSkillSetsResponse {
+  repeated EnterpriseSkillSet skill_sets = 1;
+}
+
+message GetSkillSetInfoRequest {
+  string program_id = 1;
+  string target_skill_profile_id = 2;
+  int32 start = 3;
+}
+
+message GetSkillSetInfoResponse {
+  string name = 1;
+  string id = 2;
+  string target_skill_profile_id = 3;
+  string program_id = 4;
+  shared.v2.RenderableHtml description = 5;
+  repeated CatalogCollection skill_collection_info = 6;
+  google.protobuf.StringValue cml_description = 105;
+}
+
+message GetSkillRequest {
+  string program_id = 1;
+  string target_skill_profile_id = 2;
+  string skill_id = 3;
+}
+
+message GetSkillResponse {
+  CatalogCollectionInfo skill_info = 1;
+}
+
+message GetProgramCollectionRequest {
+  string program_id = 1;
+  string collection_id = 2;
+  optional bool include_sfc = 4;
+}
+
+message GetProgramCollectionResponse {
+  CatalogCollection collection_info = 1;
+}

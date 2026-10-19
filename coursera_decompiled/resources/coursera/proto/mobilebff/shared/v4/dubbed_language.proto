@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v4;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V4";
+option go_package = "sharedv4";
+option java_multiple_files = true;
+option java_outer_classname = "DubbedLanguageProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v4";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V4";
+option swift_prefix = "MobilebffSharedV4";
+
+message DubbedLanguage {
+  string language_code = 1;
+  bool is_human_reviewed = 2;
+}

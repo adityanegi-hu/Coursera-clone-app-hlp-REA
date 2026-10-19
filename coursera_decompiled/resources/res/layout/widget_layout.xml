@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/round_widget"
+    android:padding="@dimen/space_tiny"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/widget_logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/coursera_143x20_light"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="false"
+        android:contentDescription="@string/application_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/widget_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/widget_search"
+        android:padding="@dimen/space_medium"
+        android:layout_width="@dimen/minimum_touchable_area_dimension"
+        android:layout_height="@dimen/minimum_touchable_area_dimension"
+        android:src="@drawable/ic_explore_unselected"
+        android:tint="@color/background_basic"
+        android:contentDescription="@string/search_tab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/widget_learn"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/widget_learn"
+        android:padding="@dimen/space_medium"
+        android:layout_width="@dimen/minimum_touchable_area_dimension"
+        android:layout_height="@dimen/minimum_touchable_area_dimension"
+        android:src="@drawable/ic_learn_stroke"
+        android:tint="@color/background_basic"
+        android:contentDescription="@string/dashboard_menu_learn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

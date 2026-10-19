@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.events.v1beta2;
+
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Events.V1Beta2";
+option go_package = "eventsv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "ReadyForPaymentProcessorSubscriptionCreationEventProto";
+option java_package = "org.coursera.proto.paymentprocessor.events.v1beta2";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Events\\V1Beta2";
+
+// This event is fired when a Subscription initialization payment (non-free trial) or
+// payment method authorization (free trial) has been received from a Payment Processor.
+// It indicates that the subscription is ready to be created on payment processor based on the initial payment or authorized payment method.
+message ReadyForPaymentProcessorSubscriptionCreationEvent {
+  // The reference id on the payment processor's end used to tie the checkout intent back to their system
+  string payment_processor_checkout_reference_id = 1;
+  // Payment processor id in which the checkout event belongs to.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 2;
+  // Amount charged/attempted for this checkout transaction after discounts and taxes applied.
+  google.type.Money amount = 3;
+  // The id of the cart in which is being checked out.
+  google.protobuf.StringValue cart_id = 4;
+  // payment processor parameter used to create susbciption on payment processor side(e.g. paymentMethodId, paymentIntentId)
+  google.protobuf.Struct payment_processor_params = 5;
+}

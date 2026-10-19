@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.xdp.v3;
+
+import "coursera/proto/mobilebff/xdp/v3/xdp.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Xdp.V3";
+option go_package = "xdpv3";
+option java_multiple_files = true;
+option java_outer_classname = "XdpApiProto";
+option java_package = "org.coursera.proto.mobilebff.xdp.v3";
+option objc_class_prefix = "CPMX";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Xdp\\V3";
+option swift_prefix = "MobilebffXdp";
+
+// A service to collect and return xdp page information for mobile.
+service XdpAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get mobile xdp information by product type and product id or slug.
+  rpc GetXdp(GetXdpRequest) returns (GetXdpResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/xdp/v3/XdpAPI/GetXdp"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/xdp/v3/XdpAPI/GetXdp"}
+    };
+  }
+}
+
+// Request for Xdp by product type and either product id or slug.
+message GetXdpRequest {
+  XdpProductType product_type = 1;
+  oneof identifier {
+    string product_id = 2;
+    string slug = 3;
+  }
+  // Optional: program used to fetch xdp
+  google.protobuf.StringValue program_id = 4;
+  // Optional: parent product id for courses in s12n or prof cert
+  google.protobuf.StringValue parent_product_id = 5;
+}
+
+// Xdp response will either be an Cdp or Sdp.
+message GetXdpResponse {
+  XdpProduct xdp_product = 1;
+}

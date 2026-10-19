@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_tax.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "BillingDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Container for the information required to update the bill.
+message BillingDetails {
+  // Billing info.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 1;
+  // Applied tax.
+  AppliedTax applied_tax = 2;
+  // Final amount to charge after promotions and taxes have been applied
+  google.type.Money final_amount = 3;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/sharedentitlement/v1beta1/product_type.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ProductIdProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// ProductId.
+message ProductId {
+  coursera.proto.sharedentitlement.v1beta1.ProductType product_type = 1;
+  google.protobuf.StringValue product_item_id = 2;
+}

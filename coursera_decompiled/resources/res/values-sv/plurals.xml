@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d inlämningsuppgift</item>
+        <item quantity="other">%d inlämningsuppgifter</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d Uppdrag</item>
+        <item quantity="other">%1$d Uppdrag</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d Dialog mellan parterna</item>
+        <item quantity="other">%1$d Dialoger</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d Diskussion</item>
+        <item quantity="other">%1$d Diskussioner</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d Bedömd uppgift</item>
+        <item quantity="other">%1$d Bedömda uppgifter</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d Bedömd diskussion</item>
+        <item quantity="other">%1$d Bedömda diskussioner</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d Betygsatt labb</item>
+        <item quantity="other">%1$d Betygsatta labb</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d Bedömt rollspel</item>
+        <item quantity="other">%1$d Bedömda rollspel</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d Bedömd gruppuppgift</item>
+        <item quantity="other">%1$d Betygsatta gruppuppgifter</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d Labb</item>
+        <item quantity="other">%1$d Laboratorier</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d Låst läsning</item>
+        <item quantity="other">%1$d Låsta avläsningar</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d Låst video</item>
+        <item quantity="other">%1$d Låsta videor</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d Anteckningsbok</item>
+        <item quantity="other">%1$d Anteckningsböcker</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Del</item>
+        <item quantity="other">%1$d Delar</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d Inlämningsuppgift med kamratbedömning</item>
+        <item quantity="other">%1$d Uppgifter bedömda av kurskamrater</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d Granskning av kurskamrat</item>
+        <item quantity="other">%1$d Granskning av kurskamrat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d Övningsuppgift</item>
+        <item quantity="other">%1$d Övningsuppgifter</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d Övning med bedömning av kurskamrat</item>
+        <item quantity="other">%1$d Övningsuppgifter med bedömning av kurskamrater</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d Övningsfrågor</item>
+        <item quantity="other">%1$d Övningstest</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d Uppgift för övningsteam</item>
+        <item quantity="other">%1$d Uppdrag till övningsteam</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d Programmeringsuppdrag</item>
+        <item quantity="other">%1$d Programmeringsuppdrag</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d Test</item>
+        <item quantity="other">%1$d test</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d Läsning</item>
+        <item quantity="other">%1$d Läsningar</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d Rollspel</item>
+        <item quantity="other">%1$d Rollspel</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d Bildspel</item>
+        <item quantity="other">%1$d Bildspel</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d Gruppprojekt</item>
+        <item quantity="other">%1$d Gruppprojekt</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Grattis till att du har granskat en uppgift! Hjälp andra kursdeltagare om du har extra tid.</item>
+        <item quantity="other">Grattis till att du har gått igenom alla %s uppgifter! Hjälp andra kamrater om du har extra tid.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">Kurslärare</item>
+        <item quantity="other">Kurslärare</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">betyg: %1$s stjärna av 5 stjärnor, %2$s recensioner</item>
+        <item quantity="other">betygsatt %1$s stjärnor av 5 stjärnor, %2$s recensioner</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Slutför en bedömning</item>
+        <item quantity="other">Slutför %1$d utvärderingar</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Slutför en praktisk övningsuppgift</item>
+        <item quantity="other">Slutför %1$d praktiska övningsuppgifter</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Slutför en läropost</item>
+        <item quantity="other">Slutför valfria %1$d-läroposter</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Slutför en video</item>
+        <item quantity="other">Slutför %1$d videor</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Slutför %1$d övning</item>
+        <item quantity="other">Slutför %1$d övningar</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Slutför en läsning</item>
+        <item quantity="other">Slutför %1$d läsningar</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">dag</item>
+        <item quantity="other">dagar</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s betyg</item>
+        <item quantity="other">betyg: %1$s</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d dag</item>
+        <item quantity="other">%1$d dagar</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d timme</item>
+        <item quantity="other">%1$d timmar</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Spola framåt %d sekund</item>
+        <item quantity="other">Spola framåt %d sekunder</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Spola tillbaka %d sekund</item>
+        <item quantity="other">Spola tillbaka %d sekunder</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d modul</item>
+        <item quantity="other">%1$d moduler</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d kursserie</item>
+        <item quantity="other">%1$d kursserie</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d dag</item>
+        <item quantity="other">%1$d dagar</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">är %1$d uppgift</item>
+        <item quantity="other">är %1$d uppgifter</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">timme</item>
+        <item quantity="other">timmar</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">min</item>
+        <item quantity="other">minuter</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">månad</item>
+        <item quantity="other">månader</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d kurs</item>
+        <item quantity="other">%1$d kurser</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 poäng</item>
+        <item quantity="other">%.1f punkter</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">rankad %1$s stjärna av 5 stjärnor</item>
+        <item quantity="other">rankad %1$s stjärnor av 5 stjärnor</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">totalt resultat</item>
+        <item quantity="other">totalt resultat</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">punkt</item>
+        <item quantity="other">poäng</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d övningsfråga</item>
+        <item quantity="other">%d övningsfrågor</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">rankad %1$s stjärna av 5 stjärnor</item>
+        <item quantity="other">rankad %1$s stjärnor av 5 stjärnor</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">fråga</item>
+        <item quantity="other">frågor</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s poäng</item>
+        <item quantity="other">%1$s poäng</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d fråga</item>
+        <item quantity="other">%d frågor</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">fråga</item>
+        <item quantity="other">frågor</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d FRÅGA</item>
+        <item quantity="other">%d FRÅGOR</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minuter</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">Svara</item>
+        <item quantity="other">Svar</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d del</item>
+        <item quantity="other">%1$d delar</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Visa %d kurs</item>
+        <item quantity="other">Visa alla %d kurser</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Visa %1$d kurs av %2$s</item>
+        <item quantity="other">Visa alla %1$d kurser av %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">kompetens</item>
+        <item quantity="other">kompetenser</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">%1$d en dag till för att plugga och nå ditt veckomål!</item>
+        <item quantity="other">%1$d fler dagar att plugga och nå ditt veckomål!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Lär dig %1$d mer dag för att nå ditt studiemål!</item>
+        <item quantity="other">Lär dig %1$d fler dagar för att nå ditt studiemål!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">%1$s stjärna av 5 stjärnor totalt i betyg, %2$s</item>
+        <item quantity="other">%1$s stjärnor av 5 stjärnor totalt i betyg, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">Uppröst</item>
+        <item quantity="other">Uppröster</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d vecka</item>
+        <item quantity="other">%1$d veckor</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">år</item>
+        <item quantity="other">år</item>
+    </plurals>
+</resources>

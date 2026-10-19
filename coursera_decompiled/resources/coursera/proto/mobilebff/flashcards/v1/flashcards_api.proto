@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.flashcards.v1;
+
+import "coursera/proto/mobilebff/flashcards/v1/flashcards.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Flashcards.V1";
+option go_package = "flashcardsv1";
+option java_multiple_files = true;
+option java_outer_classname = "FlashcardsApiProto";
+option java_package = "org.coursera.proto.mobilebff.flashcards.v1";
+option objc_class_prefix = "CPMF";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Flashcards\\V1";
+option swift_prefix = "MobilebffFlashcardsV1";
+
+// A service for using Flashcards on mobile.
+service FlashcardsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Perform a request to get the list of flash cards for a given module/week
+  rpc GetFlashcards(GetFlashcardsRequest) returns (GetFlashcardsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/flashcards/v1/FlashcardsAPI/GetFlashcards"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/flashcards/v1/FlashcardsAPI/GetFlashcards"}
+    };
+  }
+}
+
+message GetFlashcardsRequest {
+  // The course ID to generate flashcards for
+  string course_id = 1;
+  // The specific week number within the course to generate flashcards for, not zero indexed
+  string week_number = 2;
+}
+
+message GetFlashcardsResponse {
+  // A list of flashcards for the given week of a course
+  repeated Flashcard flashcards = 1;
+}

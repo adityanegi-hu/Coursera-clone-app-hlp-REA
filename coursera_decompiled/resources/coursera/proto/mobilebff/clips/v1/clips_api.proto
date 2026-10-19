@@ -1,0 +1,137 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.clips.v1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Clips.V1";
+option go_package = "clipsv1";
+option java_multiple_files = true;
+option java_outer_classname = "ClipsApiProto";
+option java_package = "org.coursera.proto.mobilebff.clips.v1";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Clips\\V1";
+option swift_prefix = "MobilebffClipsV1";
+
+// A service to serve clips for mobile.
+service ClipsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Request for clips.
+  rpc GetClip(GetClipRequest) returns (GetClipResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/clips/v1/ClipsAPI/GetClip"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/clips/v1/ClipsAPI/GetClips"}
+    };
+  }
+  // Request for clips.
+  rpc TrackClipProgress(TrackClipProgressRequest) returns (TrackClipProgressResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/clips/v1/ClipsAPI/TrackClipProgress"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/clips/v1/ClipsAPI/TrackClipProgress"}
+    };
+  }
+
+  rpc EnrollInCourse(EnrollInCourseRequest) returns (EnrollInCourseResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/clips/v1/ClipsAPI/EnrollInCourse"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/clips/v1/ClipsAPI/EnrollInCourse"}
+    };
+  }
+}
+
+message GetClipRequest {
+  oneof course_identifier {
+    string course_id = 1;
+    string course_slug = 2;
+  }
+  string item_id = 3;
+  // Which program the user is using to access the clip
+  optional string program_id = 4;
+}
+
+message GetClipResponse {
+  // Id of the course this clip is from
+  string course_id = 1;
+  // Item id of the clip in the course
+  string item_id = 2;
+  // Clip name
+  string clip_name = 3;
+  // If its a standalone clip (dont show link to course XDP or enroll button)
+  bool is_standalone = 4;
+  // Name of the course this clip is from (empty if stanadlone clip)
+  optional string course_name = 5;
+  // Logos of the partners that created this clip content
+  repeated string partner_logo_urls = 6;
+  // The program the user receives access to this clip (can be a program they need to join first)
+  optional string program_id = 7;
+  // The courseId of the next video in the course to autoplay (empty if stanadlone clip or last clip
+  // incourse)
+  optional string next_clip_course_id = 8;
+  // The itemId of the next video in the course to autoplay (empty if stanadlone clip or last clip
+  // incourse)
+  optional string next_clip_item_id = 9;
+  // If the user is enrolled in the course this clip comes from
+  bool is_enrolled = 10;
+  // If the user has to enroll in order to continue watching clips from this course
+  bool enrollment_required = 11;
+  // The prefered program for a user to enroll into the course with
+  optional string prefered_program_for_enrollment_id = 12;
+  // Duration of the clip in milliseconds, empty if user has to enroll
+  optional int64 duration_ms = 13;
+}
+
+message TrackClipProgressRequest {
+  // Id of the course this clip is from
+  string course_id = 1;
+  // Item id of the clip in the course
+  string item_id = 2;
+  // Total duration of the clip video
+  int64 total_clip_duration = 3;
+  // Timestamp milliseconds of how long the user watched the video
+  int64 current_video_progress = 4;
+  // Which program the user is watching this clip from
+  optional string program_id = 5;
+}
+
+message TrackClipProgressResponse { // 200 OK
+}
+
+message EnrollInCourseRequest {
+  // Id of the course this clip is from
+  string course_id = 1;
+  // Item id of the clip in the course
+  string item_id = 2;
+  // Which program to enroll the user using
+  string program_id = 3;
+  // whether the user was forced to enroll or not
+  bool enrollment_required = 4;
+}
+
+message EnrollInCourseResponse {
+  // Duration of the clip in milliseconds.
+  int64 duration_ms = 1;
+  // The courseId of the next video in the course to autoplay (empty if stanadlone clip or last clip
+  // incourse)
+  optional string next_clip_course_id = 2;
+  // The itemId of the next video in the course to autoplay (empty if stanadlone clip or last clip
+  // incourse)
+  optional string next_clip_item_id = 3;
+}

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.v1beta1;
+
+import "coursera/proto/paymentscheckout/common/v2beta1/payment_transaction_end.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.V1Beta1";
+option go_package = "paymentscheckoutv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionsApiProto";
+option java_package = "org.coursera.proto.paymentscheckout.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\V1Beta1";
+
+// Service that contains all payment transactions logic and interactions.
+service PaymentsTransactionsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {api_usage_type: API_USAGE_TYPE_CANONICAL};
+
+  // Get transaction ends for given payment processor transaction ids .
+  rpc FindAllByPaymentProcessorTransactionIds(FindAllByPaymentProcessorTransactionIdsRequest) returns (FindAllByPaymentProcessorTransactionIdsResponse);
+}
+
+message FindAllByPaymentProcessorTransactionIdsRequest {
+  // Payment processor id.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // List of payment processor transaction ids.
+  repeated string payment_processor_transaction_ids = 2;
+}
+
+message FindAllByPaymentProcessorTransactionIdsResponse {
+  // List of payment processor transaction ends which are present in the transaction end table.
+  repeated coursera.proto.paymentscheckout.common.v2beta1.PaymentTransactionEnd payment_transaction_ends = 1;
+}

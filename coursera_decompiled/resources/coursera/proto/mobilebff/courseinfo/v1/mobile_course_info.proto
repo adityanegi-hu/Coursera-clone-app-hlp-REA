@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.courseinfo.v1;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Courseinfo.V1";
+option go_package = "courseinfov1";
+option java_multiple_files = true;
+option java_outer_classname = "MobileCourseInfoProto";
+option java_package = "org.coursera.proto.mobilebff.courseinfo.v1";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Courseinfo\\V1";
+
+// Container for a course instructor message.
+message CourseInstructorMessage {
+  string id = 1 [deprecated = true];
+  string body = 2 [deprecated = true];
+  Position position = 3 [deprecated = true];
+  // Indicates the position of the message in list of messages.
+  enum Position {
+    option deprecated = true;
+    POSITION_INVALID = 0;
+    POSITION_START = 1;
+    POSITION_END = 2;
+  }
+}

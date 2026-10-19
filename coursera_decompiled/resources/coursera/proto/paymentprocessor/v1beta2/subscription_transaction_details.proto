@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/transaction_card_details.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionTransactionDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// encapsulates the transaction details
+message TransactionDetails {
+  // transaction id
+  string payment_processor_transaction_id = 1;
+  // money associated with the transaction
+  google.type.Money amount = 2;
+  // transaction timestamp
+  google.protobuf.Timestamp created_at = 3;
+  // transaction status
+  google.protobuf.StringValue status = 4;
+  // card details associated with the transaction
+  coursera.proto.paymentprocessor.common.v1beta2.TransactionCardDetails card_details = 5;
+  // any payment exceptions associated with the transaction
+  PaymentExceptionDetails exception_details = 6;
+}
+
+// any payment exceptions associated with the transaction
+message PaymentExceptionDetails {
+  // error message
+  google.protobuf.StringValue message = 1;
+  // error code
+  google.protobuf.StringValue code = 2;
+}

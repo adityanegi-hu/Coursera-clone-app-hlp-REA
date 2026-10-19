@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1beta1;
+
+import "coursera/proto/shared/v1beta1/service_metadata.proto";
+import "google/protobuf/descriptor.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1Beta1";
+option go_package = "sharedv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "CourseraAnnotationsProto";
+option java_package = "org.coursera.proto.shared.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1Beta1";
+
+// Coursera custom annotations.
+// All annotations should be registered in this file so that it is simple to include all custom annotations
+// when reading the Descriptor Set file: descriptor_set.pb.
+// To import all annotations, use the following:
+//
+//  final ExtensionRegistryLite registry = ExtensionRegistryLite.newInstance();
+//  CourseraAnnotationsProto.registerAllExtansions(registry);
+//
+// This uses protobuf's extension mechanism to allow methods (RPCs) to be annotated
+// with additional options.
+// We need to use field numbers > 1000, as per https://github.com/protocolbuffers/protobuf/blob/74ad62759e0a9b5a21094f3fb9bb4ebfaa0d1ab8/src/google/protobuf/descriptor.proto#L717
+//
+// See https://developers.google.com/protocol-buffers/docs/proto#customoptions for how
+// custom options are implemented.
+//
+// See `service_metadata.proto`
+extend google.protobuf.ServiceOptions {
+  ApplicationMetadata application_metadata = 10000;
+  ServiceMetadata service_metadata = 10001;
+}

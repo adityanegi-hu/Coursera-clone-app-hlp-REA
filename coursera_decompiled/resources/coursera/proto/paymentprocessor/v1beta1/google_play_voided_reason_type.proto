@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayVoidedReasonTypeProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// The reason why the purchase was voided.
+enum GooglePlayVoidedReasonType {
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_INVALID = 0;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_OTHER = 1;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_REMORSE = 2;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_NOT_RECEIVED = 3;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_DEFECTIVE = 4;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_ACCIDENTAL_PURCHASE = 5;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_FRAUD = 6;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_FRIENDLY_FRAUD = 7;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_CHARGEBACK = 8;
+  GOOGLE_PLAY_VOIDED_REASON_TYPE_UNACKNOWLEDGED_PURCHASE = 9;
+}

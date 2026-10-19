@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.search.v2;
+
+import "coursera/proto/mobilebff/shared/v3/difficulty_level.proto";
+import "coursera/proto/mobilebff/shared/v3/product_type.proto";
+import "coursera/proto/mobilebff/shared/v3/translated_string.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Search.V2";
+option go_package = "searchv2";
+option java_multiple_files = true;
+option java_outer_classname = "SearchProto";
+option java_package = "org.coursera.proto.mobilebff.search.v2";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Search\\V2";
+option swift_prefix = "MobilebffSearchV2";
+
+// Representation for the filters to use with translation.
+message TranslatedFacetFilter {
+  // The facet type (i.e. language, topic, skills, etc.)
+  shared.v3.TranslatedString translated_facet = 1;
+  // Possible values for indicated facet combined using an `OR` operator
+  // Example: for language, it would be English OR Spanish OR French
+  repeated shared.v3.TranslatedString translated_values = 2;
+}
+
+// Representation of the filters to use.
+message FacetFilter {
+  // The facet (i.e. language, topic, skills, etc.)
+  // From TranslatedFacetFilter.translated_facet.value
+  string facet = 1;
+  // Possible values for indicated facet combined using an `OR` operator
+  // From TranslatedFacetFilter.translated_values.value
+  // Example: for language, it would be English OR Spanish OR French
+  repeated string values = 2;
+}
+
+// A search result (e.g. course, specialization)
+message SearchHit {
+  // Product type
+  coursera.proto.mobilebff.shared.v3.ProductType product_type = 1;
+  // Product id (e.g. 2s2P5R7ZEeagwg7hVay0BQ)
+  string product_id = 2;
+  // Product name
+  string name = 3;
+  // Product url (e.g. /learn/learn-speak-korean1)
+  string object_url = 4;
+  // Product difficulty level
+  coursera.proto.mobilebff.shared.v3.DifficultyLevel difficulty_level = 5;
+  // The name of the product's partners (e.g. Google)
+  repeated string partners = 6;
+  // The number of enrollments for the product (e.g. 45000)
+  google.protobuf.Int64Value enrollments = 7;
+  // The thumbnail image url for the product
+  google.protobuf.StringValue thumbnail_url = 8;
+  // The average rating for the product (e.g. 4.5)
+  google.protobuf.DoubleValue rating = 9;
+  // Flag for if this product is part of Coursera+
+  // For SearchInProgram (Enterprise) search, this will always be false
+  bool is_coursera_plus = 10;
+  // Links to the partners' logo images
+  repeated string partner_logo_urls = 11;
+  // List of skills (can be empty) (e.g. "Leadership and Management", "Entrepreneurship")
+  repeated string skills = 12;
+  // Estimated time it will take to finish the product (e.g. "1-3 Months", "1-4 weeks")
+  ProductDuration product_duration = 13;
+  // If the search hit is a course builder course and clients should show an alert if the user
+  // clicks the search hit
+  bool course_builder_product = 14;
+  // Length of the short-form content. Only set for lesson and clip product types.
+  optional google.protobuf.Duration duration = 15;
+}
+
+// Enum which indicates which product duration string to display
+enum ProductDuration {
+  PRODUCT_DURATION_INVALID = 0;
+  PRODUCT_DURATION_LESS_THAN_2_HOURS = 1;
+  PRODUCT_DURATION_1_TO_4_WEEKS = 2;
+  PRODUCT_DURATION_1_TO_3_MONTHS = 3;
+  PRODUCT_DURATION_3_TO_6_MONTHS = 4;
+  PRODUCT_DURATION_6_TO_12_MONTHS = 5;
+  PRODUCT_DURATION_1_TO_4_YEARS = 6;
+}

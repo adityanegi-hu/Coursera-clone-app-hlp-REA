@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.careers.v1;
+
+import "coursera/proto/mobilebff/shared/v3/difficulty_level.proto";
+import "coursera/proto/mobilebff/shared/v3/product_type.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Careers.V1";
+option go_package = "careersv1";
+option java_multiple_files = true;
+option java_outer_classname = "CareersProto";
+option java_package = "org.coursera.proto.mobilebff.careers.v1";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Careers\\V1";
+option swift_prefix = "MobilebffCareersV1";
+
+message CareerCategory {
+  // The name of the career category
+  string name = 1;
+  // A list of careers within a specific career category
+  repeated CareerBasicDetails basic_details = 2;
+}
+
+message CareerBasicDetails {
+  // The name of the career
+  string name = 1;
+  // The slug for the career
+  string slug = 2;
+  // The description of the career
+  string description = 3;
+  // The salary for the career
+  optional string salary = 4;
+  // The number of jobs available in the career
+  optional string jobs_available = 5;
+}
+
+message CareerDetailsSection {
+  // The title header for a section of career details
+  string title = 1;
+  // The starting color for the title header background gradient
+  string gradient_color_start = 2;
+  // The ending color for the title header background gradient
+  string gradient_color_end = 3;
+  // The list of items for the section. Can either be an article or product.
+  repeated CareerDetailsItem items = 4;
+}
+
+message CareerDetailsItem {
+  oneof item {
+    // An article related to the selected career
+    CareerArticle article = 1;
+    // A product related to the selected career
+    CareerProduct product = 2;
+  }
+}
+
+message CareerArticle {
+  // The name of the article
+  string name = 1;
+  // The url for the article
+  string url = 2;
+  // Estimated time in minutes that it takes to read the article
+  string length = 3;
+}
+
+message CareerProduct {
+  // The name of the product
+  string name = 1;
+  // The slug for the product
+  string slug = 2;
+  // The list of partner logos
+  repeated string partner_logo_urls = 3;
+  // The list of partner names
+  repeated string partner_names = 4;
+  // The product type
+  shared.v3.ProductType product_type = 5;
+  // The difficultly level for the product
+  shared.v3.DifficultyLevel difficulty_level = 6;
+  // Estimated time in minutes that it takes to complete the p
+  string duration = 7;
+  // List of courses within the product
+  repeated CareerProductCourse courses = 8;
+  // Signifies if the product is part of coursera plus
+  bool is_coursera_plus = 9;
+}
+
+message CareerProductCourse {
+  // The name of the course
+  string name = 1;
+  // The slug for the course
+  string slug = 2;
+}

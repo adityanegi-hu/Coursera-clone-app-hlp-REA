@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta1;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_exception_details.proto";
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_subscription.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta1";
+option go_package = "commonv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionCheckoutResultProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta1";
+
+// Result of the Subscription Checkout
+message PaymentProcessorSubscriptionCheckoutResult {
+  // Result
+  oneof result {
+    PaymentProcessorSubscriptionCheckoutSuccessResult success_result = 1;
+    PaymentProcessorSubscriptionCheckoutFailureResult failure_result = 2;
+  }
+}
+
+// Container for a success result.
+message PaymentProcessorSubscriptionCheckoutSuccessResult {
+  // Payment processor subscription.
+  PaymentProcessorSubscription payment_processor_subscription = 1;
+}
+
+// Container for a failure result.
+message PaymentProcessorSubscriptionCheckoutFailureResult {
+  // Exception details of the failure.
+  PaymentProcessorExceptionDetails exception_details = 1;
+}

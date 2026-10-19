@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/payment_transaction_billing_info.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "CheckoutRequestProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Checkout request.
+message CheckoutRequest {
+  oneof request {
+    AppleInAppPaymentCheckoutRequest apple_in_app_payment_checkout_request = 1;
+    BraintreeStandardCheckoutRequest braintree_standard_checkout_request = 2;
+    BraintreeWalletCheckoutRequest braintree_wallet_checkout_request = 3;
+    CourseraManualRefundCheckoutRequest coursera_manual_refund_checkout_request = 4;
+    CourseraManualPaymentCheckoutRequest coursera_manual_payment_checkout_request = 5;
+    EbanxCreditCardCheckoutRequest ebanx_credit_card_checkout_request = 6;
+    FinancialAidCheckoutRequest financial_aid_checkout_request = 7;
+    PartialDetachedCreditCheckoutRequest partial_detached_credit_checkout_request = 8;
+    RefundCheckoutRequest refund_checkout_request = 9;
+    StripeCheckoutRequest stripe_checkout_request = 10;
+    ZeroDollarPaymentCheckoutRequest zero_dollar_payment_checkout_request = 11;
+    GooglePlayCheckoutRequest google_play_checkout_request = 14;
+    StripeConsumerCheckoutRequest stripe_consumer_checkout_request = 15;
+    StripeEnterpriseWalletCheckoutRequest stripe_enterprise_wallet_checkout_request = 16;
+  }
+  reserved 12; // Deprecated Razorpay Checkout Request
+}
+
+// Checkout request for in app payments on our iOS platform.
+message AppleInAppPaymentCheckoutRequest {}
+
+// One-time checkout request object. Does not use vaulted payment wallet.
+message BraintreeStandardCheckoutRequest {
+  // Secure, one-time use reference to payment information.
+  google.protobuf.StringValue nonce = 1;
+  // Billing address info associated with the payment method.
+  PaymentTransactionBillingInfo billing_info = 2;
+  // Additional custom fields to add to the transaction object. Each custom field must be
+  // configured on Braintree panel first. See more details in the documentation: https://articles
+  // .braintreepayments.com/control-panel/custom-fields
+  map<string, string> custom_fields = 3;
+  // when making a transaction to Braintree sandbox for testing purposes, provide a decline code
+  // to simulate a failure with the provided decline code
+  google.protobuf.Int32Value override_decline_code = 4;
+  google.protobuf.StringValue card_type = 5;
+  google.protobuf.StringValue payment_instrument_type = 6;
+}
+
+// Checkout request object provided for each transaction processed by a vaulted payment wallet.
+message BraintreeWalletCheckoutRequest {
+  // Identifier for a user's payment wallet
+  google.protobuf.UInt64Value payment_wallet_id = 1;
+  // True to add a recurring ecommerce indicator (ECI) to the transaction. If passed, the amount
+  // submitted for settlement must exactly match the authorized amount.
+  bool recurring = 2;
+  // Additional custom fields to add to the transaction object. Each custom field must be
+  // configured on Braintree panel first. See more details in the documentation:
+  // https://articles.braintreepayments.com/control-panel/custom-fields
+  map<string, string> custom_fields = 3;
+  // Provide an integer equal to the Braintree decline code
+  google.protobuf.Int32Value override_decline_code = 4;
+  google.protobuf.StringValue card_type = 5;
+}
+
+// Checkout request for refund requests.
+message CourseraManualRefundCheckoutRequest {}
+
+// Checkout request for internal payment.
+message CourseraManualPaymentCheckoutRequest {}
+
+// Checkout request parameters for creating payment on Ebanx.
+message EbanxCreditCardCheckoutRequest {}
+
+// Checkout request for financial aid.
+
+message FinancialAidCheckoutRequest {
+  /*
+     Since 2023-02-02 we are opting for the `ZeroDollarPaymentProcessor` for checking out financial aid applications.
+     We hope to eventually deprecate `FinancialAidPaymentProcessor` which will reduce duplication since it does a relatively similar thing to `ZeroDollarPaymentProcessor`.
+     For details: https://docs.google.com/document/d/1Q1EUuMvLbhn05xwa4huUoNeYLyyeFnXWXnw4hYyRqsY/edit?usp=sharing
+  */
+  option deprecated = true;
+}
+
+// Checkout request for partial credit.
+message PartialDetachedCreditCheckoutRequest {}
+
+// Checkout request for refunds.
+message RefundCheckoutRequest {
+  // Allows the request to bypass cart validation checks
+  bool bypass_validation = 1;
+}
+
+// Stripe checkout requests for payments through Stripe.
+message StripeCheckoutRequest {}
+
+// Checkout request for internal requests that don't require payment and only care about recording
+// and granting ownership.
+message ZeroDollarPaymentCheckoutRequest {}
+
+// Checkout request for Google Play processor. Documentation on how Google tracks products and
+// transactions through SKUs and purchase tokens:
+// https://developer.android.com/google/play/billing/integrate#tokens
+message GooglePlayCheckoutRequest {
+  // Identifier for a Google Play product (representation of a Coursera product on Google Play)
+  google.protobuf.StringValue google_play_sku = 1;
+  // Identifier for a Google Play purchase
+  google.protobuf.StringValue google_play_purchase_token = 2;
+  // Order ID for a Google Play purchase (optional, as not all transactions have order IDs - for
+  // instance, 100% off promo transactions for one-time purchase products do not have an order ID.
+  // Note that this is only the case for OTP - subscription transactions will *always* have an order
+  // ID.)
+  google.protobuf.StringValue google_play_order_id = 3;
+  // Per-transaction offer token for a Google Play one-time purchase, representing a unique offer
+  // and pricing for a product.
+  // See https://docs.google.com/document/d/1A_AZRR3ox3n-qoCJgpoMk1gi2RL1umpR8gta1pZ7FU0/edit#
+  // for per-transaction pricing documentation.
+  google.protobuf.StringValue google_play_offer_token = 4;
+  // Whether or not this checkout is a sandbox checkout.
+  bool is_sandbox = 5;
+}
+
+// Checkout request for a one time payment on Stripe Consumer.
+message StripeConsumerCheckoutRequest {
+  // Stripe charge id after user has successfully completed a transaction
+  google.protobuf.StringValue stripe_charge_id = 1;
+  // Billing address info associated with the payment method.
+  PaymentTransactionBillingInfo billing_info = 2;
+  // Whether or not this checkout is a sandbox checkout
+  bool is_sandbox = 3;
+  // Denotes if stripe inc or stripe bv account.
+  bool is_stripe_bv = 4;
+}
+
+message StripeEnterpriseWalletCheckoutRequest {
+  // Payment wallet id
+  google.protobuf.UInt64Value payment_wallet_id = 1;
+  // Additional custom fields to add to the transaction object.
+  map<string, string> custom_fields = 2;
+  // Whether or not this checkout is a sandbox checkout
+  bool is_sandbox = 3;
+}

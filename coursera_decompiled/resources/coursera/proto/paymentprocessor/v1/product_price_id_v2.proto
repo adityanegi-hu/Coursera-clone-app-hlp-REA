@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1";
+option go_package = "paymentprocessorv1";
+option java_multiple_files = true;
+option java_outer_classname = "ProductPriceIdV2Proto";
+option java_package = "org.coursera.proto.paymentprocessor.v1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1";
+
+// Model to represent a V2 product price id.
+message ProductPriceIdV2 {
+  google.protobuf.StringValue id = 1;
+}

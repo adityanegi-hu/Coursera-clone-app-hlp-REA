@@ -1,0 +1,415 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.coursehome.v4;
+
+import "coursera/proto/mobilebff/shared/v2/next_step.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Coursehome.V4";
+option go_package = "coursehomev4";
+option java_multiple_files = true;
+option java_outer_classname = "MobileCourseHomeProto";
+option java_package = "org.coursera.proto.mobilebff.coursehome.v4";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Coursehome\\V4";
+option swift_prefix = "MobilebffCoursehomeV4";
+
+// Container for a course home item.
+message LearnerMaterialItem {
+  // Item's id.
+  string item_id = 1;
+  // The week in which this item is present.
+  int32 week_number = 2;
+  // Current item name.
+  string name = 3;
+  // Item resource path (ex: /learn/quiz/id).
+  string resource_path = 4;
+  // Due date of item.
+  google.protobuf.Timestamp due_at_time = 5;
+  // Item type.
+  ContentType content_type = 6;
+  // If item is quiz/exam contains number of questions.
+  google.protobuf.Int32Value question_count = 7;
+  // Item is completed or not.
+  google.protobuf.BoolValue is_passed_or_completed = 8;
+  // Item lock status information.
+  LockedStatus locked_status = 9;
+  // If item is locked, the reason code.
+  ReasonCode reason_code = 10;
+  // If item is locked, the message to be displayed to the user
+  google.protobuf.StringValue lock_custom_message = 11;
+  // Item download size.
+  google.protobuf.Int32Value download_size = 12;
+  // Item module id.
+  string module_id = 13;
+  // Item lesson id.
+  string lesson_id = 14;
+  // Item supports touch, used to determine if supported on mobile.
+  google.protobuf.BoolValue supports_touch = 15;
+  // item contains ivqs.
+  bool has_in_video_assessments = 16;
+  // Item total work duration.
+  int32 total_work_duration = 17;
+  // If item is honor item
+  bool is_honors = 18;
+  // Is this item an assessment
+  bool is_gradable = 19;
+  // used to indicate to clients if they can open web view if the item is not supported natively, or
+  // if it should be blocked for any reason
+  bool can_open_webview = 20;
+  // A list of mobile features required to open an item (ex. timed, manually graded, etc), that
+  // clients should use to determine if the item is natively supported
+  repeated RequiredFeature required_features = 21;
+  // Lock status of the item.
+  enum LockedStatus {
+    LOCKED_STATUS_INVALID = 0;
+    LOCKED_STATUS_LOCKED_FOR_SUBMITTING = 1;
+    LOCKED_STATUS_LOCKED_FULLY = 2;
+  }
+  // Possible reasons that the item is locked.
+  enum ReasonCode {
+    REASON_CODE_INVALID = 0;
+    REASON_CODE_PREMIUM = 1;
+    REASON_CODE_PASSABLE_ITEM_COMPLETION = 2;
+    REASON_CODE_PREMIUM_ITEM = 3;
+    REASON_CODE_SESSION_PREVIEW = 4;
+    REASON_CODE_SESSION_ENDED = 5;
+    REASON_CODE_SESSION_ENDED_FOR_FLEXIBLE_SCHEDULE = 6;
+    REASON_CODE_ENROLLMENT_PREVIEW = 7;
+    REASON_CODE_RESTRICTED_AUDIT = 8;
+    REASON_CODE_TIMED_RELEASE_CONTENT = 9;
+    REASON_CODE_RESITTING_ITEM_LOCK_OVERRIDE = 10;
+  }
+  // Item has unlock start time if locked due to TIMED_RELEASE_CONTENT.
+  google.protobuf.Timestamp unlock_start_time = 22;
+  // Item has unlock end time if it'll be re-locked in the future.
+  google.protobuf.Timestamp unlock_end_time = 23;
+  // Item display order.
+  int32 display_order = 24;
+  // If this item is borrowed from another course, this field will contain the information for
+  // that course to show the partner branding and open XDP
+  optional ItemCourseBuilderInfo item_course_builder_info = 25;
+  // Item is submitted or not. For some items, an item can be submitted but not considered
+  // complete (ex. a split peer review item where one part is submitted but user still needs to
+  // review, or a manually graded assignment that was submitted but not graded yet)
+  google.protobuf.BoolValue is_submitted = 26;
+  // The original name of the item if it has been renamed.
+  optional string original_name = 27;
+  // Indicates if the item is locked due to freemium
+  bool is_freemium_locked = 28;
+  // Presigned S3 URL for audio narration of this reading item (MP3, 6h TTL).
+  // Only present for supplement (reading) items in courses with audio narration enabled.
+  optional string reading_audio_url = 29;
+}
+
+message ItemCourseBuilderInfo {
+  string course_id = 1;
+  string course_name = 2;
+  repeated string partners = 3;
+  repeated string partner_logo_urls = 4;
+}
+
+// All the possible content types for a LearnerMaterialItem.
+enum ContentType {
+  CONTENT_TYPE_INVALID = 0;
+  // Video Lecture content type
+  CONTENT_TYPE_LECTURE = 1;
+  // Graded discussion prompt content
+  CONTENT_TYPE_GRADED_DISCUSSION_PROMPT = 2;
+  // Practice discussion item prompt content
+  CONTENT_TYPE_DISCUSSION_PROMPT = 3;
+  // Graded quiz (a.k.a. exam) content
+  CONTENT_TYPE_EXAM = 4;
+  // Practice quiz content
+  CONTENT_TYPE_QUIZ = 5;
+  // Peer content (item will be reviewed by learners peers)
+  CONTENT_TYPE_PEER = 6;
+  // Graded programming assignment content
+  CONTENT_TYPE_GRADED_PROGRAMMING = 7;
+  // Single question submit assignment content
+  CONTENT_TYPE_SINGLE_QUESTION_SUBMIT = 8;
+  // Ungraded external tool (LTI) content
+  CONTENT_TYPE_UNGRADED_LTI = 9;
+  // Graded external tool (LTI) content
+  CONTENT_TYPE_GRADED_LTI = 10;
+  // Plugin (widget) content
+  CONTENT_TYPE_UNGRADED_WIDGET = 11;
+  // Graded plugin (widget) content
+  CONTENT_TYPE_GRADED_WIDGET = 12;
+  // Ungraded programming content
+  CONTENT_TYPE_UNGRADED_PROGRAMMING = 13;
+  // Programming content
+  CONTENT_TYPE_PROGRAMMING = 14;
+  // Phased peer content (item will be reviewed by learners peers)
+  CONTENT_TYPE_PHASED_PEER = 15;
+  // Graded peer content (item will be reviewed by learners peers)
+  CONTENT_TYPE_GRADED_PEER = 16;
+  // Reading (supplement) content
+  CONTENT_TYPE_SUPPLEMENT = 17;
+  // Closed peer content (item will be reviewed by learners peers)
+  CONTENT_TYPE_CLOSED_PEER = 18;
+  // Assess open single page content
+  CONTENT_TYPE_ASSESS_OPEN_SINGLE_PAGE = 19;
+  // Assess open single page content
+  CONTENT_TYPE_SLIDESHOW = 20;
+  // Individial graded assignment (formerly SGA) content
+  CONTENT_TYPE_GRADED_ASSIGNMENT = 21;
+  // Team graded assignment (formerly SGA) content
+  CONTENT_TYPE_GRADED_TEAM_ASSIGNMENT = 22;
+  // Notebook content
+  CONTENT_TYPE_NOTEBOOK = 23;
+  // Workspace launcher content
+  CONTENT_TYPE_WORKSPACE_LAUNCHER = 24;
+  // Teammate review content
+  CONTENT_TYPE_TEAMMATE_REVIEW = 25;
+  // Ungraded lab content
+  CONTENT_TYPE_UNGRADED_LAB = 26;
+  // Peer content for learner to review
+  CONTENT_TYPE_PEER_REVIEW = 27;
+  // Phased peer content (learner to review peers submissions)
+  CONTENT_TYPE_PHASED_PEER_REVIEW = 28;
+  // Graded peer content (learner to review peers submissions)
+  CONTENT_TYPE_GRADED_PEER_REVIEW = 29;
+  // Phased peer content (learner to review peers submissions)
+  CONTENT_TYPE_CLOSED_PEER_REVIEW = 30;
+  // Practice (ungraded) Assignments
+  CONTENT_TYPE_PRACTICE_ASSIGNMENT = 31;
+  // Practice (ungraded) Assignments assigned to a team
+  CONTENT_TYPE_PRACTICE_TEAM_ASSIGNMENT = 32;
+  // Dialogue Coach Item
+  CONTENT_TYPE_DIALOGUE_COACH_ITEM = 33;
+  // Role Play Coach Item
+  CONTENT_TYPE_ROLE_PLAY_COACH_ITEM = 34;
+  // Graded lab content
+  CONTENT_TYPE_GRADED_LAB = 35;
+  // Graded role play content
+  CONTENT_TYPE_GRADED_ROLE_PLAY_COACH_ITEM = 36;
+}
+
+// Information about a course home module.
+message LearnerMaterialModule {
+  // Module id.
+  string module_id = 1;
+  // Module name.
+  string name = 2;
+  // Module description.
+  string description = 3;
+  // List of lessons in the module.
+  repeated LearnerMaterialLesson lessons = 4;
+  // Indicates if the module is locked due to freemium
+  bool is_freemium_locked = 5;
+}
+
+// Information about a course home lesson.
+message LearnerMaterialLesson {
+  // Lesson id.
+  string lesson_id = 1;
+  // Lesson name.
+  string name = 2;
+  // If honor lesson.
+  bool is_honors = 3;
+  // List of items in the lesson
+  repeated LearnerMaterialItem items = 4;
+}
+
+// Information about a learner's goal if they have set it.
+message LearnerGoal {
+  // Goal type.
+  GoalType goal_type = 1;
+  // Goal progress.
+  Progress progress = 2;
+  // Goal id.
+  string id = 3;
+  // Goal name.
+  string name = 4;
+  // Container with information about a goal type.
+  message GoalType {
+    Goal type_name = 1;
+    int32 n = 2;
+  }
+  // All possible goal types.
+  enum Goal {
+    GOAL_INVALID = 0;
+    GOAL_COMPLETE_N_VIDEOS = 1;
+    GOAL_COMPLETE_N_ASSIGNMENTS = 2;
+    GOAL_N_DAY_STREAK = 3;
+    GOAL_N_DAYS_A_WEEK = 4;
+  }
+  // Information about goal progress.
+  message Progress {
+    // Goal percentage
+    float percentage = 1;
+    GoalProgressState state = 2;
+    repeated GoalProgressHistory history = 3;
+    // Possible progress states that the goal can be in.
+    enum GoalProgressState {
+      GOAL_PROGRESS_STATE_INVALID = 0;
+      GOAL_PROGRESS_STATE_NOT_STARTED = 1;
+      GOAL_PROGRESS_STATE_IN_PROGRESS = 2;
+      GOAL_PROGRESS_STATE_COMPLETED = 3;
+    }
+    // Progress history.
+    message GoalProgressHistory {
+      // Goal progress state.
+      ProgressState progress_state = 1;
+      // Progress updated at.
+      double updated_at = 2;
+      // Possible progress states a goal progress item entry can be in.
+      enum ProgressState {
+        PROGRESS_STATE_INVALID = 0;
+        PROGRESS_STATE_NOT_STARTED = 1;
+        PROGRESS_STATE_STARTED = 2;
+        PROGRESS_STATE_COMPLETED = 3;
+      }
+    }
+  }
+}
+
+// Course home custom labels.
+message CustomLabel {
+  google.protobuf.StringValue custom_course_label = 1;
+  map<int32, string> custom_week_map = 2;
+  bool is_custom_label = 3;
+}
+
+// Next step information.
+message NextStep {
+  shared.v2.NextStepType next_step_type = 1;
+  // Optional next week number which corresponds to the next item.
+  google.protobuf.Int32Value week_num = 2;
+  // The information needed to perform the next step.
+  oneof next_step {
+    // Next step is an item.
+    NextStepItem item = 3;
+    // Next step is session adjustment step
+    LearnerCourseScheduleSuggestion suggestion = 4;
+    // Next step is to switch session
+    SwitchSession switch_session = 5;
+  }
+}
+
+// Next step item information if the next step is COURSE_MATERIAL_NEXT_STEP.
+message NextStepItem {
+  // Item item id.
+  string item_id = 1;
+  // Item type.
+  ContentType item_type = 2;
+  // Item name.
+  string item_name = 3;
+  // Item duration
+  int32 time_commitment = 4;
+}
+
+// Information for switching sessions.
+message SwitchSession {
+  // Current session user is enrolled into.
+  string current_session_id = 1;
+  // Next session id user should enroll into.
+  string next_session_id = 2;
+}
+
+// Schedule suggestion if the next step type is COURSE_SCHEDULE_ADJUSTMENT_NEXT_STEP.
+message LearnerCourseScheduleSuggestion {
+  SuggestionType type = 1;
+  SuggestionReason reason = 2;
+  // Learner adjustment of session by number of days
+  google.protobuf.Int32Value days = 3;
+  // Suggestion type.
+  enum SuggestionType {
+    SUGGESTION_TYPE_INVALID = 0;
+    SUGGESTION_TYPE_NO_SUGGESTION = 1;
+    SUGGESTION_TYPE_EXTENSION = 2;
+    SUGGESTION_TYPE_SHIFT_DEADLINES = 3;
+  }
+  // Suggestion reason.
+  enum SuggestionReason {
+    SUGGESTION_REASON_INVALID = 0;
+    SUGGESTION_REASON_LAST_DEADLINE_IN_THE_PAST = 1;
+    SUGGESTION_REASON_SINGLE_DEADLINE_OVERDUE_MORE_THAN_TWO_WEEKS = 2;
+    SUGGESTION_REASON_MULTIPLE_DEADLINES_OVERDUE = 3;
+    SUGGESTION_REASON_LEARNER_SUPPORT_TOOLS_SUGGESTION = 4;
+  }
+}
+
+// Information related to a week's progress.
+message WeekProgress {
+  // Week number.
+  int32 week_number = 1;
+  // Is Week completed.
+  bool is_passed_or_completed = 2;
+  // Week total duration.
+  double total_duration = 3;
+  // Week remaining duration.
+  double total_remaining_duration = 4;
+  // Week total items.
+  int32 total_item_count = 5;
+  // Week remaining items.
+  int32 total_remaining_item_count = 6;
+  // Duration of all passable items.
+  double passable_duration = 7;
+  // Duration of remaining passable items.
+  double passable_remaining_duration = 8;
+  // All passable items.
+  int32 passable_item_count = 9;
+  // Remaining passable items.
+  int32 passable_remaining_item_count = 10;
+  // Duration of all non passable items.
+  double non_passable_duration = 11;
+  // Duration of remaining non passable items.
+  double non_passable_remaining_duration = 12;
+  // All non passable items.
+  int32 non_passable_item_count = 13;
+  // Remaining non passable items.
+  int32 non_passable_remaining_item_count = 14;
+}
+
+// Information regarding a week in a course.
+message WeekData {
+  // week number.
+  int32 week_number = 1;
+  // contains data about week modules.
+  repeated LearnerMaterialModule modules = 2;
+  // contains data about week progress.
+  WeekProgress week_progress = 3;
+  // Possible flashcards item for the week
+  optional Flashcards flashcards = 4;
+}
+
+message Flashcards {
+  // Title for the flashcard item.
+  string name = 1;
+  // Number of flashcards in the deck
+  int32 card_count = 2;
+}
+
+enum RequiredFeature {
+  // Unknown unsupported feature
+  REQUIRED_FEATURE_INVALID = 0;
+  //  The assignment can be assigned to a team
+  REQUIRED_FEATURE_TEAMWORK = 1;
+  //  Grades are hidden from learners after release
+  REQUIRED_FEATURE_HIDE_GRADE_ON_RELEASE = 2;
+  // Past submissions are not visible to learners
+  REQUIRED_FEATURE_HIDE_LEARNER_RESPONSE_AFTER_SUBMISSION = 3;
+  // Learners are limited to a maximum number of allowed attempts
+  REQUIRED_FEATURE_LIMITED_ATTEMPTS = 4;
+  //  Attempts are limited to a maximum duration
+  REQUIRED_FEATURE_ATTEMPT_TIME_LIMITS = 5;
+  //  Learners are limited to a maximum number of allowed submissions per attempt
+  REQUIRED_FEATURE_LIMITED_SUBMISSIONS = 6;
+  //  The assignment includes a learner-facing assignment rubric
+  REQUIRED_FEATURE_ASSIGNMENT_RUBRICS = 7;
+  //  The assignment includes manually-graded questions
+  REQUIRED_FEATURE_MANUAL_GRADED_QUESTIONS = 8;
+  //  The assignment includes multiple fillable blanks questions
+  REQUIRED_FEATURE_MULTIPLE_FILLABLE_BLANKS_QUESTIONS = 9;
+  //  The assignment, quiz, or reading includes a widget
+  REQUIRED_FEATURE_WIDGETS = 10;
+  //  The assignment has more than one submission allowed per attempt
+  REQUIRED_FEATURE_MULTIPLE_SUBMISSIONS = 11;
+  //  The assignment or quiz contains text blocks
+  REQUIRED_FEATURE_TEXT_BLOCKS = 12;
+  //  The quiz contains extra credit questions
+  REQUIRED_FEATURE_EXTRA_CREDIT_QUESTIONS = 13;
+}

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1;
+
+import "google/protobuf/descriptor.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1";
+option go_package = "sharedv1";
+option java_multiple_files = true;
+option java_outer_classname = "AuthorizationProto";
+option java_package = "org.coursera.proto.shared.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1";
+
+// Describes the authorization contract for a given RPC. This message is used
+// as the container of a custom option used to annotate RPCs.
+message AuthorizationDescription {
+  // Each string in the `allows` field is a key that the method authorization
+  // code uses in order to do access control checks. If any key in the
+  // `allows` field is deemed to be met by a request, then authorization is
+  // granted for that request.
+  // Otherwise, authorization is rejected for that request, and the RPC must
+  // return `PERMISSION_DENIED`.
+
+  // If `allows` is defined as an empty array, then all requests will be
+  // rejected with `PERMISSION_DENIED`.
+
+  // In terms of the keys themselves, some are common to all of Coursera
+  // (e.g superuser), while others are domain specific (e.g foo.delete).
+  // If no explicit code exists for the handling of a key, then the
+  // application implementing the gRPC service will fail to boot up.
+
+  // Note on usage: in the schema, method options may be specified in
+  // protobuf "text format", which is a format to describe
+  // protos that is human readable. The best source of documentation for what
+  // is allowed in protobuf's text format is from
+  // the unit test itself, which can be found in
+  // https://github.com/protocolbuffers/protobuf/blob/0a737d8eb049dbfa5875a8c53f41fb6d777c1588/src/google/protobuf/text_format_unittest.cc#L915-L917
+  // Specifically, protobuf will parse repeated string fields in what they
+  // call "short form", which is a JSON array like format.
+  // This means `allows: ["a", "b"]` will be parsed correctly.
+  repeated string allows = 10001;
+}
+
+// This uses protobuf's extension mechanism to allow methods (RPCs) to be annotated
+// with additional options.
+// We need to use field numbers > 1000, as per https://github.com/protocolbuffers/protobuf/blob/74ad62759e0a9b5a21094f3fb9bb4ebfaa0d1ab8/src/google/protobuf/descriptor.proto#L717
+// For example, a RPC may be annotated as follows:
+// rpc DeleteFoo(DeleteFooRequest) returns (DeleteFooResponse) {
+//  option (coursera.proto.annotations.v1.authorization) = {
+//    allows: ["foo.delete","powerUserPermission"]
+//  };
+//}
+// See https://developers.google.com/protocol-buffers/docs/proto#customoptions for how
+// custom options are implemented.
+extend google.protobuf.MethodOptions {
+  AuthorizationDescription authorization = 10001;
+}

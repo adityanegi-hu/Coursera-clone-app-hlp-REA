@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta1;
+
+import "coursera/proto/shared/v1/big_decimal.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta1";
+option go_package = "commonv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "AppliedPaymentProcessorDiscountProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta1";
+
+// Payment Processor's representation of an applied discount.
+// Note this only lives in the context of a PaymentProcessorSubscription or PaymentProcessorTransaction
+// and is _not_ the same as a stand alone PaymentProcessorDiscount entity, as this model represents
+// the actual discount applied to a subscription or transaction in that entity's currency, whereas
+// a PaymentProcessorDiscount represents the potential discount applicable to an entity if applied.
+message AppliedPaymentProcessorDiscount {
+  // Payment processor with which this discount was applied.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // Coursera Internal Promotion Id.
+  google.protobuf.Int64Value promotion_id = 2;
+  // Amount of the discount.
+  oneof amount {
+    // Flat discount amount.
+    // Should denominated in the same currency as the `amount` field of the containing message.
+    coursera.proto.shared.v1.BigDecimal flat_amount_off = 3;
+    // Percentage off amount.
+    coursera.proto.shared.v1.BigDecimal percentage_off = 4;
+  }
+}

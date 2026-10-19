@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ivq="http://schemas.android.com/apk/res-auto">
+    <item
+        android:state_enabled="false"
+        android:state_selected="true"
+        android:drawable="@drawable/ic_switch_radio_on_correct"
+        ivq:state_correct="true"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="true"
+        android:drawable="@drawable/ic_switch_radio_on_incorrect"
+        ivq:state_correct="false"/>
+    <item
+        android:state_enabled="true"
+        android:state_selected="false"
+        android:drawable="@drawable/ic_switch_radio_off"/>
+    <item
+        android:state_enabled="true"
+        android:state_selected="true"
+        android:drawable="@drawable/ic_switch_radio_on"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="false"
+        android:drawable="@drawable/ic_switch_radio_off_disabled"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="true"
+        android:drawable="@drawable/ic_switch_radio_on_disabled"/>
+</selector>

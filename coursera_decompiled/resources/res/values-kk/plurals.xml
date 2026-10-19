@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">Тапсырма саны %d</item>
+        <item quantity="other">Тапсырма саны: %d</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d Тапсырма</item>
+        <item quantity="other">%1$d Тапсырмалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d Диалог</item>
+        <item quantity="other">%1$d Диалогтар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d Талқылау</item>
+        <item quantity="other">%1$d Талқылаулар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d Бағаланған тапсырма</item>
+        <item quantity="other">%1$d Бағаланған тапсырмалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d Бағаланатын талқылау</item>
+        <item quantity="other">%1$d Бағаланған талқылаулар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d Бағаланған зертханалық жұмыс</item>
+        <item quantity="other">%1$d Бағаланған зертханалық жұмыстар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d Бағаланған рөлдік ойын</item>
+        <item quantity="other">%1$d Бағаланған рөлдік ойындар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d Бағаланған командалық тапсырма</item>
+        <item quantity="other">%1$d Бағаланған командалық тапсырмалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d Зертхана</item>
+        <item quantity="other">%1$d Зертханалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d Құлыпталған оқу</item>
+        <item quantity="other">%1$d Құлыпталған оқулар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d Құлыпталған бейне</item>
+        <item quantity="other">%1$d Құлыпталған бейнелер</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d Блокнот</item>
+        <item quantity="other">%1$d Дәптерлер</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Элемент</item>
+        <item quantity="other">%1$d Элементтер</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d Әріптес бағалаған тапсырма</item>
+        <item quantity="other">%1$d Әріптес бағалаған тапсырмалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d Әріптестердің шолуы</item>
+        <item quantity="other">%1$d Әріптестердің шолулары</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d Практикалық тапсырма</item>
+        <item quantity="other">%1$d Практикалық тапсырмалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d Әріптес бағалайтын тапсырмамен жаттығу</item>
+        <item quantity="other">%1$d Әріптес бағалайтын тапсырмамен жаттығу</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d Тәжірибелік тест</item>
+        <item quantity="other">%1$d Тәжірибелік тестілер</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d Практикалық топқа арналған тапсырма</item>
+        <item quantity="other">%1$d Практикалық топқа арналған тапсырмалар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d Бағдарламалау тапсырмасы</item>
+        <item quantity="other">%1$d Бағдарламалау тапсырмалары</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d Тест</item>
+        <item quantity="other">%1$d Тестілер</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d Оқу</item>
+        <item quantity="other">%1$d Оқу</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d Рөлдік ойын</item>
+        <item quantity="other">%1$d Рөлдік ойындар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d Слайдшоу</item>
+        <item quantity="other">%1$d Слайдшоулар</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d Командалық жоба</item>
+        <item quantity="other">%1$d Командалық жобалар</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Құттықтаймыз! Барлық тапсырманы қарап шықтыңыз! Уақытыңыз болса, басқа әріптестеріңізге көмектесіңіз.</item>
+        <item quantity="other">Құттықтаймыз! Барлық %s тапсырманы қарап шықтыңыз! Уақытыңыз болса, басқа әріптестеріңізге көмектесіңіз.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">Курс нұсқаушысы</item>
+        <item quantity="other">Курс нұсқаушылары</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">5 жұлдыздан %1$s жұлдызбен бағаланды, %2$s пікір</item>
+        <item quantity="other">бағаланды %1$s жұлдызынан 5 жұлдыздан, %2$s пікірлер</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Бағалауды орындау</item>
+        <item quantity="other">%1$d бағалауларын аяқтаңыз</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Тәжірибелік жаттығу элементін орындау</item>
+        <item quantity="other">%1$d тәжірибелік жаттығу элементтерін орындау</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Сабақты аяқтау</item>
+        <item quantity="other">%1$d сабақты аяқтау</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Бейнені көру</item>
+        <item quantity="other">%1$d бейнені көру</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Практикалық жаттығуды орындау</item>
+        <item quantity="other">%1$d практикалық жаттығуды орындау</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Оқып машықтану жаттығуын орындау</item>
+        <item quantity="other">%1$d оқуларын аяқтаңыз</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">күн</item>
+        <item quantity="other">күн</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s диплом</item>
+        <item quantity="other">%1$s диплом</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d күн</item>
+        <item quantity="other">%1$d күн</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d сағат</item>
+        <item quantity="other">%1$d сағат</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">%d секунд алға айналдыру</item>
+        <item quantity="other">%d секунд алға айналдыру</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">%d секунд артқа айналдыру</item>
+        <item quantity="other">%d секунд артқа айналдыру</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d модуль</item>
+        <item quantity="other">%1$d модуль</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d курс сериясы</item>
+        <item quantity="other">%1$d курс сериясы</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d күн</item>
+        <item quantity="other">%1$d күн</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">%1$d тапсырма болып табылады</item>
+        <item quantity="other">%1$d тапсырмалар болып табылады</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">сағатта</item>
+        <item quantity="other">сағатта</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">минут</item>
+        <item quantity="other">минуттер</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">ай</item>
+        <item quantity="other">ай</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d Курс</item>
+        <item quantity="other">%1$d курстар</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 ұпай</item>
+        <item quantity="other">%.1f ұпай</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">5 жұлдыздан %1$s жұлдыз болып бағаланған</item>
+        <item quantity="other">5 жұлдыздан %1$s жұлдыз болып бағаланған</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">жалпы нәтиже</item>
+        <item quantity="other">жалпы нәтижелер</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">ұпай</item>
+        <item quantity="other">ұпай</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d тәжірибелік сұрақ</item>
+        <item quantity="other">%d тәжірибелік сұрақ</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">5 жұлдыздан %1$s жұлдыз болып бағаланған</item>
+        <item quantity="other">5 жұлдыздан %1$s жұлдыз болып бағаланған</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">сұрақ</item>
+        <item quantity="other">сұрақтар</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s ұпай</item>
+        <item quantity="other">%1$s ұпай</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d сұрақ</item>
+        <item quantity="other">%d сұрақ</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">сұрақ</item>
+        <item quantity="other">сұрақтар</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d СҰРАҚ</item>
+        <item quantity="other">%d СҰРАҚ</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d минут</item>
+        <item quantity="other">%d минут</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d мин</item>
+        <item quantity="other">%d мин</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">Жауап</item>
+        <item quantity="other">Жауаптар</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d элемент</item>
+        <item quantity="other">%1$d элементтер</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Барлық %d курсты көрсету</item>
+        <item quantity="other">Барлық %d курстарын көрсету</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">%2$s барлық %1$d курсын көрсету</item>
+        <item quantity="other">%2$s барлық %1$d курстарын көрсету</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">дағды</item>
+        <item quantity="other">дағдылар</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Апта сайынғы мақсатыңызға жету үшін тағы %1$d күн оқыдыңыз!</item>
+        <item quantity="other">Апта сайынғы мақсатыңызға жету үшін тағы %1$d күн оқыдыңыз!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Оқу мақсатыңызға жету үшін тағы %1$d күн оқыңыз.</item>
+        <item quantity="other">Оқу мақсатыңызға жету үшін %1$d қосымша күндерді біліңіз!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">рейтингісі: %1$s/5 жұлдыз, %2$s</item>
+        <item quantity="other">рейтингісі: %1$s/5 жұлдыз, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">Мақұлдау</item>
+        <item quantity="other">Мақұлдаулар</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d апта</item>
+        <item quantity="other">%1$d апта</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">жыл</item>
+        <item quantity="other">жылдар</item>
+    </plurals>
+</resources>

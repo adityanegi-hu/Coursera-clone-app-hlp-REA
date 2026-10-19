@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.common.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Common.V1Beta1";
+option go_package = "commonv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ProductActionProto";
+option java_package = "org.coursera.proto.paymentscheckout.common.v1beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Common\\V1Beta1";
+
+// Enum to define the ProductAction of a transaction.
+enum ProductAction {
+  PRODUCT_ACTION_INVALID = 0;
+  PRODUCT_ACTION_BUY = 1;
+  PRODUCT_ACTION_REFUND = 2;
+  PRODUCT_ACTION_APPLE_IN_APP_BUY = 3;
+  PRODUCT_ACTION_APPLE_IN_APP_REFUND = 4;
+  PRODUCT_ACTION_CHARGEBACK = 5;
+  PRODUCT_ACTION_EXPIRE = 6;
+  PRODUCT_ACTION_EXTEND = 7;
+  PRODUCT_ACTION_CHARGEBACK_REVERSAL = 8;
+}

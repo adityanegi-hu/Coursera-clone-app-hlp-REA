@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionStatusProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Possible outcome values for payment transactions.
+// https://github.com/webedx-spark/infra-services/blob/master/libs/models/src/main/pegasus/org/coursera/payment/transaction/PaymentTransactionStatus.courier
+enum PaymentTransactionStatus {
+  PAYMENT_TRANSACTION_STATUS_INVALID = 0;
+  PAYMENT_TRANSACTION_STATUS_ACCEPTED = 1;
+  PAYMENT_TRANSACTION_STATUS_REJECTED = 2;
+  PAYMENT_TRANSACTION_STATUS_SETTLED = 3;
+}

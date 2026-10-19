@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.coursehome.v4;
+
+import "coursera/proto/mobilebff/coursehome/v4/mobile_course_home.proto";
+import "coursera/proto/mobilebff/shared/v2/enterprise_mooc.proto";
+import "coursera/proto/mobilebff/shared/v3/product_type.proto";
+import "coursera/proto/mobilebff/shared/v4/translated_language.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Coursehome.V4";
+option go_package = "coursehomev4";
+option java_multiple_files = true;
+option java_outer_classname = "MobileCourseHomeApiProto";
+option java_package = "org.coursera.proto.mobilebff.coursehome.v4";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Coursehome\\V4";
+option swift_prefix = "MobilebffCoursehomeV4";
+
+// A Service to collect and return course home information for mobile.
+service MobileCourseHomeAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get mobile course home information by user and course id.
+  rpc GetMobileCourseHome(GetMobileCourseHomeRequest) returns (GetMobileCourseHomeResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/coursehome/v4/MobileCourseHomeAPI/GetMobileCourseHome"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/coursehome/v4/MobileCourseHomeAPI/GetMobileCourseHome"}
+    };
+  }
+
+  // Get a fresh presigned audio URL for a specific reading item.
+  // Called when the user opens a reading — returns a presigned S3 URL (6h TTL).
+  rpc GetReadingAudio(GetReadingAudioRequest) returns (GetReadingAudioResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/coursehome/v4/MobileCourseHomeAPI/GetReadingAudio"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/coursehome/v4/MobileCourseHomeAPI/GetReadingAudio"}
+    };
+  }
+}
+
+message GetReadingAudioRequest {
+  // Course ID.
+  string course_id = 1;
+  // Item ID of the reading (supplement) item.
+  string item_id = 2;
+}
+
+message GetReadingAudioResponse {
+  // Presigned S3 URL for the audio narration MP3. Empty if no audio available.
+  optional string audio_url = 1;
+}
+
+message GetMobileCourseHomeRequest {
+  google.protobuf.StringValue user_id_override = 1;
+  google.protobuf.StringValue course_id = 2;
+  google.protobuf.StringValue course_slug = 3;
+}
+
+message GetMobileCourseHomeResponse {
+  // Id of the course.
+  string id = 1;
+  // Slug of the course.
+  string slug = 2;
+  // Course name.
+  string name = 3;
+  // List of partners for the course.
+  repeated string partner = 4;
+  // List of week related information (modules, lessons, items and week progress).
+  repeated WeekData weeks = 5;
+  // Contains data about the progress in the user's goal.
+  LearnerGoal learner_goal = 6;
+  // Custom labels for course and week terminology.
+  CustomLabel custom_label = 7;
+  // Next step in users progress.
+  NextStep next_step = 8;
+  // Signifies if the course is available for credit
+  bool offers_credit = 10;
+  // Information about the enterprise MOOC credit for course
+  shared.v2.EnterpriseMoocCreditInfo enterprise_mooc_credit_info = 11;
+  // Determines whether to show the "View Certificate" button when the course is completed.
+  bool offers_verified_certificate = 12;
+  // Is Rhyme (Guided) project.
+  bool is_rhyme_project = 13;
+  // Is team works and live events available. Only for Android.
+  bool is_events_available = 14;
+  // Indicates this is a course builder course
+  bool is_course_builder_course = 15;
+  // Duration of items user completed this week for this course
+  optional int64 minutes_learned_this_week = 16;
+  // Percentage of overall progress the user has made in the course
+  double progress_percentage = 17;
+  // List of languages the product is available in
+  repeated coursera.proto.mobilebff.shared.v4.TranslatedLanguage translated_languages = 18;
+  // Primary language codes this product is offered in
+  repeated string primary_languages = 19;
+  // Subtitle language codes this product is offered in
+  repeated string subtitle_languages = 20;
+  // Whether this course should have weeks renamed to modules
+  bool week_to_module_enabled = 21;
+  // time at which the user enrolled in the course via freemium
+  google.protobuf.Timestamp enrolled_via_freemium_at = 22;
+  // Indicates if the user is previewing through freemium
+  bool is_freemium_previewing = 23;
+  // Type of the product
+  coursera.proto.mobilebff.shared.v3.ProductType product_type = 24;
+  // Parent product ID (empty for standalone courses)
+  optional string parent_id = 25;
+  // Type of the parent product (empty for standalone courses)
+  optional coursera.proto.mobilebff.shared.v3.ProductType parent_product_type = 26;
+  //
+  optional FlashcardStyle flashcard_style = 27;
+}
+
+enum FlashcardStyle {
+  FLASHCARD_STYLE_INVALID = 0;
+  FLASHCARD_STYLE_BUTTON = 1;
+  FLASHCARD_STYLE_LOCKOUT = 2;
+}

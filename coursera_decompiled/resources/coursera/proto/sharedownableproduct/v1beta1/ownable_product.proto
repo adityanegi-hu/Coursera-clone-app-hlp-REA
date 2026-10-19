@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package coursera.proto.sharedownableproduct.v1beta1;
+
+import "coursera/proto/sharedownableproduct/v1beta1/ownable_product_type.proto";
+
+option csharp_namespace = "Coursera.Proto.Sharedownableproduct.V1Beta1";
+option go_package = "sharedownableproductv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "OwnableProductProto";
+option java_package = "org.coursera.proto.sharedownableproduct.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedownableproduct\\V1Beta1";
+
+/**
+ * An `OwnableProduct` is a product that has a concept of ownership or "elevated access".
+ *
+ * These products can represent either content (courses, s12ns) or experiences (Coursera for Teams, Coursera Plus).
+ *
+ * The `OwnableProduct` naming deliberately avoids verbiage like "Purchase", e.g. `PurchasableProduct`. This is because
+ * purchasing / paying for something directly isn't the only way to get elevated access to a piece of content or
+ * experience. Instances of this model are also critical to Coursera Plus, Enterprise, and Degree enrollment flows which
+ * don't involve purchase / payment, hence the more general naming of `OwnableProduct`.
+ *
+ * This model was created as a part of the Next Gen Product Configuration System project, which aims to decompose and
+ * invert the legacy ProductMetadata model (https://github.com/webedx-spark/infra-services/blob/main/libs/models/src/main/pegasus/org/coursera/product/ProductMetadata.courier)
+ * into a more sane modeling for our current use cases. For more context, refer to the following Confluence homebase
+ * and the associated tech docs/artifacts: https://coursera.atlassian.net/wiki/spaces/B2C/pages/2090336410/Next+Gen+Product+Configuration+System.
+ * In most of these artifacts, we use the placeholder names of `ProductCatalogEntity` and `ProductCatalogEntityConfiguration`
+ * to refer to the `OwnableProduct` and `OwnableProductFulfillmentConfiguration` models respectively.
+ */
+message OwnableProduct {
+  /**
+   * An opaque identifier for an ownable product that will generally be referenced by Consumer flows (checkout,
+   * configuration, enrollment modal, etc.).
+   *
+   * In the short-term, I envision the main purpose of this field as a more convenient way of representing the
+   * one-to-many relationship between `OwnableProduct` -> `OwnableProductFulfillmentConfiguration`.
+   *
+   * My hunch is that we will probably continue to prefer productType~productItemId as the unique identifier for an
+   * `OwnableProduct` in application code, especially as we're working through the migration in the short-term.
+   *
+   * I'm not sure what usage of `OwnableProductId` will look like in the future, I'm mainly including it for now for
+   * the sake of modeling best practices.
+   *
+   * POSSIBLE EXTENSIONS FOR THIS MODEL:
+   *
+   * The original design doc (https://docs.google.com/document/d/1kOdR8owvZQV_ZXt7xWhZQJR6GDsxKTDF_GJtLRU9TCc/edit)
+   * includes a `properties` field on this model (referred to as `ProductCatalogEntity` in old documents). The intention
+   * behind this field was to support additional metadata that is PRODUCT-specific. We have omitted it because there
+   * isn't an existing use case. However, we think it is feasible that Coursera will eventually develop product
+   * features/experiences for which this field/abstraction most sensibly supports, which is why we've decided to call
+   * out/document this extension specifically.
+   *
+   * Example use case: We create domain-specific Coursera Plus products (Data Science Coursera Plus, Software Engineer
+   * Coursera Plus). The `properties` field could contain metadata about what domain this Coursera Plus product is for,
+   * which could be used presentationally, in post-purchase side-effects (e.g. send a Github repo invitation for Data
+   * Science/Software Engineer Coursera Plus but not MBA Coursera Plus), etc.
+   *
+   * The ontology of this field would probably map closely to some subset of the ontology of the ProductType model (e.g.
+   * CourseraPlusProductProperties, SpecializationProductProperties, etc.).
+   *
+   * NOTE: The proposed `properties` field in this model should not be confused with the legacy
+   * `ProductMetadata#properties` field. The legacy field is a badly named field, which most closely resembles
+   * `OwnableProductFulfillmentConfiguration#paymentScheme`, e.g. payment/fulfillment-specific metadata, which includes
+   * no product-specific context.
+   */
+  string id = 1;
+
+  /**
+   * This maps to `ProductMetadata#underlyingProductId#productType`.
+   *
+   * In the legacy modeling, this could be any of the ProductType values defined here: https://github.com/webedx-spark/infra-services/blob/main/libs/models/src/main/scala/org/coursera/product/ProductType.scala.
+   * In the next gen modeling, this field should only reference ProductTypes that are agnostic of payment/billing
+   * schemes, e.g. `Specialization` is valid, `SpecializationSubscription` is not.
+   *
+   * This is the primary insight motivating the Next Gen Product Configuration project: ideally, a ProductType and
+   * ProductItemId tuple should only identify "what a learner is getting access to" not both "what a learner is getting
+   * access to" and "how they're getting access to it" (see original proposal for rationale).
+   *
+   * I'm deliberately ignoring the `ProductId` convenience model and preferring individual `ProductType` and
+   * `ProductItemId` fields here. It's a bit smelly to me if this model just encompasses two IDs (`OwnableProductId` and
+   * `ProductId`). I think this smell is a result of suboptimal naming / modeling. Maybe ProductItemId is a bit of a
+   * misnomer? In some cases it is just an opaque ID, in other cases it has external meaning in other systems / DB tables (see
+   * below for more context). Maybe we don't need `OwnableProductId` at all? I'm deferring these questions until we get
+   * deeper in the migration.
+   */
+  OwnableProductType product_type = 2;
+
+  /**
+   * This maps to `ProductMetadata#underlyingProductId#productItemId`.
+   *
+   * For products that map to a specific piece of content, this should generally be a string value which holds meaning /
+   * corresponds to data in other teams / systems, e.g. S12nId, DegreeId, CourseId. For these types of products, we
+   * generally use the ID to make API calls to external systems. Examples:
+   *  - To execute post-checkout side-effects such as course/s12n membership creation, degree auto-enrollment, etc.
+   *  - To fetch the courses in an s12n for cart item building
+   *
+   * For this case, the serialized representations of
+   * ProductItemId and the external ID model are equivalent, we merely deserialize it into a different model for type
+   * safety.
+   *
+   * For products that don’t map to a specific piece of content (`CourseraPlus`, `EnterpriseContract`), this is
+   * generally a randomly generated ID with no external meaning.
+   *
+   * TODO: As we start migrating our systems to refer to this modeling, I envision some redundancy between `ProductItemId`
+   * and `OwnableProductId`. For now, we dumbly / blindly maintain this field for backwards compatibility / safety. We
+   * want to be able to cleanly reconstruct the legacy model's structure until the entire Next Gen Product Configuration
+   * System project is finished and in the wild for a bit.
+   *
+   * Random ideas for dealing with potential redundancy in the future:
+   *  - Rename this to something like `externalContext` that is optional and only used when additional external context
+   *  is needed (e.g. for post-checkout side-effects)
+   */
+  string product_item_id = 3;
+}

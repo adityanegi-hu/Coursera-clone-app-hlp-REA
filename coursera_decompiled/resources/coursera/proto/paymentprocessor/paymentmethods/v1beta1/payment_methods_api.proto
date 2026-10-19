@@ -1,0 +1,272 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.paymentmethods.v1beta1;
+
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_method_details.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_method_scope.proto";
+import "coursera/proto/sharedpayments/v1beta1/payment_method_type.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Paymentmethods.V1Beta1";
+option go_package = "paymentmethodsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentMethodsApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.paymentmethods.v1beta1";
+option objc_class_prefix = "CPPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Paymentmethods\\V1Beta1";
+
+// Service for creating and managing saved payment methods.
+service PaymentMethodsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: [
+      "contractSelfServe",
+      "payment",
+      "payments-checkout-application",
+      "payments-adhoc-jobs"
+    ]
+  };
+
+  // Setup to create a new saved payment method.
+  rpc PreCreatePaymentMethod(PreCreatePaymentMethodRequest) returns (PreCreatePaymentMethodResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+
+  // Create a new saved payment method.
+  rpc CreatePaymentMethod(CreatePaymentMethodRequest) returns (CreatePaymentMethodResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+
+  // Get a payment method by its id.
+  rpc FindPaymentMethod(FindPaymentMethodRequest) returns (FindPaymentMethodResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+
+  // Update a saved payment method with new information.
+  rpc UpdatePaymentMethod(UpdatePaymentMethodRequest) returns (UpdatePaymentMethodResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+
+  // Lookup payment methods by user id and processor ids.
+  rpc FindPaymentMethodsByUserIdAndProcessorIds(FindPaymentMethodsByUserIdAndProcessorIdsRequest) returns (FindPaymentMethodsByUserIdAndProcessorIdsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+
+  // Look up payment methods given a list of ids.
+  rpc MultiGetPaymentMethods(MultiGetPaymentMethodsRequest) returns (MultiGetPaymentMethodsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+
+  // Delete a payment method by its id.
+  rpc DeletePaymentMethod(DeletePaymentMethodRequest) returns (DeletePaymentMethodResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission",
+        "logged.in"
+      ]
+    };
+  }
+}
+
+// Object modeling a saved payment method.
+message PaymentMethod {
+  // Primary key.
+  int64 id = 1;
+  // Coursera user id.
+  int64 user_id = 2;
+  // Customer id on payment processor.
+  string payment_processor_customer_id = 3;
+  // Id of payment method on payment processor.
+  string payment_processor_payment_method_id = 4;
+  // Id of payment processor.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 5;
+  // Type of payment method.
+  coursera.proto.sharedpayments.v1beta1.PaymentMethodType type = 6;
+  // Raw type of payment method from payment processor.
+  string payment_processor_payment_method_type = 7;
+  // Details about the payment method, based on its type.
+  coursera.proto.sharedpayments.v1beta1.PaymentMethodDetails details = 8;
+  // Nickname given by user to payment method.
+  optional string nickname = 9;
+  // Billing info, containing country, state, and postal code.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 10;
+  // Created timestamp.
+  google.protobuf.Timestamp created_at = 11;
+  // Update timestamp.
+  google.protobuf.Timestamp updated_at = 12;
+  // Deleted timestamp.
+  optional google.protobuf.Timestamp deleted_at = 13;
+  // Cart country code for Dlocal payment method handling.
+  optional string cart_country_code = 14;
+  // Currency code for Dlocal payment method handling.
+  optional string currency = 15;
+  // Scope of purchases this payment method can be used for.
+  coursera.proto.sharedpayments.v1beta1.PaymentMethodScope scope = 16;
+  // If set, the maximum amount that can be charged to this payment method (no limits apply otherwise).
+  optional google.type.Money max_amount = 17;
+}
+
+// Request model for pre-creating a payment method.
+message PreCreatePaymentMethodRequest {
+  // Coursera user id.
+  google.protobuf.Int64Value user_id = 1;
+  // Id of payment processor
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 2;
+}
+
+// Response model for pre-creating a payment method.
+message PreCreatePaymentMethodResponse {
+  oneof response {
+    GenerateStripeSetupIntentResponse stripe_setup_intent_response = 1;
+    GenerateBraintreeClientTokenResponse braintree_client_token_response = 2;
+  }
+}
+
+// Response model for generating a Stripe setup intent.
+message GenerateStripeSetupIntentResponse {
+  // ID of setup intent to be used to collect payment information for Stripe.
+  string setup_intent_id = 1;
+  // Client secret associated with setup intent.
+  string client_secret = 2;
+  // Stripe publish key.
+  string stripe_api_key = 3;
+}
+
+// Response model for generating a Braintree client token.
+message GenerateBraintreeClientTokenResponse {
+  // Client token used to initialize Braintree Drop-in UI.
+  string client_token = 1;
+}
+
+// Request model for saving a new payment method.
+message CreatePaymentMethodRequest {
+  // Coursera user id.
+  google.protobuf.Int64Value user_id = 1;
+  // Id of payment method on payment processor.
+  google.protobuf.StringValue payment_processor_payment_method_id = 2;
+  // Id of payment processor
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 3;
+  // Optional nickname to give payment method.
+  optional string nickname = 5;
+  // Optional fallback billing info to use when the payment processor has no billing details
+  // attached to the payment method (e.g. enterprise SetupIntent flows without a billing form)
+  optional coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 6;
+}
+
+// Response model for saving a new payment method.
+message CreatePaymentMethodResponse {
+  // Created payment method.
+  PaymentMethod payment_method = 1;
+}
+
+// Request model for updating a payment method.
+message UpdatePaymentMethodRequest {
+  // Primary key of payment method record.
+  google.protobuf.Int64Value id = 1;
+  // Id of payment method on payment processor.
+  optional string payment_processor_payment_method_id = 2;
+  // Billing info containing country, state, and postal code.
+  optional coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 3;
+}
+
+// Response model for updating a payment method.
+message UpdatePaymentMethodResponse {
+  // The updated payment method object.
+  PaymentMethod payment_method = 1;
+}
+
+// Request model for finding payment method by id.
+message FindPaymentMethodRequest {
+  // Primary key for lookup.
+  google.protobuf.Int64Value id = 1;
+  // If true, include deleted records in search. Else don't include deleted records.
+  bool include_deleted = 2;
+}
+
+// Response model for finding payment method by id.
+message FindPaymentMethodResponse {
+  // Found payment method.
+  PaymentMethod payment_method = 1;
+}
+
+// Request model for finding payment methods by user id and payment processor ids.
+message FindPaymentMethodsByUserIdAndProcessorIdsRequest {
+  // Coursera user id.
+  google.protobuf.Int64Value user_id = 1;
+  // List of payment processor ids to filter for. Will return all if empty list provided.
+  repeated coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_ids = 2;
+  // If true, include deleted records in search. Else don't include deleted records.
+  bool include_deleted = 3;
+}
+
+// Response model for finding payment methods by user id and payment processor ids.
+message FindPaymentMethodsByUserIdAndProcessorIdsResponse {
+  // List of found payment methods.
+  repeated PaymentMethod payment_methods = 1;
+}
+
+// Request model for getting payment methods by a list of ids.
+message MultiGetPaymentMethodsRequest {
+  // Primary keys for lookup.
+  repeated google.protobuf.Int64Value ids = 1;
+  // If true, include deleted records in search. Else don't include deleted records.
+  bool include_deleted = 2;
+}
+
+// Response model for getting payment methods by a list of ids.
+message MultiGetPaymentMethodsResponse {
+  // List of found payment methods.
+  repeated PaymentMethod payment_methods = 1;
+}
+
+// Request model for deleting payment method by id.
+message DeletePaymentMethodRequest {
+  // Primary key of payment method record.
+  google.protobuf.Int64Value id = 1;
+}
+
+// Response model for deleting payment method by id.
+message DeletePaymentMethodResponse {}

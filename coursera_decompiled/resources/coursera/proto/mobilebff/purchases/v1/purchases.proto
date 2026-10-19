@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.purchases.v1;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Purchases.V1";
+option go_package = "purchasesv1";
+option java_multiple_files = true;
+option java_outer_classname = "PurchasesProto";
+option java_package = "org.coursera.proto.mobilebff.purchases.v1";
+option objc_class_prefix = "CPMP";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Purchases\\V1";
+option swift_prefix = "MobilebffPurchasesV1";
+
+// Transaction information for a specific transaction ID.
+// Currently this API only returns Apple Transactions
+message TransactionInfo {
+  // The App Store transaction ID
+  // Currently this API only returns Apple Transactions
+  string transaction_id = 1;
+
+  // The product SKU associated with this transaction
+  // Currently this API supports returning only Apple SKUs
+  string sku = 2;
+
+  // Whether this transaction was made using Advanced Commerce API
+  // Derived from PaymentTransactionEnd data in the internal service
+  bool is_apple_advanced_commerce = 3;
+}

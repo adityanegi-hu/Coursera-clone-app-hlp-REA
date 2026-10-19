@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/tax_behavior.proto";
+import "coursera/proto/shared/v1/big_decimal.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "TaxEstimateProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// An estimate of the taxes charged to learner for a product.
+message TaxEstimate {
+  // Estimated tax amount.
+  coursera.proto.shared.v1.BigDecimal tax_amount = 1;
+  // Total amount including tax.
+  coursera.proto.shared.v1.BigDecimal total_amount_with_tax = 2;
+  TaxBehavior tax_behavior = 3;
+}

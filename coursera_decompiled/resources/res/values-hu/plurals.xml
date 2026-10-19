@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d esedékes feladat</item>
+        <item quantity="other">%d esedékes feladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d feladat</item>
+        <item quantity="other">%1$d feladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d párbeszéd</item>
+        <item quantity="other">%1$d párbeszéd</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d megbeszélés</item>
+        <item quantity="other">%1$d megbeszélés</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d osztályozott feladat</item>
+        <item quantity="other">%1$d osztályozott feladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d osztályozott megbeszélés</item>
+        <item quantity="other">%1$d osztályozott megbeszélés</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d osztályozott labor</item>
+        <item quantity="other">%1$d osztályozott labor</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d osztályozott szerepjáték</item>
+        <item quantity="other">%1$d osztályozott szerepjáték</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d osztályozott csoportos feladat</item>
+        <item quantity="other">%1$d osztályozott csoportos feladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d labor</item>
+        <item quantity="other">%1$d labor</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d zárolt olvasmány</item>
+        <item quantity="other">%1$d zárolt olvasmány</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d zárolt videó</item>
+        <item quantity="other">%1$d zárolt videó</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d jegyzetfüzet</item>
+        <item quantity="other">%1$d jegyzetfüzet</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Elem</item>
+        <item quantity="other">%1$d Elem</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d tanulótárs által osztályozott feladat</item>
+        <item quantity="other">%1$d tanulótárs által osztályozott feladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d tanulótárs általi értékelés</item>
+        <item quantity="other">%1$d tanulótárs általi értékelés</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d gyakorlófeladat</item>
+        <item quantity="other">%1$d gyakorlófeladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d tanulótárs által osztályozott gyakorlófeladat</item>
+        <item quantity="other">%1$d tanulótárs által osztályozott gyakorlófeladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d gyakorlókvíz</item>
+        <item quantity="other">%1$d gyakorlókvíz</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d csoportos gyakorlófeladat</item>
+        <item quantity="other">%1$d csoportos gyakorlófeladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d programozási feladat</item>
+        <item quantity="other">%1$d programozási feladat</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d kvíz</item>
+        <item quantity="other">%1$d kvíz</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d olvasmány</item>
+        <item quantity="other">%1$d olvasmány</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d szerepjáték</item>
+        <item quantity="other">%1$d szerepjáték</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d diavetítés</item>
+        <item quantity="other">%1$d diavetítés</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d csoportos projekt</item>
+        <item quantity="other">%1$d csoportos projekt</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Gratulálunk, hogy befejezte a feladat áttekintését! Segítsen további tanulótársaknak is, ha van ideje.</item>
+        <item quantity="other">Gratulálunk, befejezte mind a(z) %s feladat áttekintését! Segítsen további tanulótársaknak is, ha van ideje.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">tanfolyamoktató</item>
+        <item quantity="other">tanfolyamoktató</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">%1$s csillagra értékelt az 5 csillagból, %2$s vélemény</item>
+        <item quantity="other">%1$s csillagra értékelt az 5 csillagból, %2$s vélemény</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Egy feladat elvégzése</item>
+        <item quantity="other">%1$d feladat elvégzése</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Egy gyakorlati feladat elvégzése</item>
+        <item quantity="other">%1$d gyakorlati feladat elvégzése</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Végezzen el egy tanulási elemet</item>
+        <item quantity="other">Végezze el bármely %1$d tanulási elemet</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Nézzen meg egy videót</item>
+        <item quantity="other">Nézzen meg %1$d videót</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Végezzen el egy gyakorlófeladatot</item>
+        <item quantity="other">Végezzen el %1$d gyakorlófeladatot</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Egy olvasmány elvégzése</item>
+        <item quantity="other">%1$d olvasmány elvégzése</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">nap</item>
+        <item quantity="other">nap</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s diploma</item>
+        <item quantity="other">%1$s diploma</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d nap</item>
+        <item quantity="other">%1$d nap</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d óra</item>
+        <item quantity="other">%1$d óra</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Előretekerés %d másodperccel</item>
+        <item quantity="other">Előretekerés %d másodperccel</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Visszatekerés %d másodperccel</item>
+        <item quantity="other">Visszatekerés %d másodperccel</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d modul</item>
+        <item quantity="other">%1$d modul</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d tanfolyamsorozat</item>
+        <item quantity="other">%1$d tanfolyamsorozat</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d nap</item>
+        <item quantity="other">%1$d nap</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">%1$d feladat</item>
+        <item quantity="other">%1$d feladat</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">óra</item>
+        <item quantity="other">óra</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">perc</item>
+        <item quantity="other">perc</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">hónap</item>
+        <item quantity="other">hónap</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d tanfolyam</item>
+        <item quantity="other">%1$d tanfolyam</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 pont</item>
+        <item quantity="other">%.1f pont</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">értékelése: %1$s csillag az 5-ből</item>
+        <item quantity="other">értékelése: %1$s csillag az 5-ből</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">összeredmény</item>
+        <item quantity="other">találat összesen</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">pont</item>
+        <item quantity="other">pont</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d gyakorlókérdés</item>
+        <item quantity="other">%d gyakorlókérdés</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">értékelése: %1$s csillag az 5-ből</item>
+        <item quantity="other">értékelése: %1$s csillag az 5-ből</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">kérdés</item>
+        <item quantity="other">kérdés</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s pont</item>
+        <item quantity="other">%1$s pont</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d kérdés</item>
+        <item quantity="other">%d kérdés</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">kérdés</item>
+        <item quantity="other">kérdés</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d KÉRDÉS</item>
+        <item quantity="other">%d KÉRDÉS</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d percek</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d perc</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">válasz</item>
+        <item quantity="other">válasz</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d elem</item>
+        <item quantity="other">%1$d elem</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Mind az %d tanfolyam megjelenítése</item>
+        <item quantity="other">Mind a(z) %d tanfolyam megjelenítése</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Mind az %1$d tanfolyam mutatása %2$s területén</item>
+        <item quantity="other">Mind a(z) %1$d tanfolyam mutatása %2$s területen</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">készség</item>
+        <item quantity="other">készség</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Még %1$d nap tanulás szükséges, hogy elérje a heti célját!</item>
+        <item quantity="other">Még %1$d nap tanulás szükséges, hogy elérje a heti célját!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Tanuljon még %1$d napig, hogy elérje a tanulási célját!</item>
+        <item quantity="other">Tanuljon még %1$d napig, hogy elérje a tanulási célját!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">értékelt %1$s csillag az 5 csillagból, %2$s</item>
+        <item quantity="other">%1$s csillagra értékelve az 5 csillagból, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">pozitív értékelés</item>
+        <item quantity="other">pozitív értékelés</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d hét</item>
+        <item quantity="other">%1$d hét</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">év</item>
+        <item quantity="other">év</item>
+    </plurals>
+</resources>

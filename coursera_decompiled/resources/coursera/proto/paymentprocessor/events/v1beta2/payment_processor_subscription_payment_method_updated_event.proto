@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.events.v1beta2;
+
+import "coursera/proto/sharedpayments/v1/subscription_processor_id.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Events.V1Beta2";
+option go_package = "eventsv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionPaymentMethodUpdatedEventProto";
+option java_package = "org.coursera.proto.paymentprocessor.events.v1beta2";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Events\\V1Beta2";
+
+// Event that is fired when a payment method is updated from the payment processor.
+message PaymentProcessorSubscriptionPaymentMethodUpdatedEvent {
+  // The ID of the subscription processor.
+  coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 1;
+  // The ID of the subscription on the payment processor.
+  string payment_processor_subscription_id = 2;
+  // The ID of the new payment method to set for this subscription.
+  optional int64 new_payment_method_id = 3;
+}

@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.learntab.v2;
+
+import "coursera/proto/mobilebff/shared/v2/enterprise_mooc.proto";
+import "coursera/proto/mobilebff/shared/v2/next_step.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Learntab.V2";
+option go_package = "learntabv2";
+option java_multiple_files = true;
+option java_outer_classname = "LearnTabProto";
+option java_package = "org.coursera.proto.mobilebff.learntab.v2";
+option objc_class_prefix = "CPML";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Learntab\\V2";
+option swift_prefix = "MobilebffLearntab";
+
+// A wrapper for an element in one row of the learn tab. This can be a header, course or s12n.
+message LearnTabItem {
+  oneof item {
+    Header header = 1;
+    Specialization specialization = 2;
+    Course course = 3;
+  }
+}
+
+// A Header used to separate different programs as well as "my coursera" from each other.
+message Header {
+  HeaderType type = 1;
+  string title = 2;
+}
+
+// An enum for the different header types.
+enum HeaderType {
+  HEADER_TYPE_INVALID = 0;
+  HEADER_TYPE_PROGRAM = 1;
+  HEADER_TYPE_MY_COURSERA = 2;
+  HEADER_TYPE_SLOGAN = 3;
+}
+
+// Container holding information for a specialization.
+message Specialization {
+  string specialization_id = 1;
+  string slug = 2;
+  string name = 3;
+  string primary_partner_name = 4;
+  repeated Course courses = 5;
+}
+
+// Container holding information for a course.
+message Course {
+  string course_id = 1;
+  string slug = 2;
+  string name = 3;
+  string primary_partner_name = 4;
+  bool is_enrolled_in_session = 5;
+  bool is_enrolled_in_course = 6;
+  bool can_unenroll = 7;
+  bool is_pre_enroll_enabled = 8;
+  bool is_week_materials_available = 9;
+  Progress progress = 10;
+  CustomLabel custom_label = 11;
+  SwitchSessionInfo switch_session_info = 12;
+  // Signifies if the product is available for credit
+  bool offers_credit = 20;
+  // Information about the enterprise MOOC credit for course
+  shared.v2.EnterpriseMoocCreditInfo enterprise_mooc_credit_info = 21;
+  // Indicates this is a course builder course
+  bool is_course_builder_course = 22;
+}
+
+// Progress information for a course.
+message Progress {
+  bool is_work_completed = 1;
+  int32 current_week = 2;
+  bool is_overdue = 4;
+  double percentage = 5;
+  google.protobuf.Duration items_remaining_duration = 6;
+}
+
+// Custom label for a course.
+message CustomLabel {
+  google.protobuf.StringValue course_name = 1;
+  google.protobuf.StringValue week_name = 2;
+}
+
+// Filter for learn tab.
+enum LearnTabFilter {
+  LEARN_TAB_FILTER_INVALID = 0;
+  LEARN_TAB_FILTER_IN_PROGRESS = 1;
+  LEARN_TAB_FILTER_COMPLETED = 2;
+  LEARN_TAB_FILTER_NONE = 3;
+}
+
+// Switch session information for a course.
+message SwitchSessionInfo {
+  shared.v2.NextStepType next_step_type = 1;
+  // Learner adjustment of session by number of days
+  int32 adjustment_days_offset = 2;
+  // Next step is to switch session
+  SwitchSession switch_session = 3;
+  // Upcoming sessions when not enrolled in a session.
+  repeated Session upcoming_sessions = 4;
+  // A possible session to switch into.
+  message Session {
+    string session_id = 1;
+    google.protobuf.Timestamp start_time = 2;
+    google.protobuf.Timestamp end_time = 3;
+  }
+}
+
+// Information for switching sessions.
+message SwitchSession {
+  // Current session user is enrolled into.
+  string current_session_id = 1;
+  // Next session id user should enroll into.
+  string next_session_id = 2;
+}

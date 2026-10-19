@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.grades.v3;
+
+import "coursera/proto/mobilebff/grades/v3/grades.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Grades.V3";
+option go_package = "gradesv3";
+option java_multiple_files = true;
+option java_outer_classname = "GradesApiProto";
+option java_package = "org.coursera.proto.mobilebff.grades.v3";
+option objc_class_prefix = "CPMG";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Grades\\V3";
+option swift_prefix = "MobilebffGradesV3";
+
+// A Service to return grades information for mobile.
+service GradesAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get grades by courseID and optional userId override.
+  rpc GetGrades(GetGradesRequest) returns (GetGradesResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/grades/v3/GradesAPI/GetGrades"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/grades/v3/GradesAPI/GetGrades"}
+    };
+  }
+}
+
+message GetGradesRequest {
+  string course_id = 1;
+  google.protobuf.StringValue user_id_override = 2;
+}
+
+message GetGradesResponse {
+  repeated GradesItem grades_items = 1;
+}

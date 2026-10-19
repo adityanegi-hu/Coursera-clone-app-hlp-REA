@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d تخصیص مقرر</item>
+        <item quantity="other">%d د دندو د پای نیټه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d دنده</item>
+        <item quantity="other">%1$d دندې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d خبره اتره</item>
+        <item quantity="other">%1$d خبرې اترې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d بحث</item>
+        <item quantity="other">%1$d بحثونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d درجه بندی شوی دنده</item>
+        <item quantity="other">%1$d درجه بندی شوی دندې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d درجه‌بندي شوې بحث</item>
+        <item quantity="other">%1$d درجه بندی شوي بحثونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d درج بندی شوی لابراتوار</item>
+        <item quantity="other">%1$d درج بندی شوي لابراتوارونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d درجه بندی شوې عملي تمثیل</item>
+        <item quantity="other">%1$d درجه‌بندي شوي عملي تمثیلونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d د ټیم درجه بندي شوې دنده</item>
+        <item quantity="other">%1$d نمرې شوي ټیمي دندې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d لابراتوار</item>
+        <item quantity="other">%1$d لابراتوارونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d قلف شوی لوستل</item>
+        <item quantity="other">%1$d قلف شوی لوستنې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d قلف شوی ویډیو</item>
+        <item quantity="other">%1$d قلف شوي ویډیوګانې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d د یاداشت کتابچه</item>
+        <item quantity="other">%1$d د یاداشت کتابچه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d توکي</item>
+        <item quantity="other">%1$d توکي</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d د ټولګیوالو لخوا درجه بندي شوې دنده</item>
+        <item quantity="other">%1$d د ټولګیوالو لخوا درجه بندي شوي دندې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d همکارانه ارزونه</item>
+        <item quantity="other">%1$d د همکارانو ارزونی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d عملي دنده</item>
+        <item quantity="other">%1$d عملي دندې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d د همزولو لخوا درجه بندي شوی تمریني وظیفه</item>
+        <item quantity="other">%1$d د همزولو لخوا درجه بندي شوي تمریني وظیفی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d تمریني کویز</item>
+        <item quantity="other">%1$d تمریني کویزونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d د ټیم د دندې تمرین</item>
+        <item quantity="other">%1$d د ټیم د دندو تمرین</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d د پروګرامینګ دنده</item>
+        <item quantity="other">%1$d د پروګرامینګ دندی</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d کویز</item>
+        <item quantity="other">%1$d کویزونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d لوستل</item>
+        <item quantity="other">%1$d لوستنې</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d د عملي تمثیل تمرین</item>
+        <item quantity="other">%1$d عملي تمثیلونه</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d د سلایډونو ننداره</item>
+        <item quantity="other">%1$d د سلایډونو ننداری</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d د ټیم پروژه</item>
+        <item quantity="other">%1$d د ټیم پروژې</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">مبارکۍ چې تاسو د دندې بیاکتنه بشپړ کړی! که تاسو اضافي وخت لرئ نو همکارانو سره مرسته وکړئ.</item>
+        <item quantity="other">مبارک دې وي چې تاسو د ټولو %s دندو بیاکتنه پای ته ورسوله! که تاسو اضافي وخت لرئ د نورو ملګرو سره مرسته وکړئ.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">د کورس استاد</item>
+        <item quantity="other">د کورس ښوونکي</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">ټاکل شوی %1$s ستورۍ له 5 ستورې څخه، %2$s بیاکتنې</item>
+        <item quantity="other">ټاکل شوی %1$s ستورې څخه 5 ستورې، %2$s بیاکتنې</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">یوه ارزونه بشپړ کړئ</item>
+        <item quantity="other">%1$d ارزونه بشپړ کړئ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">د عملي تمرین یوه برخه بشپړه کړئ</item>
+        <item quantity="other">د %1$d عملي تمرین توکي بشپړ کړئ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">د زده کړې هر توکي بشپړ کړئ</item>
+        <item quantity="other">د زده کړې هر %1$d توکي بشپړ کړئ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">یوه ویډیو بشپړه کړئ</item>
+        <item quantity="other">%1$d ویډیوګانې بشپړ کړئ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">یو عملي تمرین بشپړ کړئ</item>
+        <item quantity="other">د %1$d تمرین توکي بشپړ کړئ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">لوستل بشپړ کړئ</item>
+        <item quantity="other">د %1$d لوستل بشپړ کړئ</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">ورځ</item>
+        <item quantity="other">ورځې</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s درجه</item>
+        <item quantity="other">%1$s درجې</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d ورځ</item>
+        <item quantity="other">%1$d ورځې</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d ساعته</item>
+        <item quantity="other">%1$d ساعتونه</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d برخه</item>
+        <item quantity="other">%1$d برخه</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d د کورس لړۍ</item>
+        <item quantity="other">%1$d د کورس لړۍ</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d ورځ</item>
+        <item quantity="other">%1$d ورځې</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">د %1$d دنده</item>
+        <item quantity="other">د %1$d دندې دي</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">ساعت</item>
+        <item quantity="other">ساعتونه</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">منټ</item>
+        <item quantity="other">دقیقې</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">میاشت</item>
+        <item quantity="other">میاشتې</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d کورس</item>
+        <item quantity="other">%1$d کورسونه</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 نمره</item>
+        <item quantity="other">%.1f نمری</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">ټاکل شوی %1$s ستورۍ له 5 ستورګو څخه</item>
+        <item quantity="other">ټاکل شوی %1$s ستورې له 5 ستورو څخه</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">  ټول پایله</item>
+        <item quantity="other">  ټول پایلې</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">نمره</item>
+        <item quantity="other">نمری</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d د تمرین پوښتنه</item>
+        <item quantity="other">%d د تمرین پوښتنې</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">ټاکل شوی %1$s ستورۍ له 5 ستورګو څخه</item>
+        <item quantity="other">ټاکل شوی %1$s ستورې له 5 ستورو څخه</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">پوښتنه</item>
+        <item quantity="other">پوښتنې</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s نمره</item>
+        <item quantity="other">%1$s نمری</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d پوښتنه</item>
+        <item quantity="other">%d پوښتنې</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">پوښتنه</item>
+        <item quantity="other">پوښتنې</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d پوښتنه</item>
+        <item quantity="other">%d پوښتنې</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d دقیقه</item>
+        <item quantity="other">%d دقیقې</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d دقیقې</item>
+        <item quantity="other">%d دقیقې</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">ځواب ورکونه</item>
+        <item quantity="other">ځوابونه</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d توکي</item>
+        <item quantity="other">%1$d توکي</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">ټول %d کورس وښایاست</item>
+        <item quantity="other">ټول %d کورسونه وښایاست</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">د %2$s ټول %1$d کورس وښایست</item>
+        <item quantity="other">د %2$s ټول %1$d کورسونه وښایست</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">مهارت</item>
+        <item quantity="other">مهارتونه</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">ستاسو د اونیز هدف د زده کړې %1$d نوره ورځ پاتې ده!</item>
+        <item quantity="other">ستاسو د اونیز هدف د زده کړې %1$d نوره ورځې پاتې ده!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">د خپل زده کړې هدف پوره کولو لپاره %1$d نور ورځي زده کړئ!</item>
+        <item quantity="other">د خپل زده کړې هدف پوره کولو لپاره %1$d نوره ورځی زده کړئ!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">له 5 ستورو څخه %1$s ستوري ورکړل شوي، %2$s</item>
+        <item quantity="other">له 5 ستورو څخه %1$sستوري ورکړل شوي، %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">رایه ورکړئ</item>
+        <item quantity="other">رایه ورکړش شوه</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d اونۍ</item>
+        <item quantity="other">%1$d اونۍ</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">کال</item>
+        <item quantity="other">کلونه</item>
+    </plurals>
+</resources>

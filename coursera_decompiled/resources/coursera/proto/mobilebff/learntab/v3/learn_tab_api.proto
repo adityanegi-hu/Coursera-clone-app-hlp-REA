@@ -1,0 +1,167 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.learntab.v3;
+
+import "coursera/proto/mobilebff/learntab/v3/learn_tab.proto";
+import "coursera/proto/mobilebff/shared/v2/program.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Learntab.V3";
+option go_package = "learntabv3";
+option java_multiple_files = true;
+option java_outer_classname = "LearnTabApiProto";
+option java_package = "org.coursera.proto.mobilebff.learntab.v3";
+option objc_class_prefix = "CPML";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Learntab\\V3";
+option swift_prefix = "MobilebffLearntabV3";
+
+// A Service to collect and return information for the mobile learn tab.
+service LearnTabAPI {
+  option deprecated = true;
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get learn tab information.
+  rpc GetLearnTab(GetLearnTabRequest) returns (GetLearnTabResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/GetLearnTab"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/GetLearnTab"}
+    };
+  }
+  // Get learn tab program switcher.
+  rpc GetLearnTabProgramSwitcher(GetLearnTabProgramSwitcherRequest) returns (GetLearnTabProgramSwitcherResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/GetLearnTabProgramSwitcher"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/GetLearnTabProgramSwitcher"}
+    };
+  }
+  // Get user level goal information.
+  rpc GetUserLevelGoal(GetUserLevelGoalRequest) returns (GetUserLevelGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/GetUserLevelGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/GetUserLevelGoal"}
+    };
+  }
+  // Set user level goal.
+  rpc SetUserLevelGoal(SetUserLevelGoalRequest) returns (SetUserLevelGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/SetUserLevelGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/SetUserLevelGoal"}
+    };
+  }
+  // Delete user level goal.
+  rpc DeleteUserLevelGoal(DeleteUserLevelGoalRequest) returns (DeleteUserLevelGoalResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/DeleteUserLevelGoal"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/DeleteUserLevelGoal"}
+    };
+  }
+
+  rpc UnEnrollFromCourse(UnEnrollFromCourseRequest) returns (UnEnrollFromCourseResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/UnEnrollFromCourse"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/learntab/v3/LearnTabAPI/UnEnrollFromCourse"}
+    };
+  }
+}
+
+message GetLearnTabRequest {
+  google.protobuf.StringValue program_id = 1;
+  LearnTabFilter filter = 2;
+  // Maximum number of results to return.
+  optional int32 limit = 3;
+  // Used to fetch a certain position from the first result. The number of results fetched is
+  // determined by the limit parameter.
+  optional int32 offset = 4;
+}
+
+message GetLearnTabResponse {
+  repeated LearnTabItem items = 1;
+  // total items in the backend
+  int32 total_items = 2;
+  // next offset
+  optional int32 next_offset = 3;
+}
+
+message GetLearnTabProgramSwitcherRequest {}
+
+message GetLearnTabProgramSwitcherResponse {
+  repeated shared.v2.ProgramInfo program_info = 1;
+}
+
+message GetUserLevelGoalRequest {}
+
+message GetUserLevelGoalResponse {
+  // The number of days to learn per week to meet the goal. If not set then the user does not have a goal set.
+  google.protobuf.Int32Value goal_days_per_week = 1;
+  // The number of days completed in the current week.
+  google.protobuf.Int32Value days_completed = 2;
+  // Which days of the week the learner completed an item and made progress against their goal
+  repeated DayOfWeek days_progress_made = 3;
+}
+
+message SetUserLevelGoalRequest {
+  // The number of days to learn per week to meet the goal.
+  int32 goal_days_per_week = 1;
+}
+
+message SetUserLevelGoalResponse {
+  // User level goal id.
+  string id = 1;
+}
+
+message DeleteUserLevelGoalRequest {}
+
+message DeleteUserLevelGoalResponse {
+  // User level goal id.
+  string id = 1;
+}
+
+message UnEnrollFromCourseRequest {
+  // ID of course to unenroll from
+  string course_id = 1;
+  // Program ID if user is enrolled in course through program
+  google.protobuf.StringValue program_id = 2;
+}
+
+message UnEnrollFromCourseResponse {}
+
+enum DayOfWeek {
+  DAY_OF_WEEK_INVALID = 0;
+  DAY_OF_WEEK_MONDAY = 1;
+  DAY_OF_WEEK_TUESDAY = 2;
+  DAY_OF_WEEK_WEDNESDAY = 3;
+  DAY_OF_WEEK_THURSDAY = 4;
+  DAY_OF_WEEK_FRIDAY = 5;
+  DAY_OF_WEEK_SATURDAY = 6;
+  DAY_OF_WEEK_SUNDAY = 7;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CourseraMaterialNoActionBarAndDayNightStatusBar" parent="@style/Theme.Material3.DayNight.NoActionBar">
+        <item name="android:buttonStyle">@style/DefaultButtonStyle</item>
+        <item name="android:textViewStyle">@style/DefaultTextViewStyle</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorAccent">@color/button_coursera_blue</item>
+        <item name="colorPrimary">@color/text_title</item>
+        <item name="colorPrimaryDark">@color/background_card</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="CourseraPrimaryNoActionBarAndDayNightStatusBar" parent="@style/Theme.Material3.DayNight.NoActionBar">
+        <item name="android:buttonStyle">@style/DefaultButtonStyle</item>
+        <item name="android:textViewStyle">@style/DefaultTextViewStyle</item>
+        <item name="android:statusBarColor">@color/background_basic</item>
+        <item name="android:navigationBarColor">@color/background_basic</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorAccent">@color/button_coursera_blue</item>
+        <item name="colorPrimary">@color/text_title</item>
+        <item name="colorPrimaryDark">@color/background_basic</item>
+        <item name="colorSecondary">@color/text_primary</item>
+        <item name="colorSecondaryVariant">@color/background_basic</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="CourseraTransparentNoActionBarAndDayNightStatusBar" parent="@style/Theme.Material3.DayNight.NoActionBar">
+        <item name="android:buttonStyle">@style/DefaultButtonStyle</item>
+        <item name="android:textViewStyle">@style/DefaultTextViewStyle</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:navigationBarColor">@color/background_card</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="colorAccent">@color/button_coursera_blue</item>
+        <item name="colorPrimary">@color/text_title</item>
+        <item name="colorPrimaryDark">@color/background_card</item>
+        <item name="colorSecondary">@color/text_primary</item>
+        <item name="colorSecondaryVariant">@color/background_primary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

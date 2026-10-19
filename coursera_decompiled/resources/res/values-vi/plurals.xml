@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">%d nhiệm vụ đến hạn</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d Bài tập</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$d Đối thoại</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$d Cuộc thảo luận</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d Bài tập được chấm điểm</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d Cuộc thảo luận được chấm điểm</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$d Bài thực hành có chấm điểm</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d Các bài tập nhập vai theo cấp độ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d Bài tập nhóm được chấm điểm</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$d Bài thực hành</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d Bài đọc bị khóa</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d Video bị khóa</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$d Sổ tay</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d Mục</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d Bài tập được chấm điểm bởi học viên khác</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$d Đánh giá học viên khác</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d Bài tập thực hành</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d Thực hành các bài tập được chấm điểm bởi học viên khác</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d Bài kiểm tra thực hành</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d Bài tập Thực hành Nhóm</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$d Bài tập lập trình</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$d Bài trắc nghiệm</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d Bài đọc</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$d Bài nhập vai</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$d Bài thuyết trình</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$d Dự án nhóm</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">Xin chúc mừng bạn đã hoàn thành việc đánh giá tất cả %s bài tập! Giúp đỡ các học viên khác nếu bạn có thêm thời gian.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">Giảng viên khóa học Các giảng viên khóa học</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">được đánh giá %1$s sao trên 5 sao, %2$s lượt đánh giá</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">Hoàn thành %1$d bài đánh giá</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">Hoàn thành %1$d mục thực hành tương tác</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">Hoàn thành bất kỳ %1$d mục học tập</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">Xem %1$d video</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">Hoàn thành %1$d bài tập thực hành</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">Hoàn thành %1$d bài đọc</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">ngày</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">Bằng %1$s</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d ngày</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d giờ</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Tua nhanh %d giây</item>
+        <item quantity="other">Tua nhanh %d giây</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Tua lại %d giây</item>
+        <item quantity="other">Tua lại %d giây</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">%1$d mô-đun</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">%1$d Chuỗi khóa học</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d ngày</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">là bài tập %1$d</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">giờ</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">phút</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">tháng</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">%1$d Các khóa học</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1f điểm</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">được đánh giá %1$s sao trên 5 sao</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">tổng kết quả</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">điểm</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">%d câu hỏi Thực hành</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">được đánh giá %1$s sao trên 5 sao</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">câu hỏi</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s điểm</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">%d câu hỏi</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">câu hỏi</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">%d CÂU HỎI</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d phút</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d phút</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">Trả lời</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d mục</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">Hiển thị tất cả các khóa học %d</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">Hiển thị tất cả %1$d các khóa học trong số %2$s</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">kỹ năng</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">%1$d ngày học tập nữa để đạt được mục tiêu hàng tuần của bạn!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">Học thêm %1$d ngày nữa để đạt được mục tiêu học tập của bạn!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">được đánh giá %1$s trên 5 sao, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">Lượt tán thành</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">%1$d Tuần</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">năm</item>
+    </plurals>
+</resources>

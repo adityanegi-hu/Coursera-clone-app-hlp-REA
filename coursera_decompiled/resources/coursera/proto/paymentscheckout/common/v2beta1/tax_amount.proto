@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.common.v2beta1;
+
+import "coursera/proto/sharedpayments/v1beta1/tax_behavior.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Common.V2Beta1";
+option go_package = "commonv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "TaxAmountProto";
+option java_package = "org.coursera.proto.paymentscheckout.common.v2beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Common\\V2Beta1";
+
+// Container for some tax amount and the tax behaviour
+message TaxAmount {
+  // The amount of tax applied.
+  google.type.Money amount = 1;
+  // The behavior of the tax.
+  coursera.proto.sharedpayments.v1beta1.TaxBehavior behavior = 2;
+}

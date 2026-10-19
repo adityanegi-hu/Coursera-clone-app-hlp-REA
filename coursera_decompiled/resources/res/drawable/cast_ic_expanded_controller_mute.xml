@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_enabled="true"
+        android:state_selected="false"
+        android:drawable="0x7f0803ba"/>
+    <item
+        android:state_enabled="true"
+        android:state_selected="true"
+        android:drawable="0x7f0803b8"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="false"
+        android:drawable="0x7f0803b9"/>
+    <item
+        android:state_enabled="false"
+        android:state_selected="true"
+        android:drawable="0x7f0803b7"/>
+    <item android:drawable="0x7f0803ba"/>
+</selector>

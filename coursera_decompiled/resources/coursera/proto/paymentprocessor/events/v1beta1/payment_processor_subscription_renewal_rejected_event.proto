@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.events.v1beta1;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_exception_details.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Events.V1Beta1";
+option go_package = "eventsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionRenewalRejectedEventProto";
+option java_package = "org.coursera.proto.paymentprocessor.events.v1beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Events\\V1Beta1";
+
+// Event that is fired when a subscription renewal payment rejection result has been received via
+// webhook by a Payment Processor.
+message PaymentProcessorSubscriptionRenewalRejectedEvent {
+  // Cart ID used for mapping this subscription back to internal data.
+  uint64 cart_id = 1;
+  // Payment processor in which this subscription lives on.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 2;
+  // Exception details of the failure
+  coursera.proto.paymentprocessor.common.v1beta1.PaymentProcessorExceptionDetails exception_details = 3;
+}

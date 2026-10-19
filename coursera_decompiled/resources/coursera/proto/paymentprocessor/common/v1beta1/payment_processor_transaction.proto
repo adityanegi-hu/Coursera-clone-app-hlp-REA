@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta1;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/applied_payment_processor_discount.proto";
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_exception_details.proto";
+import "coursera/proto/shared/v1/big_decimal.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_status.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta1";
+option go_package = "commonv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorTransactionProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta1";
+
+// Payment Processor's representation of a transaction.
+message PaymentProcessorTransaction {
+  // Payment processor with which this transaction took place.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // Payment processor external transaction id.
+  google.protobuf.StringValue payment_processor_transaction_id = 2;
+  // Internal status of the transaction.
+  coursera.proto.sharedpayments.v1.PaymentTransactionStatus status = 3;
+  // Payment processor external transaction status.
+  google.protobuf.StringValue payment_processor_transaction_status = 4;
+  // (Optional) Payment processor discount applied to this transaction.
+  AppliedPaymentProcessorDiscount applied_discount = 5;
+  // (Optional) Tax amount charged/attempted for this transaction, if applicable.
+  // Should be denominated in the same currency as the `amount` field.
+  coursera.proto.shared.v1.BigDecimal tax_amount = 6;
+  // Amount charged/attempted for this transaction after discounts and taxes applied.
+  google.type.Money amount = 7;
+  // Timestamp in which this transaction took place.
+  google.protobuf.Timestamp timestamp = 8;
+  // Billing address associated with this transaction.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 9;
+  // (Optional) Any other data of interest that does not fit in neatly across all payment processors.
+  google.protobuf.Struct additional_details = 10;
+  // (Optional) exception details when transaction is unsuccessful
+  PaymentProcessorExceptionDetails exception_details = 11;
+  // If the transaction is refunded
+  google.protobuf.BoolValue is_refunded = 12;
+}

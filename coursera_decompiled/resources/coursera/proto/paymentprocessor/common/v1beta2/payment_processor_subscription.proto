@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_discount.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_tax.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_transaction.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_status.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Payment Processor's representation of a subscription.
+message PaymentProcessorSubscription {
+  // Payment processor in which this subscription lives on.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1 [deprecated = true];
+  // Payment processor external subscription id.
+  google.protobuf.StringValue payment_processor_subscription_id = 2;
+  // Internal status of the subscription.
+  coursera.proto.sharedpayments.v1.SubscriptionStatus status = 3;
+  // Payment processor external subscription status.
+  google.protobuf.StringValue payment_processor_subscription_status = 4;
+  // Initial start time of the subscription.
+  google.protobuf.Timestamp start_at = 5;
+  // (Optional) Current paid through until date, due to the latest payment (missing when in free trial).
+  google.protobuf.Timestamp paid_through_until = 6;
+  // Base monthly billing amount before taxes or discounts.
+  google.type.Money base_amount = 7;
+  // (Optional) Next billing details, if subscription is still active.
+  PaymentProcessorSubscriptionNextBillingDetails next_billing_details = 8;
+  // (Optional) Payment wallet ID that is currently attached to this subscription.
+  google.protobuf.Int64Value payment_wallet_id = 9;
+  // (Optional) The latest payment that was made on this subscription.
+  PaymentProcessorTransaction latest_transaction = 10;
+  // (Optional) A black box, generic metadata field that stores additional information about the subscription.
+  google.protobuf.Struct product_metadata = 11;
+  // Subscription processor in which this subscription lives on.
+  coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 12;
+  // The start time of the current billing period.
+  google.protobuf.Timestamp current_period_start = 13;
+}
+
+// Container for next billing details.
+message PaymentProcessorSubscriptionNextBillingDetails {
+  // The time in which the next billing is expended to take place.
+  google.protobuf.Timestamp next_billing_at = 1;
+  // (Optional) Discount applied to the next billing.
+  AppliedDiscount applied_discount = 2;
+  // Tax applied to the next billing.
+  AppliedTax applied_tax = 3;
+  // The amount of the next billing after discounts and taxes applied.
+  google.type.Money amount = 4;
+}

@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.careers.v1;
+
+import "coursera/proto/mobilebff/careers/v1/careers.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Careers.V1";
+option go_package = "careersv1";
+option java_multiple_files = true;
+option java_outer_classname = "CareersApiProto";
+option java_package = "org.coursera.proto.mobilebff.careers.v1";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Careers\\V1";
+option swift_prefix = "MobilebffCareersV1";
+
+// A service for Career Academy on mobile.
+service CareersAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Perform a request to get the full list of available careers
+  rpc GetCareers(GetCareersRequest) returns (GetCareersResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/careers/v1/CareersAPI/GetCareers"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/careers/v1/CareersAPI/GetCareers"}
+    };
+  }
+
+  // Perform a request to get details for a specific career
+  rpc GetCareerDetails(GetCareerDetailsRequest) returns (GetCareerDetailsResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/careers/v1/CareersAPI/GetCareerDetails"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/careers/v1/CareersAPI/GetCareerDetails"}
+    };
+  }
+}
+
+message GetCareersRequest {}
+
+message GetCareersResponse {
+  // The main title to display at the top of the list of career
+  string title = 1;
+  // The description to display below the title.
+  string description = 2;
+  // The list of career categories
+  repeated CareerCategory career_categories = 3;
+  // General footnotes/disclaimers for stats about careers
+  string footnotes = 4;
+}
+
+message GetCareerDetailsRequest {
+  // The slug for the requested career
+  string slug = 1;
+}
+
+message GetCareerDetailsResponse {
+  // The name of the career
+  string name = 1;
+  // The description of the career
+  string description = 2;
+  // The salary for the career
+  optional string salary = 3;
+  // The number of jobs available in the career
+  optional string jobs_available = 4;
+  // The list of sections for the details of the career
+  repeated CareerDetailsSection sections = 5;
+  // Footnotes/disclaimers for the career
+  string footnotes = 6;
+}

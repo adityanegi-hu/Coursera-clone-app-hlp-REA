@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/v1beta2/product_promotion_information.proto";
+import "coursera/proto/paymentprocessor/v1beta2/tax_rate_update.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "UpdateSubscriptionDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Message to encapsulate subscription's updated info.
+message UpdateSubscriptionDetails {
+  google.protobuf.StringValue subscription_id = 1;
+  TaxRateUpdateDetails tax_rate_update_details = 2;
+  ProductPromotionInformationDetails promotion = 3;
+}

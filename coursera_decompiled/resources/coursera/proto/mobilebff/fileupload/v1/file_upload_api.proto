@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.fileupload.v1;
+
+import "coursera/proto/mobilebff/fileupload/v1/file_upload.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Fileupload.V1";
+option go_package = "fileuploadv1";
+option java_multiple_files = true;
+option java_outer_classname = "FileUploadApiProto";
+option java_package = "org.coursera.proto.mobilebff.fileupload.v1";
+option objc_class_prefix = "CPMF";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Fileupload\\V1";
+option swift_prefix = "MobilebffFileupload";
+
+// A service that handles mobile transloadit.
+service FileUploadAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Request pre-signed urls for S3.
+  rpc PostFile(PostFileRequest) returns (PostFileResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/fileupload/v1/FileUploadAPI/PostFile"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/fileupload/v1/FileUploadAPI/PostFile"}
+    };
+  }
+
+  // Upload a profile picture.
+  rpc PatchProfilePicture(PatchProfilePictureRequest) returns (PatchProfilePictureResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/fileupload/v1/FileUploadAPI/PatchProfilePicture"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/fileupload/v1/FileUploadAPI/PatchProfilePicture"}
+    };
+  }
+}
+
+// Post a file.
+message PostFileRequest {
+  // Media type of file (i.e. image/png)
+  string media_type = 1;
+  // The use case of the file being uploaded
+  v1.FileType file_type = 2;
+  // Optional file name for uploads
+  google.protobuf.StringValue filename = 3;
+}
+
+// Response from posting a file.
+message PostFileResponse {
+  // The uploaded file's url.
+  string url = 1;
+}
+
+message PatchProfilePictureRequest {
+  // Media type of file (i.e. image/png)
+  string media_type = 1;
+  // Raw file data for uploads. Only used for profile picture uploads.
+  bytes file_data = 2;
+}
+
+message PatchProfilePictureResponse {}

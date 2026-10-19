@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">งานมอบหมายที่ครบกำหนด %d งาน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d งานมอบหมาย</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$d บทสนทนา</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$d การอภิปราย</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d งานมอบหมายที่มีการให้คะแนน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d การอภิปรายที่มีการให้คะแนน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$d แล็บที่มีการให้คะแนน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d บทบาทสมมติที่มีการให้คะแนน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d งานมอบหมายแบบกลุ่มที่มีการให้คะแนน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$d แล็บ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d การอ่านที่ล็อกไว้</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d วิดีโอที่ล็อกไว้</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$d สมุดบันทึก</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d รายการ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d งานมอบหมายที่ได้รับคะแนนจากเพื่อน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$d การทบทวนโดยเพื่อนร่วมงาน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d ฝึกฝนงานมอบหมาย</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d ฝึกฝนงานมอบหมายที่ได้รับคะแนนจากเพื่อน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d แบบฝึกหัด</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d ฝึกฝนงานมอบหมายแบบทีม</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$d งานมอบหมายการเขียนโปรแกรม</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$d แบบทดสอบ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d การอ่าน</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$d บทบาทสมมติ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$d สไลด์โชว์</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$d โครงการทีม</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">ยินดีด้วยที่คุณตรวจงานที่ได้รับมอบหมายทั้งหมด %s งานเสร็จแล้ว! ช่วยเพื่อนคนอื่นได้หากคุณมีเวลาเหลือ</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">ผู้สอนหลักสูตร</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">ให้คะแนน %1$s ดาวจาก 5 ดาว, %2$s รีวิว</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">ทำการประเมิน %1$d รายการให้เสร็จสมบูรณ์</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">กรอกรายการฝึกฝนแบบปฏิบัติ %1$d รายการให้สมบูรณ์</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">เรียนบทเรียนใดก็ได้ %1$d บทเรียนจนจบ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">ดู %1$d วิดีโอจนจบ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">ทำรายการฝึกฝน %1$d รายการให้เสร็จสมบูรณ์</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">อ่าน %1$d รายการให้จบ</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">วัน</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">ปริญญา %1$s</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d วัน</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d ชั่วโมง</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">กรอไปข้างหน้า %d วินาที</item>
+        <item quantity="other">กรอไปข้างหน้า %d วินาที</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">กรอกลับ %d วินาที</item>
+        <item quantity="other">กรอกลับ %d วินาที</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">โมดูล %1$d</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">ชุดหลักสูตร %1$d</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d วัน</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">%1$d งาน</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">ชั่วโมง</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">นาที</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">เดือน</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">%1$d หลัก สูตร</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1f คะแนน</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">ให้คะแนน %1$s ดาวจาก 5 ดาว</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">ผลลัพธ์ทั้งหมด</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">คะแนน</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">คำถามฝึกฝน %d ข้อ</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">ให้คะแนน %1$s ดาวจาก 5 ดาว</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">คำถาม</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s คะแนน</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">คำถาม %d ข้อ</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">คำถาม</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">คำถาม %d ข้อ</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d นาที</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d นาที</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">ข้อความตอบกลับ</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d รายการ</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">แสดงหลักสูตรทั้งหมด %d หลักสูตร</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">แสดงหลักสูตรของ %2$s ทั้งหมด %1$d หลักสูตร</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">ทักษะ</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">อีก %1$d ในการเรียนรู้เพื่อบรรลุเป้าหมายรายสัปดาห์ของคุณ!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">เรียนรู้เพิ่ม %1$d วันเพื่อบรรลุเป้าหมายการเรียนรู้ของคุณ!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">ให้คะแนน %1$s จาก 5 ดาว %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">โหวตขึ้น</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">%1$d สัปดาห์</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">ปี</item>
+    </plurals>
+</resources>

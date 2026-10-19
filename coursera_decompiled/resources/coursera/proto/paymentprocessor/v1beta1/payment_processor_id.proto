@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorIdProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// List of supported payment processors.
+// NOTE : The order here does not in any way map to the integer order here https://github.com/webedx-spark/infra-services/blob/master/libs/models/src/main/scala/org/coursera/payment/PaymentProcessorId.scala
+// The service will contain a similar enum internally that correctly maps the proto
+// PaymentProcessorId to DB's payment_processor_id integers.
+enum PaymentProcessorId {
+  // This enum is now deprecated. Please use coursera.proto.sharedpayments.v1.PaymentProcessorId instead
+
+  option deprecated = true;
+  PAYMENT_PROCESSOR_ID_INVALID = 0;
+  PAYMENT_PROCESSOR_ID_MOCK = 1;
+  PAYMENT_PROCESSOR_ID_BRAINTREE = 2;
+  PAYMENT_PROCESSOR_ID_BRAINTREE_SANDBOX = 3;
+  PAYMENT_PROCESSOR_ID_FINANCIAL_AID = 4;
+  PAYMENT_PROCESSOR_ID_ZERO_DOLLAR = 5;
+  PAYMENT_PROCESSOR_ID_APPLE_INAPP = 6;
+  PAYMENT_PROCESSOR_ID_APPLE_INAPP_SANDBOX = 7;
+  PAYMENT_PROCESSOR_ID_STRIPE = 8;
+  PAYMENT_PROCESSOR_ID_STRIPE_SANDBOX = 9;
+  PAYMENT_PROCESSOR_ID_PAYPAL = 10;
+  PAYMENT_PROCESSOR_ID_COURSERA_MANUAL = 11;
+  PAYMENT_PROCESSOR_ID_EMERGENT = 12 [deprecated = true];
+  PAYMENT_PROCESSOR_ID_EMERGENT_SANDBOX = 13 [deprecated = true];
+  PAYMENT_PROCESSOR_ID_EBANX = 14;
+  PAYMENT_PROCESSOR_ID_EBANX_SANDBOX = 15;
+  PAYMENT_PROCESSOR_ID_RAZORPAY = 16;
+  PAYMENT_PROCESSOR_ID_RAZORPAY_SANDBOX = 17;
+  PAYMENT_PROCESSOR_ID_GOOGLE_PLAY = 18;
+  PAYMENT_PROCESSOR_ID_STRIPE_CONSUMER = 19;
+  PAYMENT_PROCESSOR_ID_STRIPE_CONSUMER_SANDBOX = 20;
+  PAYMENT_PROCESSOR_ID_PAYPAL_SANDBOX = 21;
+  PAYMENT_PROCESSOR_ID_STRIPE_BV_CONSUMER = 22;
+  PAYMENT_PROCESSOR_ID_STRIPE_BV_CONSUMER_SANDBOX = 23;
+}

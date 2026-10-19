@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.enrollments.v1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Enrollments.V1";
+option go_package = "enrollmentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "EnrollmentsProto";
+option java_package = "org.coursera.proto.mobilebff.enrollments.v1";
+option objc_class_prefix = "CPME";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Enrollments\\V1";
+option swift_prefix = "MobilebffEnrollmentsV1";
+
+// The types of product for which one can request enrollment choices.
+enum EnrollmentProductType {
+  ENROLLMENT_PRODUCT_TYPE_INVALID = 0;
+  // Requesting enrollment choices for a course, aka "verified certificate".
+  ENROLLMENT_PRODUCT_TYPE_COURSE = 1;
+  // Requesting enrollment choices for a specialization.
+  ENROLLMENT_PRODUCT_TYPE_SPECIALIZATION = 2;
+}
+
+// Representation of an enrollment choice included in a response.
+message EnrollmentChoice {
+  // The type of the enrollment choice.
+  Type type = 1;
+  // The name of the choice (e.g. "SkillUp from Coursera").
+  string name = 2;
+  // An optional description of the enrollment choice to be displayed to the user.
+  google.protobuf.StringValue choice_description = 3;
+  // Data needed in order to perform the subsequent enroll action.
+  oneof action_data {
+    // The optional store product ID, if the choice requires an in-app purchase. Platform-specific (i.e App Store vs Google Play).
+    google.protobuf.StringValue store_product_id = 4;
+    // The optional group ID, if the choice is to enroll through a group.
+    google.protobuf.StringValue group_id = 5;
+    // The optional program ID, if the choice is to enroll through a program.
+    google.protobuf.StringValue program_id = 6;
+    // The optional promo code, if the choice is to enroll via the free courses EPIC.
+    google.protobuf.StringValue promo_code = 7;
+  }
+  // The ID associated with a purchasable product.
+  string product_item_id = 8;
+  // The Coursera Product ID of the purchasable product. e.g. vc._5b5SgKDEe2FUAphC_7O7w, specialization.7ERwSQnXEe23EhLnQryuGw, specialization.subscription.Jz_WauTeEeacBhJR79Lw6g.
+  string coursera_product_id = 9;
+  // Optional data provided if the choice requires an Google Play purchase.
+  GooglePlayCheckout checkout_info = 10;
+  // Actual product ID associated with the choice.
+  string product_id = 11;
+
+  // The possible types of enrollment choices.
+  enum Type {
+    TYPE_INVALID = 0;
+    // The user can purchase the full specialization. This type is only offered for specializations.
+    TYPE_PURCHASE_FULL_SPECIALIZATION = 1;
+    // The user can purchase the remaining courses of the specialization. This type is only offered for specializations.
+    TYPE_PURCHASE_REMAINING_SPECIALIZATION_COURSES = 2;
+    // The user can enroll in the course of specialization by purchasing a subscription.
+    TYPE_PURCHASE_SPECIALIZATION_SUBSCRIPTION = 3;
+    // The user can purchase the course individually.
+    TYPE_PURCHASE_SINGLE_COURSE = 4;
+    // The user can enroll in the course or specialization by subscribing to Coursera Plus.
+    TYPE_PURCHASE_COURSERA_PLUS_SUBSCRIPTION = 5;
+    // The user can audit the course.
+    TYPE_AUDIT_COURSE = 6;
+    // The user can enroll in the course for free because it has no fee.
+    TYPE_ENROLL_COURSE = 7;
+    // The user can enroll in the course or specialization by subscribing to Coursera Plus.
+    TYPE_ENROLL_COURSE_WITH_PROMO_CODE = 8;
+    // The user can enroll in the course for free because a 100% discount is automatically applied.
+    TYPE_ENROLL_COURSE_WITH_FULL_DISCOUNT = 9;
+    // The user is part of a group that gives them access to the course or specialization.
+    TYPE_ENROLL_THROUGH_GROUP = 10;
+    // The user is part of a program that gives them access to the course or specialization.
+    TYPE_ENROLL_THROUGH_PROGRAM = 11;
+    // The user has a program invitation that gives them access to the course or specialization.
+    TYPE_ENROLL_THROUGH_PROGRAM_INVITATION = 12;
+    // The user can enroll in the specialization through a prepaid subscription. This type is only offered for specializations.
+    TYPE_ENROLL_THROUGH_SPECIALIZATION_PREPAID = 13;
+    // The user can enroll in the course or specialization through their existing Coursera Plus subscription.
+    TYPE_ENROLL_THROUGH_COURSERA_PLUS = 14;
+    // The user has already subscribed to the parent product making enrolling the child free of cost. This choice is only applicable for yet-to-be-enrolled children courses in an already-enrolled parent.
+    TYPE_ENROLL_COURSE_THROUGH_ENROLLED_PARENT = 15;
+    // The user can enroll in the course or specialization by subscribing to Coursera Lite.
+    TYPE_PURCHASE_COURSERA_LITE_SUBSCRIPTION = 16;
+    // The user can enroll in the course or specialization through their existing Coursera Lite subscription.
+    TYPE_ENROLL_THROUGH_COURSERA_LITE = 17;
+    // The user can upgrade from their current coursera lite subscription to coursera plus
+    TYPE_UPGRADE_COURSERA_LITE = 18;
+  }
+
+  // The data needed to check out a purchase using Google Play.
+  message GooglePlayCheckout {
+    // The country ISO code for the purchase.
+    string country_iso_code = 1;
+    // The optional V1 product price ID. This is being deprecated and should only be used if the V2 product price ID is not present.
+    int64 product_price_id_v1 = 2;
+    // The optional V2 product price ID.
+    google.protobuf.StringValue product_price_id_v2 = 3;
+    // When present, this product ID represents the product that the enrollment choice allows the user to upgrade from.
+    optional string upgrade_from_product_id = 4;
+  }
+}

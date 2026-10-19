@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d असाइनमेंट बाकी है</item>
+        <item quantity="other">%d असाइनमेंट बाकी हैं</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d असाइनमेंट</item>
+        <item quantity="other">%1$d असाइनमेंट्स</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d संवाद</item>
+        <item quantity="other">%1$d संवाद</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d चर्चा</item>
+        <item quantity="other">%1$d चर्चाएँ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d ग्रेडेड असाइनमेंट</item>
+        <item quantity="other">%1$d ग्रेडेड असाइनमेंट्स</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d ग्रेडेड चर्चा</item>
+        <item quantity="other">%1$d ग्रेडेड चर्चाएँ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d ग्रेडित लैब</item>
+        <item quantity="other">%1$d ग्रेडेड लैब</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d ग्रेडेड रोल प्ले</item>
+        <item quantity="other">%1$d ग्रेडेड रोल प्ले</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d ग्रेडेड टीम असाइनमेंट</item>
+        <item quantity="other">%1$d ग्रेडेड टीम असाइनमेंट्स</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d लैब</item>
+        <item quantity="other">%1$d लैब</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">लॉक की गई %1$d रीडिंग</item>
+        <item quantity="other">लॉक की गई %1$d रीडिंग</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">लॉक किया गया %1$d वीडियो</item>
+        <item quantity="other">लॉक किए गए %1$d वीडियो</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d नोटबुक</item>
+        <item quantity="other">%1$d नोटबुक</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d आइटम</item>
+        <item quantity="other">%1$d आइटम</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d सहपाठी-ग्रेडेड असाइनमेंट</item>
+        <item quantity="other">%1$d सहपाठी-ग्रेडेड असाइनमेंट</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d सहकर्मी समीक्षा</item>
+        <item quantity="other">%1$d सहकर्मी समीक्षाएँ</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d अभ्यास असाइनमेंट</item>
+        <item quantity="other">%1$d अभ्यास असाइनमेंट्स</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d सहपाठी-ग्रेडेड अभ्यास असाइनमेंट</item>
+        <item quantity="other">%1$d सहपाठी-मूल्यांकन वाले असाइनमेंट का अभ्यास</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d अभ्यास प्रश्नोत्तरी</item>
+        <item quantity="other">%1$d अभ्यास प्रश्नोत्तरी</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d टीम असाइनमेंट का अभ्यास</item>
+        <item quantity="other">%1$d टीम असाइनमेंट का अभ्यास</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d प्रोग्रामिंग असाइनमेंट</item>
+        <item quantity="other">%1$d प्रोग्रामिंग असाइनमेंट्स</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d क्विज़</item>
+        <item quantity="other">%1$d क्विज़</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d पढ़ना</item>
+        <item quantity="other">%1$d पढ़ना</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d रोल प्ले</item>
+        <item quantity="other">%1$d रोल प्ले</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d स्लाइड शो</item>
+        <item quantity="other">%1$d स्लाइडशो</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d टीम परियोजना</item>
+        <item quantity="other">%1$d टीम परियोजनाएँ</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">बधाई हो, आपने असाइनमेंट की समीक्षा पूरी कर ली है! अगर आपके पास और समय है, तो दूसरे साथियों की मदद करें।</item>
+        <item quantity="other">बधाई हो, आपने सभी %s असाइनमेंट की समीक्षा पूरी कर ली है! अगर आपके पास अतिरिक्त समय है, तो दूसरे साथियों की मदद करें।</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">कोर्स इंस्ट्रक्टर</item>
+        <item quantity="other">कोर्स इंस्ट्रक्टर</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">5 में से %1$s स्टार रेटिंग दी गई, %2$s समीक्षाएँ</item>
+        <item quantity="other">5 में से %1$s स्टार रेटिंग दी गई, %2$s समीक्षाएँ</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">मूल्यांकन पूरा करें</item>
+        <item quantity="other">%1$d आकलन पूरे करें</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">हैंड्स-ऑन प्रैक्टिस आइटम पूरा करें</item>
+        <item quantity="other">%1$d हैंड्स-ऑन प्रैक्टिस आइटम पूरे करें</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">लेसन पूरा करें</item>
+        <item quantity="other">किसी भी %1$d लेसन को पूरा करें</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">एक वीडियो देखें</item>
+        <item quantity="other">%1$d वीडियो देखें</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">एक अभ्यास आइटम पूरा करें</item>
+        <item quantity="other">%1$d अभ्यास आइटम पूरे करें</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">रीडिंग पूरी करें</item>
+        <item quantity="other">%1$d रीडिंग पूरी करें</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">दिन</item>
+        <item quantity="other">दिन</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s डिग्री</item>
+        <item quantity="other">%1$s डिग्रियां</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d दिन</item>
+        <item quantity="other">%1$d दिन</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d घंटा</item>
+        <item quantity="other">%1$d घंटे</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">वीडियो को %d सेकंड आगे बढ़ाएं</item>
+        <item quantity="other">वीडियो को %d सेकंड आगे बढ़ाएं</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">वीडियो को %d सेकंड पीछे ले जाएं</item>
+        <item quantity="other">वीडियो को %d सेकंड पीछे ले जाएं</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d मॉड्यूल</item>
+        <item quantity="other">%1$d मॉड्यूल</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d कोर्स की सीरीज़</item>
+        <item quantity="other">%1$d कोर्स की सीरीज़</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d दिन</item>
+        <item quantity="other">%1$d दिन</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">%1$d असाइनमेंट है</item>
+        <item quantity="other">%1$d असाइनमेंट हैं</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">घंटा</item>
+        <item quantity="other">घंटे</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">मिनट</item>
+        <item quantity="other">मिनट</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">महीना</item>
+        <item quantity="other">महीने</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d कोर्स</item>
+        <item quantity="other">%1$d कोर्स</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 पॉइंट</item>
+        <item quantity="other">%.1f पॉइंट</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">5 स्टार में से %1$s स्टार रेटिंग दी गई</item>
+        <item quantity="other">5 स्टार में से %1$s स्टार रेटिंग दी गई</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">कुल परिणाम</item>
+        <item quantity="other">कुल परिणाम</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">पॉइंट</item>
+        <item quantity="other">पॉइंट</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d प्रश्न का अभ्यास करें</item>
+        <item quantity="other">%d प्रश्नों का अभ्यास करें</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">5 स्टार में से %1$s स्टार रेटिंग दी गई</item>
+        <item quantity="other">5 स्टार में से %1$s स्टार रेटिंग दी गई</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">सवाल</item>
+        <item quantity="other">सवाल</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s पॉइंट</item>
+        <item quantity="other">%1$s पॉइंट्स</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d सवाल</item>
+        <item quantity="other">%d सवाल</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">सवाल</item>
+        <item quantity="other">सवाल</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d सवाल</item>
+        <item quantity="other">%d सवाल</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d मिनट</item>
+        <item quantity="other">%d मिनट</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d मिनट</item>
+        <item quantity="other">%d मिनट</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">जवाब</item>
+        <item quantity="other">जवाब</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d आइटम</item>
+        <item quantity="other">%1$d आइटम</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">सभी %d कोर्स दिखाएँ</item>
+        <item quantity="other">सभी %d कोर्स दिखाएँ</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">%2$s के सभी %1$d कोर्स दिखाएँ</item>
+        <item quantity="other">%2$s के सभी %1$d कोर्स दिखाएँ</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">कौशल</item>
+        <item quantity="other">कौशल</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">आपके साप्ताहिक लक्ष्य को हासिल करने के लिए %1$d और दिन सीखना बाकी है!</item>
+        <item quantity="other">आपके साप्ताहिक लक्ष्य को हासिल करने के लिए %1$d और दिनों तक सीखना बाकी है!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">अपने सीखने के लक्ष्य को पूरा करने के लिए %1$d और दिन सीखें!</item>
+        <item quantity="other">अपने सीखने के लक्ष्य को पूरा करने के लिए %1$d और दिनों तक सीखें!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">5 स्टार में से %1$s स्टार रेटिंग, %2$s</item>
+        <item quantity="other">5 स्टार में से %1$s स्टार रेटिंग दी गई, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">अपवोट करें</item>
+        <item quantity="other">अपवोट</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d हफ़्ता</item>
+        <item quantity="other">%1$d हफ़्ते</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">वर्ष</item>
+        <item quantity="other">वर्ष</item>
+    </plurals>
+</resources>

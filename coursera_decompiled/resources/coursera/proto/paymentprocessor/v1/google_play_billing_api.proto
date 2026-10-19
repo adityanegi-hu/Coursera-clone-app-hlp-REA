@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1;
+
+import "coursera/proto/paymentprocessor/v1/google_play_purchase_type.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1";
+option go_package = "paymentprocessorv1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayBillingApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1";
+
+// Service that serves as a shim for the Google Play developer API.
+// There is a v1beta1 version of this service. This v1 service contains methods that are actively
+// called by the Android app and need to maintain backwards compatibility.
+service GooglePlayBillingAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Refunds an unacknowledged purchase.
+  rpc RefundUnacknowledgedPurchase(RefundUnacknowledgedPurchaseRequest) returns (RefundUnacknowledgedPurchaseResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/paymentprocessor/v1/GooglePlayBillingAPI/RefundUnacknowledgedPurchase"
+      body: "*"
+    };
+  }
+}
+
+// Request object for refunding Google Play unacknowledged purchases.
+message RefundUnacknowledgedPurchaseRequest {
+  // Type of the purchase (one-time purchase or subscription).
+  GooglePlayPurchaseType purchase_type = 1;
+  // Google Play one-time/subscription purchase SKU of the purchase to refund.
+  google.protobuf.StringValue sku = 2;
+  // Google Play purchase token of the purchase to refund.
+  google.protobuf.StringValue purchase_token = 3;
+  // Google Play order id of the purchase to refund.
+  google.protobuf.StringValue order_id = 4;
+}
+
+// Response object for refunding Google Play unacknowledged purchases.
+message RefundUnacknowledgedPurchaseResponse {}

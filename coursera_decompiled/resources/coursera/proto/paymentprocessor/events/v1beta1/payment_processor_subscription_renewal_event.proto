@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.events.v1beta1;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_subscription.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Events.V1Beta1";
+option go_package = "eventsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionRenewalEventProto";
+option java_package = "org.coursera.proto.paymentprocessor.events.v1beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Events\\V1Beta1";
+
+// Event that is fired when a Subscription renewal webhook has been received from a Payment Processor.
+message PaymentProcessorSubscriptionRenewalEvent {
+  // Latest state of the payment processor subscription.
+  coursera.proto.paymentprocessor.common.v1beta1.PaymentProcessorSubscription payment_processor_subscription = 1;
+}

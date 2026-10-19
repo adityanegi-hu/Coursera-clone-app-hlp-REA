@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.learntab.v1;
+
+import "coursera/proto/mobilebff/coursehome/v1/mobile_course_home.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Learntab.V1";
+option go_package = "learntabv1";
+option java_multiple_files = true;
+option java_outer_classname = "LearnTabProto";
+option java_package = "org.coursera.proto.mobilebff.learntab.v1";
+option objc_class_prefix = "CPML";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Learntab\\V1";
+option swift_prefix = "MobilebffLearntab";
+
+// A wrapper for an element in one row of the learn tab. This can be a header, course or s12n.
+message LearnTabItem {
+  oneof item {
+    Header header = 1;
+    Specialization specialization = 2;
+    Course course = 3;
+  }
+}
+
+// A Header used to separate different programs as well as "my coursera" from each other.
+message Header {
+  HeaderType type = 1;
+  string title = 2;
+}
+
+// An enum for the different header types.
+enum HeaderType {
+  HEADER_TYPE_INVALID = 0;
+  HEADER_TYPE_PROGRAM = 1;
+  HEADER_TYPE_MY_COURSERA = 2;
+}
+
+// Container holding information for a specialization.
+message Specialization {
+  string specialization_id = 1;
+  string slug = 2;
+  string name = 3;
+  string primary_partner_name = 4;
+  repeated Course courses = 5;
+}
+
+// Container holding information for a course.
+message Course {
+  string course_id = 1;
+  string slug = 2;
+  string name = 3;
+  string primary_partner_name = 4;
+  bool is_enrolled_in_session = 5;
+  bool is_enrolled_in_course = 6;
+  bool can_unenroll = 7;
+  bool is_pre_enroll_enabled = 8;
+  Progress progress = 9;
+  CustomLabel custom_label = 10;
+  SwitchSessionInfo switch_session_info = 11;
+}
+
+// Progress information for a course.
+message Progress {
+  bool is_work_completed = 1;
+  int32 current_week = 2;
+  google.protobuf.Timestamp due_at_time = 3;
+  bool is_overdue = 4;
+  double percentage = 5;
+  google.protobuf.Duration items_remaining_duration = 6;
+  int32 assignments_remaining = 7;
+}
+
+// Custom label for a course.
+message CustomLabel {
+  google.protobuf.StringValue module_name = 1;
+  google.protobuf.StringValue week_name = 2;
+  google.protobuf.StringValue course_name = 3;
+}
+
+// Switch session information for a course.
+message SwitchSessionInfo {
+  coursera.proto.mobilebff.coursehome.v1.NextStepType next_step_type = 1;
+  int32 adjustment_days_offset = 2;
+  repeated Session upcoming_sessions = 3;
+  // A possible session to switch into.
+  message Session {
+    string session_id = 1;
+    google.protobuf.Timestamp start_time = 2;
+    google.protobuf.Timestamp end_time = 3;
+  }
+}

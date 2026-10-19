@@ -1,0 +1,163 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1Beta1";
+option go_package = "sharedpaymentsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentMethodDetailsProto";
+option java_package = "org.coursera.proto.sharedpayments.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1Beta1";
+
+// Container for the payment method details used for a subscription renewal.
+message PaymentMethodDetails {
+  oneof payment_method_details {
+    // The payment method is not known or cannot be determined
+    UnknownPaymentMethodDetails unknown_details = 1;
+    // The payment method is known but does not fit into any predefined category
+    OtherPaymentMethodDetails other_details = 2;
+    // Card payments
+    CardPaymentMethodDetails card_details = 3;
+    // Klarna payment
+    KlarnaPaymentMethodDetails klarna_details = 4;
+    // Cashapp payment
+    CashappPaymentMethodDetails cashapp_details = 5;
+    // Link payment
+    LinkPaymentMethodDetails link_details = 6;
+    // UPI payment
+    UpiPaymentMethodDetails upi_details = 7;
+    // Pix payment (Stripe)
+    PixPaymentMethodDetails pix_details = 8;
+    // PayPal payment
+    PaypalPaymentMethodDetails paypal_details = 9;
+    // OVO payment
+    OVOPaymentMethodDetails ovo_details = 10;
+    // Mercado Pago payment
+    MercadoPagoPaymentMethodDetails mercado_pago_details = 11;
+    // PIX Automatic payment (DLocal)
+    PixAutomaticPaymentMethodDetails pix_automatic_details = 12;
+    // GCash payment (DLocal, Philippines)
+    GCashPaymentMethodDetails gcash_details = 14;
+  }
+  reserved 13;
+  reserved "id_local_wallet_details";
+}
+
+// Message for Other payment method details
+message OtherPaymentMethodDetails {
+  // Method name of uncategoried payment method
+  string method_name = 1;
+}
+
+// Message for Unknown payment method details
+message UnknownPaymentMethodDetails {}
+
+// Message for card payment details
+message CardPaymentMethodDetails {
+  // The brand of the card (e.g., Visa, Mastercard)
+  string brand = 1;
+  // The last four digits of the card
+  string last4 = 2;
+  // Card expiry month
+  optional int32 expiry_month = 3;
+  // Card expiry year
+  optional int32 expiry_year = 4;
+  // Wallet type
+  optional WalletType wallet_type = 5;
+  // The brand type of the card
+  optional CardBrand brand_type = 6;
+}
+
+// Message for Klarna payment details
+message KlarnaPaymentMethodDetails {}
+
+// Message for Cashapp payment details
+message CashappPaymentMethodDetails {}
+
+// Message for Link payment details
+message LinkPaymentMethodDetails {}
+
+// Message for UPI payment details
+message UpiPaymentMethodDetails {}
+
+// Message for Pix payment details (Stripe)
+message PixPaymentMethodDetails {}
+
+// Message for PIX Automatic payment details (DLocal)
+message PixAutomaticPaymentMethodDetails {
+  // The payer's document (CPF/CNPJ for Brazil)
+  optional string document = 1;
+  // The payer's full name
+  optional string name = 2;
+  // The payer's email address
+  optional string email = 3;
+  // The payment method ID from DLocal (e.g., "XA" for PIX Automático)
+  optional string payment_method_id = 4;
+}
+
+// Message for PayPal payment details
+message PaypalPaymentMethodDetails {
+  // Email associated with the PayPal account
+  string email = 1;
+}
+
+// Message for OVO payment details (DLocal)
+message OVOPaymentMethodDetails {
+  // The payer's phone number
+  optional string phone = 1;
+  // The payer's full name
+  optional string name = 2;
+  // The payer's email address
+  optional string email = 3;
+  // The payment method ID from DLocal (e.g., "XW" for OVO OTP)
+  optional string payment_method_id = 4;
+}
+
+// Message for GCash payment details (DLocal, Philippines)
+message GCashPaymentMethodDetails {
+  // The payer's phone number
+  optional string phone = 1;
+  // The payer's full name
+  optional string name = 2;
+  // The payer's email address
+  optional string email = 3;
+  // The payment method ID from DLocal (e.g., "GC" for GCash OTP)
+  optional string payment_method_id = 4;
+}
+
+// Message for Mercado Pago payment details (DLocal)
+message MercadoPagoPaymentMethodDetails {
+  // The payer's document (tax ID for Mexico)
+  optional string document = 1;
+  // The payer's full name
+  optional string name = 2;
+  // The payer's email address
+  optional string email = 3;
+  // The payment method ID from DLocal (e.g., "MP" for Mercado Pago)
+  optional string payment_method_id = 4;
+}
+
+// Enum for card brand
+enum CardBrand {
+  CARD_BRAND_INVALID = 0;
+  CARD_BRAND_AMERICAN_EXPRESS = 1;
+  CARD_BRAND_CARTES_BANCAIRES = 2;
+  CARD_BRAND_DINERS_CLUB = 3;
+  CARD_BRAND_DISCOVER = 4;
+  CARD_BRAND_EFTPOS_AUSTRALIA = 5;
+  CARD_BRAND_JCB = 6;
+  CARD_BRAND_INTERAC = 7;
+  CARD_BRAND_MASTERCARD = 8;
+  CARD_BRAND_UNION_PAY = 9;
+  CARD_BRAND_VISA = 10;
+  CARD_BRAND_OTHER = 11;
+}
+
+// Enum for wallet type
+enum WalletType {
+  WALLET_TYPE_INVALID = 0;
+  WALLET_TYPE_GOOGLE_PAY = 1;
+  WALLET_TYPE_APPLE_PAY = 2;
+  WALLET_TYPE_LINK = 3;
+}

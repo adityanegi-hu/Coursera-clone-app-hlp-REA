@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.flashcards.v1;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Flashcards.V1";
+option go_package = "flashcardsv1";
+option java_multiple_files = true;
+option java_outer_classname = "FlashcardsProto";
+option java_package = "org.coursera.proto.mobilebff.flashcards.v1";
+option objc_class_prefix = "CPMF";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Flashcards\\V1";
+option swift_prefix = "MobilebffFlashcardsV1";
+
+message Flashcard {
+  // The "question" side of the flashcard
+  string front = 1;
+  // The "answer" side of the flashcard
+  string back = 2;
+  // A unique identifier of the flashcard
+  string flashcard_id = 3;
+  // The item identifier of where this flashcard was generated from
+  optional string related_item_id = 4;
+}

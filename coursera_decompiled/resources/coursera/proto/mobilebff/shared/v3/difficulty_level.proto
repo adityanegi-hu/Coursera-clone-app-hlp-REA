@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v3;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V3";
+option go_package = "sharedv3";
+option java_multiple_files = true;
+option java_outer_classname = "DifficultyLevelProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v3";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V3";
+option swift_prefix = "MobilebffShared";
+
+// The level of difficulty for products offered on Coursera.
+enum DifficultyLevel {
+  DIFFICULTY_LEVEL_INVALID = 0;
+  DIFFICULTY_LEVEL_BEGINNER = 1;
+  DIFFICULTY_LEVEL_INTERMEDIATE = 2;
+  DIFFICULTY_LEVEL_ADVANCED = 3;
+  DIFFICULTY_LEVEL_MIXED = 4;
+}

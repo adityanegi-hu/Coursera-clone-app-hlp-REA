@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta1";
+option go_package = "commonv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorExceptionDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta1";
+
+// Payment processor exception details.
+message PaymentProcessorExceptionDetails {
+  // Response message from payment processor.
+  google.protobuf.StringValue message = 1;
+  // (Optional) Error code.
+  google.protobuf.StringValue code = 2;
+  // (Optional) Additional details from payment processor.
+  google.protobuf.Struct additional_details = 3;
+}

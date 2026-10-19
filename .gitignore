@@ -1,0 +1,15 @@
+# JADX decompilation tool binaries
+jadx/
+jadx.zip
+
+# Raw APK files
+coursera_apk/
+*.apk
+
+# Build artifacts & logs
+node_modules/
+dist/
+dist-ssr/
+*.local
+.DS_Store
+Thumbs.db

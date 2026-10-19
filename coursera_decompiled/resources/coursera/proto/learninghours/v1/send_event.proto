@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package coursera.proto.learninghours.v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Learninghours.V1";
+option go_package = "learninghoursv1";
+option java_multiple_files = true;
+option java_outer_classname = "SendEventProto";
+option java_package = "org.coursera.proto.learninghours.v1";
+option objc_class_prefix = "CPL";
+option php_namespace = "Coursera\\Proto\\Learninghours\\V1";
+
+/**
+   Data sent every "durationSeconds" from the FE that contains
+   data on what course the user was learning on and potential item details.
+   UserId is taken from request context.
+*/
+message Heartbeat {
+  google.protobuf.StringValue course_id = 1;
+  ItemDetails item_details = 2;
+  UserActionType user_action_type = 3;
+  google.protobuf.Int32Value duration_milli_seconds = 4;
+  google.protobuf.StringValue event_os = 5;
+  EventPlatform event_platform = 6;
+  google.protobuf.Timestamp timestamp = 7;
+  /**
+     Optional field if available.
+     Used to uniquely identify the device incase a learner has coursera open
+     on multiple browsers or is sharing accounts
+  */
+  google.protobuf.StringValue device_id = 8;
+  google.protobuf.StringValue course_branch_id = 9;
+}
+
+/**
+   Details about the item the learner may have been viewing when the heartbeat was sent
+*/
+message ItemDetails {
+  google.protobuf.StringValue item_id = 1;
+  ActivityType activity_type = 2;
+}
+
+enum UserActionType {
+  USER_ACTION_TYPE_INVALID = 0;
+  // Mouse movement
+  USER_ACTION_TYPE_MOUSE_MOVEMENT = 1;
+  // Mouse click or keyboard press
+  USER_ACTION_TYPE_KEY_PRESS = 2;
+  // Page scroll
+  USER_ACTION_TYPE_PAGE_SCROLL = 3;
+  // Learner is on video page and video is playing
+  USER_ACTION_TYPE_VIDEO_IS_PLAYING = 4;
+}
+
+// Platform this event was sent from.
+enum EventPlatform {
+  EVENT_PLATFORM_INVALID = 0;
+  EVENT_PLATFORM_MOBILE = 1;
+  EVENT_PLATFORM_WEB = 2;
+}
+
+/**
+    Types were originally defined on the FE:
+   https://github.com/webedx-spark/web/blob/main/static/bundles/learning-hours/learningHoursSignalsUtil.ts#L8
+
+   These represent the item type the learner was on when the heartbeat was sent.
+   It only includes the items we are targetting right now and may not be comprehensive.
+*/
+enum ActivityType {
+  ACTIVITY_TYPE_INVALID = 0;
+  ACTIVITY_TYPE_LECTURE = 1;
+  ACTIVITY_TYPE_READING = 2;
+  ACTIVITY_TYPE_QUIZ = 3;
+  ACTIVITY_TYPE_STAFF_GRADED = 4;
+  ACTIVITY_TYPE_PEER_REVIEW = 5;
+  ACTIVITY_TYPE_TEAMMATE_REVIEW = 6;
+  ACTIVITY_TYPE_DISCUSSION_PROMPT = 7;
+}

@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/product_price_id.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedentitlement/v1beta1/product_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSkuApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Service that provides an interface to create and find payment processor SKUs.
+// Currently, the only payment processors that sell external SKUs are Google Play and Apple.
+service PaymentProcessorSkuAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: ["payment-processor-jobs"]
+  };
+
+  // Cleans up payment processor SKUs if they cannot be found in the payment-processor database.
+  rpc CleanPaymentProcessorSku(CleanPaymentProcessorSkuRequest) returns (CleanPaymentProcessorSkuResponse);
+  // Expire payment processor SKUs if they cannot be found on Google Play.
+  rpc ExpirePaymentProcessorSku(ExpirePaymentProcessorSkuRequest) returns (ExpirePaymentProcessorSkuResponse);
+  // Creates a payment processor SKU given the payment processor ID and product price ID.
+  rpc CreatePaymentProcessorSku(CreatePaymentProcessorSkuRequest) returns (CreatePaymentProcessorSkuResponse);
+  // Finds a payment processor SKU given the payment processor ID and product price ID.
+  rpc FindPaymentProcessorSku(FindPaymentProcessorSkuRequest) returns (FindPaymentProcessorSkuResponse);
+  // Finds a payment processor SKU given the payment processor ID and product price ID V2.
+  rpc FindPaymentProcessorSkuV2(FindPaymentProcessorSkuV2Request) returns (FindPaymentProcessorSkuV2Response);
+}
+
+// Request details for cleaning up payment processor SKUs.
+message CleanPaymentProcessorSkuRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+}
+
+// Response details for cleaning up payment processor SKUs.
+// It contains empty result because the execution runs asynchronously and the result can only be found in the logs by searching the logId.
+message CleanPaymentProcessorSkuResponse {
+  string log_id = 1;
+}
+
+// Request details for expiring payment processor SKUs.
+message ExpirePaymentProcessorSkuRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+}
+
+// Response details for expiring payment processor SKUs.
+// It contains empty result because the execution runs asynchronously and the result can only be found in the logs by searching the logId.
+message ExpirePaymentProcessorSkuResponse {
+  string log_id = 1;
+}
+
+// Request details for creating a new payment processor SKU.
+message CreatePaymentProcessorSkuRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  ProductPriceId product_price_id = 2;
+}
+
+// Response details for creating a new payment processor SKU.
+message CreatePaymentProcessorSkuResponse {
+  google.protobuf.StringValue payment_processor_sku = 1;
+}
+
+// Request details for finding a payment processor SKU.
+message FindPaymentProcessorSkuRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  ProductPriceId product_price_id = 2;
+}
+
+// Response details for finding a payment processor SKU.
+message FindPaymentProcessorSkuResponse {
+  google.protobuf.StringValue payment_processor_sku = 1;
+}
+
+// Request details for finding a payment processor SKU.
+message FindPaymentProcessorSkuV2Request {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue product_price_id_v2 = 2;
+  coursera.proto.sharedentitlement.v1beta1.ProductId product_id = 3;
+  google.protobuf.StringValue country_iso_code = 4;
+}
+
+// Response details for finding a payment processor SKU.
+message FindPaymentProcessorSkuV2Response {
+  google.protobuf.StringValue payment_processor_sku = 1;
+}

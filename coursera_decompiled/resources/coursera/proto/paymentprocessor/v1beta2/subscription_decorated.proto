@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionDecoratedProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Details about a subscription that we have just created or updated in a payment processor.
+message SubscriptionDecorated {
+  google.protobuf.StringValue subscription_id = 1;
+  google.protobuf.Timestamp next_billing_at_time = 2;
+  google.protobuf.Timestamp paid_through_until_time = 3;
+  google.protobuf.Timestamp most_recent_interval_start_at_time = 4;
+  google.protobuf.StringValue status = 5;
+  google.type.Money base_price = 6;
+  google.type.Money tax_amount = 7;
+  SubscriptionTransaction latest_transaction = 8;
+  repeated PaymentProcessorPromotionId discount_list = 9;
+  google.type.Money next_billing_period_amount = 10;
+  google.protobuf.BoolValue is_free_trial = 11;
+  // Remaining number of billing cycles that the discount will be applied on.
+  google.protobuf.Int32Value remaining_number_of_discounted_billing_cycles = 12;
+}
+
+// Details about a subscription transaction.
+message SubscriptionTransaction {
+  google.protobuf.StringValue id = 1;
+  google.protobuf.Timestamp timestamp_time = 2;
+  google.type.Money total_amount = 6;
+  google.type.Money tax_amount = 7;
+  repeated SubscriptionDiscount discounts = 8;
+  // (Optional) Transaction billing info; currently only populated in the Stripe MVP flow
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 9;
+}
+
+// Details about a subscription discount.
+message SubscriptionDiscount {
+  google.protobuf.StringValue id = 1;
+  google.type.Money amount = 2;
+  google.protobuf.Int64Value promotion_id = 3;
+  google.protobuf.Int64Value coupon_id = 4;
+}
+
+// Details about a payment processor promotion id.
+message PaymentProcessorPromotionId {
+  google.protobuf.StringValue id = 1;
+}

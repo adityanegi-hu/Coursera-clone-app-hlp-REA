@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v2;
+
+import "coursera/proto/paymentprocessor/v2/find_payment_processor_sku_params.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedentitlement/v1beta1/product_id.proto";
+import "coursera/proto/sharedentitlement/v1beta1/product_type.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V2";
+option go_package = "paymentprocessorv2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSkuApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V2";
+
+// Service that provides an interface to create and find payment processor SKUs.
+// Currently, the only payment processors that sell external SKUs are Google Play and Apple.
+// There is a v1beta1 and a v1 version of this service. This v2 service will not be directly
+// called by the Android app, so we do not need to maintain backwards compatibility.
+//
+// This differs from v1 in that it uses price_id_v2 rather than v1, so we need to pass in more
+// fields.
+
+service PaymentProcessorSkuAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: [
+      "mobile-bff-application",
+      "payment"
+    ]
+  };
+
+  // Finds a payment processor SKU given the payment processor ID and product price ID.
+  rpc FindPaymentProcessorSku(FindPaymentProcessorSkuRequest) returns (FindPaymentProcessorSkuResponse);
+
+  // Creates a payment processor SKU given the payment processor ID, price ID V2 and product type.
+  rpc CreatePaymentProcessorSku(CreatePaymentProcessorSkuRequest) returns (CreatePaymentProcessorSkuResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "powerUserPermission"
+      ]
+    };
+  }
+}
+
+// Request details for finding a payment processor SKU.
+message FindPaymentProcessorSkuRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue product_price_id_v2 = 2;
+  coursera.proto.sharedentitlement.v1beta1.ProductId product_id = 3;
+  google.protobuf.StringValue country_iso_code = 4;
+  oneof payment_processor_params {
+    AppleFindPaymentProcessorSkuParams apple_payment_processor_params = 5;
+  }
+}
+
+// Response details for finding a payment processor SKU.
+message FindPaymentProcessorSkuResponse {
+  google.protobuf.StringValue payment_processor_sku = 1;
+}
+
+// Request details for creating a new payment processor SKU.
+message CreatePaymentProcessorSkuRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  google.protobuf.StringValue product_price_id_v2 = 2;
+  coursera.proto.sharedentitlement.v1beta1.ProductType product_type = 3;
+  // Optional, auto-generated if not provided.
+  google.protobuf.StringValue payment_processor_sku = 4;
+}
+
+// Response details for creating a payment processor SKU.
+message CreatePaymentProcessorSkuResponse {
+  google.protobuf.StringValue payment_processor_sku = 1;
+}

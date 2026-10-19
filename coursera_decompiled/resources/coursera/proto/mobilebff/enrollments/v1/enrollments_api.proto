@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.enrollments.v1;
+
+import "coursera/proto/mobilebff/enrollments/v1/enrollments.proto";
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Enrollments.V1";
+option go_package = "enrollmentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "EnrollmentsApiProto";
+option java_package = "org.coursera.proto.mobilebff.enrollments.v1";
+option objc_class_prefix = "CPME";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Enrollments\\V1";
+option swift_prefix = "MobilebffEnrollmentsV1";
+
+// The API to fetch enrollment choices to display to a mobile user.
+service EnrollmentsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get the enrollment choices for a product available through multiple enterprise programs.
+  rpc GetEnrollmentChoices(GetEnrollmentChoicesRequest) returns (GetEnrollmentChoicesResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/enrollments/v1/EnrollmentsAPI/GetEnrollmentChoices"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/enrollments/v1/EnrollmentsAPI/GetEnrollmentChoices"}
+    };
+  }
+}
+
+// The request to get enrollment choices.
+message GetEnrollmentChoicesRequest {
+  // The type of product for which to get enrollment choices.
+  EnrollmentProductType product_type = 1;
+  // The ID of the course or specialization for which to get enrollment choices.
+  string product_id = 2;
+  // The optional ID of the parent product, if the user navigated to the product from a specific context that affects the possible choices that are returned by the request.
+  google.protobuf.StringValue parent_id = 3;
+  // User is getting their options to upgrade their enrollment type so they can submit locked assignments
+  optional bool is_upgrading = 4;
+}
+
+// The response to the request to get enterprise enrollment choices.
+message GetEnrollmentChoicesResponse {
+  // The ID of the course or specialization.
+  string product_id = 1;
+  // The name of the course or specialization.
+  string product_name = 2;
+  // The partners who are offering the course or specialization.
+  repeated string partners = 3;
+  // The optional URL to an image associated with the partners, if any. E.g. the partner logo.
+  google.protobuf.StringValue image_url = 4;
+  // The available enrollment choices for the course or specialization.
+  repeated EnrollmentChoice choices = 5;
+  // An optional explanation of the choices offered for this course or specialization. Plain text. May be platform-specific, e.g. copy related to store handling of payments.
+  shared.v2.RenderableHtml choices_explanation = 6;
+  // The optional Coursera terms and conditions for enrolling in the course or specialization. May contain HTML markup, e.g. links.
+  shared.v2.RenderableHtml terms_and_conditions = 7;
+  // An optional session in case the user can enroll in an open session or can pre-enroll.
+  Session session = 8;
+  // Optional data for specializations or courses that are part of specializations.
+  oneof product_relationship {
+    // Data about the parent product, if the product is part of a specialization.
+    Parent parent = 9;
+    // Data about the children courses, if the product is of type parent.
+    Children children = 10;
+  }
+  // Either the session start date or the launch date, whichever is applicable.
+  google.protobuf.Timestamp start_time = 11;
+  // Enrollment choice reason code to give meta informaton to the clients on the enrollment choices returned.
+  ReasonCode reason_code = 12;
+  // The definition of a session for the purposes of enrollment.
+  message Session {
+    oneof union {
+      // The session ID, if the user can enroll in an open session.
+      google.protobuf.StringValue session_id = 1;
+      // Whether the user can pre-enroll, if there is no open session.
+      bool can_pre_enroll = 2;
+    }
+  }
+  // Data about the parent product, if applicable.
+  message Parent {
+    // The ID of the parent product, if the course or specialization is part of another product.
+    string parent_id = 1;
+    // The name of the parent product, if the course or specialization is part of another product.
+    string parent_name = 2;
+    // The data about the children of this parent.
+    Children children = 3;
+  }
+  // Data about children courses in a parent.
+  message Children {
+    // The ID of the child product to enroll in, if the product is a specialization.
+    string first_child_id = 1;
+    // Display names of child courses contained in a parent.
+    repeated string children_names = 2;
+  }
+
+  // Enrollment choice reason code to give meta informaton to the clients on the enrollment choices returned.
+  enum ReasonCode {
+    REASON_CODE_INVALID = 0;
+    // User is already enrolled in the underlying product.
+    REASON_CODE_ENROLLED = 1;
+    // User has purchased this product
+    REASON_CODE_ALREADY_PURCHASED = 2;
+    // User is not eligible to enroll in the underlying product.
+    REASON_CODE_CAPSTONE_ACCESS_LOCKED = 3;
+    // Blocked by Sanction.
+    REASON_CODE_REGION_BLOCKED = 4;
+    // Currently no session avaialbe for a course, meaning a leaner can not enroll.
+    REASON_CODE_NO_AVAILABLE_SESSION = 5;
+    // Blocked on iOS (i.e. if price is too high for in-app purchases).
+    REASON_CODE_BLOCKED_ON_IOS = 6;
+    // User cant upgrade to cplus because they purchased clite on a different platform
+    REASON_CODE_MISMATCH_ORIGINAL_PURCHASE_PLATFORM = 7;
+  }
+}

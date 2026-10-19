@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/v1beta2/subscription_payment_information.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayCreateSubscriptionRequestProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Internal subscription creation request for Google Play.
+message GooglePlayCreateSubscriptionRequest {
+  GooglePlaySubscriptionPaymentInformation google_play_subscription_payment_information = 1;
+}

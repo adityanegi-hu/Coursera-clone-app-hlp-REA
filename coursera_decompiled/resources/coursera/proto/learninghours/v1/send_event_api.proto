@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package coursera.proto.learninghours.v1;
+
+import "coursera/proto/learninghours/v1/send_event.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Learninghours.V1";
+option go_package = "learninghoursv1";
+option java_multiple_files = true;
+option java_outer_classname = "SendEventApiProto";
+option java_package = "org.coursera.proto.learninghours.v1";
+option objc_class_prefix = "CPL";
+option php_namespace = "Coursera\\Proto\\Learninghours\\V1";
+
+// A service that tracks when a user is learning through heartbeat signals.]
+// The FE will continuously send these heartbeats at a set interval (Eg.every 30 seconds)
+service SendEventAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Send Heartbeat Event
+  rpc SendEvent(SendEventRequest) returns (SendEventResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        // Meant to only be called from FE Clients
+        "logged.in"
+      ]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/learninghours/v1/SendEventAPI/SendEvent"
+      body: "*"
+    };
+  }
+}
+
+// SendEventRequest
+message SendEventRequest {
+  Heartbeat heartbeat = 1;
+}
+
+// SendEventResponse
+message SendEventResponse {
+  // Id of event created
+  google.protobuf.StringValue id = 1;
+}

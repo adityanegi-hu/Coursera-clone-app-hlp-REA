@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package coursera.proto.shared.v1beta1;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Shared.V1Beta1";
+option go_package = "sharedv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "CmlProto";
+option java_package = "org.coursera.proto.shared.v1beta1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Shared\\V1Beta1";
+
+// Representation of org.coursera.ondemand.content.CmlContent in scala world.
+message CmlContent {
+  // NOTE: Please use coursera/proto/sharedcml/v1/cml.proto instead
+  option deprecated = true;
+  string dtd_id = 1;
+  string value = 2;
+  // Contains cml that has been rendered into displayable HTML for the FE to use.
+  // See https://docs.google.com/document/d/1gczQELUoqAwVQ4dPfjxWd3CP5_HloJ87KH6CQPi96QU/edit
+  // for more details on CML Unified Render.
+  google.protobuf.StringValue renderable_html = 3;
+}

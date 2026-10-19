@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package coursera.proto.sharedpayments.v1;
+
+option csharp_namespace = "Coursera.Proto.Sharedpayments.V1";
+option go_package = "sharedpaymentsv1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentTransactionStatusProto";
+option java_package = "org.coursera.proto.sharedpayments.v1";
+option objc_class_prefix = "CPS";
+option php_namespace = "Coursera\\Proto\\Sharedpayments\\V1";
+
+// Internal Payment Transaction Statuses.
+enum PaymentTransactionStatus {
+  PAYMENT_TRANSACTION_STATUS_INVALID = 0;
+  // Transaction was accepted.
+  PAYMENT_TRANSACTION_STATUS_ACCEPTED = 1;
+  // Transaction was rejected.
+  PAYMENT_TRANSACTION_STATUS_REJECTED = 2;
+  // Transaction has been accepted and settled.
+  PAYMENT_TRANSACTION_STATUS_SETTLED = 3;
+}

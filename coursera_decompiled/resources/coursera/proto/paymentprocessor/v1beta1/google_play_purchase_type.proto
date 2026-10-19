@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayPurchaseTypeProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Type of a Google Play purchase.
+enum GooglePlayPurchaseType {
+  GOOGLE_PLAY_PURCHASE_TYPE_INVALID = 0;
+  // One-time purchase.
+  GOOGLE_PLAY_PURCHASE_TYPE_ONE_TIME_PURCHASE = 1;
+  // Subscriptions.
+  GOOGLE_PLAY_PURCHASE_TYPE_SUBSCRIPTION = 2;
+}

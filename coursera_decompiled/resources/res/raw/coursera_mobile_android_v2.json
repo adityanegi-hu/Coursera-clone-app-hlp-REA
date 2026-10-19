@@ -1,0 +1,327 @@
+[
+  {
+    "name": "courseraMobileAndroid_v2",
+    "parameters": [
+      {
+        "name": "AATest_V2",
+        "value": true
+      },
+      {
+        "name": "AATest_V3",
+        "value": true
+      },
+      {
+        "name": "quizzesDisabledForCourseIDs",
+        "value": {
+          "1.6.5": [],
+          "2.0.0": []
+        }
+      },
+      {
+        "name": "supplementaryItemsDisabledForCourseIDs",
+        "value": {
+          "1.6.5": []
+        }
+      },
+      {
+        "name": "isFlexDownloadEnabled",
+        "value": true
+      },
+      {
+        "name": "specializationsConfigs",
+        "value": {
+          "specializationsDisabledForCourseIDs_1.6.4": []
+        }
+      },
+      {
+        "name": "isNavigationV2Enabledv165",
+        "value": true
+      },
+      {
+        "name": "isSearchV2Enabled",
+        "value": true
+      },
+      {
+        "name": "isCourseDescriptionPageShareEnabled",
+        "value": true
+      },
+      {
+        "name": "isPreenrollmentEnabled_v2.0",
+        "value": true
+      },
+      {
+        "name": "catalogCarouselItems",
+        "value": {
+          "items": [
+            {
+              "imageURL": "https://d3njjcbhbojbot.cloudfront.net/web/images/imba/loggedin-banner.png",
+              "title": "Learn Anything.",
+              "description": "Watch videos, take quizzes and engage with fellow learners by taking courses in any subject that interests you.",
+              "moduleURL": "coursera-mobile://app/specializations",
+              "buttonTitle": "See our specializations"
+            }
+          ]
+        }
+      },
+      {
+        "name": "spanishPromoBannerCatalog",
+        "value": {
+          "isEnabled": false,
+          "bannerMetadata": {
+          }
+        }
+      },
+      {
+        "name": "blacklistedUniversalLinks",
+        "value": {
+          "paths": [
+            "/specializations/datamining",
+            "/specializations/virtualteacher",
+            "/specializations/cloudcomputing",
+            "/specializations/globalaffairs",
+            "/specializations/reasoning",
+            "/specializations/contentstrategy",
+            "/specializations/finance",
+            "/specializations/jhudatascience",
+            "/specializations/systemsbiology",
+            "/specializations/genomics",
+            "/specializations/cybersecurity",
+            "/specializations/entrepreneurship",
+            "/specializations/valuation",
+            "/specializations/whartonfoundations",
+            "/specializations/whartonchinese",
+            "/specializations/fundamentalscomputing2",
+            "/specializations/bioinformatics",
+            "/specializations/neuro",
+            "/specializations/mobilecloudcomputing2",
+            "/specializations/humancomputerinteraction",
+            "/specializations/medicaltech"
+          ]
+        }
+      },
+      {
+        "name": "shouldShowNewSDPUIV2",
+        "value": false
+      },
+      {
+        "name": "isSDPPriceOnSearchEnabled",
+        "value": false
+      },
+      {
+        "name": "isProgrammingAssignmentInstructionsEnabled",
+        "value": false
+      },
+      {
+        "name": "isSessionSwitchingEnabled",
+        "value": false
+      },
+      {
+        "name": "isExoPlayerEnabled",
+        "value": false
+      },
+      {
+        "name": "isExoPlayerEnabled_210",
+        "value": false
+      },
+      {
+        "name": "featuredSpecializations",
+        "value": {
+          "items": [
+            {
+              "specializationID": "MCZuv0U7EeWLHQ6Y22SN8Q",
+              "headline": "Turn Data Into Value",
+              "subheadline": "Drive business process change through identifying and analyzing key metrics in four industry-relevant courses.",
+              "backgroundImageURL": "https://d2j5ihb19pt1hq.cloudfront.net/sdp_page/s12n_logos/Duke_ExceltoMySQLGetty529354813.jpg",
+              "itemId": "mE04G",
+              "courseID": "I5rpKhnoEeWnbwoiFA2iGw",
+              "numLearners": "378",
+              "numberOfCourses": "5",
+              "partner": "Duke University"
+            },
+            {
+              "specializationID": "F-h1g0w7EeWeOApO_l5R1w",
+              "headline": "Learn to Program and Analyze Data with Python",
+              "subheadline": "Develop programs to gather, clean, analyze, and visualize data.",
+              "backgroundImageURL": "https://coursera-course-photos.s3.amazonaws.com/08/33f720502a11e59e72391aa537f5c9/pythonlearn_thumbnail_1x1.png",
+              "factoidImageURL": "https://coursera-course-photos.s3.amazonaws.com/81/d0d2a03d5c11e5949cf1f925f5447f/logo.jpg",
+              "numLearners": "241",
+              "numberOfCourses": "5",
+              "partner": "University of Michigan"
+            }
+          ]
+        }
+      },
+      {
+        "name": "showVideoErrorDialog",
+        "value": "false"
+      },
+      {
+        "name": "isBrowseCatalogPricingEnabled",
+        "value": "false"
+      },
+      {
+        "name": "isIVQEnabled",
+        "value": true
+      },
+      {
+        "name": "isBackgroundAudio",
+        "value": false
+      },
+      {
+        "name": "isHonorsTrackEnabled",
+        "value": false
+      },
+      {
+        "name": "isCourseHomeAndUpdatesEnabled_V2",
+        "value": true
+      },
+      {
+        "name": "isCourseDashboardEnabled_v2.1.9",
+        "value": false
+      },
+      {
+        "name": "subscriptionsExperiment",
+        "value": false
+      },
+      {
+        "name": "supportedCurrencies",
+        "value": {
+          "items": [
+            "AUD",
+            "CAD",
+            "CNY",
+            "EUR",
+            "GBP",
+            "INR",
+            "MXN",
+            "RUB",
+            "USD"
+          ]
+        }
+      },
+      {
+        "name": "featuredListModelType",
+        "value": "\"control\""
+      },
+      {
+        "name": "isCourseCompletionPageEnabled",
+        "value": false
+      },
+      {
+        "name": "isContextProgramsEnabled",
+        "value": true
+      },
+      {
+        "name": "isPrefetchEnabled",
+        "value": false
+      },
+      {
+        "name": "isCreditCardUpdatingEnabled",
+        "value": false
+      },
+      {
+        "name": "isGroupsInvitationsEnabled",
+        "value": false
+      },
+      {
+        "name": "enableOnboarding2016",
+        "value": false
+      },
+      {
+        "name": "onboardingPrimaryGoalEnabled",
+        "value": false
+      },
+      {
+        "name": "isMultipleWalletsEnabled",
+        "value": false
+      },
+      {
+        "name": "onboardingEditGoalsEnabled_v2.3.2",
+        "value": false
+      },
+      {
+        "name": "isOnboardingOccupationEnabled_v2.3.2",
+        "value": false
+      },
+      {
+        "name": "isCorruptVideoFileDeletionEnabled",
+        "value": false
+      },
+      {
+        "name": "onboardingLoadingScreenEnabled_v2.3.2",
+        "value": false
+      },
+      {
+        "name": "catalogversion_v2.3.3.1",
+        "value": "control"
+      },
+      {
+        "name": "isFinAidAvailable_v2.3.3",
+        "value": false
+      },
+      {
+        "name": "isWebViewAuthEnabled",
+        "value": false
+      },
+      {
+        "name": "restrictedAudit_v2.3.3.1",
+        "value": false
+      },
+      {
+        "name": "isExoPlayerEnabled_v2.3.9",
+        "value": false
+      },
+      {
+        "name": "minimumSupportedAppVersion",
+        "value": 0.237
+      },
+      {
+        "name": "minimumSupportedAppVersionApi15",
+        "value": 0.2331
+      },
+      {
+        "name": "offlineQuizEnabled_v2.4.2",
+        "value": false
+      },
+      {
+        "name": "isResolutionsEnabled",
+        "value": false
+      },
+      {
+        "name": "reactNativeEnabledAndroid",
+        "value": false
+      },
+      {
+        "name": "reactNativeSupplementsEnabled",
+        "value": false
+      },
+      {
+        "name": "reactNativeForumsEnabled",
+        "value": false
+      },
+      {
+        "name": "reactCourseGradesEnabledV2",
+        "value": false
+      },
+      {
+        "name": "redesign2017Enabled_2.6.5",
+        "value": false
+      },
+      {
+        "name": "loginV2Enabled_2.6.9",
+        "value": false
+      },
+      {
+        "name": "weeksToShowMotivationDialogs",
+        "value": [
+          0
+        ]
+      },
+      {
+        "name": "blacklistApis",
+        "value": []
+      }
+    ],
+    "unsafeDefaultsAllowed": false
+  }
+]

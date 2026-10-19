@@ -1,0 +1,248 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.assessments.v3;
+
+import "coursera/proto/mobilebff/shared/v2/renderable_html.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Assessments.V3";
+option go_package = "assessmentsv3";
+option java_multiple_files = true;
+option java_outer_classname = "MobileAssessmentsProto";
+option java_package = "org.coursera.proto.mobilebff.assessments.v3";
+option objc_class_prefix = "CPMA";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Assessments\\V3";
+option swift_prefix = "MobilebffAssessmentsV3";
+
+// Container for a question details.
+message Question {
+  // questionId
+  string id = 1;
+  // Question score earned by learner.
+  float score = 2;
+  // Maximum question score. In practice, always an integer value, fractional part unused.
+  float max_points = 3;
+  // If checkbox or radio question type, array of options for learner to choose among.
+  repeated Option options = 4;
+  // CML body for a question.
+  Prompt prompt = 5;
+  // Type of question.
+  QuestionType question_type = 6;
+  // Code language for code expression question type.
+  google.protobuf.StringValue code_language = 7;
+  // Evaluator id for code expression question type.
+  google.protobuf.StringValue repl_evaluator_id = 8;
+  // Starter code for code expression question type.
+  google.protobuf.StringValue starter_code = 9;
+}
+
+// Container for question options.
+message Option {
+  // answerId
+  string id = 1;
+  // body for an option.
+  shared.v2.RenderableHtml value = 2;
+}
+
+// Container for a question.
+message Prompt {
+  shared.v2.RenderableHtml value = 1;
+}
+
+// Authoring question types. Partner docs have more information https://partner.coursera.help/hc/en-us/articles/115000173563-Supported-Question-Types
+enum QuestionType {
+  QUESTION_TYPE_INVALID = 0;
+  // Checkbox answers, learner can select 0 to many options
+  QUESTION_TYPE_CHECK_BOX = 1;
+  // Freeform answer, answer is verified by instructor regex matcher
+  QUESTION_TYPE_REGEX = 2;
+  // Freeform answer, answer matches a specific numeric answer
+  QUESTION_TYPE_SINGLE_NUMERIC = 3;
+  // Freeform answer, with a DSL of math expressions https://learner.coursera.help/hc/en-us/articles/208279916
+  QUESTION_TYPE_MATH_EXPRESSION = 4;
+  // Freeform answer, looking for specific string matching
+  QUESTION_TYPE_TEXT_EXACT_MATCH = 5;
+  // Radio button answers, learner can select 1 option. Reflection type question accepts any answer.
+  QUESTION_TYPE_MCQ_REFLECT = 6;
+  // Checkbox answers, learner can select 0 to many options. Reflection type question accepts any answer.
+  QUESTION_TYPE_CHECK_BOX_REFLECT = 8;
+  // Freeform answer
+  QUESTION_TYPE_REFLECT = 9;
+  // No answers, only contains question prompt
+  QUESTION_TYPE_CONTINUE = 10;
+  // Radio button answers, learner can select 1 option.
+  QUESTION_TYPE_MCQ = 11;
+  // Question prompt contains executable code block. Freeform answer contains the body of code learner enters into the ECB.
+  QUESTION_TYPE_CODE_EXPRESSION = 12;
+}
+
+// Result of learner assessment submission.
+enum ResultType {
+  RESULT_TYPE_INVALID = 0;
+  // Learner scored a passing grade.
+  RESULT_TYPE_PASSED = 1;
+  // Learner scored a failing grade.
+  RESULT_TYPE_FAILED = 2;
+  // Learner score is not final or not determinable to be passing / failing.
+  RESULT_TYPE_NEUTRAL = 3;
+}
+
+// Possible instructor feedback types.
+enum FeedbackType {
+  FEEDBACK_TYPE_INVALID = 0;
+  // Instructor has configured assessment results to show only overall grade, without any questions or answers.
+  FEEDBACK_TYPE_LIMITED = 1;
+  // Instructor has configured assessment to show only overall grade, questions, and whether question was correct/incorrect. Does not include showing answers.
+  FEEDBACK_TYPE_PARTIAL = 2;
+  // Instructor has configured assessment to show all information. Learner can see overall grade, questions, and answers. Can include instructor explanations of why answers are correct or not.
+  FEEDBACK_TYPE_FULL = 3;
+}
+
+// Container for a quiz question submission entry.
+message QuestionSubmissionEntry {
+  google.protobuf.StringValue question_id = 1;
+  QuestionType question_type = 2;
+  int64 timestamp = 3;
+  oneof response {
+    SingleResponseChosen single_chosen = 4;
+    MultipleResponseChosen multiple_chosen = 5;
+    RegexResponseAnswer regex_answer = 6;
+  }
+}
+
+// Container for an answer of single answer type. Used for QUESTION_TYPE_MCQ and QUESTION_TYPE_MCQ_REFLECT.
+message SingleResponseChosen {
+  google.protobuf.StringValue chosen = 1;
+}
+
+// Container for an answer of checkmark type. Use for QUESTION_TYPE_CHECK_BOX and QUESTION_TYPE_CHECK_BOX_REFLECT.
+message MultipleResponseChosen {
+  repeated google.protobuf.StringValue chosen = 1;
+}
+
+// Container for an answer of any freeform learner-entered text.
+// Use for QUESTION_TYPE_REGEX, QUESTION_TYPE_SINGLE_NUMERIC, QUESTION_TYPE_MATH_EXPRESSION, QUESTION_TYPE_TEXT_EXACT_MATCH, QUESTION_TYPE_REFLECT, and QUESTION_TYPE_CODE_EXPRESSION.
+message RegexResponseAnswer {
+  google.protobuf.StringValue answer = 1;
+}
+
+// Container for an assessment evaluation.
+message AssessmentEvaluation {
+  // [0-100] Grade needed to pass this assessment
+  int32 passing_percentage = 1;
+  // [0.00-100.00] Learner's score for this attempt
+  google.protobuf.FloatValue last_score_percentage = 2;
+  // Learner's score is passing, failed, or neutral.
+  ResultType result_type = 3;
+  // Instructor has configured assessment to show or not show feedback.
+  FeedbackType feedback_type = 4;
+  // If an SGA is scored by the latest grade, ignore latest_attempt_grade_percentage since it
+  // will be the same as earned_grade_percentage
+  ScoringMethod scoring_method = 5;
+}
+
+// Container for an assessment question feedback.
+message QuestionFeedback {
+  bool is_correct = 1;
+  // body showing reason for (in)correctness.
+  shared.v2.RenderableHtml display = 2;
+  repeated QuestionFeedbackOption options = 3;
+  // Some assessments include array of which answers in the question were correct.
+  repeated QuestionFeedbackCorrectAnswers correct_answers = 4;
+}
+
+// Container for an assessment question option feedback.
+message QuestionFeedbackOption {
+  string id = 1;
+  bool is_correct = 2;
+  // Instructor has entered custom text explaining why option is correct or incorrect.
+  shared.v2.RenderableHtml feedback = 3;
+}
+
+// Container for an assessment question correct options feedback.
+message QuestionFeedbackCorrectAnswers {
+  string id = 1;
+  bool is_correct = 2;
+  google.protobuf.StringValue answer = 3;
+}
+
+// Container for a submitted assessment question.
+message SubmittedQuestion {
+  Question question = 1;
+  QuestionFeedback feedback = 2;
+  // Learner-submitted text, to a freeform questionType.
+  repeated google.protobuf.StringValue user_response = 3;
+}
+
+// Container for a submitted assessment question response.
+message SubmissionResponse {
+  repeated SubmittedQuestion questions = 1;
+  AssessmentEvaluation evaluation = 2;
+}
+
+// A status banner to be shown on the cover page.
+message StatusBanner {
+  StatusLevel status_level = 1;
+  oneof content {
+    LastAttempt last_attempt = 2;
+    NoAttemptsRemaining no_attempts_remaining = 3;
+    GradesDisclaimer grades_disclaimer = 4;
+  }
+  // The status level of the banner, which is used by the clients to determine the color of the banner.
+  enum StatusLevel {
+    STATUS_LEVEL_INVALID = 0;
+    STATUS_LEVEL_SUCCESS = 1;
+    STATUS_LEVEL_INFO = 2;
+    STATUS_LEVEL_DANGER = 3;
+  }
+  // Information for when no attempts are remaining.
+  message NoAttemptsRemaining {
+    google.protobuf.Timestamp next_available_attempt_time = 1;
+  }
+  // Information for when there is one attempt remaining in the current submission interval.
+  message LastAttempt {}
+
+  // Indicates that grades are provisional, and the mobile clients should show a disclaimer status banner.
+  message GradesDisclaimer {}
+}
+
+message LearnerInstructions {
+  // Renderable HTML of learner instructions overview
+  shared.v2.RenderableHtml overview = 2;
+  // Renderable HTML of learner instructions review criteria
+  shared.v2.RenderableHtml review_criteria = 3;
+}
+
+enum ScoringMethod {
+  SCORING_METHOD_INVALID = 0;
+  SCORING_METHOD_LATEST = 1;
+  SCORING_METHOD_HIGHEST = 2;
+}
+
+message AssessmentLength {
+  oneof assessment_length {
+    // Number of questions in an assessment
+    int32 question_count = 1;
+    // Total minutes needed to complete assessment (for SGAs)
+    int32 total_work_duration = 2;
+  }
+}
+
+message TimedAttemptInfo {
+  // Optional draft_id, if present, indicates the user has an in-progress draft
+  optional string draft_id = 1;
+  // Optional duration, indicates how much time (in seconds) is left for the current attempt
+  optional google.protobuf.Duration remaining_duration = 2;
+  // time limit, indicates total time limit (in seconds)
+  google.protobuf.Duration time_limit = 3;
+}
+
+enum AssessmentType {
+  ASSESSMENT_TYPE_INVALID = 0;
+  ASSESSMENT_TYPE_QUIZ = 1;
+  ASSESSMENT_TYPE_EXAM = 2;
+  ASSESSMENT_TYPE_ASSIGNMENT = 3;
+  ASSESSMENT_TYPE_TIMED_ASSESSMENT = 4;
+}

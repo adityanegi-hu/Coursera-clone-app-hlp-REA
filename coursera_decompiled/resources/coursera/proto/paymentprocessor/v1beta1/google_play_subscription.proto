@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlaySubscriptionProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Message representing a subscription listed on Google Play for purchase.
+message GooglePlaySubscription {
+  // Unique product ID of the product.
+  google.protobuf.StringValue product_id = 1;
+  // The set of base plans for this subscription.
+  repeated GooglePlayBasePlan base_plans = 2;
+  // Localized title and description data. Map key is the language of the localized data, as defined by BCP-47, e.g. "en-US".
+  repeated GooglePlaySubscriptionListing listings = 3;
+  // Details about taxes and legal compliance.
+  GooglePlaySubscriptionTaxAndComplianceSettings subscription_taxes_and_compliance_settings = 4;
+}
+
+message GooglePlayBasePlan {
+  // The unique identifier of this base plan.
+  google.protobuf.StringValue base_plan_id = 1;
+  // The state of the base plan.
+  GooglePlaySubscriptionState state = 2;
+  // Region-specific information for this base plan.
+  repeated GooglePlayRegionalBasePlanConfig regional_configs = 3;
+  // Pricing information for any new locations Play may launch in the future.
+  GooglePlayOtherRegionsBasePlanConfig other_regions_config = 4;
+  // Set when the base plan automatically renews at a regular interval.
+  GooglePlayAutoRenewingBasePlanType auto_renewing_base_plan_type = 5;
+}
+
+enum GooglePlaySubscriptionState {
+  GOOGLE_PLAY_SUBSCRIPTION_STATE_INVALID = 0;
+  GOOGLE_PLAY_SUBSCRIPTION_STATE_DRAFT = 1;
+  GOOGLE_PLAY_SUBSCRIPTION_STATE_ACTIVE = 2;
+  GOOGLE_PLAY_SUBSCRIPTION_STATE_INACTIVE = 3;
+}
+
+message GooglePlayRegionalBasePlanConfig {
+  // Region code this configuration applies to, as defined by ISO 3166-2, e.g. "US".
+  google.protobuf.StringValue region_code = 1;
+  // Whether the base plan in the specified region is available for new subscribers.
+  bool new_subscriber_availability = 2;
+  // The price of the base plan in the specified region.
+  google.type.Money price = 3;
+}
+
+message GooglePlayOtherRegionsBasePlanConfig {
+  // Price in USD to use for any new locations Play may launch in.
+  google.type.Money usd_price = 1;
+  // Price in EUR to use for any new locations Play may launch in.
+  google.type.Money eur_price = 2;
+  // Whether the base plan is available for new subscribers in any new locations Play may launch in.
+  bool new_subscriber_availability = 3;
+}
+
+message GooglePlayAutoRenewingBasePlanType {
+  // Subscription period, specified in ISO 8601 format.
+  GooglePlaySubscriptionBillingPeriod billing_period = 1;
+  // Grace period of the subscription, specified in ISO 8601 format.
+  GooglePlaySubscriptionGracePeriod grace_period = 2;
+  // Whether users should be able to resubscribe to this base plan.
+  GooglePlaySubscriptionResubscribeState resubscribe_state = 3;
+  // The proration mode for the base plan.
+  GooglePlaySubscriptionProrationMode proration_mode = 4;
+}
+
+enum GooglePlaySubscriptionBillingPeriod {
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_INVALID = 0;
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_EVERY_WEEK = 1;
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_EVERY_FOUR_WEEK = 2;
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_EVERY_MONTH = 3;
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_EVERY_THREE_MONTHS = 4;
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_EVERY_SIX_MONTHS = 5;
+  GOOGLE_PLAY_SUBSCRIPTION_BILLING_PERIOD_EVERY_YEAR = 6;
+}
+
+enum GooglePlaySubscriptionGracePeriod {
+  GOOGLE_PLAY_SUBSCRIPTION_GRACE_PERIOD_INVALID = 0;
+  GOOGLE_PLAY_SUBSCRIPTION_GRACE_PERIOD_ZERO_DAYS = 1;
+  GOOGLE_PLAY_SUBSCRIPTION_GRACE_PERIOD_THREE_DAYS = 2;
+  GOOGLE_PLAY_SUBSCRIPTION_GRACE_PERIOD_SEVEN_DAYS = 3;
+  GOOGLE_PLAY_SUBSCRIPTION_GRACE_PERIOD_FOURTEEN_DAYS = 4;
+  GOOGLE_PLAY_SUBSCRIPTION_GRACE_PERIOD_THIRTY_DAYS = 5;
+}
+
+enum GooglePlaySubscriptionResubscribeState {
+  GOOGLE_PLAY_SUBSCRIPTION_RESUBSCRIBE_STATE_INVALID = 0;
+  GOOGLE_PLAY_SUBSCRIPTION_RESUBSCRIBE_STATE_ACTIVE = 1;
+  GOOGLE_PLAY_SUBSCRIPTION_RESUBSCRIBE_STATE_INACTIVE = 2;
+}
+
+enum GooglePlaySubscriptionProrationMode {
+  GOOGLE_PLAY_SUBSCRIPTION_PRORATION_MODE_INVALID = 0;
+  GOOGLE_PLAY_SUBSCRIPTION_PRORATION_MODE_CHARGE_ON_NEXT_BILLING_DATE = 1;
+  GOOGLE_PLAY_SUBSCRIPTION_PRORATION_MODE_CHARGE_FULL_PRICE_IMMEDIATELY = 2;
+}
+
+message GooglePlaySubscriptionListing {
+  // The language of this listing, as defined by BCP-47, e.g. "en-US".
+  google.protobuf.StringValue language_code = 1;
+  // The title of this subscription in the language of this listing.
+  google.protobuf.StringValue title = 2;
+  // The description of this subscription in the language of this listing.
+  google.protobuf.StringValue description = 3;
+  // A list of benefits shown to the user on platforms such as the Play Store.
+  repeated google.protobuf.StringValue benefits = 4;
+}
+
+message GooglePlaySubscriptionTaxAndComplianceSettings {
+  // For products distributed in the EEA, represents whether the product is classified as a Digital
+  // Content or a Service.
+  GooglePlaySubscriptionWithdrawalRightType eea_withdrawal_right_type = 1;
+  // Specified details about taxation in a given geographical region.
+  map<string, GooglePlaySubscriptionRegionalTaxRateInfo> tax_rate_info_by_region_code = 2;
+}
+
+enum GooglePlaySubscriptionWithdrawalRightType {
+  GOOGLE_PLAY_SUBSCRIPTION_WITHDRAWAL_RIGHT_TYPE_INVALID = 0;
+  GOOGLE_PLAY_SUBSCRIPTION_WITHDRAWAL_RIGHT_TYPE_DIGITAL_CONTENT = 1;
+  GOOGLE_PLAY_SUBSCRIPTION_WITHDRAWAL_RIGHT_TYPE_SERVICE = 2;
+}
+
+message GooglePlaySubscriptionRegionalTaxRateInfo {
+  bool eligible_for_streaming_service_tax_rate = 1;
+}

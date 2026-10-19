@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="one">%d palautettava tehtävä</item>
+        <item quantity="other">%d palautettavaa tehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="one">%1$d tehtävä %1$d tehtävää</item>
+        <item quantity="other">%1$d tehtävä %1$d tehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="one">%1$d vuoropuhelu</item>
+        <item quantity="other">%1$d vuoropuhelua</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="one">%1$d keskustelu %1$d keskustelua</item>
+        <item quantity="other">%1$d keskustelu %1$d keskustelua</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="one">%1$d Arvosteltu tehtävä</item>
+        <item quantity="other">%1$d arvioitavaa tehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="one">%1$d arvioitava keskustelu %1$d arvioitavaa keskustelua</item>
+        <item quantity="other">%1$d arvioitava keskustelu %1$d arvioitavaa keskustelua</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="one">%1$d arvioitava laboratorio</item>
+        <item quantity="other">%1$d arvioitavaa laboratoriota</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="one">%1$d arvioitava roolipeli</item>
+        <item quantity="other">%1$d arvioitavaa roolipeliä</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="one">%1$d arvioitava ryhmätehtävä</item>
+        <item quantity="other">%1$d arvioitavaa ryhmätehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="one">%1$d laboratorio</item>
+        <item quantity="other">%1$d laboratoriota</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="one">%1$d lukittu lukutehtävä</item>
+        <item quantity="other">%1$d lukittua lukutehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="one">%1$d lukittu video</item>
+        <item quantity="other">%1$d lukittua videota</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="one">%1$d muistikirja</item>
+        <item quantity="other">%1$d muistikirjaa</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="one">%1$d Kohde</item>
+        <item quantity="other">%1$d Kohdetta</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="one">%1$d vertaisarvioitava tehtävä %1$d vertaisarvioitavaa tehtävää</item>
+        <item quantity="other">%1$d vertaisarvioitava tehtävä %1$d vertaisarvioitavaa tehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="one">%1$d vertaisarviointi %1$d vertaisarviointia</item>
+        <item quantity="other">%1$d vertaisarviointi %1$d vertaisarviointia</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="one">%1$d harjoitustehtävä</item>
+        <item quantity="other">%1$d harjoitustehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="one">%1$d vertaisarvioitava harjoitustehtävä %1$d vertaisarvioitavaa harjoitustehtävää</item>
+        <item quantity="other">%1$d vertaisarvioitava harjoitustehtävä %1$d vertaisarvioitavaa harjoitustehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="one">%1$d harjoitustietovisa %1$d harjoitustietovisaa</item>
+        <item quantity="other">%1$d harjoitustietovisa %1$d harjoitustietovisaa</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="one">%1$d harjoitusryhmätehtävä</item>
+        <item quantity="other">%1$d harjoitusryhmätehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="one">%1$d ohjelmointitehtävä %1$d ohjelmointitehtävää</item>
+        <item quantity="other">%1$d ohjelmointitehtävä %1$d ohjelmointitehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="one">%1$d tietovisa %1$d tietovisaa</item>
+        <item quantity="other">%1$d tietovisa %1$d tietovisaa</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="one">%1$d lukutehtävä %1$d lukutehtävää</item>
+        <item quantity="other">%1$d lukutehtävä %1$d lukutehtävää</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="one">%1$d roolipeli</item>
+        <item quantity="other">%1$d roolipeliä</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="one">%1$d diaesitys %1$d diaesitystä</item>
+        <item quantity="other">%1$d diaesitystä</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="one">%1$d Tiimiprojekti</item>
+        <item quantity="other">%1$d ryhmäprojektia</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="one">Onneksi olkoon! Olet arvioinut tehtävän! Auta muita kurssitovereitasi, jos sinulla on ylimääräistä aikaa.</item>
+        <item quantity="other">Onneksi olkoon! Olet arvioinut kaikki %s tehtävää! Auta muita kurssitovereitasi, jos sinulla on ylimääräistä aikaa.</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="one">kurssin ohjaaja</item>
+        <item quantity="other">Kurssin ohjaajaa</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="one">arvio %1$s/5 tähteä, %2$s arvostelua</item>
+        <item quantity="other">arvio %1$s/5 tähteä, %2$s arvostelua</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="one">Suorita arviointi</item>
+        <item quantity="other">Suorita %1$d arviointia</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="one">Suorita käytännön harjoitustehtävä</item>
+        <item quantity="other">Suorita %1$d käytännön harjoitustehtävää</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="one">Suorita oppitunti</item>
+        <item quantity="other">Suorita %1$d oppituntia</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="one">Katso video</item>
+        <item quantity="other">Katso %1$d videota</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="one">Suorita harjoitustehtävä</item>
+        <item quantity="other">Suorita %1$d harjoitustehtävää</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="one">Suorita lukutehtävä</item>
+        <item quantity="other">Suorita %1$d lukutehtävää</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="one">päivä</item>
+        <item quantity="other">päivää</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="one">%1$s tutkinto</item>
+        <item quantity="other">%1$s tutkintoa</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="one">%1$d päivä</item>
+        <item quantity="other">%1$d päivät</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="one">%1$d tunti</item>
+        <item quantity="other">%1$d tuntia</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">Siirry eteenpäin %d sekunti</item>
+        <item quantity="other">Siirry eteenpäin %d sekuntia</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">Siirry taaksepäin %d sekunti</item>
+        <item quantity="other">Siirry taaksepäin %d sekuntia</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="one">%1$d Moduuli</item>
+        <item quantity="other">%1$d Moduulia</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="one">%1$d Kurssisarja</item>
+        <item quantity="other">%1$d Kurssisarja</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="one">%1$d päivä</item>
+        <item quantity="other">%1$d päivää</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="one">on %1$d tehtävä</item>
+        <item quantity="other">on %1$d tehtävää</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="one">tunti</item>
+        <item quantity="other">tuntia</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="one">min</item>
+        <item quantity="other">min</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="one">kuukausi</item>
+        <item quantity="other">kuukautta</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="one">%1$d kurssi</item>
+        <item quantity="other">%1$d kurssia</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="one">1 piste</item>
+        <item quantity="other">%.1f pistettä</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="one">arvio %1$s/5 tähteä</item>
+        <item quantity="other">arvio %1$s/5 tähteä</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="one">tulos yhteensä</item>
+        <item quantity="other">tulosta yhteensä</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="one">piste</item>
+        <item quantity="other">pistettä</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="one">%d harjoituskysymys</item>
+        <item quantity="other">%d harjoituskysymystä</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="one">arvio %1$s/5 tähteä</item>
+        <item quantity="other">arvio %1$s/5 tähteä</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="one">kysymys</item>
+        <item quantity="other">kysymystä</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="one">%1$s piste</item>
+        <item quantity="other">%1$s pistettä</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="one">%d kysymys</item>
+        <item quantity="other">%d kysymystä</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="one">kysymys</item>
+        <item quantity="other">kysymystä</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="one">%d KYSYMYS</item>
+        <item quantity="other">%d KYSYMYSTÄ</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="one">%d minuutti</item>
+        <item quantity="other">%d minuuttia</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="one">vastaus</item>
+        <item quantity="other">vastausta</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="one">%1$d kohde</item>
+        <item quantity="other">%1$d kohdetta</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="one">Näytä %d kurssi</item>
+        <item quantity="other">Näytä kaikki %d kurssia</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="one">Näytä %1$d/%2$s kurssia Näytä %1$d/%2$s kurssia</item>
+        <item quantity="other">Näytä %1$d/%2$s kurssia Näytä %1$d/%2$s kurssia</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="one">taito</item>
+        <item quantity="other">taitoa</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="one">Vielä %1$d päivä oppimista viikkotavoitteesi saavuttamiseen!</item>
+        <item quantity="other">Vielä %1$d päivää oppimista viikkotavoitteesi saavuttamiseen!</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="one">Opiskele vielä %1$d päivän ajan oppimistavoitteesi saavuttamiseksi!</item>
+        <item quantity="other">Opiskele vielä %1$d päivän ajan oppimistavoitteesi saavuttamiseksi!</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="one">arvio: %1$s/5 tähteä, %2$s</item>
+        <item quantity="other">arvio: %1$s/5 tähteä, %2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="one">kannatus</item>
+        <item quantity="other">kannatusta</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="one">%1$d viikko</item>
+        <item quantity="other">%1$d viikkoa</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="one">vuosi</item>
+        <item quantity="other">vuotta</item>
+    </plurals>
+</resources>

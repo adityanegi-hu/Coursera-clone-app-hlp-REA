@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta1;
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta1";
+option go_package = "commonv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "ChargingCadenceProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta1";
+
+// Cadence in which to charge a Subscription.
+enum ChargingCadence {
+  CHARGING_CADENCE_INVALID = 0;
+  CHARGING_CADENCE_MONTHLY = 1;
+  CHARGING_CADENCE_ANNUAL = 2;
+  CHARGING_CADENCE_BIANNUAL = 3;
+}

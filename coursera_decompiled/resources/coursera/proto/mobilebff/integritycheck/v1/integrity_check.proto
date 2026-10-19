@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.integritycheck.v1;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Integritycheck.V1";
+option go_package = "integritycheckv1";
+option java_multiple_files = true;
+option java_outer_classname = "IntegrityCheckProto";
+option java_package = "org.coursera.proto.mobilebff.integritycheck.v1";
+option objc_class_prefix = "CPMI";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Integritycheck\\V1";
+option swift_prefix = "MobilebffIntegritycheckV1";
+
+// Type of integrity check to perform
+enum CheckType {
+  CHECK_TYPE_INVALID = 0;
+  // Check similarity response
+  CHECK_TYPE_TEXTSIMILARITY = 1;
+  // Check if the response is gibberish
+  CHECK_TYPE_GIBBERISH = 2;
+}
+
+message Result {
+  // prompt ID
+  string prompt_id = 1;
+  // what type of check was deterred for the prompt
+  repeated CheckType deterred_checks = 2;
+}
+
+enum DeterrenceLevel {
+  DETERRENCE_LEVEL_INVALID = 0;
+  // No deterrence
+  DETERRENCE_LEVEL_NONE = 1;
+  // Passively deter the user from submitting
+  DETERRENCE_LEVEL_PASSIVE = 2;
+  // Actively deter the user from submitting
+  DETERRENCE_LEVEL_ACTIVE = 3;
+}

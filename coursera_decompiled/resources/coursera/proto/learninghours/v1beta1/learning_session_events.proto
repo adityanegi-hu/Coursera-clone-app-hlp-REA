@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package coursera.proto.learninghours.v1beta1;
+
+import "coursera/proto/learninghours/v1beta1/learning_session.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Learninghours.V1Beta1";
+option go_package = "learninghoursv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "LearningSessionEventsProto";
+option java_package = "org.coursera.proto.learninghours.v1beta1";
+option objc_class_prefix = "CPL";
+option php_namespace = "Coursera\\Proto\\Learninghours\\V1Beta1";
+
+message LatestLearningSessionUpdateEvent {
+  // The latest learning session for a user that was updated
+  LearningSession latest_learning_session = 1;
+  // The difference, in milliseconds between the previous end time and the updated end time of
+  // the session. If no learning session was in progress, this represents the duration of
+  // the session so far.
+  google.protobuf.Int64Value difference_end_time_milliseconds = 2;
+}

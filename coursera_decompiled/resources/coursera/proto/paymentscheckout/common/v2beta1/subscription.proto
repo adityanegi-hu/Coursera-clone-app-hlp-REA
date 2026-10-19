@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package coursera.proto.paymentscheckout.common.v2beta1;
+
+import "coursera/proto/sharedentitlement/v1beta1/product_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_status.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentscheckout.Common.V2Beta1";
+option go_package = "commonv2beta1";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionProto";
+option java_package = "org.coursera.proto.paymentscheckout.common.v2beta1";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentscheckout\\Common\\V2Beta1";
+
+// A Subscription represents a scheduled recurring payment on some billing cycle.
+message Subscription {
+  // The id for this subscription.
+  string id = 1;
+  // The id of the user that owns this subscription.
+  int64 user_id = 2;
+  // The id of the original cart that was associated with the creation of this subscription.
+  int64 cart_id = 3;
+  // The status of the subscription.
+  coursera.proto.sharedpayments.v1.SubscriptionStatus status = 4;
+  // The payment processor that is responsible for processing this subscription.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 5 [deprecated = true];
+  // The id for this subscription in the payment processor's system.
+  string payment_processor_subscription_id = 6;
+  // (Optional) The id of the wallet that will be used to pay for this subscription.
+  google.protobuf.Int64Value payment_wallet_id = 7;
+  // The start time of the subscription.
+  google.protobuf.Timestamp starts_at = 8;
+  // (Optional) The approximate time that we expect the next recurring payment to occur, if applicable.
+  google.protobuf.Timestamp next_billing_at = 9;
+  // Whether or not this subscription is active.
+  bool is_active = 10;
+  // The product id that this subscription is for (i.e. what was purchased).
+  coursera.proto.sharedentitlement.v1beta1.ProductId product_id = 11;
+  // The product sku used to check out this subscription (i.e. how it was purchased).
+  coursera.proto.sharedentitlement.v1beta1.ProductId product_sku = 12;
+  // The subscription processor that is responsible for processing this subscription.
+  coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 13;
+}

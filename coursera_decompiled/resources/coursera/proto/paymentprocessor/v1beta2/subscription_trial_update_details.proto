@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionTrialUpdateDetailsProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Trial Update information for a subscription.
+message SubscriptionTrialUpdateDetails {
+  // updated time for the subscription's trial to end. to end the trial now, send some time
+  // equal to or before now.
+  google.protobuf.Timestamp trial_end = 1;
+  // A black box, generic metadata field that stores additional information about the subscription.
+  google.protobuf.Struct product_metadata = 2;
+}

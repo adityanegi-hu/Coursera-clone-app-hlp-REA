@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "SubscriptionPaymentInformationProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Payment information for a subscription.
+message SubscriptionPaymentInformation {
+  oneof subscription_payment_information {
+    GooglePlaySubscriptionPaymentInformation google_play_subscription_payment_information = 1;
+    StripeSubscriptionPaymentInformation stripe_subscription_payment_information = 2;
+  }
+}
+
+// Payment information for a Google Play subscription.
+message GooglePlaySubscriptionPaymentInformation {
+  google.protobuf.StringValue google_play_sku = 1;
+  google.protobuf.StringValue google_play_purchase_token = 2;
+  bool is_sandbox = 3;
+}
+
+// Payment information for a Stripe subscription.
+message StripeSubscriptionPaymentInformation {
+  google.protobuf.StringValue stripe_subscription_id = 1;
+  google.protobuf.BoolValue is_sand_box = 2;
+  google.protobuf.BoolValue is_stripe_bv = 3;
+}

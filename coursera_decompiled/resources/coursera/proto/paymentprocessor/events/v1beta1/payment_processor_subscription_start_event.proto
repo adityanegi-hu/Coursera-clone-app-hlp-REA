@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.events.v1beta1;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_subscription.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Events.V1Beta1";
+option go_package = "eventsv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionStartEventProto";
+option java_package = "org.coursera.proto.paymentprocessor.events.v1beta1";
+option objc_class_prefix = "CPPE";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Events\\V1Beta1";
+
+// Event that is fired when a Subscription start webhook has been received from a Payment Processor.
+message PaymentProcessorSubscriptionStartEvent {
+  // Cart ID used for mapping this subscription back to internal data.
+  uint64 cart_id = 1;
+  // Payment processor subscription.
+  coursera.proto.paymentprocessor.common.v1beta1.PaymentProcessorSubscription payment_processor_subscription = 2;
+}

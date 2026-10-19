@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_exception_details.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_required_action.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_transaction.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_processor_id.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionCheckoutResultProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Result of the Subscription Checkout
+message PaymentProcessorSubscriptionCheckoutResult {
+  // Result
+  oneof result {
+    PaymentProcessorSubscriptionCheckoutSuccessResult success_result = 1;
+    PaymentProcessorSubscriptionCheckoutFailureResult failure_result = 2;
+    PaymentProcessorSubscriptionCheckoutPendingResult pending_result = 3;
+  }
+}
+
+// Container for a success result.
+message PaymentProcessorSubscriptionCheckoutSuccessResult {
+  // Details of the subscription checkout.
+  PaymentProcessorSubscriptionCheckoutDetails checkout_details = 1;
+}
+
+// Details of a subscription checkout.
+message PaymentProcessorSubscriptionCheckoutDetails {
+  // Payment processor in which this subscription was created on.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1 [deprecated = true];
+  // Payment processor external subscription id.
+  string payment_processor_subscription_id = 2;
+  // Timestamp of the subscription checkout.
+  google.protobuf.Timestamp timestamp = 3;
+  // The time in which the next billing is expected to take place.
+  google.protobuf.Timestamp next_billing_at = 4;
+  // (Optional) Current paid through until date; Absent when free trial and present otherwise.
+  google.protobuf.Timestamp paid_through_until = 5;
+  // Whether the subscription is in free trial.
+  bool is_free_trial = 6;
+  // (Optional) Payment wallet ID that was used to checkout this subscription, if applicable.
+  google.protobuf.Int64Value payment_wallet_id = 7;
+  // (Optional) The transaction that was created to checkout this subscription; Absent when free trial and present otherwise.
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorTransaction checkout_transaction = 8;
+  // Subscription processor in which this subscription was created on.
+  coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 9;
+}
+
+// Container for a failure result.
+message PaymentProcessorSubscriptionCheckoutFailureResult {
+  // Exception details of the failure.
+  coursera.proto.paymentprocessor.common.v1beta1.PaymentProcessorExceptionDetails exception_details = 1;
+  // (Optional) The transaction that was created to checkout this subscription, if available
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorTransaction checkout_transaction = 2;
+}
+
+// Container for a pending result.
+message PaymentProcessorSubscriptionCheckoutPendingResult {
+  // Additional action needed to completed payment.
+  optional PaymentProcessorRequiredAction payment_processor_required_action = 1;
+  // (Optional) Payment processor reference id of the Subscription Checkout.
+  optional string payment_processor_checkout_reference_id = 2;
+}

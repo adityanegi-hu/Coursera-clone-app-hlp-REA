@@ -1,0 +1,192 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.assessments.v3;
+
+import "coursera/proto/mobilebff/assessments/v3/mobile_assessments.proto";
+import "coursera/proto/mobilebff/coursehome/v4/mobile_course_home.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Assessments.V3";
+option go_package = "assessmentsv3";
+option java_multiple_files = true;
+option java_outer_classname = "MobileAssessmentsApiProto";
+option java_package = "org.coursera.proto.mobilebff.assessments.v3";
+option objc_class_prefix = "CPMA";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Assessments\\V3";
+option swift_prefix = "MobilebffAssessmentsV3";
+
+// A Service to get assessments for mobile.
+service MobileAssessmentsAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get previous assessment submission by (course id or course slug), item id and session id.
+  rpc GetPreviousMobileAssessment(GetPreviousMobileAssessmentRequest) returns (GetPreviousMobileAssessmentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetPreviousMobileAssessment"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetPreviousMobileAssessment"}
+    };
+  }
+  // Get assessment by course id or course slug and item id.
+  rpc GetMobileAssessment(GetMobileAssessmentRequest) returns (GetMobileAssessmentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetMobileAssessment"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetMobileAssessment"}
+    };
+  }
+  // Submit assessment by (course id or course slug), item id, session id and answers.
+  rpc SubmitMobileAssessment(SubmitMobileAssessmentRequest) returns (SubmitMobileAssessmentResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/SubmitMobileAssessment"
+      body: "*"
+    };
+  }
+  // Get cover page for assessments.
+  rpc GetMobileAssessmentCoverPage(GetMobileAssessmentCoverPageRequest) returns (GetMobileAssessmentCoverPageResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetMobileAssessmentCoverPage"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetMobileAssessmentCoverPage"}
+    };
+  }
+  // Get cover page for assessments.
+  rpc GetMobileAssessmentCoverPageLimited(GetMobileAssessmentCoverPageLimitedRequest) returns (GetMobileAssessmentCoverPageLimitedResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetMobileAssessmentCoverPageLimited"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/assessments/v3/MobileAssessmentsAPI/GetMobileAssessmentCoverPageLimited"}
+    };
+  }
+}
+
+message GetPreviousMobileAssessmentRequest {
+  string course_id = 1;
+  string item_id = 2;
+  // sessionId is only sessionId — will look like `1~1547597938490` for quizzes, will be
+  // submission id (ex. "SvfQfG9oEe2cfg6-QB-JqQ") for staff graded assessments
+  string session_id = 3;
+  optional string course_slug = 4;
+  optional coursera.proto.mobilebff.coursehome.v4.ContentType item_type = 5;
+}
+
+message GetPreviousMobileAssessmentResponse {
+  SubmissionResponse submission_response = 1;
+  // It is possible for an SGA to change and a previous version of the assignment is not supported
+  // on mobile while the current one is
+  bool assignment_supported = 2;
+  // if false, refer to attempts_remaining
+  bool unlimited_attempts = 3;
+  // Unlimited if empty
+  optional int32 attempts_remaining = 4;
+  // Optional assessment type, used to determine if the assessment is a quiz, exam or an assignment
+  optional AssessmentType assessment_type = 5;
+  // Optional field, gives the info for a timed attempt
+  optional TimedAttemptInfo timed_attempt_info = 6;
+}
+
+message GetMobileAssessmentRequest {
+  string course_id = 1;
+  string item_id = 2;
+  optional string course_slug = 3;
+  optional coursera.proto.mobilebff.coursehome.v4.ContentType item_type = 4;
+}
+
+message GetMobileAssessmentResponse {
+  // Learner instructions for staff graded assessments
+  optional LearnerInstructions learner_instructions = 1;
+  repeated Question questions = 2;
+  // Optional, indicates the id of the ongoing attempt
+  optional string attempt_id = 3;
+  // Optional duration, indicates how much time (in seconds) is left on the current attempt
+  optional google.protobuf.Duration remaining_duration = 4;
+}
+
+message SubmitMobileAssessmentRequest {
+  string course_id = 1;
+  string item_id = 2;
+  repeated QuestionSubmissionEntry quiz_answers = 3;
+  optional string attempt_id = 4;
+  optional string course_slug = 5;
+  optional coursera.proto.mobilebff.coursehome.v4.ContentType item_type = 6;
+}
+
+message SubmitMobileAssessmentResponse {
+  SubmissionResponse submission_response = 1;
+  // Indicates if feedback and evaluation is available or not
+  bool results_available = 2;
+}
+
+message GetMobileAssessmentCoverPageRequest {
+  string course_id = 1;
+  string item_id = 2;
+  optional string course_slug = 3;
+  optional coursera.proto.mobilebff.coursehome.v4.ContentType item_type = 4;
+}
+
+message GetMobileAssessmentCoverPageResponse {
+  string name = 1;
+  google.protobuf.Timestamp due_at_time = 2;
+  // Information about how long an assessment will take
+  AssessmentLength assessment_length = 3;
+  // [0-100] Required percentage to pass the exam.
+  int32 passing_percentage = 4;
+  // Learner has not or has attempted this assessment previously.
+  bool is_first_attempt = 5;
+  // [0.00-100.00] Learner's best score for this assessment
+  google.protobuf.FloatValue best_score_percentage = 6;
+  // Duration of attempt window (n attempts per k time period).
+  google.protobuf.Duration attempt_interval_duration = 7;
+  // Count of max number of attempts within attempt_interval.
+  google.protobuf.Int32Value attempts_per_interval = 8;
+  // 0, 1, or many status banners to show.
+  repeated StatusBanner status_banners = 9;
+  // sessionId of most recent previous session attempt. `sessionId` is only sessionId, will look
+  // like `1~1547597938490`. (sessionID is not needed for SGAs)
+  google.protobuf.StringValue last_session_id = 10;
+  // For SGAs, whether the assignment is scored by latest grade or highest grade
+  optional ScoringMethod scoring_method = 11;
+  // Optional assessment type, used to determine if the assessment is a quiz, exam or an assignment
+  optional AssessmentType assessment_type = 12;
+  // Optional field, gives the info for a timed attempt
+  optional TimedAttemptInfo timed_attempt_info = 13;
+  // if false, refer to attempts_remaining
+  bool unlimited_attempts = 14;
+  optional int32 attempts_remaining = 15;
+}
+
+message GetMobileAssessmentCoverPageLimitedRequest {
+  string course_id = 1;
+  string item_id = 2;
+  optional string course_slug = 3;
+}
+
+message GetMobileAssessmentCoverPageLimitedResponse {
+  string name = 1;
+  google.protobuf.Timestamp due_at_time = 2;
+  // Information about how long an assessment will take
+  AssessmentLength assessment_length = 3;
+}

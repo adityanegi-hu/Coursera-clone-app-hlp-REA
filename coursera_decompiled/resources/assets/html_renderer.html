@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Setting the initial scale to 0.95 coupled with the fact that the font size is determined
+         using screen density prevents the math blocks that we've seen from being cut out of
+         the view for devices with various screen sizes. -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=0.95" />
+    <link href='CodeMirror/lib/codemirror.css' rel='stylesheet'>
+    <link href='CodeMirror/theme/solarized.css' rel='stylesheet'>
+    <link rel="stylesheet" href="html_styles.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            messageStyle: "none"
+        });
+        MathJax.Hub.Register.StartupHook(
+            "End",
+            function() {window.courseraHTMLWebView.javascriptDidRun();}
+        );
+    </script>
+    <script type="text/javascript" src="MathJax/MathJax.js?config=default"></script>
+
+</head>
+<body id="bodyExpression" dir="auto">
+
+%HTML_CONTENT%
+
+<script>
+        var expressionIDMap = {};
+        function windowHeight() {
+            return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+        }
+
+        function updateAnchorLinks() {
+            let anchorElements = document.getElementsByTagName('a');
+            for (let anchor of anchorElements) {
+                if (anchor.className == 'code-block-run') {
+                    anchor.addEventListener('click', function() {
+                        event.preventDefault();
+                        executeCodeBlock(anchor.dataset.evaluatorId);
+                    }, false)
+                }
+            }
+        }
+
+        function executeCodeBlock(evaluatorID) {
+            let resultDivID = "code-result-div-" + evaluatorID;
+            let resultDiv = document.getElementById(resultDivID);
+            resultDiv.style.display = 'block';
+            let resultElementID = "code-result-" + evaluatorID;
+            let codeResultElement = document.getElementById(resultElementID);
+            codeResultElement.innerHTML = 'Executing...';
+            courseraHTMLWebView.executeCodeBlock(evaluatorID, expressionIDMap[evaluatorID]);
+        }
+
+        function onCodeChanged(evaluatorId, code) {
+          codeBlockHTMLWebView.onCodeChanged(evaluatorId, code);
+        }
+
+        function updateCodeResult(resultElementID, result) {
+            let codeResultElement = document.getElementById(resultElementID);
+            codeResultElement.innerHTML = result;
+        }
+
+        function codeMirrorLanguage(language) {
+            switch(language) {
+            case "java": case "cpp": case "c": case "c_cpp": case "objectivec": case "kotlin": case "scala":
+                return "clike";
+            case "html": case "plain_text": case "none": case null:
+                return "htmlmixed";
+            case "typescript": case "json":
+                return "javascript";
+            case "matlab":
+                return "octave";
+            case "latex":
+                return "stex";
+            case "ocaml":
+                return "mllike";
+            case "sh":
+                return "shell";
+            default:
+                return language
+            }
+        }
+
+        function mimeType(language) {
+        switch(language) {
+            case "c":
+                return "text/x-csrc";
+            case "cpp":
+                return "text/x-c++src";
+            case "css":
+                return "text/css";
+            case "dockerfile":
+                return "text/x-dockerfile";
+            case "go":
+                return "text/x-go";
+            case "haskell":
+                return "text/x-haskell";
+            case "html":
+                return "text/html";
+            case "javascript":
+                return "text/javascript";
+            case "latex":
+                return "text/x-latex";
+            case "markdown":
+                return "text/x-markdown";
+            case "matlab":
+                return "text/x-octave";
+            case "objectivec":
+                return "text/x-objectivec";
+            case "ocaml":
+                return "text/x-ocaml";
+            case "octave":
+                return "text/x-octave";
+            case "perl":
+                return "text/x-perl";
+            case "php":
+                return "text/x-php";
+            case "prolog":
+                return "text/x-prolog";
+            case "python":
+                return "text/x-python";
+            case "r":
+                return "text/x-rsrc";
+            case "ruby":
+                return "text/x-ruby";
+            case "scala":
+                return "text/x-scala";
+            case "scheme":
+                return "text/x-scheme";
+            case "sh":
+                return "text/x-sh";
+            case "sql":
+                return "text/x-sql";
+            case "swift":
+                return "text/x-swift";
+            case "typescript":
+                return "text/typescript";
+            case "vhdl":
+                return "text/x-vhdl";
+            case "xml":
+                return "application/xml";
+            case "yaml":
+                return "text/x-yaml";
+            default:
+                return language
+            }
+        }
+
+        function loadCodeLanguageModes() {
+            let codeElements = document.getElementsByTagName('code');
+            var modesMap = new Map();
+            for (let element of codeElements) {
+                if (element.id.startsWith('code-result')) {
+                    continue;
+                }
+                let language = codeMirrorLanguage(element.getAttribute('language'));
+                expressionIDMap[element.getAttribute('evaluatorid')] = element.textContent;
+                if (!modesMap.has(language)) {
+                    modesMap.set(language, new Set());
+                    modesMap.get(language).add(element);
+                } else {
+                    modesMap.get(language).add(element);
+                }
+            }
+            modesMap.forEach (function(value, key) {
+                var mode = document.createElement('script');
+                    mode.type = 'text/javascript';
+                    mode.src = 'CodeMirror/mode/' + key + '/' + key + '.js';
+                    mode.onload = function() {
+                        for (let element of value) {
+                            createCodeEditorFromElement(element);
+                        }
+                    };
+                    document.head.appendChild(mode);
+            })
+        }
+
+        function createCodeEditorFromElement(element) {
+            let languageType = mimeType(element.getAttribute('language'));
+            let isExecutable = element.hasAttribute('evaluatorid');
+            if (isExecutable) {
+                let evaluatorId = element.getAttribute('evaluatorid');
+                element.insertAdjacentHTML('afterend', "<div class='code-result-div' id='code-result-div-" + evaluatorId + "'><pre class='code-result'><code id='code-result-" + evaluatorId + "'>Code output</code></pre></div><div><a href='#' class='code-block-run' id='" + evaluatorId + "'><div class='inline-button'>Run</div></a></div>");
+                let runButton = document.getElementById(evaluatorId);
+                runButton.addEventListener('click', function() {
+                    event.preventDefault();
+                    executeCodeBlock(runButton.id);
+                }, false);
+            }
+            var myCodeMirror = CodeMirror(function(elt) {
+                element.parentNode.replaceChild(elt, element);
+            }, {
+                value: element.textContent,
+                lineNumbers: true,
+                mode: languageType,
+                theme: 'solarized dark',
+                styleActiveLine: true,
+                matchBrackets: true,
+                autoCloseBrackets: true,
+                autoCloseTags: true,
+                inputStyle: 'textarea',
+                viewportMargin: Infinity,
+                readOnly: !isExecutable
+            }).on('changes', editor => {
+                expressionIDMap[element.getAttribute('evaluatorid')] = editor.getValue();
+                onCodeChanged(element.getAttribute('evaluatorid'), editor.getValue());
+            });
+        }
+
+        window.onload=function() {
+            loadCodeLanguageModes();
+            updateAnchorLinks();
+        }
+
+        </script>
+<script src="CodeMirror/lib/codemirror.js" type='text/javascript'></script>
+<script src="CodeMirror/addon/edit/closebrackets.js" type='text/javascript'></script>
+<script src="CodeMirror/addon/edit/closetag.js" type='text/javascript'></script>
+</body>
+</html>

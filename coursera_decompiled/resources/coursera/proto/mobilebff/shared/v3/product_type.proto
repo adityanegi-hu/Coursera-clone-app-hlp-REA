@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.shared.v3;
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Shared.V3";
+option go_package = "sharedv3";
+option java_multiple_files = true;
+option java_outer_classname = "ProductTypeProto";
+option java_package = "org.coursera.proto.mobilebff.shared.v3";
+option objc_class_prefix = "CPMS";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Shared\\V3";
+option swift_prefix = "MobilebffShared";
+
+// Product types supported on mobile.
+enum ProductType {
+  PRODUCT_TYPE_INVALID = 0;
+  PRODUCT_TYPE_COURSE = 1;
+  PRODUCT_TYPE_SPECIALIZATION = 2;
+  PRODUCT_TYPE_PROFESSIONAL_CERTIFICATE = 3;
+  PRODUCT_TYPE_RHYME_PROJECT = 4;
+  // Not supported on iOS; opened on web view for Android
+  PRODUCT_TYPE_MASTERTRACK = 5;
+  // Not supported on iOS; opened on web view for Android
+  PRODUCT_TYPE_DEGREE = 6;
+  PRODUCT_TYPE_PROJECT = 7;
+  PRODUCT_TYPE_CLIP = 8;
+  PRODUCT_TYPE_LESSON = 9;
+}

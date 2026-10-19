@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.checkout.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_discount.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/applied_tax.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/billing_details.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_transaction_checkout_result.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedentitlement/v1beta1/product_type.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/payment_transaction_billing_info.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Checkout.V1Beta2";
+option go_package = "checkoutv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "TransactionCheckoutApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.checkout.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Checkout\\V1Beta2";
+
+// Service for checking out a Transaction.
+service TransactionCheckoutAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: ["payments-checkout-application"]
+  };
+
+  // Initialize a transaction checkout with the payment processor.
+  rpc InitializeTransactionCheckout(InitializeTransactionCheckoutRequest) returns (InitializeTransactionCheckoutResponse);
+  // Update a transaction checkout with new details.
+  rpc UpdateTransactionCheckout(UpdateTransactionCheckoutRequest) returns (UpdateTransactionCheckoutResponse);
+  // Submit a transaction checkout to complete the checkout.
+  rpc SubmitTransactionCheckout(SubmitTransactionCheckoutRequest) returns (SubmitTransactionCheckoutResponse);
+}
+
+// Request message for initializing a transaction checkout.
+message InitializeTransactionCheckoutRequest {
+  // ID of the Payment Processor in which to initialize checkout on.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of the cart that this transaction belongs to.
+  google.protobuf.Int64Value cart_id = 2;
+  // Base amount before promotions and taxes to charge.
+  google.type.Money base_amount = 3;
+  // (Optional) Discount applied to the transaction checkout request.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedDiscount applied_discount = 4;
+  // (Optional) Tax applied to the transaction checkout request.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedTax applied_tax = 5;
+  // (Optional) Billing info for the transaction checkout request.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 6;
+  // Final amount to charge after promotions and taxes have been applied
+  google.type.Money final_amount = 7;
+  // The user id for customer.
+  google.protobuf.UInt64Value user_id = 8;
+  // The product type
+  coursera.proto.sharedentitlement.v1beta1.ProductType product_type = 9;
+  // The email for the customer to store in the Coursera platform.
+  google.protobuf.StringValue user_email = 10;
+  // Whether to save the payment method for future use. Defaults to false.
+  bool save_payment_method = 11;
+  //cart country iso code at the time of checkout
+  google.protobuf.StringValue cart_country_iso_code = 12;
+}
+
+// Response message for initializing a transaction checkout.
+message InitializeTransactionCheckoutResponse {
+  // (Optional) Payment processor reference id of the Transaction Checkout.
+  google.protobuf.StringValue payment_processor_checkout_reference_id = 1;
+  // Data from Payment processor necessary to continue checkout.
+  google.protobuf.Struct payment_processor_checkout_context = 2;
+}
+
+// Request message for updating a transaction checkout.
+message UpdateTransactionCheckoutRequest {
+  // ID of the Payment Processor in which to update the checkout for.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // Payment processor reference id of the Transaction Checkout.
+  google.protobuf.StringValue payment_processor_checkout_reference_id = 2;
+  // Body for this update request
+  // Deprecated: Use `update_body` instead.
+  oneof body {
+    // Billing details to update the transaction checkout.
+    coursera.proto.paymentprocessor.common.v1beta2.BillingDetails billing_details = 3 [deprecated = true];
+    // Whether to save the payment method for future use.
+    google.protobuf.BoolValue save_payment_method = 4 [deprecated = true];
+  }
+  // Update request body.
+  UpdateTransactionCheckoutRequestBody update_body = 5;
+}
+
+// Response message for updating a transaction checkout.
+message UpdateTransactionCheckoutResponse {}
+
+// Request body for updating a transaction checkout.
+// Only fields that are explicitly provided will be updated.
+message UpdateTransactionCheckoutRequestBody {
+  // Billing details to update the transaction checkout.
+  optional coursera.proto.paymentprocessor.common.v1beta2.BillingDetails billing_details = 1;
+  // Whether to save the payment method for future use.
+  optional bool save_payment_method = 2;
+}
+
+// Request message for submitting a transaction checkout.
+message SubmitTransactionCheckoutRequest {
+  // ID of the Payment Processor in which to submit checkout to.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  // ID of the cart that this transaction belongs to.
+  google.protobuf.Int64Value cart_id = 2;
+  // Base amount before promotions and taxes to charge.
+  google.type.Money base_amount = 3;
+  // (Optional) Discount applied to the transaction checkout request.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedDiscount applied_discount = 4;
+  // Tax applied to the transaction checkout request.
+  coursera.proto.paymentprocessor.common.v1beta2.AppliedTax applied_tax = 5;
+  // Final amount to charge after promotions and taxes have been applied.
+  google.type.Money final_amount = 6;
+  // Billing information associated with this transaction.
+  coursera.proto.sharedpayments.v1.PaymentTransactionBillingInfo billing_info = 7;
+  // Additional information required by the PaymentProcessor to process the transaction checkout.
+  google.protobuf.Struct payment_processor_params = 8;
+  // Whether to save the payment method for future use.
+  optional bool save_payment_method = 9;
+  // (Optional) The payment method the user selected to be used for checkout.
+  google.protobuf.Int64Value selected_payment_method_id = 10;
+  // The product type.
+  coursera.proto.sharedentitlement.v1beta1.ProductType product_type = 11;
+  // The user id for customer.
+  google.protobuf.UInt64Value user_id = 12;
+  // The email for the customer to store in the Coursera platform.
+  google.protobuf.StringValue user_email = 13;
+  //cart country iso code at the time of checkout
+  google.protobuf.StringValue cart_country_iso_code = 14;
+}
+
+// Response message for submitting a transaction checkout.
+message SubmitTransactionCheckoutResponse {
+  // Result of the Transaction Checkout
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorTransactionCheckoutResult result = 1;
+}

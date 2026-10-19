@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.common.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta1/payment_processor_exception_details.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_transaction.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "coursera/proto/sharedpayments/v1/subscription_processor_id.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.Common.V1Beta2";
+option go_package = "commonv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "PaymentProcessorSubscriptionRenewalResultProto";
+option java_package = "org.coursera.proto.paymentprocessor.common.v1beta2";
+option objc_class_prefix = "CPPC";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\Common\\V1Beta2";
+
+// Container for the result of a subscription renewal.
+message PaymentProcessorSubscriptionRenewalResult {
+  // Result
+  oneof result {
+    PaymentProcessorSubscriptionRenewalSuccessResult success_result = 1;
+    PaymentProcessorSubscriptionRenewalFailureResult failure_result = 2;
+  }
+}
+
+// Container for a success result.
+message PaymentProcessorSubscriptionRenewalSuccessResult {
+  // Details of a subscription renewal.
+  PaymentProcessorSubscriptionRenewalDetails renewal_details = 1;
+}
+
+// Details of a subscription renewal.
+message PaymentProcessorSubscriptionRenewalDetails {
+  // Payment processor in which this subscription belongs to.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1 [deprecated = true];
+  // Payment processor external subscription id.
+  string payment_processor_subscription_id = 2;
+  // (Optional) The time in which the next billing is expected to take place, if applicable.
+  google.protobuf.Timestamp next_billing_at = 3;
+  // Current paid through until date due to this renewal.
+  google.protobuf.Timestamp paid_through_until = 4;
+  // (Optional) Payment wallet ID that was used for this renewal, if applicable.
+  google.protobuf.Int64Value payment_wallet_id = 5;
+  // The transaction that was created for this renewal.
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorTransaction renewal_transaction = 6;
+  // Additional specific subscription renew metadata.  (e.g., Stripe subscription's freeTrialEndEarly flag)
+  google.protobuf.Struct renewal_metadata = 7;
+  // Subscription processor in which this subscription belongs to.
+  coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 8;
+}
+
+// Container for a failure result.
+message PaymentProcessorSubscriptionRenewalFailureResult {
+  // Payment processor in which this subscription belongs to.
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1 [deprecated = true];
+  // Payment processor external subscription id.
+  string payment_processor_subscription_id = 2;
+  // Exception details of the failure.
+  coursera.proto.paymentprocessor.common.v1beta1.PaymentProcessorExceptionDetails exception_details = 3;
+  // (Optional) The transaction that was created to checkout this subscription, if available
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorTransaction checkout_transaction = 4;
+  // Payment processor in which this subscription belongs to.
+  coursera.proto.sharedpayments.v1.SubscriptionProcessorId subscription_processor_id = 5;
+}

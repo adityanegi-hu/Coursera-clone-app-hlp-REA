@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="17dp"
+    android:width="15dp"
+    android:viewportWidth="15"
+    android:viewportHeight="17">
+    <path
+        android:fillColor="#2f75c9"
+        android:pathData="M5.319,8.056L1,8.056L7.704,0L14.667,8.033L10.075,8.033L10.075,16L5.319,16L5.319,8.056ZM2.668,7.271L6.096,7.271L6.096,15.215L9.298,15.215L9.298,7.248L12.954,7.248L7.716,1.205L2.668,7.271Z"
+        android:strokeColor="@color/button_coursera_blue"
+        android:strokeWidth="0.2"
+        android:fillType="nonZero"/>
+</vector>

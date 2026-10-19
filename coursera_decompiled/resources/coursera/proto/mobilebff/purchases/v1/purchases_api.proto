@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.purchases.v1;
+
+import "coursera/proto/mobilebff/purchases/v1/purchases.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Purchases.V1";
+option go_package = "purchasesv1";
+option java_multiple_files = true;
+option java_outer_classname = "PurchasesApiProto";
+option java_package = "org.coursera.proto.mobilebff.purchases.v1";
+option objc_class_prefix = "CPMP";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Purchases\\V1";
+option swift_prefix = "MobilebffPurchasesV1";
+
+// The API to get transaction information for identifying Advanced Commerce purchases.
+service PurchasesAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get transaction information for a list of App Store transaction IDs.
+  // Used to identify Advanced Commerce purchases on iOS < 18.4.
+  rpc GetTransactionInfo(GetTransactionInfoRequest) returns (GetTransactionInfoResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/purchases/v1/PurchasesAPI/GetTransactionInfo"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/purchases/v1/PurchasesAPI/GetTransactionInfo"}
+    };
+  }
+}
+
+// The request to get transaction information.
+message GetTransactionInfoRequest {
+  // List of App Store transaction IDs to look up
+  repeated string transaction_ids = 1;
+}
+
+// The response containing transaction information.
+message GetTransactionInfoResponse {
+  repeated TransactionInfo transactions = 1;
+}

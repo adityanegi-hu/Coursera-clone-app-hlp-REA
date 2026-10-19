@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_refund.proto";
+import "coursera/proto/paymentprocessor/common/v1beta2/payment_processor_transaction.proto";
+import "coursera/proto/paymentprocessor/v1beta2/stripe_create_payment_intent_transaction_pre_checkout_request.proto";
+import "coursera/proto/paymentprocessor/v1beta2/stripe_create_payment_intent_transaction_pre_checkout_response.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "coursera/proto/sharedpayments/v1/payment_processor_id.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "TransactionProcessorApiProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+// Service that contains all transaction related logic and interactions.
+service TransactionProcessorAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: ["payment-int-tools-application"]
+  };
+
+  // Process the pre-checkout request for a single transaction.
+  rpc TransactionPreCheckout(TransactionPreCheckoutRequest) returns (TransactionPreCheckoutResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: [
+        "internal",
+        "logged.in"
+      ]
+    };
+    // This is temporarily expose for Stripe MVP, for full implementation we should move it to
+    // graphql if we decide to continue this flow.
+    option (google.api.http) = {
+      post: "/api/grpc/paymentprocessor/v1beta2/TransactionProcessorAPI/TransactionPreCheckout"
+      body: "*"
+    };
+  }
+
+  // Get information about the refund from the payment processor.
+  rpc GetPaymentProcessorRefund(GetPaymentProcessorRefundRequest) returns (GetPaymentProcessorRefundResponse);
+  // Get information about the transaction from the payment processor.
+  rpc GetPaymentProcessorTransaction(GetPaymentProcessorTransactionRequest) returns (GetPaymentProcessorTransactionResponse);
+}
+
+message TransactionPreCheckoutRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  oneof transaction_request {
+    StripeCreatePaymentIntentTransactionPreCheckoutRequest stripe_create_payment_intent_transaction_pre_checkout_request = 2;
+  }
+}
+
+message TransactionPreCheckoutResponse {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  oneof transaction_response {
+    StripeCreatePaymentIntentTransactionPreCheckoutResponse stripe_create_payment_intent_transaction_pre_checkout_response = 2;
+  }
+}
+
+// the request to get refund details
+message GetPaymentProcessorRefundRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  string payment_processor_refund_id = 2;
+}
+
+// the response containing refund details
+message GetPaymentProcessorRefundResponse {
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorRefund payment_processor_refund = 1;
+}
+
+// the request to get payment processor transaction details
+message GetPaymentProcessorTransactionRequest {
+  coursera.proto.sharedpayments.v1.PaymentProcessorId payment_processor_id = 1;
+  string payment_processor_transaction_id = 2;
+}
+
+// the response containing payment processor transaction details
+message GetPaymentProcessorTransactionResponse {
+  coursera.proto.paymentprocessor.common.v1beta2.PaymentProcessorTransaction payment_processor_transaction = 1;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta2;
+
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta2";
+option go_package = "paymentprocessorv1beta2";
+option java_multiple_files = true;
+option java_outer_classname = "ProductPromotionInformationProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta2";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta2";
+
+message ProductPromotionInformationDetails {
+  google.protobuf.Int64Value promotion_id = 1;
+  google.type.Money amount = 2;
+  google.protobuf.Int32Value number_of_billing_cycles = 3;
+  google.protobuf.Int64Value coupon_id = 4;
+}

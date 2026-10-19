@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.integritycheck.v1;
+
+import "coursera/proto/mobilebff/integritycheck/v1/integrity_check.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Integritycheck.V1";
+option go_package = "integritycheckv1";
+option java_multiple_files = true;
+option java_outer_classname = "IntegrityCheckApiProto";
+option java_package = "org.coursera.proto.mobilebff.integritycheck.v1";
+option objc_class_prefix = "CPMI";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Integritycheck\\V1";
+option swift_prefix = "MobilebffIntegritycheckV1";
+
+// A Service to get integrity check status for peer review responses for mobile.
+service IntegrityCheckAPI {
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get th
+  rpc GetIntegrityStatus(GetIntegrityStatusRequest) returns (GetIntegrityStatusResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["logged.in"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/integritycheck/v1/IntegrityCheckAPI/GetIntegrityStatus"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/integritycheck/v1/IntegrityCheckAPI/GetIntegrityStatus"}
+    };
+  }
+}
+
+message GetIntegrityStatusRequest {
+  // course ID
+  string course_id = 1;
+  // peer review item ID
+  string item_id = 2;
+  // Types of checks to perform (i.e. TEXTSIMILARITY, or GIBBERISH). These should be passed in
+  // the order the checks should be completed
+  repeated CheckType checks = 3;
+}
+
+message GetIntegrityStatusResponse {
+  // How much to deter the user from submitting (active, passive, none)
+  DeterrenceLevel deterrence_level = 1;
+  // Integrity status results for each prompt requested
+  repeated Result results = 2;
+}

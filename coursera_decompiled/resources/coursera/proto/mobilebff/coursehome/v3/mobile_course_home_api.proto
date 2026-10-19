@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package coursera.proto.mobilebff.coursehome.v3;
+
+import "coursera/proto/mobilebff/coursehome/v3/mobile_course_home.proto";
+import "coursera/proto/mobilebff/shared/v2/enterprise_mooc.proto";
+import "coursera/proto/shared/v1/authorization.proto";
+import "coursera/proto/shared/v1beta1/coursera_annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "Coursera.Proto.Mobilebff.Coursehome.V3";
+option go_package = "coursehomev3";
+option java_multiple_files = true;
+option java_outer_classname = "MobileCourseHomeApiProto";
+option java_package = "org.coursera.proto.mobilebff.coursehome.v3";
+option objc_class_prefix = "CPMC";
+option php_namespace = "Coursera\\Proto\\Mobilebff\\Coursehome\\V3";
+option swift_prefix = "MobilebffCoursehomeV3";
+
+// A Service to collect and return course home information for mobile.
+service MobileCourseHomeAPI {
+  option deprecated = true;
+  option (coursera.proto.shared.v1beta1.service_metadata) = {
+    api_usage_type: API_USAGE_TYPE_RESTRICTED
+    service_allowlist: []
+  };
+
+  // Get mobile course home information by user and course id.
+  rpc GetMobileCourseHome(GetMobileCourseHomeRequest) returns (GetMobileCourseHomeResponse) {
+    option (coursera.proto.shared.v1.authorization) = {
+      allows: ["anything"]
+    };
+    option (google.api.http) = {
+      post: "/api/grpc/mobilebff/coursehome/v3/MobileCourseHomeAPI/GetMobileCourseHome"
+      body: "*"
+      additional_bindings: {get: "/api/grpc/mobilebff/coursehome/v3/MobileCourseHomeAPI/GetMobileCourseHome"}
+    };
+  }
+}
+
+message GetMobileCourseHomeRequest {
+  google.protobuf.StringValue user_id_override = 1;
+  google.protobuf.StringValue course_id = 2;
+}
+
+message GetMobileCourseHomeResponse {
+  // Id of the course.
+  string id = 1;
+  // Slug of the course.
+  string slug = 2;
+  // Course name.
+  string name = 3;
+  // List of partners for the course.
+  repeated string partner = 4;
+  // List of week related information (modules, lessons, items and week progress).
+  repeated WeekData weeks = 5;
+  // Contains data about the progress in the user's goal.
+  LearnerGoal learner_goal = 6;
+  // Custom labels for course and week terminology.
+  CustomLabel custom_label = 7;
+  // Next step in users progress.
+  NextStep next_step = 8;
+  // Signifies if the course is available for credit
+  bool offers_credit = 10;
+  // Information about the enterprise MOOC credit for course
+  shared.v2.EnterpriseMoocCreditInfo enterprise_mooc_credit_info = 11;
+  // Determines whether to show the "View Certificate" button when the course is completed.
+  bool offers_verified_certificate = 12;
+  // Is Rhyme (Guided) project.
+  bool is_rhyme_project = 13;
+  // Is team works and live events available. Only for Android.
+  bool is_events_available = 14;
+}

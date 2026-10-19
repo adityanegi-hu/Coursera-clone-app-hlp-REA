@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+package coursera.proto.paymentprocessor.v1beta1;
+
+import "coursera/proto/paymentprocessor/v1beta1/google_play_purchase_type.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/wrappers.proto";
+import "google/type/money.proto";
+
+option csharp_namespace = "Coursera.Proto.Paymentprocessor.V1Beta1";
+option go_package = "paymentprocessorv1beta1";
+option java_multiple_files = true;
+option java_outer_classname = "GooglePlayInAppProductProto";
+option java_package = "org.coursera.proto.paymentprocessor.v1beta1";
+option objc_class_prefix = "CPP";
+option php_namespace = "Coursera\\Proto\\Paymentprocessor\\V1Beta1";
+
+// Message representing an in-app product listed on Google Play for purchase.
+message GooglePlayInAppProduct {
+  // Unique stock-keeping-unit (SKU) of a Google Play product listed for purchase.
+  google.protobuf.StringValue sku = 1;
+  // See GooglePlayInAppProductStatus.
+  GooglePlayInAppProductStatus status = 2;
+  // The type of the product, e.g. a one-time payment or subscription product.
+  GooglePlayPurchaseType purchase_type = 3;
+  // Default price. Cannot be zero, as in-app products are never free. Always in the developer's checkout merchant currency (USD).
+  google.type.Money default_price = 4;
+  // Price of the product per buyer region. Map key is region code, as defined by ISO 3166-1 alpha-2.
+  map<string, google.type.Money> prices = 5;
+  // Localized title and description data. Map key is the language of the localized data, as defined by BCP-47, e.g. "en-US".
+  map<string, GooglePlayInAppProductListing> listings = 6;
+  // Default language of the localized data, as defined by BCP-47. e.g. "en-US".
+  google.protobuf.StringValue default_language = 7;
+  // (Present only for subscriptions) See GooglePlayInAppProductBillingPeriod.
+  GooglePlayInAppProductBillingPeriod billing_period = 8;
+  // (Present only for subscriptions) Duration of the free trial before the learner is charged for the first time. Acceptable values are anything between seven days and 999 days, in units of days.
+  google.protobuf.Duration trial_duration = 9;
+  // (Present only for subscriptions) See GooglePlayInAppProductGracePeriod.
+  GooglePlayInAppProductGracePeriod grace_period = 10;
+  // (Present only for subscriptions) Details about taxes and legal compliance.
+  GooglePlayInAppProductSubscriptionTaxAndComplianceSettings subscription_taxes_and_compliance_settings = 11;
+  // (Present only for one-time purchase products) Details about taxation and legal compliance for managed products.
+  GooglePlayInAppProductManagedProductTaxAndComplianceSettings managed_product_taxes_and_compliance_settings = 12;
+}
+
+// The status of the product, e.g. whether it's active and available to be purchased by the learner.
+enum GooglePlayInAppProductStatus {
+  GOOGLE_PLAY_IN_APP_PRODUCT_STATUS_INVALID = 0;
+  GOOGLE_PLAY_IN_APP_PRODUCT_STATUS_ACTIVE = 1;
+  GOOGLE_PLAY_IN_APP_PRODUCT_STATUS_INACTIVE = 2;
+}
+
+// Represents the product description information presented to the user.
+message GooglePlayInAppProductListing {
+  google.protobuf.StringValue title = 1;
+  google.protobuf.StringValue description = 2;
+  repeated google.protobuf.StringValue benefits = 3;
+}
+
+// Billing period (how often the learner is billed for a subscription).
+// For one-time purchase products, this field should be set to
+// GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_INVALID.
+enum GooglePlayInAppProductBillingPeriod {
+  GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_INVALID = 0;
+  GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_EVERY_WEEK = 1;
+  GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_EVERY_MONTH = 2;
+  GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_EVERY_THREE_MONTHS = 3;
+  GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_EVERY_SIX_MONTHS = 4;
+  GOOGLE_PLAY_IN_APP_PRODUCT_BILLING_PERIOD_EVERY_YEAR = 5;
+}
+
+// Grace period. Allows developers to give their subscribers a grace period when the payment for
+// the new recurrence period is declined.
+// For one-time purchase products, this field should be set to
+// GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_INVALID.
+enum GooglePlayInAppProductGracePeriod {
+  GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_INVALID = 0;
+  GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_ZERO_DAYS = 1;
+  GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_THREE_DAYS = 2;
+  GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_ONE_WEEK = 3;
+  GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_FOURTEEN_DAYS = 4;
+  GOOGLE_PLAY_IN_APP_PRODUCT_GRACE_PERIOD_THIRTY_DAYS = 5;
+}
+
+// Details about taxation, Google Play policy and legal compliance for subscription products.
+message GooglePlayInAppProductSubscriptionTaxAndComplianceSettings {
+  GooglePlayInAppProductWithdrawalRightType eea_withdrawal_right_type = 1;
+  map<string, GooglePlayInAppProductRegionalTaxRateInfo> tax_rate_info_by_region_code = 2;
+}
+
+// Details about taxation and legal compliance for managed products.
+message GooglePlayInAppProductManagedProductTaxAndComplianceSettings {
+  GooglePlayInAppProductWithdrawalRightType eea_withdrawal_right_type = 1;
+  map<string, GooglePlayInAppProductRegionalTaxRateInfo> tax_rate_info_by_region_code = 2;
+}
+
+// For products distributed in the EEA, represents whether the product is classified as a Digital
+// Content or a Service.
+enum GooglePlayInAppProductWithdrawalRightType {
+  GOOGLE_PLAY_IN_APP_PRODUCT_WITHDRAWAL_RIGHT_TYPE_INVALID = 0;
+  GOOGLE_PLAY_IN_APP_PRODUCT_WITHDRAWAL_RIGHT_TYPE_DIGITAL_CONTENT = 1;
+  GOOGLE_PLAY_IN_APP_PRODUCT_WITHDRAWAL_RIGHT_TYPE_SERVICE = 2;
+}
+
+// Specified details about taxation in a given geographical region.
+message GooglePlayInAppProductRegionalTaxRateInfo {
+  bool eligible_for_streaming_service_tax_rate = 1;
+}

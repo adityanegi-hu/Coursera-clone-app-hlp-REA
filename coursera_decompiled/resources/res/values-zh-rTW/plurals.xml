@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="assignments_due">
+        <item quantity="other">%d 個作業到期</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_assignment">
+        <item quantity="other">%1$d 個作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_dialog">
+        <item quantity="other">%1$d 個對話</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_discussion">
+        <item quantity="other">%1$d 個討論</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_assignment">
+        <item quantity="other">%1$d 個評分作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_discussion">
+        <item quantity="other">%1$d 個評分討論</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_lab">
+        <item quantity="other">%1$d 個評分實驗室</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_role_play">
+        <item quantity="other">%1$d 個評分角色扮演</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_graded_team_assignment">
+        <item quantity="other">%1$d 個團隊評分作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_lab">
+        <item quantity="other">%1$d 個實驗室</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_reading">
+        <item quantity="other">%1$d 個鎖定的閱讀材料</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_locked_video">
+        <item quantity="other">%1$d 個鎖定的影片</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_notebook">
+        <item quantity="other">%1$d 個筆記本</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_other">
+        <item quantity="other">%1$d 個課程內容</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_graded">
+        <item quantity="other">%1$d 個同學評分作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_peer_review">
+        <item quantity="other">%1$d 個同學互評</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_assignment">
+        <item quantity="other">%1$d 個練習作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_peer_graded">
+        <item quantity="other">%1$d 個同學評分練習作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_quiz">
+        <item quantity="other">%1$d 個練習測驗</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_practice_team_assignment">
+        <item quantity="other">%1$d 個團隊練習作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_programming_assignment">
+        <item quantity="other">%1$d 個程式設計作業</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_quiz">
+        <item quantity="other">%1$d 個測驗</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_reading">
+        <item quantity="other">%1$d 篇閱讀內容</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_role_play">
+        <item quantity="other">%1$d 個角色扮演</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_slideshow">
+        <item quantity="other">%1$d 個投影片</item>
+    </plurals>
+    <plurals name="audio_focus_skipped_team_project">
+        <item quantity="other">%1$d 個團隊專案</item>
+    </plurals>
+    <plurals name="congrats_message_text">
+        <item quantity="other">恭喜您已經審閱完成所有 %s 個作業！如果您有額外的時間，請幫助其他同學。=</item>
+    </plurals>
+    <plurals name="course_instructors">
+        <item quantity="other">課程授課教師</item>
+    </plurals>
+    <plurals name="course_rating_and_reviews_description">
+        <item quantity="other">評分為 %1$s 星，滿分 5 星， %2$s 條評論</item>
+    </plurals>
+    <plurals name="daily_goal_complete_assessments">
+        <item quantity="other">完成 %1$d 個評估</item>
+    </plurals>
+    <plurals name="daily_goal_complete_hands_on">
+        <item quantity="other">完成 %1$d 個實作練習項目</item>
+    </plurals>
+    <plurals name="daily_goal_complete_items">
+        <item quantity="other">完成任意 %1$d 門課程</item>
+    </plurals>
+    <plurals name="daily_goal_complete_lectures">
+        <item quantity="other">觀看 %1$d 個影片</item>
+    </plurals>
+    <plurals name="daily_goal_complete_practice">
+        <item quantity="other">完成 %1$d 項練習項目</item>
+    </plurals>
+    <plurals name="daily_goal_complete_readings">
+        <item quantity="other">完成 %1$d 項閱讀</item>
+    </plurals>
+    <plurals name="day">
+        <item quantity="other">天</item>
+    </plurals>
+    <plurals name="domain_degree">
+        <item quantity="other">%1$s 學位</item>
+    </plurals>
+    <plurals name="duration_days">
+        <item quantity="other">%1$d 天</item>
+    </plurals>
+    <plurals name="duration_hours">
+        <item quantity="other">%1$d 小時</item>
+    </plurals>
+    <plurals name="exo_controls_fastforward_by_amount_description">
+        <item quantity="one">快轉 %d 秒</item>
+        <item quantity="other">快轉 %d 秒</item>
+    </plurals>
+    <plurals name="exo_controls_rewind_by_amount_description">
+        <item quantity="one">倒轉 %d 秒</item>
+        <item quantity="other">倒轉 %d 秒</item>
+    </plurals>
+    <plurals name="feature_course_modules">
+        <item quantity="other">%1$d 個單元</item>
+    </plurals>
+    <plurals name="feature_course_series">
+        <item quantity="other">%1$d 個課程系列</item>
+    </plurals>
+    <plurals name="grade_item_number_of_days">
+        <item quantity="other">%1$d 天</item>
+    </plurals>
+    <plurals name="grade_num_assignments">
+        <item quantity="other">有 %1$d 項作業</item>
+    </plurals>
+    <plurals name="hour">
+        <item quantity="other">小時</item>
+    </plurals>
+    <plurals name="minutes">
+        <item quantity="other">分鐘</item>
+    </plurals>
+    <plurals name="month">
+        <item quantity="other">個月</item>
+    </plurals>
+    <plurals name="num_courses_plurals">
+        <item quantity="other">%1$d 課程</item>
+    </plurals>
+    <plurals name="number_of_points">
+        <item quantity="other">%.1f 分</item>
+    </plurals>
+    <plurals name="overall_rating_content_description">
+        <item quantity="other">評分為 %1$s 星，滿分 5 星</item>
+    </plurals>
+    <plurals name="plurals_total_search_results">
+        <item quantity="other">結果總數</item>
+    </plurals>
+    <plurals name="points">
+        <item quantity="other">分數</item>
+    </plurals>
+    <plurals name="practice_question_v3">
+        <item quantity="other">%d 個練習問題</item>
+    </plurals>
+    <plurals name="product_rating_content_description">
+        <item quantity="other">評分為 %1$s 星，滿分 5 星</item>
+    </plurals>
+    <plurals name="question">
+        <item quantity="other">問題</item>
+    </plurals>
+    <plurals name="question_option_points">
+        <item quantity="other">%1$s 分</item>
+    </plurals>
+    <plurals name="question_v3">
+        <item quantity="other">%d 個問題</item>
+    </plurals>
+    <plurals name="questions">
+        <item quantity="other">問題</item>
+    </plurals>
+    <plurals name="quiz_num_questions">
+        <item quantity="other">%d 個問題</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes">
+        <item quantity="other">%d 分鐘</item>
+    </plurals>
+    <plurals name="quiz_time_limit_minutes_abbreviated">
+        <item quantity="other">%d 分鐘</item>
+    </plurals>
+    <plurals name="reply_plurals">
+        <item quantity="other">回覆</item>
+    </plurals>
+    <plurals name="saved_item_quantity">
+        <item quantity="other">%1$d 個課程內容</item>
+    </plurals>
+    <plurals name="show_all_courses">
+        <item quantity="other">顯示全部 %d 門課程</item>
+    </plurals>
+    <plurals name="show_all_courses_content_description">
+        <item quantity="other">顯示 %2$s 的所有 %1$d 門課程。</item>
+    </plurals>
+    <plurals name="skill">
+        <item quantity="other">技能</item>
+    </plurals>
+    <plurals name="streak_section_subtitle_default">
+        <item quantity="other">多學習 %1$d 天，就能達成您的每週目標！</item>
+    </plurals>
+    <plurals name="streak_toast_meet_title">
+        <item quantity="other">再學習 %1$d 天就能達成學習目標！</item>
+    </plurals>
+    <plurals name="top_review_content_description">
+        <item quantity="other">評分為 %1$s 星，滿分 5 星，%2$s</item>
+    </plurals>
+    <plurals name="upvote_plurals">
+        <item quantity="other">贊</item>
+    </plurals>
+    <plurals name="week_streak">
+        <item quantity="other">%1$d 週</item>
+    </plurals>
+    <plurals name="year">
+        <item quantity="other">年</item>
+    </plurals>
+</resources>
